@@ -2973,7 +2973,48 @@ body.page-about .section-green .team-card-image {
     .hero-banner,
     .hero-home,
     .hero-page {
-        padding: 8rem 1.5rem 4rem;
+        padding: 6rem 0rem 3rem;
+    }
+
+    .hero-container {
+        padding: 0 1rem;
+    }
+
+    .hero-brand-card {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .brand-logo-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+
+    .hero-brand-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-brand-card .tagline {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-brand-card .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .hero-cta .btn-primary,
+    .hero-cta .btn-outline {
+        width: 100%;
+        justify-content: center;
     }
 
     .grid-2,
