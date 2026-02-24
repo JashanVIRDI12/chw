@@ -3102,6 +3102,51 @@ body.page-about .section-green .team-card-image {
     transition-delay: 0.4s;
 }
 
+/* New homepage grids stagger */
+.hp-vert-grid .reveal:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.hp-vert-grid .reveal:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.hp-vert-grid .reveal:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.hp-why-grid .reveal:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.hp-why-grid .reveal:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.hp-why-grid .reveal:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.hp-why-grid .reveal:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.hp-stats__grid .reveal:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.hp-stats__grid .reveal:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.hp-stats__grid .reveal:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.hp-stats__grid .reveal:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
 /* ========================================
    BOTANICAL DECORATIONS
 ======================================== */
@@ -4933,24 +4978,30 @@ body.page-about .section-green .team-card-image {
 
 .mobile-menu-toggle {
     display: none;
-    background: none;
-    border: 1px solid rgba(0, 98, 65, 0.15);
+    background: #ffffff;
+    border: 1px solid rgba(0, 98, 65, 0.2);
     color: var(--primary);
     font-size: 1.25rem;
     cursor: pointer;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    transition: background 0.2s ease;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     z-index: 1100;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 98, 65, 0.08);
 }
 
 .mobile-menu-toggle:hover {
-    background: rgba(0, 98, 65, 0.07);
+    background: var(--primary);
+    color: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 98, 65, 0.15);
 }
+
+
 
 /* Dimmed backdrop */
 .mobile-backdrop {
@@ -5148,7 +5199,7 @@ body.page-about .section-green .team-card-image {
 
     /* ---- STATS ---- */
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: 1fr !important;
     }
 
     /* ---- FOOTER ---- */
@@ -5195,11 +5246,11 @@ body.page-about .section-green .team-card-image {
 
     /* Nav */
     .nav-container {
-        padding: 0.7rem 1rem;
+        padding: 0.85rem 1.25rem;
     }
 
     .logo img.logo {
-        height: 44px;
+        height: 52px;
     }
 
     /* Hero */
@@ -5240,8 +5291,8 @@ body.page-about .section-green .team-card-image {
 
     /* Stats */
     .stats-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1rem !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
 
     .stat-number {

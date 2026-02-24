@@ -1,13 +1,63 @@
-/* Surgical page hero override */
+/* Surgical page — hero override only (same pattern as vitantra.css) */
 
 .surgical-hero-section::before {
     background: url('images/surgical-hero.webp') no-repeat center;
-    background-size: 112%;
-    opacity: 0.55;
+    background-size: 130%;
+    background-position: center;
+    opacity: 0.52;
 }
 
-/* Match CTA section background image to the surgical hero */
+/* CTA section */
 .page-surgical .cta-section::before {
     background: url('images/surgical-hero.webp') no-repeat center;
-    background-size: 150%;
+    background-size: cover;
+}
+
+/* Modal image — same as #productModal in nutra.css */
+#productModal .nutra-modal-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+#productModal .nutra-modal-image {
+    aspect-ratio: 1 / 1;
+    width: calc(100% - 4rem);
+    max-height: 600px;
+    border-radius: 24px;
+    background: #e8eaed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    margin: 2rem;
+}
+
+#productModal .nutra-modal-image img {
+    object-fit: contain;
+    object-position: center;
+    width: auto;
+    height: auto;
+    max-width: 120%;
+    max-height: 120%;
+    transform: scale(1.1);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .surgical-hero-section::before {
+        background-size: cover;
+        background-position: center top;
+    }
+
+    #productModal .nutra-modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    #productModal .nutra-modal-image {
+        width: calc(100% - 2rem);
+        max-height: 360px;
+        border-radius: 18px;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
 }

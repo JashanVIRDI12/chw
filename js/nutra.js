@@ -704,7 +704,7 @@ function injectSingleHerbCapsulesSection() {
 // Category Filter Logic
 // ============================
 document.addEventListener('DOMContentLoaded', function () {
-    injectSingleHerbCapsulesSection();
+    // injectSingleHerbCapsulesSection(); // Section removed as per request
 
     const pills = document.querySelectorAll('.nutra-pill');
     const blocks = document.querySelectorAll('.nutra-category-block');
