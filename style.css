@@ -686,13 +686,13 @@ p {
 }
 
 .section-verticals {
-    background: url('images/verticals-bg-v2.png') center/cover no-repeat;
+    background: url('images/verticals-bg-v2.webp') center/cover no-repeat;
     position: relative;
     padding: 2rem 3rem;
 }
 
 .section-about-innovation {
-    background: url('images/about-innovation-bg.png') center/cover no-repeat;
+    background: url('images/about-innovation-bg.webp') center/cover no-repeat;
     position: relative;
 }
 
@@ -784,7 +784,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/hero-banner.png') no-repeat;
+    background: url('images/hero-banner.webp') no-repeat;
     background-size: cover;
     background-position: center;
     opacity: 0.7;
@@ -862,7 +862,7 @@ p {
     width: 100%;
     max-width: 350px;
     aspect-ratio: 1;
-    background: url('images/mandala.png') no-repeat center;
+    background: url('images/mandala.webp') no-repeat center;
     background-size: contain;
     opacity: 0.15;
     animation: float 8s ease-in-out infinite, fadeIn 1.5s ease-out;
@@ -1821,7 +1821,7 @@ body.page-about .section-green .team-card-image {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/hero-banner.png') no-repeat center;
+    background: url('images/hero-banner.webp') no-repeat center;
     background-size: cover;
     opacity: 0.6;
 }
@@ -1892,7 +1892,7 @@ body.page-about .section-green .team-card-image {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/vitantra-nature-banner.png') no-repeat center;
+    background: url('images/vitantra-nature-banner.webp') no-repeat center;
     background-size: 130%;
     opacity: 0.6;
 }
@@ -2329,7 +2329,7 @@ body.page-about .section-green .team-card-image {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/vitantra-wellness-banner.png') no-repeat center;
+    background: url('images/vitantra-wellness-banner.webp') no-repeat center;
     background-size: cover;
     opacity: 0.5;
 }
@@ -2559,7 +2559,7 @@ body.page-about .section-green .team-card-image {
 /* Glassmorphism Contact Form Styles */
 /* Textured Contact Form (Matching Hero Brand Card) */
 .contact-form {
-    background: url('images/brand-card-bg.png') center/cover no-repeat;
+    background: url('images/brand-card-bg.webp') center/cover no-repeat;
     border: 1px solid var(--border);
     border-top: 8px solid var(--primary);
     box-shadow: var(--shadow-lg);
@@ -3319,7 +3319,7 @@ body.page-about .section-green .team-card-image {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('images/mandala.png') center/600px no-repeat;
+    background: url('images/mandala.webp') center/600px no-repeat;
     opacity: 0.05;
     pointer-events: none;
 }
@@ -3788,7 +3788,7 @@ body.page-about .section-green .team-card-image {
 
 /* Surgical Hero with Banner */
 .surgical-hero::before {
-    background: url('images/surgical-prod.png') no-repeat center;
+    background: url('images/surgical-prod.webp') no-repeat center;
     background-size: cover;
     opacity: 0.7;
 }
