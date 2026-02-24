@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutraceutical Range - Chase Healthcare & Wellness</title>
+    <meta name="description"
+        content="Premium nutraceutical supplements for beauty, fitness, gut health, immunity, and overall wellness. GMP certified and ISO compliant.">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nutra.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/2.png" class="logo">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="surgical.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
+                        </a>
+                        <a href="vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                        </a>
+                        <a href="nutra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="about-chw.html" class="nav-dropdown-trigger">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="about-chw.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-building"></i></div>
+                            <div class="nav-dropdown-text"><span>About CHW</span><small>Chase Healthcare &amp; Wellness</small></div>
+                        </a>
+                        <a href="about-vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>About Vitantra</span><small>Our natural wellness brand</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="manufacturing.html">Manufacturing</a>
+                <a href="quality.html">Quality</a>
+                <a href="contact.html" class="nav-btn">Contact Us</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="nutra-hero-section">
+        <div class="nutra-hero-inner">
+            <p class="nutra-hero-label">Nutraceutical Range</p>
+            <h1>Science-Backed Wellness. <span class="text-green">Naturally Formulated.</span></h1>
+            <p>Premium nutraceutical supplements designed to support your health goals—from beauty and fitness to gut
+                health and immunity. Backed by science, crafted with care.</p>
+            <div class="nutra-hero-badges">
+                <div class="nutra-hero-badge"><i class="fas fa-check-circle"></i> GMP Certified</div>
+                <div class="nutra-hero-badge"><i class="fas fa-check-circle"></i> ISO Compliant</div>
+                <div class="nutra-hero-badge"><i class="fas fa-check-circle"></i> 30+ Products</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation Pills -->
+    <nav class="nutra-category-nav">
+        <div class="nutra-pills-wrapper">
+            <button class="nutra-pill active" data-category="all">
+                <i class="fas fa-th"></i> All Products
+            </button>
+            <button class="nutra-pill" data-category="beauty">
+                <i class="fas fa-spa"></i> Beauty & Nutricosmetics
+            </button>
+            <button class="nutra-pill" data-category="fitness">
+                <i class="fas fa-dumbbell"></i> Fitness & Performance
+            </button>
+            <button class="nutra-pill" data-category="gut">
+                <i class="fas fa-heartbeat"></i> Gut Health
+            </button>
+            <button class="nutra-pill" data-category="immunity">
+                <i class="fas fa-shield-alt"></i> Immunity & Daily Wellness
+            </button>
+            <button class="nutra-pill" data-category="mens">
+                <i class="fas fa-male"></i> Men's Vitality
+            </button>
+            <button class="nutra-pill" data-category="weightloss">
+                <i class="fas fa-weight"></i> Weight Loss & Detox
+            </button>
+            <button class="nutra-pill" data-category="womens">
+                <i class="fas fa-female"></i> Women's Hormonal Health
+            </button>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="nutra-products-section">
+
+        <!-- Beauty & Nutricosmetics -->
+        <div class="nutra-category-block" data-cat="beauty">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon beauty-icon"><i class="fas fa-spa"></i></div>
+                <h2>Beauty & Nutricosmetics</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">5 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Collagen Peptides -->
+                <div class="nutra-product-card" onclick="openProductModal('collagen')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Beauty & Nutricosmetics/Collagen Peptides.jpg" alt="Collagen Peptides">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Collagen Peptides</h3>
+                        <p>Youthful Skin. Strong Joints. Healthy Hair.</p>
+                        <span class="nutra-card-tag">Premium Quality</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Biotin -->
+                <div class="nutra-product-card" onclick="openProductModal('biotin')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Beauty & Nutricosmetics/Biotin.jpg" alt="Biotin">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Biotin</h3>
+                        <p>Stronger Hair. Healthier You.</p>
+                        <span class="nutra-card-tag">Essential Vitamin</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Hyaluronic Acid -->
+                <div class="nutra-product-card" onclick="openProductModal('hyaluronic')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Beauty & Nutricosmetics/Hyaluronic Acid.jpg" alt="Hyaluronic Acid">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Hyaluronic Acid</h3>
+                        <p>Deep Hydration. Timeless Glow.</p>
+                        <span class="nutra-card-tag">Skin Hydration</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Silica + MSM -->
+                <div class="nutra-product-card" onclick="openProductModal('silica')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Beauty & Nutricosmetics/Silica + MSM.jpg" alt="Silica + MSM">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Silica + MSM</h3>
+                        <p>Strength Meets Radiance.</p>
+                        <span class="nutra-card-tag">Dual Action</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Vitamin E + CoQ10 -->
+                <div class="nutra-product-card" onclick="openProductModal('vitaminECoQ10')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Beauty & Nutricosmetics/Vitamin E + CoQ10.png" alt="Vitamin E + CoQ10">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Vitamin E + CoQ10</h3>
+                        <p>Antioxidant Power. Ageless Vitality.</p>
+                        <span class="nutra-card-tag">Antioxidant</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fitness & Performance -->
+        <div class="nutra-category-block" data-cat="fitness">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon fitness-icon"><i class="fas fa-dumbbell"></i></div>
+                <h2>Fitness & Performance</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">5 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Whey Protein -->
+                <div class="nutra-product-card" onclick="openProductModal('whey')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Fitness & Performance/Whey Protein.jpg" alt="Whey Protein">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Whey Protein</h3>
+                        <p>Pure Protein. Powerful Results.</p>
+                        <span class="nutra-card-tag">Muscle Growth</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Plant Protein -->
+                <div class="nutra-product-card" onclick="openProductModal('plantprotein')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Fitness & Performance/Plant Protein.jpg" alt="Plant Protein">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Plant Protein</h3>
+                        <p>Clean Power. Plant Strength.</p>
+                        <span class="nutra-card-tag">Vegan</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Creatine Monohydrate -->
+                <div class="nutra-product-card" onclick="openProductModal('creatine')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Fitness & Performance/Creatine Monohydrate.jpg"
+                            alt="Creatine Monohydrate">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Creatine Monohydrate</h3>
+                        <p>Explosive Strength. Proven Performance.</p>
+                        <span class="nutra-card-tag">Performance</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- BCAA -->
+                <div class="nutra-product-card" onclick="openProductModal('bcaa')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Fitness & Performance/BCAA.jpg" alt="BCAA">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>BCAA</h3>
+                        <p>Fuel Muscle. Maximise Recovery.</p>
+                        <span class="nutra-card-tag">Recovery</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- L-Carnitine -->
+                <div class="nutra-product-card" onclick="openProductModal('lcarnitine')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Fitness & Performance/L-Carnitine.jpg" alt="L-Carnitine">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>L-Carnitine</h3>
+                        <p>Burn Smarter. Perform Stronger.</p>
+                        <span class="nutra-card-tag">Fat Metabolism</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gut Health -->
+        <div class="nutra-category-block" data-cat="gut">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon gut-icon"><i class="fas fa-heartbeat"></i></div>
+                <h2>Gut Health</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">5 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Probiotic Complex -->
+                <div class="nutra-product-card" onclick="openProductModal('probiotic')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Gut Health/Probiotic Complex.jpg" alt="Probiotic Complex">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Probiotic Complex</h3>
+                        <p>Balance Within. Strength Beyond.</p>
+                        <span class="nutra-card-tag">Digestive Health</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Digestive Enzymes -->
+                <div class="nutra-product-card" onclick="openProductModal('digestive')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Gut Health/Digestive Enzymes.jpg" alt="Digestive Enzymes">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Digestive Enzymes</h3>
+                        <p>Digest Better. Live Lighter.</p>
+                        <span class="nutra-card-tag">Enzyme Support</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Prebiotic Fiber -->
+                <div class="nutra-product-card" onclick="openProductModal('prebiotic')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Gut Health/Prebiotic Fiber.jpg" alt="Prebiotic Fiber">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Prebiotic Fiber</h3>
+                        <p>Feed Your Gut. Fuel Your Health.</p>
+                        <span class="nutra-card-tag">Gut Balance</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- L-Glutamine -->
+                <div class="nutra-product-card" onclick="openProductModal('lglutamine')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Gut Health/L-Glutamine.jpg" alt="L-Glutamine">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>L-Glutamine</h3>
+                        <p>Restore. Repair. Rebuild.</p>
+                        <span class="nutra-card-tag">Gut Lining</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Herbal Digestive Blend -->
+                <div class="nutra-product-card" onclick="openProductModal('herbaldigestive')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Gut Health/Herbal Digestive Blend.jpg" alt="Herbal Digestive Blend">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Herbal Digestive Blend</h3>
+                        <p>Traditional Comfort. Modern Wellness.</p>
+                        <span class="nutra-card-tag">Herbal</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Immunity & Daily Wellness -->
+        <div class="nutra-category-block" data-cat="immunity">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon immunity-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2>Immunity & Daily Wellness</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">5 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Vitamin D3 -->
+                <div class="nutra-product-card" onclick="openProductModal('vitamind3')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin D3.png" alt="Vitamin D3">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Vitamin D3</h3>
+                        <p>Sunshine in Every Capsule.</p>
+                        <span class="nutra-card-tag">Bone & Immunity</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Multivitamin + Minerals -->
+                <div class="nutra-product-card" onclick="openProductModal('multivitamin')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Immunity & Daily Wellness/Multivitamin + Minerals.jpg"
+                            alt="Multivitamin + Minerals">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Multivitamin + Minerals</h3>
+                        <p>Complete Nutrition. Complete Confidence.</p>
+                        <span class="nutra-card-tag">Daily Wellness</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Vitamin C + Zinc -->
+                <div class="nutra-product-card" onclick="openProductModal('vitaminczinc')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin C + Zinc.png" alt="Vitamin C + Zinc">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Vitamin C + Zinc</h3>
+                        <p>Double Defence for Daily Protection.</p>
+                        <span class="nutra-card-tag">Immune Support</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Vitamin B-Complex -->
+                <div class="nutra-product-card" onclick="openProductModal('bcomplex')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin B-Complex.jpg" alt="Vitamin B-Complex">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Vitamin B-Complex</h3>
+                        <p>Energy That Powers Your Potential.</p>
+                        <span class="nutra-card-tag">Energy & Focus</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Zinc + Selenium -->
+                <div class="nutra-product-card" onclick="openProductModal('zincselenium')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Immunity & Daily Wellness/Zinc + Selenium.png" alt="Zinc + Selenium">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Zinc + Selenium</h3>
+                        <p>Essential Minerals. Elevated Immunity.</p>
+                        <span class="nutra-card-tag">Antioxidant</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Men's Vitality -->
+        <div class="nutra-category-block" data-cat="mens">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon mens-icon"><i class="fas fa-male"></i></div>
+                <h2>Men's Vitality</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">3 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Testosterone Support -->
+                <div class="nutra-product-card" onclick="openProductModal('testosterone')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Men’s Vitality/Testosterone Support.png" alt="Testosterone Support">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Testosterone Support</h3>
+                        <p>Strength. Energy. Performance.</p>
+                        <span class="nutra-card-tag">Men's Health</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Prostate Health -->
+                <div class="nutra-product-card" onclick="openProductModal('prostate')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Men’s Vitality/Prostate Health.png" alt="Prostate Health">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Prostate Health</h3>
+                        <p>Protect What Matters.</p>
+                        <span class="nutra-card-tag">Prostate Support</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- L-Arginine + CoQ10 -->
+                <div class="nutra-product-card" onclick="openProductModal('larginine')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Men’s Vitality/L-Arginine + CoQ10.png" alt="L-Arginine + CoQ10">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>L-Arginine + CoQ10</h3>
+                        <p>Power Your Performance.</p>
+                        <span class="nutra-card-tag">Circulation</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weight Loss & Detox -->
+        <div class="nutra-category-block" data-cat="weightloss">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon weightloss-icon"><i class="fas fa-weight"></i></div>
+                <h2>Weight Loss & Detox</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">3 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- Garcinia Cambogia -->
+                <div class="nutra-product-card" onclick="openProductModal('garcinia')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Weight Loss & Detox/Garcinia Cambogia.png" alt="Garcinia Cambogia">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Garcinia Cambogia</h3>
+                        <p>Natural Appetite & Weight Support.</p>
+                        <span class="nutra-card-tag">Weight Management</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Green Tea Extract -->
+                <div class="nutra-product-card" onclick="openProductModal('greentea')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Weight Loss & Detox/Green Tea Extract.png" alt="Green Tea Extract">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Green Tea Extract</h3>
+                        <p>Thermogenic Fat Metabolism Support.</p>
+                        <span class="nutra-card-tag">Metabolism</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Liver Detox Blend -->
+                <div class="nutra-product-card" onclick="openProductModal('liverdetox')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Weight Loss & Detox/Liver Detox Blend.png" alt="Liver Detox Blend">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Liver Detox Blend</h3>
+                        <p>Cleanse. Protect. Revive.</p>
+                        <span class="nutra-card-tag">Detox Support</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Women's Hormonal Health -->
+        <div class="nutra-category-block" data-cat="womens">
+            <div class="nutra-category-header">
+                <div class="nutra-cat-icon womens-icon"><i class="fas fa-female"></i></div>
+                <h2>Women's Hormonal Health</h2>
+                <div class="nutra-cat-line"></div>
+                <span class="nutra-cat-count">3 Products</span>
+            </div>
+            <div class="nutra-products-grid">
+                <!-- PCOS Balance Formula -->
+                <div class="nutra-product-card" onclick="openProductModal('pcos')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Women Hormonal Health/PCOS Balance Formula.png"
+                            alt="PCOS Balance Formula">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>PCOS Balance Formula</h3>
+                        <p>Harmony Within. Confidence Beyond.</p>
+                        <span class="nutra-card-tag">Hormonal Balance</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Menopause Support -->
+                <div class="nutra-product-card" onclick="openProductModal('menopause')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Women Hormonal Health/Menopause Support.png" alt="Menopause Support">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Menopause Support</h3>
+                        <p>Calm. Balance. Renew.</p>
+                        <span class="nutra-card-tag">Menopause</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Iron + Folic Acid -->
+                <div class="nutra-product-card" onclick="openProductModal('ironfolic')">
+                    <div class="nutra-card-img">
+                        <img src="images/Nutraceutical Products/Women Hormonal Health/Iron + Folic Acid.png" alt="Iron + Folic Acid">
+                    </div>
+                    <div class="nutra-card-body">
+                        <h3>Iron + Folic Acid</h3>
+                        <p>Stronger Blood. Stronger You.</p>
+                        <span class="nutra-card-tag">Iron Support</span>
+                    </div>
+                    <div class="nutra-card-action">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Trust Section -->
+    <section class="nutra-trust-section">
+        <div class="nutra-trust-grid">
+            <div class="nutra-trust-card">
+                <div class="nutra-trust-icon"><i class="fas fa-certificate"></i></div>
+                <h3>GMP Certified</h3>
+                <p>Manufactured in state-of-the-art GMP-certified facilities following strict quality protocols.</p>
+            </div>
+            <div class="nutra-trust-card">
+                <div class="nutra-trust-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>ISO Compliant</h3>
+                <p>Adhering to international ISO standards for quality management and product safety.</p>
+            </div>
+            <div class="nutra-trust-card">
+                <div class="nutra-trust-icon"><i class="fas fa-flask"></i></div>
+                <h3>Science-Backed</h3>
+                <p>Formulated with clinically studied ingredients and backed by scientific research.</p>
+            </div>
+            <div class="nutra-trust-card">
+                <div class="nutra-trust-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Premium Quality</h3>
+                <p>Using only the highest quality raw materials sourced from trusted suppliers worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Wellness?</h2>
+            <p>Get in touch with our team for product inquiries, bulk orders, or distributor opportunities.</p>
+            <a href="contact.html" class="btn-primary btn-primary-lg">Contact Us <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="nutra-modal-overlay" onclick="if(event.target === this) closeProductModal()">
+        <div class="nutra-modal">
+            <button class="nutra-modal-close" onclick="closeProductModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="nutra-modal-content">
+                <div class="nutra-modal-image" id="modalImage">
+                    <!-- Image will be inserted here -->
+                </div>
+                <div class="nutra-modal-details">
+                    <span class="nutra-modal-category" id="modalCategory"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p class="nutra-modal-tagline" id="modalTagline"></p>
+
+                    <div class="nutra-modal-section">
+                        <h4><i class="fas fa-info-circle"></i> Why Choose This?</h4>
+                        <p id="modalWhy"></p>
+                    </div>
+
+                    <div class="nutra-modal-section">
+                        <h4><i class="fas fa-capsules"></i> Key Ingredients</h4>
+                        <ul id="modalIngredients"></ul>
+                    </div>
+
+                    <div class="nutra-modal-section">
+                        <h4><i class="fas fa-star"></i> Key Benefits</h4>
+                        <ul id="modalBenefits"></ul>
+                    </div>
+
+                    <div class="nutra-modal-section">
+                        <h4><i class="fas fa-prescription-bottle"></i> Recommended Dosage</h4>
+                        <p id="modalDosage"></p>
+                    </div>
+
+                    <div class="nutra-modal-section">
+                        <h4><i class="fas fa-users"></i> Who Can Use It?</h4>
+                        <p id="modalWho"></p>
+                    </div>
+
+                    <div class="nutra-modal-badges">
+                        <span class="nutra-modal-badge"><i class="fas fa-check"></i> GMP Certified</span>
+                        <span class="nutra-modal-badge"><i class="fas fa-check"></i> ISO Compliant</span>
+                        <span class="nutra-modal-badge"><i class="fas fa-check"></i> Premium Quality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="images/2.png" class="logo">
+                </a>
+                <p>Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about-chw.html">About CHW</a></li>
+                    <li><a href="about-vitantra.html">About Vitantra</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a>
+                <a href="quality.html">Quality</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="surgical.html">Surgical</a></li>
+                    <li><a href="vitantra.html">Vitantra</a></li>
+                    <li><a href="nutra.html">Nutra</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chase Healthcare & Wellness Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/single-herb-data.js"></script>
+    <script src="js/nutra.js"></script>
+</body>
+
+</html>

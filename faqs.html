@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Chase Healthcare</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8F9F5;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(248, 249, 245, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #6B6B6B;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .contact-btn {
+            background: #2D6A4F;
+            color: white !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: 8px;
+        }
+
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, rgba(15, 50, 41, 0.85) 0%, rgba(26, 77, 62, 0.75) 100%), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: white;
+        }
+
+        .faq-section {
+            padding: 6rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .faq-item p {
+            color: #6B6B6B;
+            line-height: 1.8;
+        }
+
+        .footer {
+            background: #0F3229;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/2.png" class="logo">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html">Company</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="surgical.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
+                        </a>
+                        <a href="vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                        </a>
+                        <a href="nutra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html" class="contact-btn">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Frequently Asked Questions</h1>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-item">
+            <h3>What products does Chase Healthcare offer?</h3>
+            <p>We offer two main product lines: Chase Healthcare for surgical and medical products, and Vitantra for
+                Ayurvedic, Herbal, and Nutraceutical wellness products.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Are your products certified?</h3>
+            <p>Yes, all our products are manufactured in WHO-GMP compliant facilities with ISO certification, ensuring
+                the highest quality standards.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How can I become a distributor?</h3>
+            <p>Please contact our business development team through the contact page, and we'll guide you through our
+                partnership process.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Where are your products available?</h3>
+            <p>Our products are available across multiple countries through our distribution network. Contact us for
+                availability in your region.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you provide product samples?</h3>
+            <p>Yes, we provide samples to healthcare professionals and potential business partners. Please reach out to
+                our team for more information.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chase Healthcare & Wellness Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Chase Healthcare</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8F9F5;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(248, 249, 245, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #6B6B6B;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .contact-btn {
+            background: #2D6A4F;
+            color: white !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: 8px;
+        }
+
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, rgba(15, 50, 41, 0.85) 0%, rgba(26, 77, 62, 0.75) 100%), url('https://images.unsplash.com/photo-1568667256549-094345857637?w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: white;
+        }
+
+        .downloads-section {
+            padding: 6rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .download-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .download-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .download-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-info p {
+            color: #6B6B6B;
+        }
+
+        .download-btn {
+            background: #2D6A4F;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background: #0F3229;
+        }
+
+        .footer {
+            background: #0F3229;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/2.png" class="logo">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html">Company</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="surgical.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
+                        </a>
+                        <a href="vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                        </a>
+                        <a href="nutra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html" class="contact-btn">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Downloads</h1>
+    </section>
+
+    <section class="downloads-section">
+        <div class="download-grid">
+            <div class="download-item">
+                <div class="download-info">
+                    <h3><i class="fas fa-file-pdf"></i> Product Catalog 2026</h3>
+                    <p>Complete catalog of all surgical and wellness products</p>
+                </div>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+
+            <div class="download-item">
+                <div class="download-info">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <p>WHO-GMP and ISO certificates</p>
+                </div>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+
+            <div class="download-item">
+                <div class="download-info">
+                    <h3><i class="fas fa-book"></i> Company Brochure</h3>
+                    <p>Learn more about Chase Healthcare & Wellness</p>
+                </div>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+
+            <div class="download-item">
+                <div class="download-info">
+                    <h3><i class="fas fa-leaf"></i> Vitantra Product Guide</h3>
+                    <p>Detailed information about our wellness formulations</p>
+                </div>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chase Healthcare & Wellness Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

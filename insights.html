@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Chase Healthcare & Wellness</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8F9F5;
+            --bg-dark: #1A4D3E;
+            --bg-darker: #0F3229;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-green: #2D6A4F;
+            --accent-green-light: #52B788;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(248, 249, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .contact-btn {
+            background: var(--accent-green);
+            color: white !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, rgba(15, 50, 41, 0.85) 0%, rgba(26, 77, 62, 0.75) 100%), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: white;
+        }
+
+        .insights-section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .insight-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .insight-content {
+            padding: 2rem;
+        }
+
+        .insight-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .insight-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .insight-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--accent-green);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .footer {
+            background: var(--bg-darker);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/2.png" class="logo">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html">Company</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="surgical.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
+                        </a>
+                        <a href="vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                        </a>
+                        <a href="nutra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html" class="contact-btn">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Healthcare Insights</h1>
+    </section>
+
+    <section class="insights-section">
+        <div class="insights-grid">
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+                    alt="Healthcare Innovation" class="insight-img">
+                <div class="insight-content">
+                    <div class="insight-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 15, 2026</span>
+                        <span><i class="fas fa-tag"></i> Innovation</span>
+                    </div>
+                    <h3>The Future of Surgical Care</h3>
+                    <p>Exploring how advanced surgical technologies are transforming patient outcomes and recovery
+                        times.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80" alt="Wellness"
+                    class="insight-img">
+                <div class="insight-content">
+                    <div class="insight-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 10, 2026</span>
+                        <span><i class="fas fa-tag"></i> Wellness</span>
+                    </div>
+                    <h3>Ayurveda in Modern Healthcare</h3>
+                    <p>How traditional Ayurvedic practices complement modern medical treatments for holistic wellness.
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80"
+                    alt="Quality Standards" class="insight-img">
+                <div class="insight-content">
+                    <div class="insight-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 5, 2026</span>
+                        <span><i class="fas fa-tag"></i> Quality</span>
+                    </div>
+                    <h3>Maintaining WHO-GMP Standards</h3>
+                    <p>Our commitment to international quality standards in pharmaceutical manufacturing.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about-chw.html">About CHW</a></li>
+                    <li><a href="about-vitantra.html">About Vitantra</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="surgical.html">Surgical</a></li>
+                    <li><a href="vitantra.html">Vitantra</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="insights.html">Insights</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+91">+91 [Phone]</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chase Healthcare & Wellness Pvt Ltd.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

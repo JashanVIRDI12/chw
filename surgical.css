@@ -1,0 +1,13 @@
+/* Surgical page hero override */
+
+.surgical-hero-section::before {
+    background: url('images/surgical-hero.png') no-repeat center;
+    background-size: 112%;
+    opacity: 0.55;
+}
+
+/* Match CTA section background image to the surgical hero */
+.page-surgical .cta-section::before {
+    background: url('images/surgical-hero.png') no-repeat center;
+    background-size: 150%;
+}

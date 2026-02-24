@@ -1,0 +1,2738 @@
+/* Vitantra page overrides */
+
+.vitantra-hero-section::before {
+    background: url('images/vitantra-hero.png') no-repeat center;
+    background-size: 122%;
+    opacity: 0.52;
+}
+
+#vitantraModal .nutra-modal-image {
+    aspect-ratio: 1 / 1;
+    width: calc(100% - 4rem);
+    max-height: 600px;
+    border-radius: 24px;
+    background: #e8eaed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    margin: 2rem;
+}
+
+#vitantraModal .nutra-modal-image img {
+    object-fit: contain;
+    object-position: center;
+    width: auto;
+    height: auto;
+    max-width: 135%;
+    max-height: 135%;
+    transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+    #vitantraModal .nutra-modal-image {
+        aspect-ratio: 1 / 1;
+        width: calc(100% - 2rem);
+        max-height: 400px;
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 1rem;
+    }
+}
+
+/* Vitantra Product Grid */
+.vitantra-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.vitantra-product-card {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.vitantra-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.vitantra-product-card i {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.vitantra-product-card-full {
+    grid-column: 1 / -1;
+    padding: 3.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border-left: 6px solid var(--accent-gold);
+    transition: transform 0.3s ease;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    border-right: 1px solid rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.vitantra-product-card-full:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.vitantra-product-card-full .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.vitantra-product-card-full i {
+    font-size: 4rem;
+    color: var(--accent-gold);
+}
+
+/* Badge outline */
+.badge-outline {
+    background: #fff;
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 98, 65, 0.2);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+/* India Advantage Section */
+.india-advantage-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 100%;
+}
+
+.advantage-card {
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.04);
+    border-left: 6px solid var(--primary);
+    text-align: left;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    border-right: 1px solid rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.advantage-card--gold {
+    border-left-color: var(--accent-gold);
+}
+
+.advantage-card h3 {
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.advantage-card h3 i {
+    font-size: 1.4rem;
+}
+
+.advantage-list {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.advantage-list li {
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.advantage-conclusion {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .vitantra-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vitantra-product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vitantra-product-card-full .flex-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .advantage-card {
+        padding: 2rem;
+    }
+}
+
+/* Overall Spacing Improvements */
+.page-about .section {
+    padding: 4.5rem 0;
+}
+
+.page-about .section-cream {
+    padding: 4.5rem 0;
+}
+
+.about-feature {
+    margin-bottom: 2rem;
+}
+
+.about-feature__content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-feature__content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.feature-list li {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+.about-why__content h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+}
+
+.accordion-item {
+    margin-bottom: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.accordion-header {
+    padding: 1.5rem 2rem;
+    user-select: none;
+}
+
+.accordion-header h3 {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.accordion-content {
+    padding: 0;
+}
+
+.accordion-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    padding: 0 2rem 1.5rem 2rem;
+    margin: 0;
+}
+
+/* Additional Adjustments */
+.grid.gap-3rem {
+    gap: 3rem;
+}
+
+.mission-vision-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3.5rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mission-vision-card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-vision-icon {
+    width: 90px;
+    height: 90px;
+    background: rgba(197, 163, 94, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    color: var(--accent-gold);
+    font-size: 2.2rem;
+    box-shadow: 0 0 0 10px rgba(197, 163, 94, 0.05);
+}
+
+.mission-vision-card h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.mission-vision-card p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    font-size: 1.15rem;
+}
+
+.stats-grid .stat-item {
+    transition: transform 0.3s ease;
+}
+
+.stats-grid .stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.stats-grid .stat-label {
+    line-height: 1.4;
+}
+
+.stats-grid .stat-label span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+/* Fix for Global Export Services Section Spacing */
+.export-services-content {
+    padding: 3.5rem 4rem 3.5rem calc((100vw - 1200px) / 2);
+    max-width: 100%;
+}
+
+.india-advantage-content {
+    padding: 4rem calc((100vw - 1200px) / 2) 4rem 4rem;
+    background: var(--bg-cream);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.export-services-content h2,
+.india-advantage-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.export-services-content p,
+.india-advantage-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.export-services-content .feature-list li {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+@media (max-width: 1024px) {
+    .section-cream .grid[style*="1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .export-services-content {
+        padding: 4rem 2rem;
+    }
+
+    .india-advantage-content {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Additional Custom Styling for about-vitantra */
+.page-about .section-green {
+    padding: 4.5rem 0;
+}
+
+.mission-vision-card {
+    height: 100%;
+}
+
+.vitantra-product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-feature__media img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-why__media img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.badge-outline i {
+    font-size: 1.1em;
+}
+
+/* Fix Grid Gap for About Why Section */
+.about-why__grid {
+    gap: 5rem;
+}
+
+@media (max-width: 992px) {
+    .about-why__grid {
+        gap: 3rem;
+    }
+}
+
+/* Additional Custom Styling for India Advantage Typography */
+.india-advantage-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.india-advantage-content p.font-weight-600 {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Fix for India Advantage Typography to match image closely */
+.india-advantage-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.india-advantage-content p.font-weight-600 {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+}
+
+.advantage-card {
+    padding: 3.5rem;
+}
+
+.advantage-card h3 {
+    font-size: 1.45rem;
+}
+
+.badge-outline {
+    border-color: var(--primary);
+    border-width: 1px;
+}
+
+/* Refining India Advantage */
+.india-advantage-content {
+    background: #fffae9;
+    padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+}
+
+.advantage-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 6px solid var(--primary);
+    padding: 2.5rem 3rem;
+}
+
+.advantage-card--gold {
+    border-left-color: var(--accent-gold);
+}
+
+.advantage-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+.advantage-card h3 i {
+    font-size: 1.2rem;
+}
+
+.advantage-card p.text-sm {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.advantage-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.advantage-conclusion {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    color: var(--primary);
+}
+
+/* Additional Refinements for India Advantage */
+.india-advantage-content {
+    background: #fffae9;
+    padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+}
+
+.advantage-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 6px solid var(--primary);
+    padding: 2.5rem 3rem;
+}
+
+.advantage-card--gold {
+    border-left-color: var(--accent-gold);
+}
+
+.advantage-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.advantage-card h3 i {
+    font-size: 1.2rem;
+}
+
+.advantage-card p.text-sm {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.advantage-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.advantage-conclusion {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    color: var(--primary);
+}
+
+/* Fix Container Max Width for grid */
+.section-cream .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Fix text-center for our product range */
+.text-center {
+    text-align: center;
+}
+
+/* Feature List alignment */
+.feature-list li i {
+    flex-shrink: 0;
+}
+
+/* Fix Container Max Width for India Advantage */
+.india-advantage-content {
+    background: #fffae9;
+    padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+}
+
+@media (min-width: 1400px) {
+    .india-advantage-content {
+        padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+    }
+}
+
+/* Fix Container Max Width for India Advantage to perfectly match reference */
+.india-advantage-cards {
+    max-width: 100%;
+}
+
+.india-advantage-content {
+    background: #fffae9;
+    padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+}
+
+@media (min-width: 1200px) {
+    .india-advantage-content {
+        padding: 3.5rem calc((100vw - 1200px) / 2) 4rem 4rem;
+    }
+}
+
+/* Additional Refinements for India Advantage to match exact look */
+.india-advantage-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.advantage-card {
+    padding: 2rem 2.5rem;
+}
+
+/* Fix for Quality Assurance Spacing */
+.section-green .stats-grid {
+    margin-top: 2.5rem;
+}
+
+/* Additional Refinements for Quality Assurance Layout */
+.section-green .stats-grid {
+    margin-top: 2.5rem;
+}
+
+.stats-grid {
+    gap: 3rem !important;
+}
+
+.stats-grid .stat-item {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem !important;
+    border-radius: 24px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid .stat-label {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 1.1rem !important;
+    font-weight: 500;
+}
+
+.stats-grid .stat-label span {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+/* Additional Refinements for Quality Assurance Layout to match image */
+.stats-grid .stat-label {
+    letter-spacing: 0.1em;
+    font-size: 1.15rem !important;
+}
+
+.stats-grid .stat-label span {
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    line-height: 1.4;
+}
+
+/* Additional Refinements for Quality Assurance Layout */
+.section-green .stats-grid {
+    margin-top: 2.5rem;
+}
+
+/* Additional Refinements for Quality Assurance Layout to match image */
+.stats-grid .stat-item {
+    padding: 2rem !important;
+}
+
+.stats-grid {
+    gap: 2rem !important;
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Fix for stats grid spacing for real this time */
+.section-green .stats-grid {
+    margin-top: 2.5rem !important;
+}
+
+/* Center stats grid text for real */
+.stats-grid .stat-item {
+    text-align: center;
+}
+
+/* Fix for stat icon margin */
+.stats-grid .stat-item .stat-icon {
+    margin-bottom: 2rem !important;
+}
+
+/* Fix stats grid width */
+.stats-grid {
+    margin: 2.5rem auto 0;
+    max-width: 1200px;
+}
+
+/* Fix stats grid width */
+.stats-grid {
+    margin-top: 2.5rem !important;
+}
+
+.stats-grid {
+    gap: 2rem !important;
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+}
+
+/* Custom India Advantage Redesign */
+
+.custom-india-advantage {
+    background: linear-gradient(135deg, #ffffff 0%, #f6faec 100%) !important;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 4rem 5rem !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+.custom-india-advantage::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.custom-india-advantage::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 163, 94, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.glass-label {
+    background: rgba(16, 185, 129, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--primary);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.stylish-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem !important;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 1.5rem !important;
+    position: relative;
+}
+
+.advantage-intro p {
+    font-size: 1.15rem !important;
+    color: #4b5563 !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 1rem;
+}
+
+.highlight-banner i {
+    color: var(--primary);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.highlight-banner span {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.enhanced-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.enhanced-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.enhanced-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.enhanced-card:last-child::before {
+    background: linear-gradient(90deg, var(--accent-gold) 0%, transparent 100%);
+}
+
+.enhanced-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.enhanced-card:hover::before {
+    opacity: 1;
+}
+
+.enhanced-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.emerald-icon {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    color: var(--primary);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.emerald-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 20px;
+    border: 1px dashed rgba(16, 185, 129, 0.3);
+    animation: rotateDash 10s linear infinite;
+}
+
+.gold-icon {
+    background: linear-gradient(135deg, rgba(197, 163, 94, 0.1) 0%, rgba(197, 163, 94, 0.05) 100%);
+    color: var(--accent-gold);
+    border: 1px solid rgba(197, 163, 94, 0.2);
+}
+
+.gold-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 20px;
+    border: 1px dashed rgba(197, 163, 94, 0.3);
+    animation: rotateDash 10s linear infinite;
+}
+
+@keyframes rotateDash {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.enhanced-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.card-desc {
+    color: #6b7280;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.enhanced-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.enhanced-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    color: #4b5563;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.enhanced-list li i {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 50%;
+}
+
+.enhanced-card:last-child .enhanced-list li i {
+    color: var(--accent-gold);
+    background: rgba(197, 163, 94, 0.1);
+}
+
+.card-footer-highlight {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-footer-highlight p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-footer-highlight p::before {
+    content: '↗';
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+    .custom-india-advantage {
+        padding: 4rem 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-india-advantage {
+        padding: 3rem 1.5rem !important;
+    }
+
+    .stylish-heading {
+        font-size: 2.2rem !important;
+    }
+}
+
+/* =============================================
+   PRODUCT RANGE — MINIMAL CLEAN GRID
+   ============================================= */
+
+.pr-section {
+    background: linear-gradient(160deg, #f8faf4 0%, #ffffff 60%, #f5f9f1 100%);
+    padding: 4.5rem 0 5.5rem !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---- Split Header ---- */
+.pr-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 98, 65, 0.1);
+}
+
+.pr-eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: rgba(0, 98, 65, 0.07);
+    border: 1px solid rgba(0, 98, 65, 0.15);
+    border-radius: 50px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.pr-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.pr-title em {
+    font-style: italic;
+    color: var(--primary);
+}
+
+.pr-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* ---- Uniform 3-col Grid ---- */
+.pr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.pr-item {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 1.75rem 1.75rem 2rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.pr-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.pr-item-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.pr-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 98, 65, 0.08);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.pr-item:hover .pr-icon {
+    background: rgba(0, 98, 65, 0.13);
+    transform: scale(1.08);
+}
+
+.pr-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.07);
+    line-height: 1;
+}
+
+.pr-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+}
+
+.pr-item p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ---- CTA Strip ---- */
+.pr-cta-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 5px solid var(--primary);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.pr-cta-strip-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.pr-cta-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.pr-cta-strip-left h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.2rem;
+}
+
+.pr-cta-strip-left p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.pr-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.pr-cta-btn:hover {
+    background: #004d33;
+    transform: translateX(3px);
+    box-shadow: 0 6px 20px rgba(0, 98, 65, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pr-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pr-title {
+        font-size: 2.5rem;
+    }
+
+    .pr-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pr-section {
+        padding: 3rem 0 4rem !important;
+    }
+
+    .pr-title {
+        font-size: 2rem;
+    }
+
+    .pr-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pr-cta-strip {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pr-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =============================================
+   CHW — HOSPITAL PILLS
+   ============================================= */
+
+.chw-hospitals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 2rem;
+}
+
+.chw-hospital-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    background: #fff;
+    border: 1px solid rgba(0, 98, 65, 0.12);
+    border-radius: 50px;
+    padding: 0.45rem 1rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.chw-hospital-pill i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+.chw-hospital-pill:hover {
+    background: rgba(0, 98, 65, 0.06);
+    border-color: rgba(0, 98, 65, 0.25);
+    transform: translateY(-2px);
+}
+
+.chw-hospital-pill--more {
+    color: var(--primary);
+    background: rgba(0, 98, 65, 0.06);
+    border-color: rgba(0, 98, 65, 0.2);
+    font-style: italic;
+}
+
+/* =============================================
+   CHW — MANAGEMENT TEAM
+   ============================================= */
+
+.chw-management-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.chw-mgmt-card {
+    background: #f8faf4;
+    border: 1px solid rgba(0, 98, 65, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.chw-mgmt-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 98, 65, 0.1);
+    transform: translateY(-4px);
+}
+
+.chw-mgmt-image {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.chw-mgmt-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s ease;
+}
+
+.chw-mgmt-card:hover .chw-mgmt-image img {
+    transform: scale(1.04);
+}
+
+.chw-mgmt-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    padding: 0.3rem 0.85rem;
+}
+
+.chw-mgmt-badge--gold {
+    background: #c5a35e;
+}
+
+.chw-mgmt-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+.chw-mgmt-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.25rem;
+}
+
+.chw-mgmt-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.chw-mgmt-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #5a6475;
+    line-height: 1.75;
+    margin: 0 0 1.5rem;
+}
+
+.chw-mgmt-stats {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0, 98, 65, 0.08);
+}
+
+.chw-mgmt-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.chw-mgmt-stats strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.chw-mgmt-stats span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+    .chw-management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chw-mgmt-image {
+        height: 240px;
+    }
+}
+
+/* =============================================
+   OUR JOURNEY
+   ============================================= */
+
+.journey-section {
+    background: #fff;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Eyebrow row with extending line */
+.journey-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.journey-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    white-space: nowrap;
+    background: rgba(0, 98, 65, 0.07);
+    border: 1px solid rgba(0, 98, 65, 0.15);
+    border-radius: 50px;
+    padding: 0.35rem 0.9rem;
+}
+
+.journey-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 98, 65, 0.15), transparent);
+}
+
+/* Main split grid */
+.journey-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+/* ---- Left column ---- */
+.journey-left {
+    position: relative;
+}
+
+.journey-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(0, 98, 65, 0.06);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: -2.5rem;
+    position: relative;
+    z-index: 0;
+}
+
+.journey-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.journey-image-wrap img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.6s ease;
+}
+
+.journey-image-wrap:hover img {
+    transform: scale(1.03);
+}
+
+/* Floating label on image */
+.journey-image-label {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 50px;
+    padding: 0.4rem 1rem 0.4rem 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.journey-image-label i {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.journey-image-label span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.77rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Right column ---- */
+.journey-right {
+    padding-top: 1rem;
+}
+
+.journey-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.15;
+    margin: 0 0 2rem;
+    letter-spacing: -0.02em;
+}
+
+.journey-title em {
+    font-style: italic;
+    color: var(--primary);
+}
+
+.journey-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.journey-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #5a6475;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Milestone list */
+.journey-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.journey-milestone {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.journey-milestone-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(0, 98, 65, 0.12);
+}
+
+.journey-milestone span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .journey-year {
+        font-size: 5rem;
+        margin-bottom: -1.5rem;
+    }
+
+    .journey-title {
+        font-size: 2rem;
+    }
+
+    .journey-image-wrap img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .journey-title {
+        font-size: 1.65rem;
+    }
+
+    .journey-year {
+        font-size: 4rem;
+    }
+}
+
+/* =============================================
+   WHY CHOOSE VITANTRA
+   ============================================= */
+
+
+.wc-section {
+    background: #fff;
+    padding: 5rem 0;
+}
+
+.wc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.wc-eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: rgba(0, 98, 65, 0.07);
+    border: 1px solid rgba(0, 98, 65, 0.15);
+    border-radius: 50px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.wc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin: 0 0 2.5rem;
+    letter-spacing: -0.02em;
+}
+
+.wc-title em {
+    font-style: italic;
+    color: var(--primary);
+}
+
+.wc-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.wc-reason {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wc-reason:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.wc-reason-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(0, 98, 65, 0.08);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.wc-reason h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.35rem;
+}
+
+.wc-reason p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.wc-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.wc-image-wrap img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.wc-image-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: #fff;
+    border-radius: 14px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.wc-image-badge i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.wc-image-badge span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+    .wc-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .wc-right {
+        order: -1;
+    }
+
+    .wc-image-wrap img {
+        height: 320px;
+    }
+
+    .wc-title {
+        font-size: 2rem;
+    }
+}
+
+/* =============================================
+   GLOBAL EXPORT SERVICES + INDIA ADVANTAGE
+   ============================================= */
+
+.ges-section {
+    background: #f8faf4;
+    padding: 5rem 0;
+}
+
+.ges-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.ges-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 2.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.ges-card--dark {
+    background: var(--primary);
+    border-color: transparent;
+}
+
+.ges-eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: rgba(0, 98, 65, 0.08);
+    border: 1px solid rgba(0, 98, 65, 0.15);
+    border-radius: 50px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.ges-eyebrow--light {
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ges-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.ges-title em {
+    font-style: italic;
+    color: var(--primary);
+}
+
+.ges-title--light {
+    color: #fff;
+}
+
+.ges-title--light em {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.ges-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0 0 1.75rem;
+}
+
+.ges-desc--light {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ges-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ges-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.9rem;
+    color: #374151;
+    font-family: 'Inter', sans-serif;
+}
+
+.ges-list-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(0, 98, 65, 0.07);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.ges-moq {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1.5rem;
+}
+
+.ges-moq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.85rem;
+}
+
+.ges-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.ges-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(0, 98, 65, 0.07);
+    border: 1px solid rgba(0, 98, 65, 0.15);
+    border-radius: 50px;
+    padding: 0.3rem 0.85rem;
+}
+
+.ges-badge i {
+    font-size: 0.7rem;
+}
+
+.ges-moq-sub {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    margin: 0;
+    font-style: italic;
+}
+
+/* India Advantage within dark card */
+.ia-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 1.75rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+}
+
+.ia-banner i {
+    color: #6ed8a5;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.ia-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ia-reason {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ia-reason:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ia-reason-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #6ed8a5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.ia-reason-icon--gold {
+    color: #f0c671;
+    background: rgba(240, 198, 113, 0.1);
+}
+
+.ia-reason h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.3rem;
+}
+
+.ia-reason p {
+    font-size: 0.83rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .ges-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ges-title {
+        font-size: 1.65rem;
+    }
+}
+
+/* =============================================
+   QUALITY ASSURANCE
+   ============================================= */
+
+.qa-section {
+    background: var(--primary);
+    padding: 5rem 0;
+}
+
+.qa-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.qa-eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.85rem;
+}
+
+.qa-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.qa-title em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.qa-subtitle {
+    font-size: 0.97rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.qa-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.qa-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    transform: translateY(-4px);
+}
+
+.qa-card-icon {
+    font-size: 2rem;
+    color: #f0c671;
+    margin-bottom: 1.2rem;
+}
+
+.qa-card-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+.qa-card-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .qa-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .qa-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .qa-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =============================================
+   MISSION & VISION — PREMIUM SPLIT PANELS
+   ============================================= */
+
+
+.mv-section {
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-section::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.mv-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ---- Horizontal container ---- */
+.mv-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ---- Each panel ---- */
+.mv-panel {
+    padding: 4rem 3rem;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.mv-panel--mission {
+    border-right: none;
+}
+
+.mv-panel--vision {
+    border-left: none;
+}
+
+.mv-panel-inner {
+    max-width: 420px;
+}
+
+.mv-panel--vision .mv-panel-inner {
+    margin-left: auto;
+}
+
+/* ---- Eyebrow label ---- */
+.mv-label {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Icon bubble ---- */
+.mv-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.mv-panel:hover .mv-icon-wrap {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.mv-icon-wrap--gold {
+    color: #f0c671;
+    background: rgba(197, 163, 94, 0.12);
+    border-color: rgba(197, 163, 94, 0.2);
+}
+
+/* ---- Heading ---- */
+.mv-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+}
+
+.mv-heading em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---- Body text ---- */
+.mv-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.97rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+    margin: 0 0 2rem;
+}
+
+/* ---- Pillar checklist ---- */
+.mv-pillars {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mv-pillars li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mv-pillars li i {
+    color: #6ed8a5;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* ---- Vertical Divider ---- */
+.mv-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem 1.5rem;
+    width: 60px;
+}
+
+.mv-divider-line {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+
+.mv-divider-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6ed8a5;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .mv-container {
+        grid-template-columns: 1fr;
+    }
+
+    .mv-divider {
+        flex-direction: row;
+        width: 100%;
+        padding: 0 3rem;
+        height: 44px;
+    }
+
+    .mv-divider-line {
+        height: 1px;
+        width: auto;
+        flex: 1;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent);
+    }
+
+    .mv-panel {
+        padding: 3rem 2rem;
+    }
+
+    .mv-panel-inner,
+    .mv-panel--vision .mv-panel-inner {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .mv-heading {
+        font-size: 1.65rem;
+    }
+
+    .mv-panel {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+
+.mission-vision-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dark-soft-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 24px !important;
+    padding: 3rem 4rem !important;
+    text-align: center;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1), 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-soft-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.dark-soft-card:hover {
+    transform: translateY(-5px) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.15), 0 30px 60px rgba(0, 0, 0, 0.3) !important;
+}
+
+.concentric-rings {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2.5rem auto !important;
+    background: transparent !important;
+    border-radius: 50% !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold) !important;
+    font-size: 1.8rem !important;
+    box-shadow: none !important;
+}
+
+.concentric-rings::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+    animation: pulse-ring 3s infinite ease-out;
+}
+
+.concentric-rings::after {
+    content: '';
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    animation: pulse-ring 3s infinite ease-out 1.5s;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.mission-heading {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.5rem !important;
+    color: #ffffff !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+}
+
+.mission-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.15rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    line-height: 1.8 !important;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .dark-soft-card {
+        padding: 2.5rem 1.5rem !important;
+    }
+
+    .mission-heading {
+        font-size: 2rem !important;
+    }
+
+    .mission-text {
+        font-size: 1.05rem !important;
+    }
+}
+
+/* ================================================================
+   VITANTRA / CHW — GLOBAL MOBILE RESPONSIVE
+   ================================================================ */
+@media (max-width: 900px) {
+
+    /* Product Range */
+    .pr-header {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .pr-title {
+        font-size: 2.2rem;
+    }
+
+    .pr-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .pr-cta-strip {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .pr-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Why Choose */
+    .wc-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+    }
+
+    .wc-right {
+        order: -1;
+    }
+
+    .wc-image-wrap img {
+        height: 300px;
+    }
+
+    .wc-title {
+        font-size: 2rem;
+    }
+
+    /* Export + India Advantage */
+    .ges-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .ges-title {
+        font-size: 1.65rem;
+    }
+
+    /* Quality Assurance */
+    .qa-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .qa-title {
+        font-size: 1.8rem;
+    }
+
+    /* Mission & Vision */
+    .mv-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .mv-divider {
+        flex-direction: row !important;
+        width: 100% !important;
+        padding: 0 3rem !important;
+        height: 44px !important;
+    }
+
+    .mv-divider-line {
+        height: 1px !important;
+        width: auto !important;
+        flex: 1 !important;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent) !important;
+    }
+
+    .mv-panel {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .mv-panel-inner,
+    .mv-panel--vision .mv-panel-inner {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .mv-heading {
+        font-size: 1.65rem;
+    }
+
+    /* Journey */
+    .journey-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .journey-year {
+        font-size: 5rem;
+        margin-bottom: -1.5rem;
+    }
+
+    .journey-title {
+        font-size: 2rem;
+    }
+
+    .journey-image-wrap img {
+        height: 280px;
+    }
+
+    /* CHW Management */
+    .chw-management-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .chw-mgmt-image {
+        height: 240px;
+    }
+
+    /* CHW Hospitals */
+    .chw-hospitals {
+        gap: 0.5rem;
+    }
+
+    /* Section padding */
+    .wc-section,
+    .ges-section,
+    .qa-section,
+    .pr-section,
+    .journey-section {
+        padding: 3rem 0 !important;
+    }
+
+    .mv-section {
+        padding-top: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Product Range */
+    .pr-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pr-title {
+        font-size: 1.8rem;
+    }
+
+    .pr-item {
+        padding: 1.5rem !important;
+    }
+
+    .pr-cta-strip {
+        padding: 1.5rem !important;
+    }
+
+    /* Why Choose */
+    .wc-title {
+        font-size: 1.6rem;
+    }
+
+    .wc-image-wrap img {
+        height: 240px;
+    }
+
+    /* QA */
+    .qa-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    .qa-card {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .qa-title {
+        font-size: 1.5rem;
+    }
+
+    .qa-card-label {
+        font-size: 1.15rem;
+    }
+
+    /* Export */
+    .ges-card {
+        padding: 1.75rem 1.25rem !important;
+    }
+
+    .ges-title {
+        font-size: 1.5rem;
+    }
+
+    /* GES badges */
+    .ges-badges {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .ges-badge {
+        width: fit-content;
+    }
+
+    /* Mission / Vision */
+    .mv-panel {
+        padding: 2rem 1rem !important;
+    }
+
+    .mv-heading {
+        font-size: 1.5rem !important;
+    }
+
+    /* Journey */
+    .journey-year {
+        font-size: 3.5rem;
+    }
+
+    .journey-title {
+        font-size: 1.6rem;
+    }
+
+    .journey-image-wrap img {
+        height: 220px;
+    }
+
+    /* CHW */
+    .chw-mgmt-content {
+        padding: 1.5rem !important;
+    }
+
+    .chw-mgmt-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .chw-mgmt-stats {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .chw-mgmt-image {
+        height: 200px;
+    }
+
+    /* Sections */
+    .wc-section,
+    .ges-section,
+    .qa-section,
+    .pr-section,
+    .journey-section {
+        padding: 2.5rem 0 !important;
+    }
+}
