@@ -3,8 +3,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Amla Capsules",
     "tagline": "Natural Vitamin C & Daily Wellness Support",
-    "image": "images/Single herb capsules/Amla/Amla Capsules.png",
-    "image2": "images/Single herb capsules/Amla/Amla.png",
+    "image": "images/Single herb/Amla/Amla Capsules.webp",
+    "image2": "images/Single herb/Amla/Amla.webp",
     "why": "Amla Capsules are a premium Ayurvedic supplement made from high-quality Amla Extract (Emblica officinalis), one of the richest natural sources of Vitamin C and antioxidants. Amla is widely used in Ayurveda to boost immunity, improve digestion, support skin and hair health, and promote overall vitality. Known as a powerful Rasayana, Amla helps rejuvenate the body and maintain long-term wellness.",
     "ingredients": [
       "Amla Extract (Emblica officinalis)  Standardized herbal extract  Natural source of Vitamin C  Rich in antioxidants  Vegetarian Capsule Shell"
@@ -20,8 +20,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Arjuna Capsules",
     "tagline": "Natural Heart Health & Circulation Support",
-    "image": "images/Single herb capsules/Arjuna/Arjuna Capsules.png",
-    "image2": "images/Single herb capsules/Arjuna/Arjuna.png",
+    "image": "images/Single herb/Arjuna/Arjuna Capsules.webp",
+    "image2": "images/Single herb/Arjuna/Arjuna.webp",
     "why": "Arjuna Capsules are a premium Ayurvedic supplement made from high-quality Arjuna Bark Extract (Terminalia arjuna), a renowned herb in Ayurveda traditionally used to support heart health, improve circulation, maintain healthy cholesterol levels, and strengthen overall cardiovascular wellness. Arjuna is known as a natural cardiac tonic that helps maintain a healthy heart and active lifestyle.",
     "ingredients": [
       "Arjuna Bark Extract (Terminalia arjuna)  Standardized herbal extract  Rich in natural antioxidants & flavonoids  Traditionally used for heart strength and circulation  Vegetarian Capsule Shell"
@@ -37,8 +37,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Ashwagandha Capsules",
     "tagline": "Natural Stress Relief & Strength Support",
-    "image": "images/Single herb capsules/Ashwagandha/Ashwagandha Capsules.png",
-    "image2": "images/Single herb capsules/Ashwagandha/Ashwagandha.png",
+    "image": "images/Single herb/Ashwagandha/Ashwagandha Capsules.webp",
+    "image2": "images/Single herb/Ashwagandha/Ashwagandha.webp",
     "why": "Ashwagandha Capsules are a powerful Ayurvedic herbal supplement made from high-quality Ashwagandha Root Extract (Withania somnifera), known for centuries as a natural adaptogen that helps the body manage stress, improve energy levels, enhance stamina, and support overall wellness. These capsules are ideal for people facing modern lifestyle challenges such as stress, fatigue, poor sleep, and low immunity.",
     "ingredients": [
       "Ashwagandha Root Extract (Withania somnifera)  Standardized herbal extract  Rich in Withanolides  Traditionally used in Ayurveda for strength, vitality, and stress relief  Capsule Shell – Vegetarian Capsule"
@@ -54,8 +54,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Brahmi Capsules",
     "tagline": "Natural Brain Booster & Memory Support",
-    "image": "images/Single herb capsules/Brahmi/Brahmi Capsules.png",
-    "image2": "images/Single herb capsules/Brahmi/Brahmi.png",
+    "image": "images/Single herb/Brahmi/Brahmi Capsules.webp",
+    "image2": "images/Single herb/Brahmi/Brahmi.webp",
     "why": "Brahmi Capsules are a premium Ayurvedic supplement made from high-quality Brahmi Extract (Bacopa monnieri), a powerful herb traditionally used in Ayurveda to enhance memory, improve concentration, support mental clarity, and reduce stress. Brahmi is known as a Medhya Rasayana, meaning it nourishes the brain, supports cognitive health, and promotes calmness and focus.",
     "ingredients": [
       "Brahmi Extract (Bacopa monnieri)  Standardized herbal extract  Rich in Bacopasides  Traditionally used for memory, focus, and mental wellness  Vegetarian Capsule Shell"
@@ -71,8 +71,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Giloy Capsules",
     "tagline": "Natural Immunity Booster & Detox Support",
-    "image": "images/Single herb capsules/Giloy/Giloy Capsules.png",
-    "image2": "images/Single herb capsules/Giloy/Giloy.png",
+    "image": "images/Single herb/Giloy/Giloy Capsules.webp",
+    "image2": "images/Single herb/Giloy/Giloy.webp",
     "why": "Giloy Capsules are a premium Ayurvedic supplement made from high-quality Giloy Extract (Tinospora cordifolia), a powerful herb known in Ayurveda as Amrita—the root of immortality. Giloy helps strengthen immunity, detoxify the body, support digestion, and promote overall wellness. It is widely used for protecting the body against infections, seasonal illness, and fatigue.",
     "ingredients": [
       "Giloy Extract (Tinospora cordifolia)  Standardized herbal extract  Rich in natural antioxidants  Traditionally used for immunity and detox",
@@ -89,8 +89,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Gokshura Capsules",
     "tagline": "Natural Urinary, Kidney & Vitality Support",
-    "image": "images/Single herb capsules/Gokshura/Gokshura Capsules.png",
-    "image2": "images/Single herb capsules/Gokshura/Gokshura.png",
+    "image": "images/Single herb/Gokshura/Gokshura Capsules.webp",
+    "image2": "images/Single herb/Gokshura/Gokshura.webp",
     "why": "Gokshura Capsules are a premium Ayurvedic supplement made from high-quality Gokshura Extract (Tribulus terrestris), a well-known herb traditionally used in Ayurveda to support urinary tract health, kidney function, stamina, and reproductive wellness. Gokshura is valued as a natural rejuvenator that helps maintain strength, vitality, and overall wellbeing.",
     "ingredients": [
       "Gokshura Extract (Tribulus terrestris)  Standardized herbal extract  Traditionally used for urinary & reproductive health  Rich in natural saponins  Vegetarian Capsule Shell"
@@ -106,8 +106,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Guduchi Capsules",
     "tagline": "Natural Immunity & Detox Support",
-    "image": "images/Single herb capsules/Guduchi/Guduchi Capsules.png",
-    "image2": "images/Single herb capsules/Guduchi/Guduchi.png",
+    "image": "images/Single herb/Guduchi/Guduchi Capsules.webp",
+    "image2": "images/Single herb/Guduchi/Guduchi.webp",
     "why": "Guduchi Capsules are a premium Ayurvedic supplement made from high-quality Guduchi Extract (Tinospora cordifolia), a powerful herb known in Ayurveda as Amrita—the nectar of life. Guduchi helps strengthen immunity, detoxify the body, support liver health, and improve overall wellness. It is widely used to help the body fight infections, seasonal illnesses, and fatigue while promoting long-term vitality.",
     "ingredients": [
       "Guduchi Extract (Tinospora cordifolia)  Standardized herbal extract  Rich in natural antioxidants  Traditionally used for immunity & detox  Vegetarian Capsule Shell"
@@ -123,8 +123,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Haritaki Capsules",
     "tagline": "Natural Digestion & Detox Support",
-    "image": "images/Single herb capsules/Haritaki/Haritaki Capsules.png",
-    "image2": "images/Single herb capsules/Haritaki/Haritaki.png",
+    "image": "images/Single herb/Haritaki/Haritaki Capsules.webp",
+    "image2": "images/Single herb/Haritaki/Haritaki.webp",
     "why": "Haritaki Capsules are a premium Ayurvedic supplement made from high-quality Haritaki Extract (Terminalia chebula), one of the most respected herbs in Ayurveda known for supporting digestion, detoxification, gut health, and overall vitality. Haritaki is known as the “King of Medicines” in Ayurveda and is a key ingredient in Triphala, helping maintain digestive balance and natural cleansing of the body.",
     "ingredients": [
       "Haritaki Extract (Terminalia chebula)  Standardised herbal extract  Rich in natural antioxidants  Traditionally used for digestion & detox  Vegetarian Capsule Shell"
@@ -140,8 +140,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Kanchanar Capsules",
     "tagline": "Natural Thyroid & Glandular Health Support",
-    "image": "images/Single herb capsules/Kanchanar/Kanchanar Capsules.png",
-    "image2": "images/Single herb capsules/Kanchanar/Kanchanar.png",
+    "image": "images/Single herb/Kanchanar/Kanchanar Capsules.webp",
+    "image2": "images/Single herb/Kanchanar/Kanchanar.webp",
     "why": "Kanchanar Capsules are a premium Ayurvedic supplement made from high-quality Kanchanar Bark Extract (Bauhinia variegata), traditionally used in Ayurveda to support thyroid balance, lymphatic health, glandular wellness, and natural detoxification. Kanchanar is widely used in Ayurvedic formulations for maintaining healthy metabolism and supporting the body’s natural cleansing process.",
     "ingredients": [
       "Kanchanar Bark Extract (Bauhinia variegata)  Standardised herbal extract  Traditionally used for thyroid & glandular support  Supports lymphatic detox",
@@ -158,8 +158,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Laksha Guggul Capsules",
     "tagline": "Natural Bone Healing & Joint Strength Support",
-    "image": "images/Single herb capsules/Laksha Guggul/Laksha Guggul Capsules.png",
-    "image2": "images/Single herb capsules/Laksha Guggul/Laksha Guggul.png",
+    "image": "images/Single herb/Laksha/Laksha Capsules.webp",
+    "image2": "images/Single herb/Laksha/Laksha.webp",
     "why": "Laksha Guggul is a classical Ayurvedic formulation composed of Laksha Resin (Laccifer lacca) and Guggul (Commiphora mukul), along with supportive herbs, traditionally used in Ayurveda to support bone healing, strengthen joints, and promote musculoskeletal health. It is widely used for fracture recovery, joint pain relief, ligament strength, and improving bone density.",
     "ingredients": [
       "Laksha (Laccifer lacca Resin) – Bone healing support Guggul (Commiphora mukul Extract) – Joint & inflammation support Ashwagandha (Withania somnifera) – Strength & recovery Arjuna (Terminalia arjuna Bark) – Bone & tissue repair support Nagabala / Bala (Sida cordifolia) – Muscle strength"
@@ -175,8 +175,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Mandukaparni Capsules",
     "tagline": "Natural Brain, Memory & Nerve Support",
-    "image": "images/Single herb capsules/Mandukaparni/Mandukaparni Capsules.png",
-    "image2": "images/Single herb capsules/Mandukaparni/Mandukaparni.png",
+    "image": "images/Single herb/Mandukaparni/Mandukaparni Capsules.webp",
+    "image2": "images/Single herb/Mandukaparni/Mandukaparni.webp",
     "why": "Mandukaparni Capsules are a premium Ayurvedic supplement made from high-quality Mandukaparni Extract (Centella asiatica), a renowned herb in Ayurveda traditionally used to enhance memory, improve concentration, support nerve health, and promote mental clarity. Mandukaparni is recognised as a medhya rasayana that nourishes the brain, supports cognitive function, and helps maintain calmness and focus.",
     "ingredients": [
       "Mandukaparni Extract (Centella asiatica)  Standardised herbal extract  Rich in triterpenoids  Traditionally used for brain & nerve health  Vegetarian Capsule Shell"
@@ -192,8 +192,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Moringa Capsules",
     "tagline": "Natural Multivitamin & Energy Support",
-    "image": "images/Single herb capsules/Moringa/Moringa Capsules.png",
-    "image2": "images/Single herb capsules/Moringa/Moringa.png",
+    "image": "images/Single herb/Moringa/Moringa Capsules.webp",
+    "image2": "images/Single herb/Moringa/Moringa.webp",
     "why": "Moringa Capsules are a premium Ayurvedic supplement made from high-quality Moringa Leaf Powder/Extract (Moringa oleifera), known as the Miracle Tree for its rich nutritional profile. Moringa supports energy levels, immunity, metabolism, and overall wellness. Packed with natural vitamins, minerals, antioxidants, and amino acids, Moringa helps nourish the body daily.",
     "ingredients": [
       "Moringa Leaf Powder / Extract (Moringa oleifera)  Natural source of Vitamins A, C, E  Rich in Iron, Calcium & Protein  High antioxidant content  Vegetarian Capsule Shell"
@@ -209,8 +209,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Neem Capsules",
     "tagline": "Natural Skin, Blood Purifier & Detox Support",
-    "image": "images/Single herb capsules/Neem/Neem Capsules.png",
-    "image2": "images/Single herb capsules/Neem/Neem.png",
+    "image": "images/Single herb/Neem/Neem Capsules.webp",
+    "image2": "images/Single herb/Neem/Neem.webp",
     "why": "Neem Capsules are a premium Ayurvedic supplement made from high-quality Neem Leaf Extract (Azadirachta indica), a powerful herb traditionally used in Ayurveda for skin health, blood purification, detoxification, and immune support. Neem is known for its natural antibacterial, antifungal, and detoxifying properties that help maintain clear skin and overall wellness.",
     "ingredients": [
       "Neem Leaf Extract (Azadirachta indica)  Standardised herbal extract  Rich in natural antioxidants  Traditionally used for skin & detox support  Vegetarian Capsule Shell"
@@ -226,8 +226,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Safed Musli Capsules",
     "tagline": "Natural Strength, Stamina & Vitality Support",
-    "image": "images/Single herb capsules/Safed Musli/Safed Musli Capsules.png",
-    "image2": "images/Single herb capsules/Safed Musli/Safed Musli.png",
+    "image": "images/Single herb/Safed Musli/Safed Musli Capsules.webp",
+    "image2": "images/Single herb/Safed Musli/Safed Musli.webp",
     "why": "Safed Musli Capsules are a premium Ayurvedic supplement made from high-quality Safed Musli Root Extract (Chlorophytum borivilianum), a well-known rejuvenating herb traditionally used in Ayurveda to support stamina, strength, energy, and reproductive wellness. Safed Musli is considered a powerful natural tonic that helps improve vitality, endurance, and overall physical performance.",
     "ingredients": [
       "Safed Musli Root Extract (Chlorophytum borivilianum)  Standardised herbal extract  Rich in natural saponins  Traditionally used for strength & vitality  Vegetarian Capsule Shell"
@@ -243,8 +243,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Shatavari Capsules",
     "tagline": "Natural Women’s Health & Hormonal Balance Support",
-    "image": "images/Single herb capsules/Shatavari/Shatavari Capsules.png",
-    "image2": "images/Single herb capsules/Shatavari/Shatavari.png",
+    "image": "images/Single herb/Shatavari/Shatavari Capsules.webp",
+    "image2": "images/Single herb/Shatavari/Shatavari.webp",
     "why": "Shatavari Capsules are a premium Ayurvedic supplement made from high-quality Shatavari Root Extract (Asparagus racemosus), a well-known herb traditionally used in Ayurveda to support women’s reproductive health, hormonal balance, energy levels, and overall wellness. Shatavari is known as the Queen of Herbs for Women, helping nourish the body, support menstrual health, and promote vitality.",
     "ingredients": [
       "Shatavari Root Extract (Asparagus racemosus)  Standardised herbal extract  Traditionally used for women’s wellness  Rich in natural phytonutrients  Vegetarian Capsule Shell"
@@ -260,8 +260,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Shilajit Capsules",
     "tagline": "Natural Energy, Strength & Vitality Support",
-    "image": "images/Single herb capsules/Shilajit/Shilajit Capsules.png",
-    "image2": "images/Single herb capsules/Shilajit/Shilajit.png",
+    "image": "images/Single herb/Shilajit/Shilajit Capsules.webp",
+    "image2": "images/Single herb/Shilajit/Shilajit.webp",
     "why": "Shilajit Capsules are a premium Ayurvedic supplement made from purified Shilajit Extract (Asphaltum punjabianum), a mineral-rich resin traditionally used in Ayurveda to boost energy, stamina, strength, and overall vitality. Shilajit is known as a powerful Rasayana that helps rejuvenate the body, support performance, and promote long-term wellness.",
     "ingredients": [
       "Purified Shilajit Extract (Asphaltum punjabianum)  Standardised extract rich in Fulvic Acid  Natural mineral complex  Traditionally used for strength & vitality  Vegetarian Capsule Shell"
@@ -277,8 +277,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Triphala Capsules",
     "tagline": "Natural Digestive Cleanse. Complete Ayurvedic Detox Support.",
-    "image": "images/Single herb capsules/Triphala/Triphala Capsules.png",
-    "image2": "images/Single herb capsules/Triphala/Triphala.png",
+    "image": "images/Single herb/Triphala/Triphala Capsules.webp",
+    "image2": "images/Single herb/Triphala/Triphala.webp",
     "why": "Product Overview Triphala is one of the most respected classical formulations in Ayurveda, made from a balanced blend of three powerful fruits — Amla, Haritaki, and Bibhitaki. This traditional combination supports digestive health, natural detoxification, metabolism, and overall vitality. Our Triphala Capsules are formulated using standardized herbal extracts to ensure consistent potency, purity, and effectiveness for daily wellness.",
     "ingredients": [
       "Triphala Blend (500–1000 mg per capsule):",
@@ -295,8 +295,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Tulsi Capsules",
     "tagline": "Natural Immunity. Stress Relief. Respiratory Wellness",
-    "image": "images/Single herb capsules/Tulsi/Tulsi Capsules.png",
-    "image2": "images/Single herb capsules/Tulsi/Tulsi.png",
+    "image": "images/Single herb/Tulsi/Tulsi Capsules.webp",
+    "image2": "images/Single herb/Tulsi/Tulsi.webp",
     "why": "Tulsi Capsules are made from premium Tulsi Leaf Extract (Ocimum sanctum), one of the most sacred and powerful herbs in Ayurveda. Known as Holy Basil, Tulsi supports immunity, respiratory health, stress management, and overall vitality. Traditionally used for centuries, Tulsi helps protect the body from infections, pollution, and lifestyle stress.",
     "ingredients": [
       "Tulsi (Ocimum sanctum) Leaf Extract – 500–1000 mg Standardised herbal extract rich in natural antioxidants and adaptogens.",
@@ -313,8 +313,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Turmeric Capsules",
     "tagline": "Natural Anti-Inflammatory. Joint Support. Immunity Booster.",
-    "image": "images/Single herb capsules/Turmeric/Turmeric Capsules.png",
-    "image2": "images/Single herb capsules/Turmeric/Turmeric.png",
+    "image": "images/Single herb/Turmeric/Turmeric Capsules.webp",
+    "image2": "images/Single herb/Turmeric/Turmeric.webp",
     "why": "Turmeric Capsules are made from premium Turmeric Root Extract (Curcuma longa) standardised for high curcuminoids. Turmeric is one of the most trusted herbs in Ayurveda, known for supporting joint health, immunity, digestion, skin health, and overall wellness. This powerful herb has been used for centuries as a natural anti-inflammatory and antioxidant.",
     "ingredients": [
       "Turmeric Root Extract (Curcuma longa) – 500–1000 mg  Vegetarian Capsule Shell"
@@ -330,8 +330,8 @@ window.singleHerbProducts = {
     "category": "Single Herb Capsules",
     "title": "Yashtimadhu Capsules",
     "tagline": "Natural Throat Care. Digestive Comfort. Respiratory Support.",
-    "image": "images/Single herb capsules/Yashtimadhu/Yashtimadhu Capsules.png",
-    "image2": "images/Single herb capsules/Yashtimadhu/Yashtimadhu.png",
+    "image": "images/Single herb/Yashtimadhu/Yashtimadhu Capsules.webp",
+    "image2": "images/Single herb/Yashtimadhu/Yashtimadhu.webp",
     "why": "Yashtimadhu Capsules are made from premium Yashtimadhu Root Extract (Glycyrrhiza glabra), also known as Mulethi or Liquorice Root. This revered Ayurvedic herb is traditionally used for throat soothing, respiratory health, digestive support, and immunity. Yashtimadhu is valued for its natural soothing, anti-inflammatory, and antioxidant properties.",
     "ingredients": [
       "Yashtimadhu Root Extract (Glycyrrhiza glabra) – 500–1000 mg Standardised herbal extract rich in glycyrrhizin.",

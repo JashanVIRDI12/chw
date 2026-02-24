@@ -8,7 +8,7 @@ const productData = {
         category: "Beauty & Nutricosmetics",
         title: "Collagen Peptides",
         tagline: "Youthful Skin. Strong Joints. Healthy Hair.",
-        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Collagen Peptides.jpg",
+        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Collagen Peptides.webp",
         why: "Collagen is the most abundant protein in the body, responsible for skin elasticity, joint strength, and connective tissue health. As we age, collagen production declines—leading to wrinkles, weaker hair, and joint stiffness. Supplementing with collagen peptides helps replenish what your body naturally loses.",
         ingredients: [
             "Marine/Bovine Collagen Peptides – Hydrolysed collagen for better absorption, supporting skin firmness, joint comfort, and hair & nail strength."
@@ -27,7 +27,7 @@ const productData = {
         category: "Beauty & Nutricosmetics",
         title: "Biotin",
         tagline: "Stronger Hair. Healthier You.",
-        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Biotin.jpg",
+        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Biotin.webp",
         why: "Biotin helps your body convert nutrients into energy and supports keratin production—the key protein that keeps hair strong, skin smooth, and nails resilient. Daily supplementation helps maintain healthy beauty and overall wellness.",
         ingredients: [
             "Biotin (Vitamin B7) – Essential for healthy hair growth, skin nourishment, nail strength, and metabolism support."
@@ -46,7 +46,7 @@ const productData = {
         category: "Beauty & Nutricosmetics",
         title: "Hyaluronic Acid",
         tagline: "Deep Hydration. Timeless Glow.",
-        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Hyaluronic Acid.jpg",
+        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Hyaluronic Acid.webp",
         why: "Hyaluronic Acid is naturally present in the skin and connective tissues, where it holds moisture and maintains firmness. As levels decline with age, skin can become dry and lose elasticity. Supplementing helps restore hydration, keeping your skin youthful and supple.",
         ingredients: [
             "Sodium Hyaluronate – A highly bioavailable form of Hyaluronic Acid that helps retain moisture, improve skin smoothness, and support joint comfort."
@@ -65,7 +65,7 @@ const productData = {
         category: "Beauty & Nutricosmetics",
         title: "Silica + MSM",
         tagline: "Strength Meets Radiance.",
-        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Silica + MSM.jpg",
+        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Silica + MSM.webp",
         why: "Both ingredients play a key role in collagen formation and connective tissue health, helping maintain strength, flexibility, and beauty as you age.",
         ingredients: [
             "Bamboo Silica – A natural source of silica that supports collagen production, hair thickness, skin elasticity, and nail strength.",
@@ -85,7 +85,7 @@ const productData = {
         category: "Beauty & Nutricosmetics",
         title: "Vitamin E + CoQ10",
         tagline: "Antioxidant Power. Ageless Vitality.",
-        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Vitamin E + CoQ10.png",
+        image: "images/Nutraceutical Products/Beauty & Nutricosmetics/Vitamin E + CoQ10.webp",
         why: "Together, these nutrients provide advanced antioxidant protection while supporting skin, heart, and cellular health.",
         ingredients: [
             "Vitamin E (Tocopherol) – Helps protect cells from oxidative stress, supports skin hydration, and promotes immune health.",
@@ -107,7 +107,7 @@ const productData = {
         category: "Fitness & Performance",
         title: "Whey Protein",
         tagline: "Pure Protein. Powerful Results.",
-        image: "images/Nutraceutical Products/Fitness & Performance/Whey Protein.jpg",
+        image: "images/Nutraceutical Products/Fitness & Performance/Whey Protein.webp",
         why: "Whey protein is one of the most effective proteins for muscle recovery and growth. Our formula is designed for purity, taste, and performance—perfect for athletes, gym-goers, and anyone looking to improve daily nutrition.",
         ingredients: [
             "Whey Protein Concentrate/Isolate – Rich in essential amino acids and BCAAs to support muscle repair and growth."
@@ -126,7 +126,7 @@ const productData = {
         category: "Fitness & Performance",
         title: "Plant Protein",
         tagline: "Clean Power. Plant Strength.",
-        image: "images/Nutraceutical Products/Fitness & Performance/Plant Protein.jpg",
+        image: "images/Nutraceutical Products/Fitness & Performance/Plant Protein.webp",
         why: "Our blend of pea and rice proteins provides a balanced amino acid profile for effective muscle support and recovery, making it perfect for vegans, lactose-intolerant individuals, and anyone seeking a clean protein source.",
         ingredients: [
             "Pea Protein – Rich in BCAAs to support muscle growth and recovery.",
@@ -146,7 +146,7 @@ const productData = {
         category: "Fitness & Performance",
         title: "Creatine Monohydrate",
         tagline: "Explosive Strength. Proven Performance.",
-        image: "images/Nutraceutical Products/Fitness & Performance/Creatine Monohydrate.jpg",
+        image: "images/Nutraceutical Products/Fitness & Performance/Creatine Monohydrate.webp",
         why: "Creatine supports the production of ATP (your body's energy source), helping muscles perform at higher intensity for longer periods. This leads to better strength, improved endurance, and faster muscle recovery.",
         ingredients: [
             "Creatine Monohydrate – Supports strength, power output, and lean muscle development."
@@ -165,7 +165,7 @@ const productData = {
         category: "Fitness & Performance",
         title: "BCAA",
         tagline: "Fuel Muscle. Maximise Recovery.",
-        image: "images/Nutraceutical Products/Fitness & Performance/BCAA.jpg",
+        image: "images/Nutraceutical Products/Fitness & Performance/BCAA.webp",
         why: "BCAAs are essential amino acids that your body cannot produce on its own. They play a key role in muscle protein synthesis and help reduce muscle breakdown during training.",
         ingredients: [
             "Leucine – Supports muscle growth and protein synthesis.",
@@ -186,7 +186,7 @@ const productData = {
         category: "Fitness & Performance",
         title: "L-Carnitine",
         tagline: "Burn Smarter. Perform Stronger.",
-        image: "images/Nutraceutical Products/Fitness & Performance/L-Carnitine.jpg",
+        image: "images/Nutraceutical Products/Fitness & Performance/L-Carnitine.webp",
         why: "L-Carnitine helps transport fatty acids into cells where they are used as fuel. This process supports energy production, exercise performance, and recovery.",
         ingredients: [
             "L-Carnitine Tartrate – A highly bioavailable form that supports fat metabolism, endurance, and muscle recovery."
@@ -207,7 +207,7 @@ const productData = {
         category: "Gut Health",
         title: "Probiotic Complex",
         tagline: "Balance Within. Strength Beyond.",
-        image: "images/Nutraceutical Products/Gut Health/Probiotic Complex.jpg",
+        image: "images/Nutraceutical Products/Gut Health/Probiotic Complex.webp",
         why: "Your gut microbiome plays a vital role in digestion, nutrient absorption, immunity, and even mood. Stress, poor diet, and lifestyle factors can disrupt this balance. Our probiotic formula helps replenish beneficial bacteria.",
         ingredients: [
             "Lactobacillus – Supports digestion, reduces bloating, and promotes gut comfort.",
@@ -227,7 +227,7 @@ const productData = {
         category: "Gut Health",
         title: "Digestive Enzymes",
         tagline: "Digest Better. Live Lighter.",
-        image: "images/Nutraceutical Products/Gut Health/Digestive Enzymes.jpg",
+        image: "images/Nutraceutical Products/Gut Health/Digestive Enzymes.webp",
         why: "Modern diets, stress, and ageing can reduce your body's natural enzyme production, leading to indigestion, heaviness, and nutrient gaps.",
         ingredients: [
             "Amylase – Helps break down carbohydrates for easier digestion.",
@@ -248,7 +248,7 @@ const productData = {
         category: "Gut Health",
         title: "Prebiotic Fibre",
         tagline: "Feed Your Gut. Fuel Your Health.",
-        image: "images/Nutraceutical Products/Gut Health/Prebiotic Fiber.jpg",
+        image: "images/Nutraceutical Products/Gut Health/Prebiotic Fiber.webp",
         why: "Prebiotics are special plant fibres that act as food for good bacteria in your gut. By feeding these beneficial microbes, prebiotics help maintain a balanced microbiome and support digestion.",
         ingredients: [
             "Inulin – A natural soluble fibre that supports gut bacteria growth and improves digestion.",
@@ -268,7 +268,7 @@ const productData = {
         category: "Gut Health",
         title: "L-Glutamine",
         tagline: "Restore. Repair. Rebuild.",
-        image: "images/Nutraceutical Products/Gut Health/L-Glutamine.jpg",
+        image: "images/Nutraceutical Products/Gut Health/L-Glutamine.webp",
         why: "L-Glutamine is one of the most abundant amino acids in the body. During intense exercise, illness, or stress, levels can drop—leading to fatigue, slower recovery, and weakened immunity.",
         ingredients: [
             "L-Glutamine – Supports muscle repair, gut lining health, and immune function."
@@ -287,7 +287,7 @@ const productData = {
         category: "Gut Health",
         title: "Herbal Digestive Blend",
         tagline: "Traditional Comfort. Modern Wellness.",
-        image: "images/Nutraceutical Products/Gut Health/Herbal Digestive Blend.jpg",
+        image: "images/Nutraceutical Products/Gut Health/Herbal Digestive Blend.webp",
         why: "Traditional herbal ingredients have been used for centuries to support digestive comfort and overall gut health.",
         ingredients: [
             "Herbal Digestive Blend – A curated mix of traditional herbs to support digestion and comfort."
@@ -308,7 +308,7 @@ const productData = {
         category: "Immunity & Daily Wellness",
         title: "Vitamin D3",
         tagline: "Sunshine in Every Capsule.",
-        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin D3.png",
+        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin D3.webp",
         why: "Vitamin D3 plays a key role in calcium absorption, bone strength, immune defence, and muscle function. Many people have low vitamin D levels due to modern lifestyles, making daily supplementation effective.",
         ingredients: [
             "Cholecalciferol (Vitamin D3) – The most bioavailable form of Vitamin D, supporting bone health, immunity, and muscle function."
@@ -327,7 +327,7 @@ const productData = {
         category: "Immunity & Daily Wellness",
         title: "Multivitamin + Minerals",
         tagline: "Complete Nutrition. Complete Confidence.",
-        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Multivitamin + Minerals.jpg",
+        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Multivitamin + Minerals.webp",
         why: "Busy lifestyles, irregular meals, and stress can lead to nutrient deficiencies. A daily multivitamin helps maintain optimal nutrient levels, supporting your body's core functions.",
         ingredients: [
             "Vitamins A–Z – Support immunity, metabolism, energy production, and overall wellness.",
@@ -348,7 +348,7 @@ const productData = {
         category: "Immunity & Daily Wellness",
         title: "Vitamin C + Zinc",
         tagline: "Double Defence for Daily Protection.",
-        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin C + Zinc.png",
+        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin C + Zinc.webp",
         why: "Vitamin C and Zinc work together to support immune health, skin repair, and overall wellness. This combination is ideal for daily protection against seasonal changes, stress, and busy lifestyles.",
         ingredients: [
             "Vitamin C (Ascorbic Acid) – Supports immune function, collagen formation, and antioxidant protection.",
@@ -368,7 +368,7 @@ const productData = {
         category: "Immunity & Daily Wellness",
         title: "Vitamin B-Complex",
         tagline: "Energy That Powers Your Potential.",
-        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin B-Complex.jpg",
+        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Vitamin B-Complex.webp",
         why: "B vitamins play a crucial role in metabolism, red blood cell formation, and nervous system function. Stress, busy routines, and poor diet can deplete these nutrients.",
         ingredients: [
             "Vitamin B1 (Thiamine) – Supports energy metabolism and nerve health.",
@@ -390,7 +390,7 @@ const productData = {
         category: "Immunity & Daily Wellness",
         title: "Zinc + Selenium",
         tagline: "Essential Minerals. Elevated Immunity.",
-        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Zinc + Selenium.png",
+        image: "images/Nutraceutical Products/Immunity & Daily Wellness/Zinc + Selenium.webp",
         why: "Zinc and Selenium are essential trace minerals that play a key role in immune response, cellular protection, and metabolic balance.",
         ingredients: [
             "Zinc Gluconate – Supports immune function, skin health, wound healing, and metabolism.",
@@ -412,7 +412,7 @@ const productData = {
         category: "Men's Vitality",
         title: "Testosterone Support",
         tagline: "Strength. Energy. Performance.",
-        image: "images/Nutraceutical Products/Men’s Vitality/Testosterone Support.png",
+        image: "images/Nutraceutical Products/Men’s Vitality/Testosterone Support.webp",
         why: "Our formula combines traditional herbs with modern nutritional science to promote peak performance and balance for modern men.",
         ingredients: [
             "Ashwagandha – Helps reduce stress, supports endurance, and promotes healthy testosterone levels.",
@@ -433,7 +433,7 @@ const productData = {
         category: "Men's Vitality",
         title: "Prostate Health",
         tagline: "Protect What Matters.",
-        image: "images/Nutraceutical Products/Men’s Vitality/Prostate Health.png",
+        image: "images/Nutraceutical Products/Men’s Vitality/Prostate Health.webp",
         why: "Our carefully selected ingredients work together to nourish and protect prostate function for long-term male wellness.",
         ingredients: [
             "Saw Palmetto Extract – Traditionally used to support prostate size and healthy urinary flow.",
@@ -455,7 +455,7 @@ const productData = {
         category: "Men's Vitality",
         title: "L-Arginine + CoQ10",
         tagline: "Power Your Performance.",
-        image: "images/Nutraceutical Products/Men’s Vitality/L-Arginine + CoQ10.png",
+        image: "images/Nutraceutical Products/Men’s Vitality/L-Arginine + CoQ10.webp",
         why: "Our formula pairs two science-backed nutrients that work together for better endurance and vitality.",
         ingredients: [
             "L-Arginine – An amino acid that supports nitric oxide production, helping improve blood flow, stamina, and muscle performance.",
@@ -477,7 +477,7 @@ const productData = {
         category: "Weight Loss & Detox",
         title: "Garcinia Cambogia",
         tagline: "Natural Appetite & Weight Support.",
-        image: "images/Nutraceutical Products/Weight Loss & Detox/Garcinia Cambogia.png",
+        image: "images/Nutraceutical Products/Weight Loss & Detox/Garcinia Cambogia.webp",
         why: "Garcinia Cambogia contains HCA (Hydroxycitric Acid), which may help support appetite management and healthy weight goals when combined with a balanced diet and exercise.",
         ingredients: [
             "Garcinia Cambogia Extract (HCA) – Supports appetite control and healthy weight management."
@@ -496,7 +496,7 @@ const productData = {
         category: "Weight Loss & Detox",
         title: "Green Tea Extract",
         tagline: "Thermogenic Fat Metabolism Support.",
-        image: "images/Nutraceutical Products/Weight Loss & Detox/Green Tea Extract.png",
+        image: "images/Nutraceutical Products/Weight Loss & Detox/Green Tea Extract.webp",
         why: "Green Tea Extract is rich in EGCG and other catechins that support thermogenesis and fat metabolism, making it a popular choice for natural weight management.",
         ingredients: [
             "Green Tea Extract (EGCG) – Supports fat metabolism, antioxidant protection, and energy levels."
@@ -515,7 +515,7 @@ const productData = {
         category: "Weight Loss & Detox",
         title: "Liver Detox Blend",
         tagline: "Cleanse. Protect. Revive.",
-        image: "images/Nutraceutical Products/Weight Loss & Detox/Liver Detox Blend.png",
+        image: "images/Nutraceutical Products/Weight Loss & Detox/Liver Detox Blend.webp",
         why: "Your liver plays a vital role in detoxification, metabolism, and nutrient processing. Stress, poor diet, and pollution can burden liver function. Our herbal blend helps support natural liver health.",
         ingredients: [
             "Milk Thistle – Rich in silymarin, helps protect liver cells and support regeneration.",
@@ -538,7 +538,7 @@ const productData = {
         category: "Women's Hormonal Health",
         title: "PCOS Balance Formula",
         tagline: "Harmony Within. Confidence Beyond.",
-        image: "images/Nutraceutical Products/Women Hormonal Health/PCOS Balance Formula.png",
+        image: "images/Nutraceutical Products/Women Hormonal Health/PCOS Balance Formula.webp",
         why: "PCOS can affect hormone balance, metabolism, cycle regularity, and overall wellbeing. Our formula is designed to support the body's natural hormonal pathways with clinically studied nutrients.",
         ingredients: [
             "Myo-Inositol – Supports ovarian function, hormonal balance, and insulin sensitivity.",
@@ -559,7 +559,7 @@ const productData = {
         category: "Women's Hormonal Health",
         title: "Menopause Support",
         tagline: "Calm. Balance. Renew.",
-        image: "images/Nutraceutical Products/Women Hormonal Health/Menopause Support.png",
+        image: "images/Nutraceutical Products/Women Hormonal Health/Menopause Support.webp",
         why: "Hormonal changes during menopause can lead to hot flashes, mood swings, fatigue, and sleep disturbances. Our targeted formula helps support hormonal balance naturally.",
         ingredients: [
             "Black Cohosh Extract – Traditionally used to help ease hot flashes and support hormonal comfort.",
@@ -580,7 +580,7 @@ const productData = {
         category: "Women's Hormonal Health",
         title: "Iron + Folic Acid",
         tagline: "Stronger Blood. Stronger You.",
-        image: "images/Nutraceutical Products/Women Hormonal Health/Iron + Folic Acid.png",
+        image: "images/Nutraceutical Products/Women Hormonal Health/Iron + Folic Acid.webp",
         why: "Iron deficiency is one of the most common nutritional gaps, especially among women. Low iron can lead to tiredness, dizziness, poor concentration, and weak immunity. Our formula provides highly absorbable Iron Bisglycinate.",
         ingredients: [
             "Iron Bisglycinate – A highly absorbable, stomach-friendly form of iron that helps improve haemoglobin levels.",

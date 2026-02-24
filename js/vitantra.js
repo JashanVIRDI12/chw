@@ -81,7 +81,8 @@ let vitantraModalImageIndex = 0;
 
 function normalizeSingleHerbImagePath(path) {
     if (!path) return '';
-    return path.replace('images/Single herb/', 'images/Single herb capsules/');
+    // Folder is 'Single herb' — no translation needed
+    return path;
 }
 
 function normalizeListValue(value) {
@@ -159,7 +160,7 @@ function pruneNonSingleHerbCards(blocks) {
 }
 
 function deriveSecondImage(imagePath) {
-    if (!imagePath || !imagePath.includes('/Single herb capsules/')) return '';
+    if (!imagePath || !imagePath.includes('/Single herb/')) return '';
 
     const filename = imagePath.split('/').pop() || '';
     const plainName = filename
