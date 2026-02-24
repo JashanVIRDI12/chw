@@ -1606,7 +1606,7 @@ body.page-about .section-green .team-card-image {
 
 @media (max-width: 768px) {
     .about-hero {
-        padding: 7rem 0 3.75rem;
+        padding: 5.5rem 0 3rem;
     }
 
     .about-hero__subtitle {
@@ -1812,6 +1812,18 @@ body.page-about .section-green .team-card-image {
     position: relative;
     overflow: hidden;
     background: var(--bg-cream);
+}
+
+@media (max-width: 768px) {
+    .hero-home {
+        padding: 5.5rem 1.5rem 4rem;
+        min-height: auto;
+    }
+
+    .hero-home::before {
+        background-position: center top;
+        background-size: cover;
+    }
 }
 
 .hero-home::before {

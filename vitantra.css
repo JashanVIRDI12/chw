@@ -6,6 +6,13 @@
     opacity: 0.52;
 }
 
+@media (max-width: 768px) {
+    .vitantra-hero-section::before {
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
 #vitantraModal .nutra-modal-image {
     aspect-ratio: 1 / 1;
     width: calc(100% - 4rem);

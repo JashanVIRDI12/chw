@@ -777,7 +777,12 @@
    ============================ */
 @media (max-width: 768px) {
     .nutra-hero-section {
-        padding: 10rem 2rem 4rem;
+        padding: 6rem 1.5rem 3.5rem;
+    }
+
+    .nutra-hero-section::before {
+        background-position: center top;
+        background-size: cover;
     }
 
     .nutra-category-nav {
