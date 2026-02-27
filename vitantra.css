@@ -4,7 +4,44 @@
     background: url('images/vitantra-hero.webp') no-repeat center;
     background-size: 130%;
     background-position: center;
-    opacity: 0.8;
+    opacity: 0.92;
+}
+
+.vitantra-hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 55%),
+        linear-gradient(135deg, rgba(255, 250, 233, 0.28) 0%, rgba(255, 250, 233, 0.12) 40%, rgba(0, 98, 65, 0.22) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.vitantra-hero-section .nutra-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 24px;
+    padding: 1.75rem 1.75rem 1.5rem;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.12),
+        0 2px 0 rgba(255, 255, 255, 0.12) inset,
+        0 -18px 42px rgba(0, 0, 0, 0.08) inset;
+    overflow: hidden;
+}
+
+.page-vitantra .nutra-product-card .nutra-card-img img {
+    transform: scale(1.18);
+}
+
+.page-vitantra .nutra-product-card:hover .nutra-card-img img {
+    transform: scale(1.26);
 }
 
 /* ── Mobile responsive ── */

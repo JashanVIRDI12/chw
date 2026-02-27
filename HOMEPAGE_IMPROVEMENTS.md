@@ -11,7 +11,7 @@ The homepage has been significantly enhanced with modern design elements, premiu
 - **Botanical Mandala Enhancement**:
   - Added animated concentric rings around the mandala
   - Implemented pulsing animation effects
-  - Added mini statistics display (100+ Products, GMP Certified)
+  - Added mini statistics display (100+ Products, WHO-GMP Certified)
   - Enhanced text shadow for better readability
 
 ### 2. **Premium Brand Card**

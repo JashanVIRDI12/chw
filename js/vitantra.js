@@ -1,79 +1,42 @@
 // ============================
-// VITANTRA PAGE — Category Filter + Product Modal
+// VITANTRA PAGE — Single Herb Grid + Product Modal
 // ============================
 
 document.addEventListener('DOMContentLoaded', function () {
-    const pills = document.querySelectorAll('.nutra-pill');
-    const blocks = document.querySelectorAll('.nutra-category-block');
-    const cards = document.querySelectorAll('.nutra-product-card');
-
-    hydrateVitantraCardsFromSingleHerb(cards);
-    pruneNonSingleHerbCards(blocks);
-    prepareShowcaseImages(cards);
-    pruneMissingImageCards(blocks);
-
-    pills.forEach(pill => {
-        pill.addEventListener('click', function () {
-            pills.forEach(p => p.classList.remove('active'));
-            this.classList.add('active');
-
-            const cat = this.dataset.category;
-
-            blocks.forEach(block => {
-                if (cat === 'all' || block.dataset.cat === cat) {
-                    block.classList.remove('hidden');
-                    block.style.animation = 'none';
-                    block.offsetHeight; // trigger reflow
-                    block.style.animation = 'fadeInUp 0.6s ease forwards';
-                } else {
-                    block.classList.add('hidden');
-                }
-            });
-        });
-    });
-
-    cards.forEach(card => {
-        card.addEventListener('click', function () {
-            openVitantraModal(this.dataset);
-        });
-    });
+    renderSingleHerbGrid();
+    updateVitantraHeroBadges();
 });
 
-function hasLoadableImage(path) {
-    return new Promise((resolve) => {
-        if (!path) {
-            resolve(false);
+function updateVitantraHeroBadges() {
+    const hero = document.querySelector('.vitantra-hero-section');
+    if (!hero) return;
+
+    const badges = hero.querySelectorAll('.nutra-hero-badge');
+    if (!badges.length) return;
+
+    const productCount = window.singleHerbProducts ? Object.keys(window.singleHerbProducts).length : 0;
+
+    badges.forEach((badge) => {
+        const text = badge.textContent || '';
+        if (/gmp/i.test(text)) {
+            badge.innerHTML = '<i class="fas fa-check-circle"></i> WHO-GMP Certified';
             return;
         }
 
-        const probe = new Image();
-        probe.onload = () => resolve(true);
-        probe.onerror = () => resolve(false);
-        probe.src = path;
+        if (/products?/i.test(text)) {
+            const label = productCount ? `${productCount} Products` : 'Products';
+            badge.innerHTML = `<i class="fas fa-check-circle"></i> ${label}`;
+        }
     });
 }
 
-function refreshCategoryCounts(blocks) {
-    blocks.forEach((block) => {
-        const countLabel = block.querySelector('.nutra-cat-count');
-        if (!countLabel) return;
-        const count = block.querySelectorAll('.nutra-product-card').length;
-        countLabel.textContent = `${count} Products`;
-    });
-}
-
-function pruneMissingImageCards(blocks) {
-    const cards = document.querySelectorAll('.nutra-product-card');
-
-    cards.forEach(async (card) => {
-        const img = card.querySelector('.nutra-card-img img');
-        const path = card.dataset.image || img?.getAttribute('src') || '';
-        const exists = await hasLoadableImage(path);
-        if (exists) return;
-
-        card.remove();
-        refreshCategoryCounts(blocks);
-    });
+function normalizeWhoGmpText(value) {
+    if (typeof value !== 'string') return value;
+    return value
+        .replace(/\bGMP\s*Certified\b/gi, 'WHO-GMP Certified')
+        .replace(/\bGMP\s*certified\b/gi, 'WHO-GMP certified')
+        .replace(/\bGMP-\s*certified\b/gi, 'WHO-GMP-certified')
+        .replace(/\bGMP-certified\b/gi, 'WHO-GMP-certified');
 }
 
 let vitantraModalImages = [];
@@ -99,102 +62,61 @@ function normalizeTitleKey(value) {
         .trim();
 }
 
-function hydrateVitantraCardsFromSingleHerb(cards) {
+function toCardDataset(product) {
+    const image = normalizeSingleHerbImagePath(product.image);
+    const image2 = normalizeSingleHerbImagePath(product.image2);
+
+    const primaryImage = image2 || image;
+
+    return {
+        category: '',
+        title: product.title || 'Product',
+        tagline: product.tagline || '',
+        image: primaryImage || '',
+        image2: image2 || '',
+        why: product.why || '',
+        ingredients: normalizeListValue(product.ingredients) || '',
+        benefits: normalizeListValue(product.benefits) || '',
+        dosage: product.dosage || '',
+        who: product.who || ''
+    };
+}
+
+function renderSingleHerbGrid() {
+    const grid = document.getElementById('vitantraProductsGrid');
+    if (!grid) return;
     if (!window.singleHerbProducts) return;
 
-    const herbEntries = Object.values(window.singleHerbProducts);
-    const herbLookup = new Map();
+    const herbs = Object.values(window.singleHerbProducts)
+        .filter((p) => p && p.title)
+        .slice()
+        .sort((a, b) => normalizeTitleKey(a.title).localeCompare(normalizeTitleKey(b.title)));
 
-    herbEntries.forEach((product) => {
-        herbLookup.set(normalizeTitleKey(product.title), product);
-    });
+    grid.innerHTML = '';
 
-    cards.forEach((card) => {
-        const title = card.dataset.title || card.querySelector('.nutra-card-body h3')?.textContent || '';
-        const matched = herbLookup.get(normalizeTitleKey(title));
-        if (!matched) return;
+    herbs.forEach((product) => {
+        const dataset = toCardDataset(product);
 
-        card.dataset.singleHerbMatched = 'true';
+        const card = document.createElement('div');
+        card.className = 'nutra-product-card';
+        Object.entries(dataset).forEach(([key, value]) => {
+            card.dataset[key] = value;
+        });
 
-        const image = normalizeSingleHerbImagePath(matched.image);
-        const image2 = normalizeSingleHerbImagePath(matched.image2);
+        card.innerHTML = `
+            <div class="nutra-card-img"><img src="${dataset.image}" alt="${dataset.title}"></div>
+            <div class="nutra-card-body">
+                <h3>${dataset.title}</h3>
+                <p>${dataset.tagline}</p>
+            </div>
+            <div class="nutra-card-action"><span>Learn More</span><i class="fas fa-arrow-right"></i></div>
+        `;
 
-        card.dataset.category = matched.category || card.dataset.category || '';
-        card.dataset.title = matched.title || title;
-        card.dataset.tagline = matched.tagline || card.dataset.tagline || '';
-        card.dataset.image = image || card.dataset.image || '';
-        card.dataset.image2 = image2 || card.dataset.image2 || '';
-        card.dataset.why = matched.why || card.dataset.why || '';
-        card.dataset.ingredients = normalizeListValue(matched.ingredients) || card.dataset.ingredients || '';
-        card.dataset.benefits = normalizeListValue(matched.benefits) || card.dataset.benefits || '';
-        card.dataset.dosage = matched.dosage || card.dataset.dosage || '';
-        card.dataset.who = matched.who || card.dataset.who || '';
+        card.addEventListener('click', function () {
+            openVitantraModal(this.dataset);
+        });
 
-        const imageElement = card.querySelector('.nutra-card-img img');
-        if (imageElement && image) {
-            imageElement.setAttribute('src', image);
-            imageElement.setAttribute('alt', matched.title || imageElement.getAttribute('alt') || 'Product');
-        }
-
-        const titleElement = card.querySelector('.nutra-card-body h3');
-        if (titleElement && matched.title) {
-            titleElement.textContent = matched.title;
-        }
-
-        const taglineElement = card.querySelector('.nutra-card-body p');
-        if (taglineElement && matched.tagline) {
-            taglineElement.textContent = matched.tagline;
-        }
-    });
-}
-
-function pruneNonSingleHerbCards(blocks) {
-    const cards = document.querySelectorAll('.nutra-product-card');
-
-    cards.forEach((card) => {
-        if (card.dataset.singleHerbMatched === 'true') return;
-        card.remove();
-    });
-
-    refreshCategoryCounts(blocks);
-}
-
-function deriveSecondImage(imagePath) {
-    if (!imagePath || !imagePath.includes('/Single herb/')) return '';
-
-    const filename = imagePath.split('/').pop() || '';
-    const plainName = filename
-        .replace(/\.{2,}/g, '.')
-        .replace(/\s+Capsules?/i, '')
-        .replace(/\s+Guggulu/i, '');
-
-    if (plainName === filename) return '';
-    return imagePath.replace(filename, plainName);
-}
-
-function prepareShowcaseImages(cards) {
-    cards.forEach((card) => {
-        const imageElement = card.querySelector('.nutra-card-img img');
-        if (!imageElement) return;
-
-        const primaryImage = card.dataset.image || imageElement.getAttribute('src') || '';
-        const derivedSecondary = card.dataset.image2 || deriveSecondImage(primaryImage);
-
-        if (!derivedSecondary) {
-            card.dataset.image = primaryImage;
-            return;
-        }
-
-        const probe = new Image();
-        probe.onload = () => {
-            card.dataset.image = derivedSecondary;
-            card.dataset.image2 = primaryImage;
-            imageElement.setAttribute('src', derivedSecondary);
-        };
-        probe.onerror = () => {
-            card.dataset.image = primaryImage;
-        };
-        probe.src = derivedSecondary;
+        grid.appendChild(card);
     });
 }
 
@@ -209,24 +131,28 @@ function openVitantraModal(product) {
     vitantraModalImageIndex = 0;
     renderVitantraModalImage(imgContainer, product.title || 'Product');
 
-    document.getElementById('vitantraModalCategory').textContent = product.category || '';
+    const categoryEl = document.getElementById('vitantraModalCategory');
+    if (categoryEl) {
+        categoryEl.textContent = '';
+        categoryEl.style.display = 'none';
+    }
     document.getElementById('vitantraModalTitle').textContent = product.title || '';
     document.getElementById('vitantraModalTagline').textContent = product.tagline || '';
-    document.getElementById('vitantraModalWhy').textContent = product.why || '';
-    document.getElementById('vitantraModalDosage').textContent = product.dosage || '';
-    document.getElementById('vitantraModalWho').textContent = product.who || '';
+    document.getElementById('vitantraModalWhy').textContent = normalizeWhoGmpText(product.why || '');
+    document.getElementById('vitantraModalDosage').textContent = normalizeWhoGmpText(product.dosage || '');
+    document.getElementById('vitantraModalWho').textContent = normalizeWhoGmpText(product.who || '');
 
     const ingredientsList = document.getElementById('vitantraModalIngredients');
     const benefitsList = document.getElementById('vitantraModalBenefits');
 
-    const ingredients = (product.ingredients || '')
+    const ingredients = normalizeWhoGmpText(product.ingredients || '')
         .split('|')
-        .map(item => item.trim())
+        .map((x) => x.trim())
         .filter(Boolean);
 
-    const benefits = (product.benefits || '')
+    const benefits = normalizeWhoGmpText(product.benefits || '')
         .split('|')
-        .map(item => item.trim())
+        .map((x) => x.trim())
         .filter(Boolean);
 
     ingredientsList.innerHTML = ingredients.map(item => `<li>${item}</li>`).join('');
