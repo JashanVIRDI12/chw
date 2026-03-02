@@ -5155,31 +5155,51 @@ body.page-about .section-green .team-card-image {
 
     /* ---- HERO ---- */
     .about-hero {
-        padding: 6rem 1.25rem 3rem;
+        padding: 6rem 1rem 3rem;
+    }
+
+    .about-hero__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .about-hero__grid {
         grid-template-columns: 1fr !important;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .about-hero__title {
         font-size: clamp(1.9rem, 7vw, 3rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .about-hero__subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 
     .about-hero__actions {
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 0.75rem;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
+    .about-hero__actions a,
+    .about-hero__actions .btn-gold {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 0.85rem 1.5rem;
+    }
+
+    /* Mosaic */
     .about-mosaic {
-        grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: 200px 150px !important;
-    }
-
-    .about-mosaic__item--a {
-        grid-column: 1 / 3 !important;
-        grid-row: 1 !important;
+        display: none !important;
     }
 
     /* ---- HOME HERO ---- */
@@ -5253,45 +5273,8 @@ body.page-about .section-green .team-card-image {
         height: 52px;
     }
 
-    /* Hero */
-    .about-hero {
-        padding: 5.5rem 1rem 2.5rem;
-    }
-
-    .about-hero__title {
-        font-size: 1.8rem;
-    }
-
-    .about-hero__subtitle {
-        font-size: 0.92rem;
-    }
-
-    .about-hero__actions {
-        flex-direction: column;
-        gap: 0.6rem;
-    }
-
-    .about-hero__actions a,
-    .about-hero__actions .btn-gold {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-    }
-
-    /* Mosaic */
-    .about-mosaic {
-        grid-template-columns: 1fr !important;
-        grid-template-rows: 200px 140px 140px !important;
-    }
-
-    .about-mosaic__item--a {
-        grid-column: auto !important;
-        grid-row: auto !important;
-    }
-
     /* Stats */
     .stats-grid {
-        grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
     }
 
@@ -5333,3 +5316,5 @@ body.page-about .section-green .team-card-image {
         font-size: 1.5rem;
     }
 }
+
+@import "about-chw-hero.css";

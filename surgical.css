@@ -1,10 +1,82 @@
 /* Surgical page — hero override only (same pattern as vitantra.css) */
 
-.surgical-hero-section::before {
-    background: url('images/surgical-hero.webp') no-repeat center;
-    background-size: 130%;
-    background-position: center;
-    opacity: 0.8;
+.surgical-hero-section {
+    position: relative;
+}
+
+/* Hide the static images inherited from nutra-hero-section */
+.surgical-hero-section::before,
+.surgical-hero-section::after {
+    display: none !important;
+}
+
+.surgical-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.65);
+    /* Keeps text readable */
+}
+
+/* Gradient overlay to match the premium theme */
+.surgical-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 250, 233, 0.35) 0%, rgba(255, 250, 233, 0.05) 40%, rgba(0, 98, 65, 0.4) 100%);
+    z-index: 1;
+}
+
+/* Remove glassmorphism from hero inner and badges */
+.surgical-hero-section .nutra-hero-inner {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.surgical-hero-section .nutra-hero-inner::before,
+.surgical-hero-section .nutra-hero-inner::after {
+    display: none;
+}
+
+.surgical-hero-section .nutra-hero-badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    color: #fff;
+}
+
+.surgical-hero-section .nutra-hero-badge i {
+    color: #fff;
+}
+
+.surgical-hero-section h1 {
+    color: #fff;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.surgical-hero-section h1 .text-green {
+    color: #bbf7d0;
+    /* Better contrast on dark video */
+}
+
+.surgical-hero-section>.nutra-hero-inner>p {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.surgical-hero-section .nutra-hero-label {
+    background: rgba(0, 0, 0, 0.2);
+    color: #bbf7d0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
 }
 
 /* CTA section */
@@ -44,9 +116,10 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-    .surgical-hero-section::before {
-        background-size: cover;
-        background-position: center top;
+
+    .surgical-hero-section::before,
+    .surgical-hero-section::after {
+        display: none !important;
     }
 
     #productModal .nutra-modal-content {
