@@ -1355,42 +1355,32 @@
 .chw-hospitals {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
-    margin-top: 2rem;
-}
-
-.chw-hospital-pill {
-    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #374151;
-    background: #fff;
-    border: 1px solid rgba(0, 98, 65, 0.12);
-    border-radius: 50px;
-    padding: 0.45rem 1rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    justify-content: center;
+    gap: 2.5rem 3.5rem;
+    margin-top: 3rem;
 }
 
-.chw-hospital-pill i {
-    color: var(--primary);
-    font-size: 0.8rem;
+.chw-hospital-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: auto;
+    max-width: 240px;
+    transition: all 0.3s ease;
+    filter: grayscale(100%) opacity(0.7);
 }
 
-.chw-hospital-pill:hover {
-    background: rgba(0, 98, 65, 0.06);
-    border-color: rgba(0, 98, 65, 0.25);
-    transform: translateY(-2px);
+.chw-hospital-logo img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.chw-hospital-pill--more {
-    color: var(--primary);
-    background: rgba(0, 98, 65, 0.06);
-    border-color: rgba(0, 98, 65, 0.2);
-    font-style: italic;
+.chw-hospital-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
 }
 
 /* =============================================
@@ -1597,7 +1587,8 @@
     z-index: 1;
 }
 
-.journey-image-wrap img {
+.journey-image-wrap img,
+.journey-image-wrap video {
     width: 100%;
     height: 460px;
     object-fit: cover;
@@ -1606,7 +1597,8 @@
     transition: transform 0.6s ease;
 }
 
-.journey-image-wrap:hover img {
+.journey-image-wrap:hover img,
+.journey-image-wrap:hover video {
     transform: scale(1.03);
 }
 
@@ -2707,7 +2699,8 @@
         font-size: 2rem;
     }
 
-    .journey-image-wrap img {
+    .journey-image-wrap img,
+    .journey-image-wrap video {
         height: 280px;
     }
 
@@ -2722,7 +2715,13 @@
 
     /* CHW Hospitals */
     .chw-hospitals {
-        gap: 0.5rem;
+        gap: 1.5rem 2rem;
+        justify-content: center;
+    }
+
+    .chw-hospital-logo {
+        height: 60px;
+        max-width: 160px;
     }
 
     /* Section padding */
