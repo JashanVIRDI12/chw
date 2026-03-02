@@ -3175,7 +3175,7 @@ body.page-about .section-green .team-card-image {
 ======================================== */
 .wellness-banner {
     background: var(--primary);
-    padding: 1rem 3rem;
+    padding: 0.4rem 3rem;
     text-align: center;
     position: relative;
     overflow: hidden;
