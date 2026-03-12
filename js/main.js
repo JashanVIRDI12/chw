@@ -8,9 +8,19 @@ document.addEventListener('DOMContentLoaded', function () {
        NAVBAR SCROLL
     ========================================================= */
     const navbar = document.querySelector('.navbar');
+    const isHome = document.querySelector('.hero-slider') !== null;
+
     if (navbar) {
+        if (!isHome) {
+            navbar.classList.add('scrolled');
+        }
+
         const onScroll = () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 30);
+            if (isHome) {
+                navbar.classList.toggle('scrolled', window.scrollY > 30);
+            } else {
+                navbar.classList.add('scrolled');
+            }
         };
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();

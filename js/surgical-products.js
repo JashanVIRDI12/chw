@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('surgicalModalTag').textContent = product.tag || '';
         document.getElementById('surgicalModalName').textContent = product.name;
-        document.getElementById('surgicalModalTagline').textContent = product.tagline;
+
         document.getElementById('surgicalModalDesc').textContent = product.description;
 
         // Features

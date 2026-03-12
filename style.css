@@ -283,7 +283,7 @@ p {
 
 /* Hide original logo image to match requested text style, or keep it bright */
 .logo img.logo {
-    height: 48px;
+    height: 72px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
@@ -5374,7 +5374,7 @@ body.page-about .section-green .team-card-image {
     }
 
     .logo img.logo {
-        height: 52px;
+        height: 64px;
     }
 
     /* Stats */
