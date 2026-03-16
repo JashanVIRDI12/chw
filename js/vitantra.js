@@ -1,7 +1,3 @@
-// ============================
-// VITANTRA PAGE — Single Herb Grid + Product Modal
-// ============================
-
 document.addEventListener('DOMContentLoaded', function () {
     renderSingleHerbGrid();
     updateVitantraHeroBadges();
@@ -103,8 +99,28 @@ function renderSingleHerbGrid() {
             card.dataset[key] = value;
         });
 
+        // Build keypoints HTML for this product
+        const productKey = Object.keys(window.singleHerbProducts).find(
+            k => window.singleHerbProducts[k] === product
+        ) || '';
+        const kpData = (window.vitantraKeypoints && productKey && window.vitantraKeypoints[productKey]);
+        const keypoints = kpData ? kpData.keypoints : [];
+
+        const keypointsHTML = keypoints.length
+            ? `<ul class="hover-keypoints-list">${keypoints.map(kp => `<li><i class="fas fa-check-circle"></i><span>${kp}</span></li>`).join('')}</ul>`
+            : `<p class="hover-brief-why">${dataset.why}</p>`;
+
         card.innerHTML = `
-            <div class="nutra-card-img"><img src="${dataset.image}" alt="${dataset.title}"></div>
+            <div class="nutra-card-img">
+                <img src="${dataset.image}" alt="${dataset.title}">
+                <div class="nutra-card-hover-brief">
+                    <div class="hover-brief-content">
+                        <i class="fas fa-leaf hover-brief-icon"></i>
+                        <h4>${dataset.title}</h4>
+                        ${keypointsHTML}
+                    </div>
+                </div>
+            </div>
             <div class="nutra-card-body">
                 <h3>${dataset.title}</h3>
                 <p>${dataset.tagline}</p>
