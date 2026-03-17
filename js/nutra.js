@@ -27,6 +27,46 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // Inject hover brief for Nutra products using JSON data
+    const htmlData = getNutraHtmlProductData();
+    const allCards = document.querySelectorAll('.nutra-product-card');
+    allCards.forEach(card => {
+        // Find product ID from the openProductModal('...') string
+        const onclickAttr = card.getAttribute('onclick') || '';
+        const match = onclickAttr.match(/openProductModal\(['"](.*?)['"]\)/);
+        
+        if (match && match[1]) {
+            const productId = match[1];
+            const product = htmlData[productId];
+            
+            if (product && product.benefits && product.benefits.length > 0) {
+                // Take up to 3 benefits
+                const keypoints = product.benefits.slice(0, 3);
+                const cardTitleText = card.querySelector('.nutra-card-body h3')?.textContent;
+                const title = product.title || cardTitleText || 'Benefits';
+                
+                const keypointsHTML = keypoints.length
+                    ? `<ul class="hover-keypoints-list">${keypoints.map(kp => `<li><i class="fas fa-check-circle"></i><span>${kp}</span></li>`).join('')}</ul>`
+                    : '';
+
+                const hoverBrief = document.createElement('div');
+                hoverBrief.className = 'nutra-card-hover-brief';
+                hoverBrief.innerHTML = `
+                    <div class="hover-brief-content">
+                        <i class="fas fa-capsules hover-brief-icon"></i>
+                        <h4>${title}</h4>
+                        ${keypointsHTML}
+                    </div>
+                `;
+                
+                const imgContainer = card.querySelector('.nutra-card-img');
+                if (imgContainer) {
+                    imgContainer.appendChild(hoverBrief);
+                }
+            }
+        }
+    });
 });
 
 function updateNutraHeroBadges() {
