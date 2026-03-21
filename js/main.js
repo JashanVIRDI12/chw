@@ -40,6 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(backdrop);
     }
 
+    // Inject a specific "Contact" text link for mobile devices before the CTA button
+    const navBtn = document.querySelector('.nav-btn');
+    if (navMenu && navBtn && !document.querySelector('.mobile-contact-link')) {
+        const contactLink = document.createElement('a');
+        contactLink.href = 'contact.html';
+        contactLink.textContent = 'Contact';
+        contactLink.className = 'mobile-contact-link';
+        // Hide by default on desktop, show only on mobile (done via CSS)
+        navMenu.insertBefore(contactLink, navBtn);
+    }
+
     function openNav() {
         // Push backdrop below the navbar so it only dims page content
         const navH = navbar ? navbar.offsetHeight : 70;

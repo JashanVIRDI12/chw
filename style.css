@@ -81,6 +81,11 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+    touch-action: manipulation;
+}
+
+button {
+    touch-action: manipulation;
 }
 
 img {
@@ -3062,12 +3067,25 @@ body.page-about .section-green .team-card-image {
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1.25rem;
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .logo img.logo {
+        height: 40px; /* appropriately scaled image for mobile */
+    }
+
     .nav-menu {
         display: none;
     }
 
     .mobile-menu-toggle {
-        display: block;
+        display: flex; /* flex instead of block so the hamburger centers perfectly */
     }
 
     .section {
@@ -5134,7 +5152,9 @@ body.page-about .section-green .team-card-image {
     }
 
     .nav-container {
-        padding: 0.85rem 1.25rem;
+        padding: 0 1.25rem;
+        height: 70px;
+        align-items: center;
     }
 
     /* Slide-in drawer from right */
@@ -5248,13 +5268,9 @@ body.page-about .section-green .team-card-image {
         border-radius: 10px !important;
     }
 
-    /* CTA button in drawer */
+    /* CTA button in drawer - Hidden as requested, relying on the injected text link */
     .nav-btn {
-        display: block !important;
-        text-align: center !important;
-        margin-top: 1.25rem !important;
-        width: 100% !important;
-        border-radius: 12px !important;
+        display: none !important;
     }
 
     /* ---- HERO ---- */
@@ -5370,11 +5386,14 @@ body.page-about .section-green .team-card-image {
 
     /* Nav */
     .nav-container {
-        padding: 0.85rem 1.25rem;
+        padding: 0 1.25rem;
+        height: 70px;
+        align-items: center;
     }
 
     .logo img.logo {
-        height: 64px;
+        height: 38px; /* Perfectly balances with the 44px hamburger menu */
+        width: auto;
     }
 
     /* Stats */
@@ -5418,6 +5437,17 @@ body.page-about .section-green .team-card-image {
 
     .cta-content h2 {
         font-size: 1.5rem;
+    }
+}
+
+/* Dynamically injected Mobile Contact Link */
+.mobile-contact-link {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .mobile-contact-link {
+        display: block !important;
     }
 }
 
