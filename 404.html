@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Chase Healthcare & Wellness</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Chase Healthcare & Wellness homepage.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridShift 20s linear infinite;
+        }
+
+        @keyframes gridShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* Glow orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: orbFloat 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #006241;
+            top: -100px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #b8860b;
+            bottom: -80px;
+            left: -80px;
+            animation-delay: -4s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .container-404 {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(8rem, 20vw, 14rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .error-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.15s both;
+        }
+
+        .error-title em {
+            color: #006241;
+            font-style: italic;
+        }
+
+        .error-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.45s both;
+        }
+
+        .btn-404 {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-404-primary {
+            background: #006241;
+            color: #fff;
+            border: 1px solid #006241;
+        }
+
+        .btn-404-primary:hover {
+            background: #004d33;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 98, 65, 0.3);
+        }
+
+        .btn-404-ghost {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-404-ghost:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .error-links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .error-links a {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.35);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .error-links a:hover {
+            color: #006241;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container-404">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not <em>Found</em></h1>
+        <p class="error-desc">
+            The page you're looking for doesn't exist or has been moved.
+            Let's get you back to somewhere helpful.
+        </p>
+        <div class="error-actions">
+            <a href="index.html" class="btn-404 btn-404-primary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+            <a href="contact.html" class="btn-404 btn-404-ghost">
+                <i class="fas fa-envelope"></i> Contact Us
+            </a>
+        </div>
+        <div class="error-links">
+            <a href="surgical.html">Surgical Products</a>
+            <a href="vitantra.html">Vitantra Wellness</a>
+            <a href="nutra.html">Nutraceuticals</a>
+            <a href="about-chw.html">About CHW</a>
+        </div>
+    </div>
+</body>
+
+</html>

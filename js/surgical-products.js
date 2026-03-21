@@ -25,10 +25,10 @@ const productData = {
         },
         useCase: 'High absorbency with soft, skin-friendly fabric for effective wound clearing and dressing.',
         images: [
-            'images/Surgical Products/Gauze_Swab/Design B1.webp',
-            'images/Surgical Products/Gauze_Swab/Design B4.webp',
-            'images/Surgical Products/Gauze_Swab/Design B5.webp',
-            'images/Surgical Products/Gauze_Swab/Design B6.webp'
+            'images/Surgical_Products_Gauze_Swab_Design_B1.webp',
+            'images/Surgical_Products_Gauze_Swab_Design_B4.webp',
+            'images/Surgical_Products_Gauze_Swab_Design_B5.webp',
+            'images/Surgical_Products_Gauze_Swab_Design_B6.webp'
         ]
     },
     'abdominal-sponges': {
@@ -52,10 +52,10 @@ const productData = {
         },
         useCase: 'Superior fluid absorption with strong fabric integrity for safe use during surgical procedures.',
         images: [
-            'images/Surgical Products/Abdominal_Sponges/Design A1.webp',
-            'images/Surgical Products/Abdominal_Sponges/Design A2.webp',
-            'images/Surgical Products/Abdominal_Sponges/Design A3.webp',
-            'images/Surgical Products/Abdominal_Sponges/Design A4.webp'
+            'images/Surgical_Products_Abdominal_Sponges_Design_A1.webp',
+            'images/Surgical_Products_Abdominal_Sponges_Design_A2.webp',
+            'images/Surgical_Products_Abdominal_Sponges_Design_A3.webp',
+            'images/Surgical_Products_Abdominal_Sponges_Design_A4.webp'
         ]
     },
     'gauze-than': {
@@ -79,8 +79,8 @@ const productData = {
         },
         useCase: 'Breathable and easy-to-wrap gauze rolls for comfortable and reliable wound dressing.',
         images: [
-            'images/Surgical Products/Gauze_Than_(Roll)/Design B1.webp',
-            'images/Surgical Products/Gauze_Than_(Roll)/Design B2.webp'
+            'images/Surgical_Products_Gauze_Than_(Roll)_Design_B1.webp',
+            'images/Surgical_Products_Gauze_Than_(Roll)_Design_B2.webp'
         ]
     },
     'gamjee-roll': {
@@ -104,9 +104,9 @@ const productData = {
         },
         useCase: 'Extra cushioning and padding support that protects wounds and improves comfort during recovery.',
         images: [
-            'images/Surgical Products/Gamjee_Roll/Design B1.webp',
-            'images/Surgical Products/Gamjee_Roll/Design B2.webp',
-            'images/Surgical Products/Gamjee_Roll/Design B3.webp'
+            'images/Surgical_Products_Gamjee_Roll_Design_B1.webp',
+            'images/Surgical_Products_Gamjee_Roll_Design_B2.webp',
+            'images/Surgical_Products_Gamjee_Roll_Design_B3.webp'
         ]
     },
     'gamjee-pad': {
@@ -130,10 +130,10 @@ const productData = {
         },
         useCase: 'Highly absorbent pads cushioned and designed to prevent leakage and support faster healing.',
         images: [
-            'images/Surgical Products/Gamjee_Pad/Design A2.webp',
-            'images/Surgical Products/Gamjee_Pad/Design A3.webp',
-            'images/Surgical Products/Gamjee_Pad/Design B11.webp',
-            'images/Surgical Products/Gamjee_Pad/Design B3.webp'
+            'images/Surgical_Products_Gamjee_Pad_Design_A2.webp',
+            'images/Surgical_Products_Gamjee_Pad_Design_A3.webp',
+            'images/Surgical_Products_Gamjee_Pad_Design_B11.webp',
+            'images/Surgical_Products_Gamjee_Pad_Design_B3.webp'
         ]
     },
     'absorbent-cotton-gauze': {
@@ -157,9 +157,9 @@ const productData = {
         },
         useCase: 'Premium cotton softness with maximum absorbency for gentle yet effective wound care.',
         images: [
-            'images/Surgical Products/Absorbent_Cotton_Gauze/WhatsApp Image 2026-02-10 at 3.12.19 PM.webp',
-            'images/Surgical Products/Absorbent_Cotton_Gauze/WhatsApp Image 2026-02-10 at 3.19.02 PM (1).webp',
-            'images/Surgical Products/Absorbent_Cotton_Gauze/WhatsApp Image 2026-02-10 at 3.19.02 PM.webp'
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.12.19_PM.webp',
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.19.02_PM_(1).webp',
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.19.02_PM.webp'
         ]
     },
     'elastic-adhesive-bandage': {
@@ -183,8 +183,8 @@ const productData = {
         },
         useCase: 'Strong sticking power with stretchable comfort for secure fixation and flexible movement.',
         images: [
-            'images/Surgical Products/Elastic_Adhesive_Bandage/Design B2.webp',
-            'images/Surgical Products/Elastic_Adhesive_Bandage/Design B3.webp'
+            'images/Surgical_Products_Elastic_Adhesive_Bandage_Design_B2.webp',
+            'images/Surgical_Products_Elastic_Adhesive_Bandage_Design_B3.webp'
         ]
     },
     'cotton-crepe-bandage': {
@@ -208,8 +208,8 @@ const productData = {
         },
         useCase: 'Balanced compression and breathable cotton comfort for sprain support and swelling control.',
         images: [
-            'images/Surgical Products/Cotton_Crepe_Bandage/Design A1.webp',
-            'images/Surgical Products/Cotton_Crepe_Bandage/Design A2.webp'
+            'images/Surgical_Products_Cotton_Crepe_Bandage_Design_A1.webp',
+            'images/Surgical_Products_Cotton_Crepe_Bandage_Design_A2.webp'
         ]
     },
     'syringes': {
@@ -233,9 +233,9 @@ const productData = {
         },
         useCase: 'Smooth plunger glide with precise graduation markings for accurate dosing and safe injections.',
         images: [
-            'images/Surgical Products/Syringes/Design A2.webp',
-            'images/Surgical Products/Syringes/Design A5.webp',
-            'images/Surgical Products/Syringes/Design A6.webp'
+            'images/Surgical_Products_Syringes_Design_A2.webp',
+            'images/Surgical_Products_Syringes_Design_A5.webp',
+            'images/Surgical_Products_Syringes_Design_A6.webp'
         ]
     },
     'cannulas': {
@@ -259,10 +259,10 @@ const productData = {
         },
         useCase: 'Ultra-smooth insertion with optimal flow design for low-pressure IV access.',
         images: [
-            'images/Surgical Products/Cannulas/Design A2.webp',
-            'images/Surgical Products/Cannulas/Design A3.webp',
-            'images/Surgical Products/Cannulas/Design A4.webp',
-            'images/Surgical Products/Cannulas/Design A5.webp'
+            'images/Surgical_Products_Cannulas_Design_A2.webp',
+            'images/Surgical_Products_Cannulas_Design_A3.webp',
+            'images/Surgical_Products_Cannulas_Design_A4.webp',
+            'images/Surgical_Products_Cannulas_Design_A5.webp'
         ]
     },
     'examination-gloves': {
@@ -286,9 +286,9 @@ const productData = {
         },
         useCase: 'Comfort-fit barrier protection with enhanced tactile sensitivity for safe examinations.',
         images: [
-            'images/Surgical Products/Examination_Gloves/Design A2.webp',
-            'images/Surgical Products/Examination_Gloves/Design A3.webp',
-            'images/Surgical Products/Examination_Gloves/Design A4.webp'
+            'images/Surgical_Products_Examination_Gloves_Design_A2.webp',
+            'images/Surgical_Products_Examination_Gloves_Design_A3.webp',
+            'images/Surgical_Products_Examination_Gloves_Design_A4.webp'
         ]
     },
     'surgical-gloves': {
@@ -312,10 +312,10 @@ const productData = {
         },
         useCase: 'Sterile, high-durability protection with precision grip for critical surgical performance.',
         images: [
-            'images/Surgical Products/Surgical_Gloves/Design A1.webp',
-            'images/Surgical Products/Surgical_Gloves/Design A2.webp',
-            'images/Surgical Products/Surgical_Gloves/Design A3.webp',
-            'images/Surgical Products/Surgical_Gloves/Design A4.webp'
+            'images/Surgical_Products_Surgical_Gloves_Design_A1.webp',
+            'images/Surgical_Products_Surgical_Gloves_Design_A2.webp',
+            'images/Surgical_Products_Surgical_Gloves_Design_A3.webp',
+            'images/Surgical_Products_Surgical_Gloves_Design_A4.webp'
         ]
     }
 };

@@ -1614,6 +1614,8 @@
     transition: transform 0.6s ease;
 }
 
+
+
 .journey-image-wrap:hover img,
 .journey-image-wrap:hover video {
     transform: scale(1.03);
@@ -1741,6 +1743,8 @@
         height: 300px;
     }
 }
+
+
 
 @media (max-width: 600px) {
     .journey-title {

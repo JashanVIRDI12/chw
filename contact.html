@@ -114,23 +114,12 @@
 
                     <div class="contact-detail-item">
                         <div class="contact-detail-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-detail-text">
-                            <h4>Office Address</h4>
-                            <p>Chase Healthcare &amp; Wellness Pvt Ltd<br>
-                                [Address Line 1]<br>
-                                [City, State – PIN Code]</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail-item">
-                        <div class="contact-detail-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-detail-text">
                             <h4>Phone</h4>
-                            <a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a>
+                            <a href="tel:+919560369222">+91 95603 69222</a><br>
+                            <a href="tel:+919560367222">+91 95603 67222</a>
                         </div>
                     </div>
 
@@ -140,7 +129,7 @@
                         </div>
                         <div class="contact-detail-text">
                             <h4>Email</h4>
-                            <a href="mailto:info@chasehealthcare.com">info@chasehealthcare.com</a>
+                            <a href="mailto:contact@chw.co.in">contact@chw.co.in</a>
                         </div>
                     </div>
 
@@ -160,7 +149,28 @@
                         </div>
                         <div class="contact-detail-text">
                             <h4>Export Inquiries</h4>
-                            <a href="mailto:exports@chasehealthcare.com">exports@chasehealthcare.com</a>
+                            <a href="mailto:Rajneet@chw.co.in">Rajneet@chw.co.in</a><br>
+                            <a href="mailto:Manish@chw.co.in">Manish@chw.co.in</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="contact-detail-text">
+                            <h4>Head Office</h4>
+                            <p>Plot No. 39, Lakhnawali,<br>Greater Noida 201306</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="contact-detail-text">
+                            <h4>Corporate Office</h4>
+                            <p>A-205, 2nd Floor, Anthurium,<br>Sector-73, Noida-201307</p>
                         </div>
                     </div>
 
@@ -352,22 +362,22 @@
                     <li><a href="nutra.html">Nutraceutical</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Chase Healthcare &amp; Wellness Pvt Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
+        // ── EmailJS Initialization ─────────────────────
+        emailjs.init("TjqiXbxf6gOXDaq0X");
+
         // ── Inquiry type tab switching ─────────────────
         const tabs = document.querySelectorAll('.inquiry-tab');
         const inquiryInput = document.getElementById('inquiryType');
@@ -380,7 +390,7 @@
             });
         });
 
-        // ── Form submission ────────────────────────────
+        // ── Form submission via EmailJS ────────────────
         const form = document.getElementById('contactForm');
         const btn = document.getElementById('submitBtn');
 
@@ -390,23 +400,50 @@
                 form.reportValidity();
                 return;
             }
-            // Simulate sending
+
+            // Show loading state
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                btn.classList.add('success');
-                form.reset();
-                tabs.forEach(t => t.classList.remove('active'));
-                tabs[0].classList.add('active');
+            // Collect form data for EmailJS template
+            const templateParams = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                user_email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || 'Not provided',
+                company: document.getElementById('company').value || 'Not provided',
+                country: document.getElementById('country').value,
+                inquiry_type: inquiryInput.value.charAt(0).toUpperCase() + inquiryInput.value.slice(1),
+                message: document.getElementById('message').value,
+            };
 
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                    btn.classList.remove('success');
-                    btn.disabled = false;
-                }, 3500);
-            }, 1600);
+            emailjs.send('service_q0zwt6a', 'template_jwwwpzk', templateParams)
+                .then(() => {
+                    // Success
+                    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    btn.classList.add('success');
+                    form.reset();
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabs[0].classList.add('active');
+
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        btn.classList.remove('success');
+                        btn.disabled = false;
+                    }, 3500);
+                })
+                .catch((error) => {
+                    // Error
+                    console.error('EmailJS Error:', error);
+                    btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to Send';
+                    btn.classList.add('error');
+
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        btn.classList.remove('error');
+                        btn.disabled = false;
+                    }, 3500);
+                });
         });
     </script>
 

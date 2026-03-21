@@ -1,0 +1,12 @@
+# robots.txt for Chase Healthcare & Wellness
+# https://chw.co.in
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://chw.co.in/sitemap.xml
+
+# Disallow non-public directories
+Disallow: /js/
+Disallow: /.git/

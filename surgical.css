@@ -18,8 +18,9 @@
     object-fit: cover;
     z-index: 0;
     filter: brightness(0.65);
-    /* Keeps text readable */
 }
+
+
 
 /* Gradient overlay to match the premium theme */
 .surgical-hero-overlay {
@@ -121,6 +122,8 @@
     .surgical-hero-section::after {
         display: none !important;
     }
+
+
 
     #productModal .nutra-modal-content {
         grid-template-columns: 1fr;
