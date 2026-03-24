@@ -157,9 +157,9 @@ const productData = {
         },
         useCase: 'Premium cotton softness with maximum absorbency for gentle yet effective wound care.',
         images: [
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.12.19_PM.webp',
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.19.02_PM_(1).webp',
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2026-02-10_at_3.19.02_PM.webp'
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.12.19_PM.webp',
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.19.02_PM_(1).webp',
+            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.19.02_PM.webp'
         ]
     },
     'elastic-adhesive-bandage': {
