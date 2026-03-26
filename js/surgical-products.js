@@ -25,10 +25,7 @@ const productData = {
         },
         useCase: 'High absorbency with soft, skin-friendly fabric for effective wound clearing and dressing.',
         images: [
-            'images/Surgical_Products_Gauze_Swab_Design_B1.webp',
-            'images/Surgical_Products_Gauze_Swab_Design_B4.webp',
-            'images/Surgical_Products_Gauze_Swab_Design_B5.webp',
-            'images/Surgical_Products_Gauze_Swab_Design_B6.webp'
+            'images/Gauze Swab.webp'
         ]
     },
     'abdominal-sponges': {
@@ -183,8 +180,7 @@ const productData = {
         },
         useCase: 'Strong sticking power with stretchable comfort for secure fixation and flexible movement.',
         images: [
-            'images/Surgical_Products_Elastic_Adhesive_Bandage_Design_B2.webp',
-            'images/Surgical_Products_Elastic_Adhesive_Bandage_Design_B3.webp'
+            'images/Elastic Adhesive Bandage.webp'
         ]
     },
     'cotton-crepe-bandage': {
@@ -233,9 +229,10 @@ const productData = {
         },
         useCase: 'Smooth plunger glide with precise graduation markings for accurate dosing and safe injections.',
         images: [
-            'images/Surgical_Products_Syringes_Design_A2.webp',
-            'images/Surgical_Products_Syringes_Design_A5.webp',
-            'images/Surgical_Products_Syringes_Design_A6.webp'
+            'images/syringe/WhatsApp Image 2026-03-25 at 1.01.10 PM.jpeg',
+            'images/syringe/WhatsApp Image 2026-03-25 at 1.01.13 PM.jpeg',
+            'images/syringe/WhatsApp Image 2026-03-25 at 1.01.15 PM.jpeg',
+            'images/syringe/WhatsApp Image 2026-03-25 at 1.01.17 PM.jpeg'
         ]
     },
     'cannulas': {
@@ -259,10 +256,11 @@ const productData = {
         },
         useCase: 'Ultra-smooth insertion with optimal flow design for low-pressure IV access.',
         images: [
-            'images/Surgical_Products_Cannulas_Design_A2.webp',
-            'images/Surgical_Products_Cannulas_Design_A3.webp',
-            'images/Surgical_Products_Cannulas_Design_A4.webp',
-            'images/Surgical_Products_Cannulas_Design_A5.webp'
+            'images/cannulas/WhatsApp Image 2026-03-25 at 12.59.28 PM.jpeg',
+            'images/cannulas/WhatsApp Image 2026-03-25 at 12.59.30 PM.jpeg',
+            'images/cannulas/WhatsApp Image 2026-03-25 at 12.59.32 PM.jpeg',
+            'images/cannulas/WhatsApp Image 2026-03-25 at 12.59.34 PM.jpeg',
+            'images/cannulas/WhatsApp Image 2026-03-25 at 12.59.37 PM.jpeg'
         ]
     },
     'examination-gloves': {
@@ -286,9 +284,7 @@ const productData = {
         },
         useCase: 'Comfort-fit barrier protection with enhanced tactile sensitivity for safe examinations.',
         images: [
-            'images/Surgical_Products_Examination_Gloves_Design_A2.webp',
-            'images/Surgical_Products_Examination_Gloves_Design_A3.webp',
-            'images/Surgical_Products_Examination_Gloves_Design_A4.webp'
+            'images/Examination Gloves.webp'
         ]
     },
     'surgical-gloves': {
@@ -312,10 +308,7 @@ const productData = {
         },
         useCase: 'Sterile, high-durability protection with precision grip for critical surgical performance.',
         images: [
-            'images/Surgical_Products_Surgical_Gloves_Design_A1.webp',
-            'images/Surgical_Products_Surgical_Gloves_Design_A2.webp',
-            'images/Surgical_Products_Surgical_Gloves_Design_A3.webp',
-            'images/Surgical_Products_Surgical_Gloves_Design_A4.webp'
+            'images/Surgical Gloves.webp'
         ]
     }
 };

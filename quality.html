@@ -152,48 +152,160 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="section section-dark">
+    <section class="section" style="background: #f8f6f1; padding: 5rem 0;">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Our Credentials</span>
                 <h2>Our Proud Certifications</h2>
-                <p>Credentials that validate our commitment to quality</p>
+                <p>Internationally recognised credentials validating our commitment to quality and safety</p>
             </div>
 
-            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
-                <div class="cert-item">
-                    <div class="cert-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>WHO-GMP Certified</h3>
-                        <p>World Health Organization Good Manufacturing Practices certification ensures our products
-                            meet global standards for quality and safety.</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>ISO Certified</h3>
-                        <p>International standards for quality management and process control, providing a robust
-                            framework for consistent excellence.</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Full Regulatory Compliance</h3>
-                        <p>Meeting all applicable Indian and international healthcare regulations, ensuring complete
-                            legal and safety compliance.</p>
+            <div class="cert-grid" style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                max-width: 1080px;
+                margin: 0 auto;
+            ">
+
+                <!-- WHO-GMP -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_who_gmp.png" alt="WHO-GMP Certified" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">WHO-GMP Certified</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">World Health Organization Good Manufacturing Practice certification ensuring global quality standards.</p>
                     </div>
                 </div>
+
+                <!-- ISO 9001 -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_iso_9001.png" alt="ISO 9001 Certified" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">ISO 9001</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">International quality management system certification for consistent product quality.</p>
+                    </div>
+                </div>
+
+                <!-- HACCP -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_haccp.png" alt="HACCP Certified" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">HACCP</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">Hazard Analysis Critical Control Points system for food safety management.</p>
+                    </div>
+                </div>
+
+                <!-- FSSAI -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_fssai.png" alt="FSSAI Approved" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">FSSAI Approved</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">Food Safety and Standards Authority of India approval for all food and nutraceutical products.</p>
+                    </div>
+                </div>
+
+                <!-- NABL -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_nabl.png" alt="NABL Lab-tested" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">NABL Lab-tested</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">National Accreditation Board for Testing and Calibration Laboratories certified testing reports.</p>
+                    </div>
+                </div>
+
+                <!-- Organic -->
+                <div class="cert-card" style="
+                    background: #ffffff;
+                    border: 1px solid #e8e2d8;
+                    border-radius: 20px;
+                    padding: 2rem 1.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1.25rem;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: default;
+                " onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <img src="images/cert_organic.png" alt="Organic Certified" style="width:120px;height:120px;object-fit:contain;border-radius:50%;box-shadow:0 4px 18px rgba(0,0,0,0.1);">
+                    <div>
+                        <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">Organic Certifications</h3>
+                        <p style="font-size:0.82rem;line-height:1.6;color:#666;margin:0;">EcoCert and other organic certifications for applicable products ensuring natural purity.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <style>
+        @media (max-width: 900px) {
+            .cert-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 560px) {
+            .cert-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
 
     <!-- CTA Section -->
     <section class="cta-section">
