@@ -53,7 +53,7 @@ const productData = {
         ]
     },
     'gauze-than': {
-        name: 'Gauze Than (Roll)',
+        name: 'Gauze Than',
         tagline: 'Softan',
         number: '03',
         tag: 'Medical Grade',
@@ -73,8 +73,7 @@ const productData = {
         },
         useCase: 'Breathable and easy-to-wrap gauze rolls for comfortable and reliable wound dressing.',
         images: [
-            'images/Surgical_Products_Gauze_Than_(Roll)_Design_B1.webp',
-            'images/Surgical_Products_Gauze_Than_(Roll)_Design_B2.webp'
+            'images/cottongauze.jpeg'
         ]
     },
     'gamjee-roll': {
@@ -149,7 +148,6 @@ const productData = {
         },
         useCase: 'Premium cotton softness with maximum absorbency for gentle yet effective wound care.',
         images: [
-            'images/cottongauze.jpeg',
             'images/cottongauze2.jpeg'
         ]
     },
