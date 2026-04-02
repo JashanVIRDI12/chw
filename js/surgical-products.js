@@ -49,10 +49,7 @@ const productData = {
         },
         useCase: 'Superior fluid absorption with strong fabric integrity for safe use during surgical procedures.',
         images: [
-            'images/Surgical_Products_Abdominal_Sponges_Design_A1.webp',
-            'images/Surgical_Products_Abdominal_Sponges_Design_A2.webp',
-            'images/Surgical_Products_Abdominal_Sponges_Design_A3.webp',
-            'images/Surgical_Products_Abdominal_Sponges_Design_A4.webp'
+            'images/abdominalsponges.jpeg'
         ]
     },
     'gauze-than': {
@@ -101,9 +98,7 @@ const productData = {
         },
         useCase: 'Extra cushioning and padding support that protects wounds and improves comfort during recovery.',
         images: [
-            'images/Surgical_Products_Gamjee_Roll_Design_B1.webp',
-            'images/Surgical_Products_Gamjee_Roll_Design_B2.webp',
-            'images/Surgical_Products_Gamjee_Roll_Design_B3.webp'
+            'images/gamjeeroll.jpeg'
         ]
     },
     'gamjee-pad': {
@@ -154,9 +149,8 @@ const productData = {
         },
         useCase: 'Premium cotton softness with maximum absorbency for gentle yet effective wound care.',
         images: [
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.12.19_PM.webp',
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.19.02_PM_(1).webp',
-            'images/Surgical_Products_Absorbent_Cotton_Gauze_WhatsApp_Image_2023-02-10_at_3.19.02_PM.webp'
+            'images/cottongauze.jpeg',
+            'images/cottongauze2.jpeg'
         ]
     },
     'elastic-adhesive-bandage': {
