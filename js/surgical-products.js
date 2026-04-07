@@ -66,7 +66,7 @@ const productData = {
             'Suitable for multiple medical uses'
         ],
         specs: {
-            'Material': 'Pure cotton gauze',
+            'Material': 'Pure cotton roll',
             'Width': 'Various widths available',
             'Length': 'Standard roll lengths',
             'Grade': 'Medical Grade BP/USP'
@@ -128,8 +128,8 @@ const productData = {
         ]
     },
     'absorbent-cotton-gauze': {
-        name: 'Absorbent Cotton Gauze',
-        tagline: 'Absorb Gauze',
+        name: 'Absorbent Cotton Roll',
+        tagline: 'Absorb Roll',
         number: '06',
         tag: '100% Cotton',
         description: 'Made from high-quality cotton for maximum absorbency. Soft, breathable, and gentle on sensitive skin. Suitable for wound cleaning, dressing, and packing.',
@@ -142,7 +142,7 @@ const productData = {
         ],
         specs: {
             'Purity': '100% Cotton',
-            'Type': 'Absorbent gauze',
+            'Type': 'Absorbent roll',
             'Applications': 'Wound care, cleaning, packing',
             'Standards': 'BP/USP Compliant'
         },
@@ -172,7 +172,7 @@ const productData = {
         },
         useCase: 'Strong sticking power with stretchable comfort for secure fixation and flexible movement.',
         images: [
-            'images/Elastic Adhesive Bandage.webp'
+            'images/elasticadhesive.jpeg'
         ]
     },
     'cotton-crepe-bandage': {
