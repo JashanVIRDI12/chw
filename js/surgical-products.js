@@ -101,11 +101,11 @@ const productData = {
         ]
     },
     'gamjee-pad': {
-        name: 'Gamjee Pad',
-        tagline: 'GamjePro',
+        name: 'Dressing Pad',
+        tagline: 'DressPro',
         number: '05',
         tag: 'Sterile Pack',
-        description: 'Highly absorbent gamjee pads designed for effective wound protection. Soft and cushioned to enhance patient comfort. Helps prevent leakage and supports faster healing.',
+        description: 'Highly absorbent dressing pads designed for effective wound protection. Soft and cushioned to enhance patient comfort. Helps prevent leakage and supports faster healing.',
         features: [
             'Highly absorbent pads with cushioning',
             'Soft cushioning for wound protection',
@@ -121,10 +121,7 @@ const productData = {
         },
         useCase: 'Highly absorbent pads cushioned and designed to prevent leakage and support faster healing.',
         images: [
-            'images/Surgical_Products_Gamjee_Pad_Design_A2.webp',
-            'images/Surgical_Products_Gamjee_Pad_Design_A3.webp',
-            'images/Surgical_Products_Gamjee_Pad_Design_B11.webp',
-            'images/Surgical_Products_Gamjee_Pad_Design_B3.webp'
+            'images/dressingpad.jpeg'
         ]
     },
     'absorbent-cotton-gauze': {
