@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalogue – Chase Healthcare & Wellness</title>
+    <meta name="description" content="Download the complete CHW product catalogue — 100+ surgical, Ayurvedic & nutraceutical products. WHO-GMP Certified.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=2.3">
+
+    <style>
+        :root {
+            --primary: #006241;
+            --primary-dark: #004d33;
+            --primary-light: #008a5c;
+            --gold: #c8a96e;
+            --gold-light: #e8c98e;
+            --cream: #fffae9;
+            --bg-cream: #f8f4ec;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --text-light: #7a7a7a;
+            --border: rgba(0,98,65,0.1);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            padding: 9rem 2rem 5rem;
+            background: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .page-header-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+        .page-header-eyebrow::before,
+        .page-header-eyebrow::after {
+            content: '';
+            display: inline-block;
+            width: 28px; height: 1px;
+            background: var(--primary);
+        }
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.08;
+            margin-bottom: 1.25rem;
+        }
+        .page-header h1 em { color: var(--primary); font-style: italic; }
+        .page-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-light);
+            line-height: 1.85;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+        }
+        .header-cta-row {
+            display: flex;
+            gap: 0.9rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0,98,65,0.3);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1.5px solid rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--gold);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 1rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(200,169,110,0.4);
+        }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(200,169,110,0.5);
+        }
+
+        /* ── STAT STRIP ── */
+        .stat-strip {
+            background: #f9f9f9;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .stat-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .sstat {
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-right: 1px solid rgba(0,0,0,0.05);
+        }
+        .sstat:last-child { border-right: none; }
+        .sstat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .sstat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        /* ── WHAT'S INSIDE ── */
+        .inside-section {
+            padding: 7rem 2rem;
+            background: #fff;
+        }
+        .section-head {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            display: inline-block;
+            width: 20px; height: 1px;
+            background: var(--primary);
+        }
+        .section-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.15;
+        }
+        .section-h2 em { color: var(--primary); font-style: italic; }
+        .section-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 0.75rem;
+            line-height: 1.75;
+        }
+
+        .inside-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .inside-card {
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem 1.75rem;
+            background: #fff;
+            position: relative;
+            transition: all 0.35s ease;
+            overflow: hidden;
+        }
+        .inside-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .inside-card:hover::after { transform: scaleX(1); }
+        .inside-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.07);
+            border-color: rgba(0,98,65,0.2);
+        }
+        .inside-card-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(0,98,65,0.07);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .inside-card-icon {
+            width: 52px; height: 52px;
+            background: rgba(0,98,65,0.07);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .inside-card:hover .inside-card-icon {
+            background: var(--primary);
+            color: #fff;
+        }
+        .inside-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+        }
+        .inside-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.84rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+        .inside-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            background: rgba(0,98,65,0.07);
+            color: var(--primary);
+            padding: 0.22rem 0.65rem;
+            border-radius: 50px;
+        }
+
+        /* ── DOWNLOAD CTA ── */
+        .download-section {
+            padding: 7rem 2rem;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .download-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .dl-text { }
+        .dl-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.12;
+            margin-bottom: 1.25rem;
+        }
+        .dl-text h2 em { color: var(--primary); font-style: italic; }
+        .dl-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+        .dl-checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+        .dl-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .dl-checklist li i {
+            color: var(--primary);
+            font-size: 0.75rem;
+        }
+        .dl-btns {
+            display: flex;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        /* PDF Visual */
+        .dl-visual {
+            position: relative;
+        }
+        .pdf-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+        }
+        .pdf-card-top {
+            background: var(--primary);
+            padding: 2.5rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .pdf-card-top::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 150px; height: 150px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .pdf-card-top::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; left: 20px;
+            width: 100px; height: 100px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .pdf-card-logo {
+            width: 70px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .pdf-card-title {
+            position: relative;
+            z-index: 1;
+        }
+        .pdf-card-title small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 0.4rem;
+        }
+        .pdf-card-title h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .pdf-card-body {
+            padding: 1.75rem 2rem;
+        }
+        .pdf-line {
+            height: 8px;
+            border-radius: 4px;
+            background: var(--bg-cream);
+            margin-bottom: 0.6rem;
+        }
+        .pdf-line:nth-child(1) { width: 85%; }
+        .pdf-line:nth-child(2) { width: 65%; }
+        .pdf-line:nth-child(3) { width: 92%; }
+        .pdf-line:nth-child(4) { width: 50%; }
+        .pdf-divider {
+            margin: 1.25rem 0;
+            height: 1px;
+            background: var(--border);
+        }
+        .pdf-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .pdf-meta-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            color: var(--text-light);
+            background: var(--bg-cream);
+            padding: 0.35rem 0.8rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+        }
+        .pdf-meta-chip i { color: var(--primary); font-size: 0.65rem; }
+
+        /* floating badge */
+        .dl-badge {
+            position: absolute;
+            top: -1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 0.55rem 1.1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 8px 20px rgba(0,98,65,0.3);
+            animation: badgeBob 3s ease-in-out infinite;
+            z-index: 10;
+        }
+        @keyframes badgeBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* ── STEPS ── */
+        .steps-section {
+            padding: 7rem 2rem;
+            background: #fff;
+        }
+        .steps-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .steps-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .step {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            background: #fff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+            border-color: rgba(0,98,65,0.2);
+        }
+        .step-badge {
+            width: 52px; height: 52px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin: 0 auto 1.5rem;
+        }
+        .step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 0.65rem;
+        }
+        .step p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.84rem;
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+
+        /* ── CERTIFICATIONS ── */
+        .certs-section {
+            padding: 5rem 2rem;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
+        }
+        .certs-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        .cert-chip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1.5rem 0.75rem;
+            background: #fff;
+            border-radius: 16px;
+            border: 1.5px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .cert-chip:hover {
+            border-color: rgba(0,98,65,0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+        }
+        .cert-chip img {
+            width: 44px; height: 44px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
+        .cert-chip span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.63rem;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* ── BOTTOM CTA BANNER ── */
+        .cta-banner {
+            background: var(--primary);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-banner h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .cta-banner h2 em { color: var(--gold-light); font-style: italic; }
+        .cta-banner p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .cta-banner-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #fff;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+        }
+        .btn-white-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.85);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.3s ease;
+        }
+        .btn-white-ghost:hover {
+            background: rgba(255,255,255,0.16);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ── REVEAL ANIMATIONS ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .reveal.left  { transform: translateX(-40px); }
+        .reveal.right { transform: translateX(40px); }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
+        .d5 { transition-delay: 0.5s; }
+        .d6 { transition-delay: 0.6s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .download-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .inside-grid, .steps-row { grid-template-columns: 1fr 1fr; }
+            .certs-grid { grid-template-columns: repeat(3, 1fr); }
+            .stat-strip-inner { grid-template-columns: repeat(2, 1fr); }
+            .sstat:nth-child(2) { border-right: none; }
+        }
+        @media (max-width: 640px) {
+            .inside-grid, .steps-row { grid-template-columns: 1fr; }
+            .certs-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="images/2.webp" class="logo" alt="Chase Healthcare & Wellness">
+        </a>
+        <div class="nav-menu">
+            <a href="index.html">Home</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                <div class="nav-dropdown-menu">
+                    <a href="surgical.html" class="nav-dropdown-item">
+                        <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                        <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables & instruments</small></div>
+                    </a>
+                    <a href="vitantra.html" class="nav-dropdown-item">
+                        <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                        <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic & herbal formulations</small></div>
+                    </a>
+                    <a href="nutra.html" class="nav-dropdown-item">
+                        <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                        <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="about-chw.html" class="nav-dropdown-trigger">About <i class="fas fa-chevron-down"></i></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-chw.html" class="nav-dropdown-item">
+                        <div class="nav-dropdown-icon chw-dd"><i class="fas fa-building"></i></div>
+                        <div class="nav-dropdown-text"><span>About CHW</span><small>Chase Healthcare & Wellness</small></div>
+                    </a>
+                    <a href="about-vitantra.html" class="nav-dropdown-item">
+                        <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                        <div class="nav-dropdown-text"><span>About Vitantra</span><small>Our natural wellness brand</small></div>
+                    </a>
+                </div>
+            </div>
+            <a href="manufacturing.html">Manufacturing</a>
+            <a href="quality.html">Quality</a>
+            <a href="catalog.html">Catalogue</a>
+            <a href="contact.html" class="nav-btn">Contact Us</a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- ─── PAGE HEADER ─── -->
+<section class="page-header">
+    <div class="page-header-eyebrow">Official Document · 2026-27</div>
+    <h1>Download Our <em>Complete</em><br>Product Catalogue</h1>
+    <p>100+ products across surgical, Ayurvedic &amp; nutraceutical categories — all in one free PDF. Trusted by healthcare professionals across India.</p>
+    <div class="header-cta-row">
+        <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="btn-primary" id="hero-download">
+            <i class="fas fa-download"></i> Download Free PDF
+        </a>
+    </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div class="stat-strip">
+    <div class="stat-strip-inner">
+        <div class="sstat reveal d1">
+            <div class="sstat-num" data-count="100">100+</div>
+            <div class="sstat-label">Products Listed</div>
+        </div>
+        <div class="sstat reveal d2">
+            <div class="sstat-num">3</div>
+            <div class="sstat-label">Product Verticals</div>
+        </div>
+        <div class="sstat reveal d3">
+            <div class="sstat-num">WHO</div>
+            <div class="sstat-label">GMP Certified</div>
+        </div>
+        <div class="sstat reveal d4">
+            <div class="sstat-num">ISO</div>
+            <div class="sstat-label">Quality Assured</div>
+        </div>
+    </div>
+</div>
+
+<!-- ─── WHAT'S INSIDE ─── -->
+<section class="inside-section">
+    <div class="section-head reveal">
+        <div class="section-eyebrow">What's Inside</div>
+        <h2 class="section-h2">Browse by <em>Category</em></h2>
+        <p class="section-sub">Three complete product verticals, fully detailed in one document.</p>
+    </div>
+
+    <div class="inside-grid">
+        <div class="inside-card reveal d1">
+            <div class="inside-card-number">01</div>
+            <div class="inside-card-icon"><i class="fas fa-syringe"></i></div>
+            <h3>Surgical & Medical</h3>
+            <p>Precision surgical instruments, bandages, gloves, cannulas, and disposable medical supplies trusted by hospitals across India.</p>
+            <div class="inside-card-tags">
+                <span class="tag">Bandages</span>
+                <span class="tag">Gloves</span>
+                <span class="tag">Cannulas</span>
+                <span class="tag">Gauze</span>
+                <span class="tag">Syringes</span>
+            </div>
+        </div>
+        <div class="inside-card reveal d2">
+            <div class="inside-card-number">02</div>
+            <div class="inside-card-icon"><i class="fas fa-leaf"></i></div>
+            <h3>Vitantra Ayurvedic</h3>
+            <p>Pure single-herb Ayurvedic capsules and herbal blends — from Ashwagandha to Shilajit — crafted for holistic well-being.</p>
+            <div class="inside-card-tags">
+                <span class="tag">Ashwagandha</span>
+                <span class="tag">Giloy</span>
+                <span class="tag">Shilajit</span>
+                <span class="tag">Tulsi</span>
+                <span class="tag">Neem</span>
+            </div>
+        </div>
+        <div class="inside-card reveal d3">
+            <div class="inside-card-number">03</div>
+            <div class="inside-card-icon"><i class="fas fa-capsules"></i></div>
+            <h3>Nutraceuticals</h3>
+            <p>Science-backed supplements for immunity, fitness, gut health, beauty &amp; hormonal balance — engineered for the modern lifestyle.</p>
+            <div class="inside-card-tags">
+                <span class="tag">Protein</span>
+                <span class="tag">Vitamins</span>
+                <span class="tag">Probiotics</span>
+                <span class="tag">Collagen</span>
+                <span class="tag">BCAA</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── DOWNLOAD SPLIT ─── -->
+<section class="download-section" id="download">
+    <div class="download-inner">
+        <!-- Text -->
+        <div class="dl-text reveal left">
+            <div class="section-eyebrow" style="justify-content:flex-start;margin-bottom:1.25rem;">Download Now</div>
+            <h2>Everything You Need,<br><em>In One PDF</em></h2>
+            <p>Our product catalogue is a comprehensive reference for distributors, hospitals, and B2B partners — covering specifications, certifications, and contact details.</p>
+            <ul class="dl-checklist">
+                <li><i class="fas fa-check"></i> Full product specifications & descriptions</li>
+                <li><i class="fas fa-check"></i> Packaging sizes & MOQ information</li>
+                <li><i class="fas fa-check"></i> WHO-GMP & ISO certification details</li>
+                <li><i class="fas fa-check"></i> Ordering & contact information</li>
+                <li><i class="fas fa-check"></i> Free — no sign-up required</li>
+            </ul>
+            <div class="dl-btns">
+                <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="btn-gold" id="split-download">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </a>
+                <a href="contact.html" class="btn-outline">
+                    <i class="fas fa-headset"></i> Talk to B2B Team
+                </a>
+            </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="dl-visual reveal right">
+            <div class="dl-badge">
+                <i class="fas fa-check-circle"></i> Free Download
+            </div>
+            <div class="pdf-card">
+                <div class="pdf-card-top">
+                    <img src="images/1.webp" alt="CHW Logo" class="pdf-card-logo">
+                    <div class="pdf-card-title">
+                        <small>Chase Healthcare & Wellness Pvt. Ltd.</small>
+                        <h3>Product<br>Catalogue<br>2026-27</h3>
+                    </div>
+                </div>
+                <div class="pdf-card-body">
+                    <div class="pdf-line"></div>
+                    <div class="pdf-line"></div>
+                    <div class="pdf-line"></div>
+                    <div class="pdf-line"></div>
+                    <div class="pdf-divider"></div>
+                    <div class="pdf-meta">
+                        <span class="pdf-meta-chip"><i class="fas fa-certificate"></i> WHO-GMP</span>
+                        <span class="pdf-meta-chip"><i class="fas fa-shield-alt"></i> ISO</span>
+                        <span class="pdf-meta-chip"><i class="fas fa-leaf"></i> FSSAI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="steps-section">
+    <div class="steps-inner">
+        <div class="section-head reveal">
+            <div class="section-eyebrow">Simple Process</div>
+            <h2 class="section-h2">How to <em>Partner With Us</em></h2>
+        </div>
+        <div class="steps-row">
+            <div class="step reveal d1">
+                <div class="step-badge">1</div>
+                <h3>Download the Catalogue</h3>
+                <p>Get the full PDF instantly — browse all 100+ products, specifications, and certifications at your own pace.</p>
+            </div>
+            <div class="step reveal d2">
+                <div class="step-badge">2</div>
+                <h3>Select Your Products</h3>
+                <p>Identify the products you need — surgical, Ayurvedic, or nutraceutical — and note the product codes.</p>
+            </div>
+            <div class="step reveal d3">
+                <div class="step-badge">3</div>
+                <h3>Reach Out to Us</h3>
+                <p>Share your shortlist with our B2B team. We'll provide pricing, MOQ details, and set up your account.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CERTIFICATIONS ─── -->
+<section class="certs-section">
+    <div class="certs-inner">
+        <div class="section-head reveal">
+            <div class="section-eyebrow">Our Credentials</div>
+            <h2 class="section-h2">Quality You Can <em>Trust</em></h2>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-chip reveal d1">
+                <img src="images/cert_who_gmp.png" alt="WHO-GMP">
+                <span>WHO-GMP<br>Certified</span>
+            </div>
+            <div class="cert-chip reveal d2">
+                <img src="images/cert_iso_9001.png" alt="ISO 9001">
+                <span>ISO 9001<br>Compliant</span>
+            </div>
+            <div class="cert-chip reveal d3">
+                <img src="images/cert_fssai.png" alt="FSSAI">
+                <span>FSSAI<br>Certified</span>
+            </div>
+            <div class="cert-chip reveal d4">
+                <img src="images/cert_haccp.png" alt="HACCP">
+                <span>HACCP<br>Certified</span>
+            </div>
+            <div class="cert-chip reveal d5">
+                <img src="images/cert_nabl.png" alt="NABL">
+                <span>NABL<br>Approved Lab</span>
+            </div>
+            <div class="cert-chip reveal d6">
+                <img src="images/cert_organic.png" alt="Organic">
+                <span>Organic<br>Certified</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── BOTTOM CTA ─── -->
+<section class="cta-banner">
+    <h2 class="reveal">Ready to <em>Get Started?</em></h2>
+    <p class="reveal" style="transition-delay:0.1s;">Download our catalogue and take the first step towards a trusted healthcare partnership.</p>
+    <div class="cta-banner-btns reveal" style="transition-delay:0.2s;">
+        <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="btn-white" id="footer-download">
+            <i class="fas fa-download"></i> Download Catalogue Now
+        </a>
+        <a href="contact.html" class="btn-white-ghost">
+            <i class="fas fa-phone-alt"></i> Contact Us
+        </a>
+    </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <img src="images/1.webp" class="logo" alt="CHW Logo">
+            </a>
+            <p>Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1DoPvFjgJA/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/chase_healthcare?igsh=MWQ0ZHkzMHdtZnlpdA==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919560369222" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p style="margin-top:1rem;color:rgba(255,255,255,0.7);"><i class="fas fa-phone-alt" style="margin-right:0.5rem;"></i>+91 95603 69222</p>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="about-chw.html">About CHW</a></li>
+                <li><a href="about-vitantra.html">About Vitantra</a></li>
+                <li><a href="manufacturing.html">Manufacturing</a></li>
+                <li><a href="quality.html">Quality</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="surgical.html">Surgical</a></li>
+                <li><a href="vitantra.html">Vitantra</a></li>
+                <li><a href="nutra.html">Nutraceuticals</a></li>
+                <li><a href="catalog.html">Download Catalogue</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Chase Healthcare &amp; Wellness Pvt Ltd. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    /* ── SCROLL REVEAL ── */
+    (function () {
+        const els = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.1 });
+        els.forEach(el => io.observe(el));
+    })();
+</script>
+</body>
+</html>

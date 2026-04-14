@@ -956,6 +956,293 @@
             flex-wrap: wrap;
         }
 
+        /* ===== CATALOG SECTION (Homepage) ===== */
+        .hp-catalog {
+            position: relative;
+            padding: 7rem 2rem;
+            background: var(--bg-cream);
+            overflow: hidden;
+        }
+
+        .hp-catalog-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            min-height: 520px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 98, 65, 0.08);
+            border: 1px solid rgba(0,98,65,0.08);
+            background: #fff;
+        }
+
+        /* Left panel — visual */
+        .hp-cat-left {
+            position: relative;
+            background: #004d33;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 3rem 5rem 4rem;
+            overflow: hidden;
+        }
+
+        .hp-cat-left-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 70% at 20% 50%, rgba(0,98,65,0.45) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 50% at 90% 20%, rgba(200,169,110,0.1) 0%, transparent 60%);
+        }
+
+        .hp-cat-left-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,98,65,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,98,65,0.07) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 90%);
+        }
+
+        /* pulsing rings */
+        .hp-cat-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(0,150,80,0.15);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .hp-cat-ring:nth-child(1) { width: 300px; height: 300px; animation: hpRingPulse 3.5s ease-in-out infinite; }
+        .hp-cat-ring:nth-child(2) { width: 450px; height: 450px; animation: hpRingPulse 3.5s ease-in-out -1.2s infinite; border-color: rgba(0,150,80,0.08); }
+
+        @keyframes hpRingPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.4; }
+        }
+
+        .hp-cat-icon-wrap {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hp-cat-pdf-icon {
+            width: 110px;
+            height: 130px;
+            background: linear-gradient(145deg, rgba(0,98,65,0.5), rgba(0,70,45,0.8));
+            border-radius: 16px 24px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+            animation: pdfFloat 4s ease-in-out infinite;
+        }
+
+        .hp-cat-pdf-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 28px;
+            height: 28px;
+            background: rgba(200,169,110,0.25);
+            clip-path: polygon(100% 0, 100% 100%, 0 0);
+            border-radius: 0 24px 0 0;
+        }
+
+        @keyframes pdfFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        .hp-cat-pdf-icon i {
+            font-size: 2.4rem;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .hp-cat-pdf-icon span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hp-cat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(200,169,110,0.12);
+            border: 1px solid rgba(200,169,110,0.25);
+            color: var(--gold-light);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            backdrop-filter: blur(6px);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hp-cat-pill i { font-size: 0.6rem; }
+
+        /* Right panel — text */
+        .hp-cat-right {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 4rem 4rem 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hp-cat-right::before {
+            content: '';
+            position: absolute;
+            right: -80px;
+            bottom: -80px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(0,98,65,0.05) 0%, transparent 70%);
+        }
+
+        .hp-cat-right-content {
+            position: relative;
+            z-index: 1;
+            max-width: 480px;
+        }
+
+        .hp-cat-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hp-cat-label::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--primary);
+        }
+
+        .hp-cat-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 500;
+            line-height: 1.12;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .hp-cat-h2 em { color: var(--primary); font-style: italic; }
+
+        .hp-cat-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 2.5rem;
+        }
+
+        .hp-cat-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hp-cat-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .hp-cat-feature i {
+            color: var(--primary);
+            font-size: 0.75rem;
+            width: 16px;
+            flex-shrink: 0;
+        }
+
+        .hp-cat-btns {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hp-cat-dl {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(200,169,110,0.35);
+        }
+
+        .btn-hp-cat-dl:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(200,169,110,0.5);
+        }
+
+        .btn-hp-cat-view {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: transparent;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1.5px solid rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hp-cat-view:hover {
+            background: rgba(0,0,0,0.03);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 1024px) {
+            .hp-catalog-inner { grid-template-columns: 1fr; }
+            .hp-cat-left { padding: 4rem 2rem; min-height: 320px; }
+            .hp-cat-right { padding: 4rem 2rem; }
+        }
+
         /* ===== REVEAL ANIMATIONS ===== */
         .reveal-fade {
             opacity: 0;
@@ -1111,6 +1398,7 @@
                 </div>
                 <a href="manufacturing.html">Manufacturing</a>
                 <a href="quality.html">Quality</a>
+                <a href="catalog.html">Catalogue</a>
                 <a href="contact.html" class="nav-btn">Contact Us</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
@@ -1305,6 +1593,51 @@
         </div>
     </section>
 
+    <!-- ═══════════════════ CATALOG SECTION ═══════════════════ -->
+    <section class="hp-catalog" aria-label="Product Catalogue Download">
+        <div class="hp-catalog-inner">
+            <!-- Left: Visual -->
+            <div class="hp-cat-left reveal-left">
+                <div class="hp-cat-left-bg"></div>
+                <div class="hp-cat-left-grid"></div>
+                <div class="hp-cat-ring"></div>
+                <div class="hp-cat-ring"></div>
+                <div class="hp-cat-icon-wrap">
+                    <div class="hp-cat-pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>PDF</span>
+                    </div>
+                    <div class="hp-cat-pill">
+                        <i class="fas fa-download"></i> Free Download
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Text -->
+            <div class="hp-cat-right">
+                <div class="hp-cat-right-content reveal-right">
+                    <span class="hp-cat-label">Official Catalogue</span>
+                    <h2 class="hp-cat-h2">Download Our <em>Complete</em><br>Product Catalog</h2>
+                    <p class="hp-cat-desc">Get instant access to our full range of 100+ products — surgical instruments, Ayurvedic formulations & nutraceuticals — in one beautifully detailed PDF.</p>
+                    <div class="hp-cat-features">
+                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> 100+ products with full specifications</div>
+                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> Surgical, Ayurvedic & Nutraceutical categories</div>
+                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> WHO-GMP & ISO certifications listed</div>
+                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> Free — no sign-up required</div>
+                    </div>
+                    <div class="hp-cat-btns">
+                        <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="btn-hp-cat-dl" id="hp-catalog-download">
+                            <i class="fas fa-download"></i> Download Free PDF
+                        </a>
+                        <a href="catalog.html" class="btn-hp-cat-view">
+                            <i class="fas fa-book-open"></i> View Catalogue Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════════════ ABOUT STRIP ═══════════════════ -->
     <section class="about-strip">
         <div class="about-inner">
@@ -1460,6 +1793,7 @@
                     <li><a href="surgical.html">Surgical</a></li>
                     <li><a href="vitantra.html">Vitantra</a></li>
                     <li><a href="nutra.html">Nutraceuticals</a></li>
+                    <li><a href="catalog.html">Download Catalogue</a></li>
                 </ul>
             </div>
 
