@@ -6,9 +6,13 @@
     'use strict';
 
     var STORAGE_KEY = 'nepal_popup_dismissed';
+    var SESSION_KEY = 'nepal_popup_shown';
 
     // Bail out if the user previously clicked "Don't show again"
     if (localStorage.getItem(STORAGE_KEY) === 'true') return;
+
+    // Bail out if popup was already shown (and closed) in this session
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') return;
 
     /* ── Inject CSS ─────────────────────────────────────────── */
     var style = document.createElement('style');
@@ -152,6 +156,7 @@
     function closePopup() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        sessionStorage.setItem(SESSION_KEY, 'true');
     }
 
     function dismissForever() {
