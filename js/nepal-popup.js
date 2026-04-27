@@ -160,7 +160,7 @@
     }
 
     // Show after 5 seconds
-    setTimeout(openPopup, 5000);
+    setTimeout(openPopup, 2000);
 
     // Close button
     document.getElementById('nepalPopupClose').addEventListener('click', closePopup);
