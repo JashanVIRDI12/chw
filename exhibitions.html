@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exhibitions | Chase Healthcare & Wellness Pvt Ltd</title>
+    <meta name="description"
+        content="Upcoming exhibitions and events where you can find Chase Healthcare & Wellness Pvt Ltd.">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .exhibition-hero {
+            background: linear-gradient(135deg, rgba(0, 98, 65, 0.05) 0%, rgba(200, 169, 110, 0.05) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .exhibition-hero__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .exhibition-hero__title em {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .exhibition-hero__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .exhibition-list {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .exhibition-card {
+            display: flex;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            flex-direction: column;
+        }
+
+        .exhibition-card__image {
+            width: 100%;
+            aspect-ratio: 1920 / 800;
+            background: #f8f8f8;
+            overflow: hidden;
+        }
+
+        .exhibition-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .exhibition-card__content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .exhibition-card__tag {
+            display: inline-block;
+            background: rgba(200, 169, 110, 0.1);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
+        }
+
+        .exhibition-card__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .exhibition-card__details {
+            margin-bottom: 2rem;
+        }
+
+        .exhibition-card__detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+        }
+
+        .exhibition-card__detail i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .exhibition-card__desc {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .exhibition-card__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .exhibition-card__btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="page-exhibitions">
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/2.webp" class="logo" alt="Chase Healthcare">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="surgical.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
+                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
+                        </a>
+                        <a href="vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                        </a>
+                        <a href="nutra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
+                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="about-chw.html" class="nav-dropdown-trigger">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="about-chw.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-building"></i></div>
+                            <div class="nav-dropdown-text"><span>About CHW</span><small>Chase Healthcare &amp; Wellness</small></div>
+                        </a>
+                        <a href="about-vitantra.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
+                            <div class="nav-dropdown-text"><span>About Vitantra</span><small>Our natural wellness brand</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="manufacturing.html">Manufacturing</a>
+                <a href="quality.html">Quality</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">More <i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="catalog.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-book-open"></i></div>
+                            <div class="nav-dropdown-text"><span>Catalogue</span><small>Download product catalogue</small></div>
+                        </a>
+                        <a href="exhibitions.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="nav-dropdown-text"><span>Exhibitions</span><small>Our upcoming events</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-btn">Contact Us</a>
+            </div>
+            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="exhibition-hero">
+        <h1 class="exhibition-hero__title">Our <em>Exhibitions</em></h1>
+        <p class="exhibition-hero__subtitle">Discover the global events where Chase Healthcare &amp; Wellness showcases our latest innovations and connects with partners worldwide.</p>
+    </header>
+
+    <!-- Exhibitions List -->
+    <section class="exhibition-list">
+        <!-- Event 1 -->
+        <div class="exhibition-card">
+            <div class="exhibition-card__image">
+                <img src="images/nepalbanner.jpeg" alt="Nepal Lab & Medical Show 2026 Banner">
+            </div>
+            <div class="exhibition-card__content">
+                <span class="exhibition-card__tag" style="background: rgba(0,0,0,0.05); color: var(--text-muted);">Past Event</span>
+                <h2 class="exhibition-card__title">Nepal Lab &amp; Medical Show 2026</h2>
+                <div class="exhibition-card__details">
+                    <div class="exhibition-card__detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nepal</span>
+                    </div>
+                    <div class="exhibition-card__detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2026</span>
+                    </div>
+                </div>
+                <p class="exhibition-card__desc">We successfully exhibited at the Nepal Lab &amp; Medical Show 2026, where Chase Healthcare &amp; Wellness showcased our comprehensive range of high-quality surgical products, nutraceuticals, and ayurvedic formulations. Thank you to everyone who visited our booth and explored our latest innovations!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="images/2.webp" class="logo" alt="Chase Healthcare">
+                </a>
+                <p>Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions.</p>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1DoPvFjgJA/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/chase_healthcare?igsh=MWQ0ZHkzMHdtZnlpdA==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919560369222" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.7);"><i class="fas fa-phone-alt" style="margin-right: 0.5rem;"></i> +91 95603 69222</p>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about-chw.html">About CHW</a></li>
+                    <li><a href="about-vitantra.html">About Vitantra</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="quality.html">Quality</a></li>
+                    <li><a href="exhibitions.html">Exhibitions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="surgical.html">Surgical</a></li>
+                    <li><a href="vitantra.html">Vitantra</a></li>
+                    <li><a href="nutra.html">Nutraceuticals</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Chase Healthcare &amp; Wellness Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
