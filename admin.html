@@ -390,8 +390,8 @@
 </div>
 
 <script>
-const SUPABASE_URL  = 'https://aiswxajjjjflqmrihose.supabase.co';
-const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
+const SUPABASE_URL  = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_URL  : '';
+const SUPABASE_ANON = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_ANON : '';
 
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);

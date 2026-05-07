@@ -18,8 +18,8 @@
  *  3. Go to Project Settings → API → copy Project URL and anon public key below.
  */
 
-const SUPABASE_URL  = 'https://aiswxajjjjflqmrihose.supabase.co';
-const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
+const SUPABASE_URL  = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_URL  : '';
+const SUPABASE_ANON = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_ANON : '';
 
 (function () {
     'use strict';
