@@ -18,12 +18,8 @@
  *  3. Go to Project Settings → API → copy Project URL and anon public key below.
  */
 
-const SUPABASE_URL  = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_URL  : '';
-const SUPABASE_ANON = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_ANON : '';
-
-const _sb = (SUPABASE_URL && SUPABASE_ANON && typeof supabase !== 'undefined')
-    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON)
-    : null;
+const SUPABASE_URL  = 'https://aiswxajjjjflqmrihose.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
 
 (function () {
     'use strict';
@@ -256,9 +252,19 @@ const _sb = (SUPABASE_URL && SUPABASE_ANON && typeof supabase !== 'undefined')
     }
 
     function saveLead(payload) {
-        if (!_sb) return Promise.resolve();
-        return _sb.from('leads').insert(payload).then(function (res) {
-            if (res.error) throw new Error(res.error.message);
+        if (!SUPABASE_URL || !SUPABASE_ANON) return Promise.resolve();
+
+        return fetch(SUPABASE_URL + '/rest/v1/leads', {
+            method: 'POST',
+            headers: {
+                'apikey':        SUPABASE_ANON,
+                'Authorization': 'Bearer ' + SUPABASE_ANON,
+                'Content-Type':  'application/json',
+                'Prefer':        'return=minimal'
+            },
+            body: JSON.stringify(payload)
+        }).then(function (res) {
+            if (!res.ok) return res.text().then(function (t) { throw new Error(t); });
         });
     }
 
