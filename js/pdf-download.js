@@ -21,6 +21,10 @@
 const SUPABASE_URL  = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_URL  : '';
 const SUPABASE_ANON = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_ANON : '';
 
+const _sb = (SUPABASE_URL && SUPABASE_ANON && typeof supabase !== 'undefined')
+    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON)
+    : null;
+
 (function () {
     'use strict';
 
@@ -252,19 +256,9 @@ const SUPABASE_ANON = (typeof CHW_CONFIG !== 'undefined') ? CHW_CONFIG.SUPABASE_
     }
 
     function saveLead(payload) {
-        if (!SUPABASE_URL || !SUPABASE_ANON) return Promise.resolve();
-
-        return fetch(SUPABASE_URL + '/rest/v1/leads', {
-            method: 'POST',
-            headers: {
-                'apikey':        SUPABASE_ANON,
-                'Authorization': 'Bearer ' + SUPABASE_ANON,
-                'Content-Type':  'application/json',
-                'Prefer':        'return=minimal'
-            },
-            body: JSON.stringify(payload)
-        }).then(function (res) {
-            if (!res.ok) return res.text().then(function (t) { throw new Error(t); });
+        if (!_sb) return Promise.resolve();
+        return _sb.from('leads').insert(payload).then(function (res) {
+            if (res.error) throw new Error(res.error.message);
         });
     }
 
