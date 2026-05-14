@@ -17,138 +17,170 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <style>
-        .exhibition-hero {
-            background: linear-gradient(135deg, rgba(0, 98, 65, 0.05) 0%, rgba(200, 169, 110, 0.05) 100%);
-            padding: 8rem 2rem 4rem;
+        /* ── HERO ── */
+        .exh-hero {
+            padding: 7rem 1.5rem 2.5rem;
             text-align: center;
-        }
-
-        .exhibition-hero__title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .exhibition-hero__title em {
-            color: var(--primary);
-            font-style: italic;
-        }
-
-        .exhibition-hero__subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .exhibition-list {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .exhibition-card {
-            display: flex;
             background: #fff;
-            border-radius: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .exh-hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--primary);
+            margin-bottom: 0.85rem;
+        }
+        .exh-hero-eyebrow::before,
+        .exh-hero-eyebrow::after {
+            content: ''; display: inline-block;
+            width: 24px; height: 1px; background: var(--primary);
+        }
+        .exh-hero h1 {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(2.2rem, 4vw, 3rem) !important;
+            font-weight: 400 !important;
+            color: var(--text-dark) !important;
+            line-height: 1.15 !important;
+            margin: 0 0 0.65rem !important;
+        }
+        .exh-hero h1 em { color: var(--primary) !important; font-style: italic !important; }
+        .exh-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem; color: var(--text-light);
+            max-width: 580px; margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* ── LIST ── */
+        .exh-list {
+            padding: 3rem 1.5rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .exh-card {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            background: #fff;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 3rem;
-            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+            margin-bottom: 1.75rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .exh-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
 
-        .exhibition-card__image {
-            width: 100%;
-            aspect-ratio: 1920 / 800;
-            background: #f8f8f8;
+        .exh-card__media {
+            position: relative;
+            min-height: 280px;
+            background: #f4f4f4;
             overflow: hidden;
         }
-
-        .exhibition-card__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .exh-card__media img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+            transition: transform 0.5s ease;
         }
+        .exh-card:hover .exh-card__media img { transform: scale(1.04); }
+        .exh-card__media-badge {
+            position: absolute;
+            top: 0.85rem; left: 0.85rem;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            padding: 0.35rem 0.8rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.4px;
+            backdrop-filter: blur(8px);
+            display: inline-flex; align-items: center; gap: 0.35rem;
+        }
+        .exh-card__media-badge i { font-size: 0.65rem; }
 
-        .exhibition-card__content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
+        .exh-card__body {
+            padding: 1.85rem 2rem;
+            display: flex; flex-direction: column;
             justify-content: center;
         }
 
-        .exhibition-card__tag {
-            display: inline-block;
-            background: rgba(200, 169, 110, 0.1);
-            color: var(--gold);
-            padding: 0.5rem 1rem;
+        .exh-card__tag {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: rgba(0,0,0,0.05);
+            color: var(--text-muted);
+            padding: 0.3rem 0.75rem;
             border-radius: 50px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
+            font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.8px;
+            margin-bottom: 0.85rem;
             align-self: flex-start;
         }
+        .exh-card__tag i { font-size: 0.6rem; color: var(--gold); }
 
-        .exhibition-card__title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .exh-card__title {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(1.5rem, 2.3vw, 1.85rem) !important;
+            font-weight: 500 !important;
+            color: var(--text-dark) !important;
+            line-height: 1.2 !important;
+            margin: 0 0 0.85rem !important;
         }
 
-        .exhibition-card__details {
-            margin-bottom: 2rem;
-        }
-
-        .exhibition-card__detail {
+        .exh-card__meta {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            margin-bottom: 1rem;
             font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
+        .exh-card__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .exh-card__meta i { color: var(--primary); font-size: 0.85rem; }
 
-        .exhibition-card__detail i {
-            color: var(--primary);
-            font-size: 1.1rem;
-            width: 20px;
-            text-align: center;
-        }
-
-        .exhibition-card__desc {
+        .exh-card__desc {
             font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
             color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 2rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .exhibition-card__btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        .exh-card__btn {
+            display: inline-flex; align-items: center; gap: 0.45rem;
             background: var(--primary);
             color: #fff;
-            padding: 1rem 2rem;
+            padding: 0.7rem 1.4rem;
             border-radius: 50px;
             text-decoration: none;
             font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 0.85rem; font-weight: 600;
+            transition: background 0.25s ease, transform 0.25s ease;
             align-self: flex-start;
         }
-
-        .exhibition-card__btn:hover {
+        .exh-card__btn:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateX(3px);
+        }
+        .exh-card__btn i { font-size: 0.75rem; }
+
+        @media (max-width: 768px) {
+            .exh-hero { padding: 6rem 1.25rem 2rem; }
+            .exh-list { padding: 2rem 1.25rem 3rem; }
+            .exh-card { grid-template-columns: 1fr; }
+            .exh-card__media { min-height: 220px; }
+            .exh-card__body { padding: 1.5rem 1.25rem; }
         }
     </style>
 </head>
@@ -203,34 +235,33 @@
     </nav>
 
     <!-- Hero -->
-    <header class="exhibition-hero">
-        <h1 class="exhibition-hero__title">Our <em>Exhibitions</em></h1>
-        <p class="exhibition-hero__subtitle">Discover the global events where Chase Healthcare &amp; Wellness showcases our latest innovations and connects with partners worldwide.</p>
+    <header class="exh-hero">
+        <div class="exh-hero-eyebrow">Our Journey</div>
+        <h1>Our <em>Exhibitions</em></h1>
+        <p>Global events where Chase Healthcare &amp; Wellness showcases our latest innovations and connects with partners worldwide.</p>
     </header>
 
     <!-- Exhibitions List -->
-    <section class="exhibition-list">
-        <!-- Event 1 -->
-        <div class="exhibition-card">
-            <div class="exhibition-card__image">
-                <img src="images/nepalbanner.jpeg" alt="Nepal Lab & Medical Show 2026 Banner">
+    <section class="exh-list">
+        <!-- Event 1 — Nepal -->
+        <article class="exh-card">
+            <div class="exh-card__media">
+                <img src="images/nepalexh/nepal-14.jpeg" alt="Nepal Lab & Medical Show 2026">
+                <span class="exh-card__media-badge"><i class="fas fa-images"></i> 16 Photos</span>
             </div>
-            <div class="exhibition-card__content">
-                <span class="exhibition-card__tag" style="background: rgba(0,0,0,0.05); color: var(--text-muted);">Past Event</span>
-                <h2 class="exhibition-card__title">Nepal Lab &amp; Medical Show 2026</h2>
-                <div class="exhibition-card__details">
-                    <div class="exhibition-card__detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Nepal</span>
-                    </div>
-                    <div class="exhibition-card__detail">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>2026</span>
-                    </div>
+            <div class="exh-card__body">
+                <span class="exh-card__tag"><i class="fas fa-circle"></i> Past Event</span>
+                <h2 class="exh-card__title">Nepal Lab &amp; Medical Show 2026</h2>
+                <div class="exh-card__meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</span>
+                    <span><i class="fas fa-calendar-alt"></i> May 2026</span>
                 </div>
-                <p class="exhibition-card__desc">We successfully exhibited at the Nepal Lab &amp; Medical Show 2026, where Chase Healthcare &amp; Wellness showcased our comprehensive range of high-quality surgical products, nutraceuticals, and ayurvedic formulations. Thank you to everyone who visited our booth and explored our latest innovations!</p>
+                <p class="exh-card__desc">Successfully showcased our complete range of surgical products, nutraceuticals, and ayurvedic formulations to healthcare distributors and partners across Nepal.</p>
+                <a href="nepal-exhibition.html" class="exh-card__btn">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-        </div>
+        </article>
     </section>
 
     <!-- Footer -->
