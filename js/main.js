@@ -204,3 +204,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+(function () {
+    if (document.getElementById('chwWaWidget')) return;
+    var script = document.createElement('script');
+    script.src = 'js/whatsapp-widget.js';
+    document.body.appendChild(script);
+})();
