@@ -117,33 +117,6 @@
     box-shadow: 0 6px 20px rgba(0,0,0,.2);\
     object-fit: contain;\
 }\
-.chw-email-team {\
-    position: relative;\
-    z-index: 1;\
-    display: flex;\
-    align-items: center;\
-    justify-content: center;\
-    margin-bottom: .85rem;\
-}\
-.chw-email-avatar {\
-    width: clamp(32px, 8vw, 38px);\
-    height: clamp(32px, 8vw, 38px);\
-    border-radius: 50%;\
-    border: 2.5px solid rgba(255,255,255,.9);\
-    background: linear-gradient(135deg, #c8a96e, #e8c98e);\
-    color: #fff;\
-    font-size: clamp(.62rem, 2.5vw, .72rem);\
-    font-weight: 700;\
-    display: flex;\
-    align-items: center;\
-    justify-content: center;\
-    margin-left: -8px;\
-    box-shadow: 0 3px 10px rgba(0,0,0,.15);\
-    font-family: Inter, sans-serif;\
-}\
-.chw-email-avatar:first-child { margin-left: 0; background: linear-gradient(135deg, #7da87b, #006241); }\
-.chw-email-avatar:nth-child(2) { background: linear-gradient(135deg, #008a5c, #004d33); }\
-.chw-email-avatar:nth-child(3) { background: linear-gradient(135deg, #c8a96e, #8b7355); }\
 .chw-email-hero h2 {\
     position: relative;\
     z-index: 1;\
@@ -367,7 +340,6 @@
 \
 /* Very small / old phones */\
 @media (max-width: 320px) {\
-    .chw-email-team { margin-bottom: .6rem; }\
     .chw-email-address { flex-direction: row; align-items: flex-start; }\
     .chw-email-dismiss { font-size: .68rem; }\
 }\
@@ -376,18 +348,16 @@
 @media (max-height: 640px) {\
     .chw-email-box { max-height: 96dvh; }\
     .chw-email-hero { padding-top: 1rem; padding-bottom: 1.75rem; }\
-    .chw-email-team { margin-bottom: .5rem; }\
     .chw-email-note { margin-bottom: .85rem; }\
     .chw-email-perks { margin-bottom: .75rem; }\
     .chw-email-logo { width: 40px; height: 40px; margin-bottom: .5rem; }\
-    .chw-email-avatar { width: 30px; height: 30px; font-size: .58rem; }\
 }\
 \
 @media (max-height: 520px) and (orientation: landscape) {\
     .chw-email-overlay { align-items: flex-start; padding-top: 8px; padding-bottom: 8px; }\
     .chw-email-hero { padding: .85rem 1rem 1.5rem; }\
     .chw-email-hero h2 { font-size: 1.2rem; }\
-    .chw-email-team, .chw-email-leaf { display: none; }\
+    .chw-email-leaf { display: none; }\
     .chw-email-logo { width: 36px; height: 36px; margin-bottom: .4rem; }\
     .chw-email-body { padding: .75rem 1rem 1rem; }\
     .chw-email-note-icon { width: 34px; height: 34px; }\
@@ -418,11 +388,6 @@
         <svg class="chw-email-leaf chw-email-leaf--tr" viewBox="0 0 64 64"><path d="M32 4C18 18 6 34 10 50c10-6 18-14 22-26 4 12 12 20 22 26 4-16-8-32-22-46z" fill="rgba(255,255,255,.2)"/></svg>\
         <svg class="chw-email-leaf chw-email-leaf--bl" viewBox="0 0 64 64"><path d="M32 4C18 18 6 34 10 50c10-6 18-14 22-26 4 12 12 20 22 26 4-16-8-32-22-46z" fill="rgba(255,255,255,.18)"/></svg>\
         <img src="images/2.webp" alt="" class="chw-email-logo" aria-hidden="true">\
-        <div class="chw-email-team" aria-hidden="true">\
-            <span class="chw-email-avatar">RK</span>\
-            <span class="chw-email-avatar">MS</span>\
-            <span class="chw-email-avatar">CHW</span>\
-        </div>\
         <h2 id="chwEmailTitle">Hello, Friend <em>👋</em></h2>\
         <svg class="chw-email-wave" viewBox="0 0 460 28" preserveAspectRatio="none"><path d="M0,20 C80,0 160,28 230,14 C300,0 380,24 460,10 L460,28 L0,28 Z"/></svg>\
     </div>\
