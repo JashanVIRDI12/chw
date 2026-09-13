@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
         trigger.addEventListener('click', function (e) {
             // Only intercept on mobile
-            if (window.innerWidth > 900) return;
+            if (window.innerWidth > 1100) return;
             e.preventDefault();
             const dropdown = this.closest('.nav-dropdown');
             const isOpen = dropdown.classList.contains('mob-open');

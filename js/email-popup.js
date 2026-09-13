@@ -394,17 +394,17 @@
     <div class="chw-email-scroll">\
     <div class="chw-email-body">\
         <div class="chw-email-note">\
-            <div class="chw-email-note-icon">💬</div>\
+            <div class="chw-email-note-icon" style="color:#006241;"><i class="fas fa-briefcase"></i></div>\
             <div class="chw-email-note-text">\
-                <strong>Got a question? We\'re here for you.</strong>\
-                Whether it\'s about our Ayurvedic products, surgical range, or a bulk order - just drop us a line. Real people from our team read every email and reply with care.\
-                <span class="chw-email-sign">- With warmth, The CHW Team</span>\
+                <strong>Sourcing healthcare products from India?</strong>\
+                Email your requirement for export pricing, MOQ, samples or distribution terms. Our B2B team replies within one business day.\
+                <span class="chw-email-sign">- CHW Export &amp; B2B Team</span>\
             </div>\
         </div>\
         <div class="chw-email-perks">\
-            <span class="chw-email-perk"><i class="fas fa-heart"></i> Personal replies</span>\
+            <span class="chw-email-perk"><i class="fas fa-file-invoice-dollar"></i> Export price list</span>\
             <span class="chw-email-perk"><i class="fas fa-clock"></i> Within 24 hrs</span>\
-            <span class="chw-email-perk"><i class="fas fa-leaf"></i> Wellness experts</span>\
+            <span class="chw-email-perk"><i class="fas fa-tag"></i> OEM / private label</span>\
         </div>\
         <div class="chw-email-address">\
             <i class="fas fa-envelope"></i>\

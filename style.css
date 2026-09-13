@@ -604,6 +604,40 @@ p {
     border-color: rgba(0, 98, 65, 0.35);
 }
 
+/* Tighter spacing for the longer B2B menu on mid-size desktops */
+@media (min-width: 1101px) and (max-width: 1360px) {
+    .nav-container {
+        padding: 0 1.75rem;
+        gap: 1.25rem;
+    }
+
+    .nav-menu>a,
+    .nav-dropdown>.nav-dropdown-trigger {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.86rem;
+    }
+
+    .nav-menu>.nav-btn {
+        margin-left: 0.9rem;
+        padding: 0.6rem 1.35rem !important;
+    }
+
+    .logo img.logo {
+        height: 60px;
+    }
+}
+
+/* Current page */
+.nav-menu>a.is-active,
+.nav-dropdown>.nav-dropdown-trigger.is-active {
+    opacity: 1;
+}
+
+.navbar.scrolled .nav-menu>a.is-active,
+.navbar.scrolled .nav-dropdown>.nav-dropdown-trigger.is-active {
+    color: var(--primary);
+}
+
 /* ========================================
    BUTTONS - ENHANCED
 ======================================== */
@@ -5144,9 +5178,9 @@ body.page-about .section-green .team-card-image {
 /* ================================================================
    RESPONSIVE — ≤900px
    ================================================================ */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
-    /* Show hamburger */
+    /* Show hamburger — drawer starts at 1100px so the longer B2B menu never overflows */
     .mobile-menu-toggle {
         display: flex;
     }
@@ -5272,6 +5306,9 @@ body.page-about .section-green .team-card-image {
     .nav-btn {
         display: none !important;
     }
+}
+
+@media (max-width: 900px) {
 
     /* ---- HERO ---- */
     .about-hero {
@@ -5445,7 +5482,7 @@ body.page-about .section-green .team-card-image {
     display: none !important;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     .mobile-contact-link {
         display: block !important;
     }

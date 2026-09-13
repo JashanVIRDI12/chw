@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Exhibitions | Chase Healthcare & Wellness Pvt Ltd</title>
     <meta name="description"
-        content="Upcoming exhibitions and events where you can find Chase Healthcare & Wellness Pvt Ltd.">
+        content="Meet Chase Healthcare & Wellness at international healthcare exhibitions. Book a meeting with our export team at our upcoming exhibition in Vietnam.">
 
     <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -59,6 +59,16 @@
             margin: 0 auto;
         }
 
+        .exh-list-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin: 0 0 1rem;
+        }
+
         .exh-card {
             display: grid;
             grid-template-columns: 1.1fr 1fr;
@@ -69,6 +79,7 @@
             box-shadow: 0 4px 18px rgba(0,0,0,0.04);
             margin-bottom: 1.75rem;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
+            scroll-margin-top: 100px;
         }
         .exh-card:hover {
             box-shadow: 0 12px 32px rgba(0,0,0,0.08);
@@ -103,6 +114,41 @@
         }
         .exh-card__media-badge i { font-size: 0.65rem; }
 
+        /* Vietnam — typographic panel until event photography is available */
+        .exh-card__media--vn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2.5rem;
+            background:
+                radial-gradient(ellipse 80% 70% at 0% 0%, rgba(0, 98, 65, 0.6) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 60% at 100% 100%, rgba(200, 169, 110, 0.14) 0%, transparent 60%),
+                #01261a;
+        }
+        .exh-vn-flag {
+            width: 54px; height: 36px;
+            border-radius: 4px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.25), 0 10px 24px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+        }
+        .exh-vn-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 3.6vw, 3rem);
+            font-weight: 500;
+            line-height: 1.02;
+            color: #fff;
+        }
+        .exh-vn-title em { font-style: italic; color: #e8c98e; }
+        .exh-vn-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(232, 201, 142, 0.9);
+            margin-top: 1rem;
+        }
+
         .exh-card__body {
             padding: 1.85rem 2rem;
             display: flex; flex-direction: column;
@@ -122,6 +168,9 @@
             align-self: flex-start;
         }
         .exh-card__tag i { font-size: 0.6rem; color: var(--gold); }
+        .exh-card__tag--upcoming { background: rgba(0, 98, 65, 0.08); color: var(--primary); }
+        .exh-card__tag--upcoming i { color: var(--primary); animation: exhPulse 1.8s ease-in-out infinite; }
+        @keyframes exhPulse { 50% { opacity: 0.3; } }
 
         .exh-card__title {
             font-family: 'Cormorant Garamond', serif !important;
@@ -157,16 +206,19 @@
             overflow: hidden;
         }
 
+        .exh-card__btns { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
         .exh-card__btn {
             display: inline-flex; align-items: center; gap: 0.45rem;
             background: var(--primary);
             color: #fff;
             padding: 0.7rem 1.4rem;
             border-radius: 50px;
+            border: 1.5px solid var(--primary);
             text-decoration: none;
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem; font-weight: 600;
-            transition: background 0.25s ease, transform 0.25s ease;
+            transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
             align-self: flex-start;
         }
         .exh-card__btn:hover {
@@ -174,12 +226,15 @@
             transform: translateX(3px);
         }
         .exh-card__btn i { font-size: 0.75rem; }
+        .exh-card__btn--ghost { background: transparent; color: var(--primary); border-color: rgba(0, 98, 65, 0.25); }
+        .exh-card__btn--ghost:hover { background: rgba(0, 98, 65, 0.06); color: var(--primary); }
 
         @media (max-width: 768px) {
             .exh-hero { padding: 6rem 1.25rem 2rem; }
             .exh-list { padding: 2rem 1.25rem 3rem; }
             .exh-card { grid-template-columns: 1fr; }
             .exh-card__media { min-height: 220px; }
+            .exh-card__media--vn { padding: 2rem 1.5rem; }
             .exh-card__body { padding: 1.5rem 1.25rem; }
         }
     </style>
@@ -195,55 +250,78 @@
             <div class="nav-menu">
                 <a href="index.html">Home</a>
                 <div class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <a href="catalog.html" class="nav-dropdown-trigger">Products <i class="fas fa-chevron-down"></i></a>
                     <div class="nav-dropdown-menu">
                         <a href="surgical.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
-                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &amp; instruments</small></div>
-                        </a>
-                        <a href="vitantra.html" class="nav-dropdown-item">
-                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
-                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic &amp; herbal formulations</small></div>
+                            <div class="nav-dropdown-text"><span>Surgical &amp; Medical</span><small>Medical disposables &amp; devices</small></div>
                         </a>
                         <a href="nutra.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
-                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed supplements</small></div>
+                            <div class="nav-dropdown-text"><span>Nutraceuticals</span><small>Science-backed supplements</small></div>
                         </a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="about-chw.html" class="nav-dropdown-trigger">About <i class="fas fa-chevron-down"></i></a>
-                    <div class="nav-dropdown-menu">
-                        <a href="about-chw.html" class="nav-dropdown-item">
-                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-building"></i></div>
-                            <div class="nav-dropdown-text"><span>About CHW</span><small>Chase Healthcare &amp; Wellness</small></div>
-                        </a>
-                        <a href="about-vitantra.html" class="nav-dropdown-item">
+                        <a href="vitantra.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
-                            <div class="nav-dropdown-text"><span>About Vitantra</span><small>Our natural wellness brand</small></div>
+                            <div class="nav-dropdown-text"><span>Wellness Vitantra</span><small>Herbal &amp; Ayurvedic range</small></div>
+                        </a>
+                        <a href="catalog.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-book-open"></i></div>
+                            <div class="nav-dropdown-text"><span>Product Catalogue</span><small>View or download the PDF</small></div>
                         </a>
                     </div>
                 </div>
-                <a href="manufacturing.html">Manufacturing</a>
+                <a href="distributors.html">For Distributors</a>
+                <a href="manufacturing.html">OEM / Private Label</a>
                 <a href="quality.html">Quality</a>
-                <a href="catalog.html">Catalogue</a>
-                <a href="exhibitions.html">Exhibitions</a>
-                <a href="contact.html" class="nav-btn">Contact Us</a>
+                <a href="global-business.html">Global Business</a>
+                <a href="exhibitions.html" class="is-active">Exhibitions</a>
+                <a href="contact.html" class="nav-btn">Contact</a>
             </div>
-            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+            <button class="mobile-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <!-- Hero -->
     <header class="exh-hero">
-        <div class="exh-hero-eyebrow">Our Journey</div>
-        <h1>Our <em>Exhibitions</em></h1>
-        <p>Global events where Chase Healthcare &amp; Wellness showcases our latest innovations and connects with partners worldwide.</p>
+        <div class="exh-hero-eyebrow">Trade Shows &amp; Events</div>
+        <h1>Meet CHW at <em>International Exhibitions</em></h1>
+        <p>Meet our export team in person, review product samples and discuss distribution opportunities for your market.</p>
     </header>
 
     <!-- Exhibitions List -->
     <section class="exh-list">
-        <!-- Event 1 — Nepal -->
+        <p class="exh-list-label">Upcoming</p>
+
+        <!-- Event — Vietnam (EDIT: replace dates / venue / booth once confirmed) -->
+        <article class="exh-card" id="vietnam">
+            <div class="exh-card__media exh-card__media--vn">
+                <svg class="exh-vn-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#da251d"/><polygon fill="#ffff00" points="15,4 16.18,7.64 20,7.64 16.91,9.9 18.09,13.53 15,11.28 11.91,13.53 13.09,9.9 10,7.64 13.82,7.64"/></svg>
+                <div class="exh-vn-title">Meet CHW<br>in <em>Vietnam</em></div>
+                <div class="exh-vn-sub">Surgical · Nutraceutical · Herbal</div>
+            </div>
+            <div class="exh-card__body">
+                <span class="exh-card__tag exh-card__tag--upcoming"><i class="fas fa-circle"></i> Upcoming Event</span>
+                <h2 class="exh-card__title">Healthcare &amp; Pharma Trade Show — Vietnam</h2>
+                <div class="exh-card__meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Vietnam</span>
+                    <span><i class="fas fa-calendar-alt"></i> Dates to be announced</span>
+                    <span><i class="fas fa-store"></i> Booth shared on confirmation</span>
+                </div>
+                <p class="exh-card__desc">Our export team will present the full surgical, nutraceutical and herbal range to importers and distributors across Southeast Asia. Pre-book a meeting slot to review samples and pricing.</p>
+                <div class="exh-card__btns">
+                    <a href="contact.html?type=meeting#enquiry" class="exh-card__btn">
+                        <i class="fas fa-calendar-check"></i> Book a Meeting
+                    </a>
+                    <a href="catalog.html" class="exh-card__btn exh-card__btn--ghost">
+                        View Catalogue
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <p class="exh-list-label" style="margin-top:2.5rem;">Past Exhibitions</p>
+
+        <!-- Event — Nepal -->
         <article class="exh-card">
             <div class="exh-card__media">
                 <img src="images/nepalexh/nepal-14.jpeg" alt="Nepal Lab & Medical Show 2026">
@@ -271,7 +349,7 @@
                 <a href="index.html" class="logo">
                     <img src="images/2.webp" class="logo" alt="Chase Healthcare">
                 </a>
-                <p>Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions.</p>
+                <p>Your trusted global healthcare supply partner — Surgical &amp; Medical, Nutraceuticals and Herbal &amp; Wellness solutions from India.</p>
 
                 <div class="social-links">
                     <a href="https://www.facebook.com/share/1DoPvFjgJA/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -292,6 +370,16 @@
                     <li><a href="exhibitions.html">Exhibitions</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Business</h4>
+                <ul>
+                    <li><a href="distributors.html">For Importers &amp; Distributors</a></li>
+                    <li><a href="manufacturing.html">OEM / Private Label</a></li>
+                    <li><a href="global-business.html">Global Business</a></li>
+                    <li><a href="contact.html?type=pricelist#enquiry">Export Price List</a></li>
+                    <li><a href="contact.html?type=quote#enquiry">Request a Quote</a></li>
                 </ul>
             </div>
             <div class="footer-column">

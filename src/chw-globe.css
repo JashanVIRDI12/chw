@@ -1,0 +1,9 @@
+/* Tailwind for the React islands only.
+   - No preflight: the static site keeps its own base styles.
+   - source(none): utilities are generated only from component code below,
+     never from the site's HTML or the island entry (e.g. "container"). */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+@source "../components/ui";

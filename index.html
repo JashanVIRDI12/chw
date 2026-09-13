@@ -4,1354 +4,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chase Healthcare & Wellness – Ayurvedic, Herbal & Surgical Solutions</title>
+    <title>Chase Healthcare &amp; Wellness – Global Healthcare Supply Partner from India</title>
     <meta name="description"
-        content="Chase Healthcare & Wellness Pvt Ltd – Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions. WHO-GMP Certified. ISO Compliant.">
+        content="Chase Healthcare & Wellness (CHW) – WHO-GMP certified manufacturer and exporter of Surgical & Medical products, Nutraceuticals and Herbal & Wellness solutions for importers, distributors, wholesalers and hospitals worldwide.">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2.3">
+    <link rel="stylesheet" href="style.css?v=2.4">
+    <link rel="stylesheet" href="b2b.css?v=1.3">
+    <script>document.documentElement.classList.add('rv-ready');</script>
 
     <style>
-        /* ===== RESET & VARS ===== */
-        :root {
-            --primary: #006241;
-            --primary-dark: #004d33;
-            --primary-light: #008a5c;
-            --gold: #c8a96e;
-            --gold-light: #e8c98e;
-            --cream: #fffae9;
-            --bg-cream: #f8f4ec;
-            --text-dark: #1a1a1a;
-            --text-muted: #5a5a5a;
-            --text-light: #7a7a7a;
-            --border: rgba(0, 98, 65, 0.12);
-            --white: #ffffff;
+        body { background: #fff; }
+
+        /* ===== HERO ===== */
+        .hp-hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            background: var(--b2b-night);
+            color: #fff;
+            overflow: hidden;
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
+        .hp-hero__media { position: absolute; inset: 0; }
+
+        .hp-hero__video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.6s ease;
+        }
+
+        .hp-hero__video.is-active { opacity: 1; }
+
+        .hp-hero__shade {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(100deg, rgba(1, 30, 20, 0.95) 0%, rgba(1, 38, 26, 0.86) 40%, rgba(0, 61, 41, 0.52) 72%, rgba(0, 61, 41, 0.32) 100%),
+                linear-gradient(0deg, rgba(1, 30, 20, 0.9) 0%, transparent 38%);
+        }
+
+        .hp-hero__content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 9rem 0 3.5rem;
+        }
+
+        .hp-hero__text { max-width: 800px; }
+
+        .hp-hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--b2b-sans);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--b2b-gold-light);
+            border: 1px solid rgba(232, 201, 142, 0.4);
+            background: rgba(232, 201, 142, 0.08);
+            padding: 0.5rem 1.05rem;
+            border-radius: 999px;
+            margin-bottom: 1.75rem;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .hp-hero h1 {
+            font-family: var(--b2b-serif);
+            font-size: clamp(2.7rem, 6.2vw, 5.4rem);
+            font-weight: 500;
+            line-height: 1.02;
+            letter-spacing: -0.015em;
+            color: #fff;
+            margin: 0 0 1.5rem;
+        }
+
+        .hp-hero h1 em { font-style: italic; color: var(--b2b-gold-light); }
+
+        .hp-hero__divisions {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.45rem 1rem;
+            margin: 0 0 1.15rem;
+            padding: 0;
+            font-family: var(--b2b-sans);
+            font-size: clamp(0.92rem, 1.5vw, 1.1rem);
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .hp-hero__divisions li { display: inline-flex; align-items: center; gap: 1rem; }
+
+        .hp-hero__divisions li + li::before {
+            content: '';
+            width: 1px;
+            height: 1.05em;
+            background: rgba(232, 201, 142, 0.75);
+        }
+
+        .hp-hero__sub {
+            font-family: var(--b2b-sans);
+            font-size: 1rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.74);
+            max-width: 610px;
+            margin: 0 0 2.25rem;
+        }
+
+        .hp-hero .b2b-btns { max-width: 760px; }
+
+        .hp-hero__text > * { animation: hpUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+        .hp-hero__text > *:nth-child(2) { animation-delay: 0.1s; }
+        .hp-hero__text > *:nth-child(3) { animation-delay: 0.2s; }
+        .hp-hero__text > *:nth-child(4) { animation-delay: 0.3s; }
+        .hp-hero__text > *:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes hpUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+
+        .hp-proof {
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(1, 30, 20, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .hp-proof ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             margin: 0;
             padding: 0;
         }
 
-        /* ===== HERO SLIDER ===== */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 100svh;
-            min-height: 600px;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            pointer-events: none;
-        }
-
-        .slide.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        /* slide video backgrounds */
-        .slide-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            z-index: 0;
-        }
-
-        /* Slide 3 — perfect fit */
-        .slide:nth-child(3) .slide-video {
-            object-fit: cover;
-            object-position: center bottom;
-            width: 100%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 100%;
-        }
-
-
-        /* overlay gradient */
-        .slide-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(110deg,
-                    rgba(0, 0, 0, 0.72) 0%,
-                    rgba(0, 98, 65, 0.45) 55%,
-                    rgba(0, 0, 0, 0.2) 100%);
-        }
-
-        /* slide inner content */
-        .slide-content {
-            position: absolute;
-            inset: 0;
+        .hp-proof li {
             display: flex;
             align-items: center;
-            padding: 0 max(4vw, 2rem);
-            max-width: 1300px;
-            margin: 0 auto;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
+            gap: 0.9rem;
+            padding: 1.35rem 1.25rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .slide-text {
-            max-width: 720px;
+        .hp-proof li:first-child { border-left: 0; padding-left: 0; }
+        .hp-proof i { color: var(--b2b-gold-light); font-size: 1.15rem; width: 22px; text-align: center; }
+
+        .hp-proof strong {
+            display: block;
+            font-family: var(--b2b-serif);
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1;
+            color: #fff;
         }
 
-        .slide-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 3px;
+        .hp-proof span {
+            display: block;
+            font-family: var(--b2b-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--gold-light);
-            border: 1px solid rgba(200, 169, 110, 0.5);
-            padding: 0.45rem 1.1rem;
-            border-radius: 50px;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(6px);
-            background: rgba(200, 169, 110, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
-        }
-
-        .slide.active .slide-badge {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6vw, 5.5rem);
-            font-weight: 400;
-            line-height: 1.08;
-            color: #fff;
-            margin-bottom: 1.25rem;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
-        }
-
-        .slide.active .slide-h1 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-h1 .gold {
-            color: var(--gold-light);
-        }
-
-        .slide-sub {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.82);
-            line-height: 1.8;
-            max-width: 560px;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;
-        }
-
-        .slide.active .slide-sub {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease 0.9s, transform 0.8s ease 0.9s;
-        }
-
-        .slide.active .slide-cta {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .btn-hero-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: var(--primary);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-        }
-
-        .btn-hero-primary:hover {
-            background: var(--primary-light);
-            border-color: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 98, 65, 0.45);
-        }
-
-        .btn-hero-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: transparent;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
-        }
-
-        .btn-hero-ghost:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* slider controls */
-        .slider-nav {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            z-index: 10;
-        }
-
-        .slider-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            padding: 0;
-        }
-
-        .slider-dot.active {
-            width: 28px;
-            border-radius: 4px;
-            background: var(--gold-light);
-        }
-
-        .slider-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1.5rem;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .slider-arrow {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: all;
-            transition: all 0.3s ease;
-        }
-
-        .slider-arrow:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            transform: scale(1.1);
-        }
-
-        /* slide counter */
-        .slide-counter {
-            position: absolute;
-            bottom: 2.5rem;
-            right: max(4vw, 2rem);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.55);
-            z-index: 10;
-            letter-spacing: 2px;
-        }
-
-        .slide-counter .current {
-            color: var(--gold-light);
-            font-size: 1.4rem;
-        }
-
-        /* scroll cue */
-        .scroll-cue {
-            position: absolute;
-            bottom: 2.5rem;
-            left: max(4vw, 2rem);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
-            z-index: 10;
-            opacity: 0.7;
-        }
-
-        .scroll-cue span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-        }
-
-        .scroll-cue-line {
-            width: 1px;
-            height: 50px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
-            animation: scrollLine 1.8s ease infinite;
-        }
-
-        @keyframes scrollLine {
-            0% {
-                transform: scaleY(0);
-                transform-origin: top;
-            }
-
-            50% {
-                transform: scaleY(1);
-                transform-origin: top;
-            }
-
-            51% {
-                transform: scaleY(1);
-                transform-origin: bottom;
-            }
-
-            100% {
-                transform: scaleY(0);
-                transform-origin: bottom;
-            }
+            color: rgba(255, 255, 255, 0.62);
+            margin-top: 0.3rem;
         }
 
         /* ===== TRUST BAR ===== */
         .trust-bar {
-            background: var(--primary-dark);
-            padding: 1rem 2rem;
+            background: var(--b2b-teal-deep);
+            padding: 1rem 0;
             overflow: hidden;
-            position: relative;
         }
 
         .trust-bar-track {
             display: flex;
             gap: 4rem;
-            animation: marquee 20s linear infinite;
             width: max-content;
+            animation: marquee 32s linear infinite;
         }
 
-        .trust-bar-track:hover {
-            animation-play-state: paused;
-        }
+        .trust-bar-track:hover { animation-play-state: paused; }
 
         .trust-item {
             display: flex;
             align-items: center;
             gap: 0.6rem;
             white-space: nowrap;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--b2b-sans);
             font-size: 0.78rem;
             font-weight: 500;
+            letter-spacing: 0.06em;
             color: rgba(255, 255, 255, 0.85);
-            letter-spacing: 1px;
         }
 
-        .trust-item i {
-            color: var(--gold-light);
-            font-size: 0.85rem;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ===== SECTION SHARED ===== */
-        .section-label-new {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-label-new::before {
-            content: '';
-            display: inline-block;
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .section-h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: var(--text-dark);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-        }
-
-        .section-h2 em {
-            color: var(--primary);
-            font-style: italic;
-        }
-
-        .section-intro {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            max-width: 560px;
-        }
-
-        /* ===== PRODUCT VERTICALS ===== */
-        .verticals-section {
-            padding: 7rem 2rem;
-            background: var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .verticals-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('images/mandala.webp') center / 600px no-repeat;
-            opacity: 0.04;
-        }
-
-        .verticals-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .verticals-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .vert-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .vert-card {
-            position: relative;
-            border-radius: 28px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 8px 32px rgba(0, 98, 65, 0.06);
-            border: 1px solid var(--border);
-            transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .vert-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 28px 70px rgba(0, 98, 65, 0.15);
-        }
-
-        .vert-card-img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .vert-card:hover .vert-card-img {
-            transform: scale(1.07);
-        }
-
-        .vert-card-tag {
-            position: absolute;
-            top: 1.25rem;
-            left: 1.25rem;
-            background: var(--primary);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.35rem 0.85rem;
-            border-radius: 50px;
-        }
-
-        .vert-card-body {
-            padding: 1.75rem;
-        }
-
-        .vert-card-icon {
-            width: 46px;
-            height: 46px;
-            background: linear-gradient(135deg, rgba(0, 98, 65, 0.12), rgba(0, 98, 65, 0.05));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .vert-card-body h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 0.6rem;
-        }
-
-        .vert-card-body p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            line-height: 1.75;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .vert-card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.83rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            transition: gap 0.25s ease;
-        }
-
-        .vert-card-link:hover {
-            gap: 0.85rem;
-        }
-
-        /* ===== STATS BANNER ===== */
-        .stats-banner {
-            position: relative;
-            padding: 5rem 2rem;
-            background: var(--primary-dark);
-            overflow: hidden;
-        }
-
-        .stats-banner::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 15% 50%, rgba(200, 169, 110, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 85% 30%, rgba(0, 150, 80, 0.08) 0%, transparent 60%);
-        }
-
-        .stats-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            position: relative;
-        }
-
-        .stat-block {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            position: relative;
-        }
-
-        .stat-block:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 4vw, 3.8rem);
-            font-weight: 300;
-            color: var(--gold-light);
-            line-height: 1;
-            margin-bottom: 0.4rem;
-        }
-
-        .stat-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.65);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* ===== ABOUT STRIP ===== */
-        .about-strip {
-            padding: 7rem 2rem;
-            background: #fff;
-            overflow: hidden;
-        }
-
-        .about-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-img-wrap {
-            position: relative;
-        }
-
-        .about-img-main {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-            border-radius: 32px;
-            display: block;
-        }
-
-        .about-img-badge {
-            position: absolute;
-            bottom: 2rem;
-            right: -1.5rem;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 20px;
-            padding: 1.25rem 1.5rem;
-            box-shadow: 0 20px 50px rgba(0, 98, 65, 0.3);
-            min-width: 160px;
-        }
-
-        .about-img-badge .big {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 300;
-            line-height: 1;
-            color: var(--gold-light);
-            display: block;
-        }
-
-        .about-img-badge small {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.75);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .about-dot-bg {
-            position: absolute;
-            top: -2rem;
-            left: -2rem;
-            width: 200px;
-            height: 200px;
-            background-image: radial-gradient(circle, rgba(0, 98, 65, 0.15) 1px, transparent 1px);
-            background-size: 18px 18px;
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .about-text .features-list {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .feature-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 1.25rem;
-            border-radius: 14px;
-            background: var(--bg-cream);
-            border: 1px solid rgba(0, 98, 65, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .feature-row:hover {
-            transform: translateX(6px);
-            box-shadow: 0 8px 24px rgba(0, 98, 65, 0.08);
-        }
-
-        .feature-row-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 0.85rem;
-            flex-shrink: 0;
-        }
-
-        .feature-row-text h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.2rem;
-        }
-
-        .feature-row-text p {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* ===== MARQUEE BANNER ===== */
-        .marquee-banner {
-            background: var(--primary);
-            padding: 1.25rem 0;
-            overflow: hidden;
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 3rem;
-            animation: marqueeRev 18s linear infinite;
-            width: max-content;
-        }
-
-        .marquee-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            white-space: nowrap;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 1px;
-        }
-
-        .marquee-star {
-            color: var(--gold-light);
-            font-size: 0.7rem;
-        }
-
-        @keyframes marqueeRev {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ===== WHY US GRID ===== */
-        .why-section {
-            padding: 7rem 2rem;
-            background: var(--bg-cream);
-            position: relative;
-        }
-
-        .why-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .why-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-        }
-
-        .why-card {
-            background: #fff;
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .why-card::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--gold));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .why-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .why-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 98, 65, 0.1);
-        }
-
-        .why-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(0, 98, 65, 0.1), rgba(0, 98, 65, 0.04));
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin: 0 auto 1.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover .why-icon {
-            background: var(--primary);
-            color: #fff;
-            transform: rotateY(180deg);
-        }
-
-        .why-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 0.6rem;
-        }
-
-        .why-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            line-height: 1.75;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            position: relative;
-            padding: 8rem 2rem;
-            overflow: hidden;
-        }
-
-        .cta-bg {
-            position: absolute;
-            inset: 0;
-            background: url('images/vitantra-hero.webp') center / cover no-repeat;
-        }
-
-        .cta-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 30, 18, 0.88) 0%, rgba(0, 98, 65, 0.75) 100%);
-        }
-
-        .cta-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .cta-inner .section-label-new {
-            color: var(--gold-light);
-            justify-content: center;
-        }
-
-        .cta-inner .section-label-new::before {
-            background: var(--gold-light);
-        }
-
-        .cta-inner h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-        }
-
-        .cta-inner p {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-btns {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ===== CATALOG SECTION (Homepage) ===== */
-        .hp-catalog {
-            position: relative;
-            padding: 7rem 2rem;
-            background: var(--bg-cream);
-            overflow: hidden;
-        }
-
-        .hp-catalog-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            min-height: 520px;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 98, 65, 0.08);
-            border: 1px solid rgba(0,98,65,0.08);
-            background: #fff;
-        }
-
-        /* Left panel — visual */
-        .hp-cat-left {
-            position: relative;
-            background: #004d33;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5rem 3rem 5rem 4rem;
-            overflow: hidden;
-        }
-
-        .hp-cat-left-bg {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 80% 70% at 20% 50%, rgba(0,98,65,0.45) 0%, transparent 65%),
-                radial-gradient(ellipse 60% 50% at 90% 20%, rgba(200,169,110,0.1) 0%, transparent 60%);
-        }
-
-        .hp-cat-left-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(0,98,65,0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,98,65,0.07) 1px, transparent 1px);
-            background-size: 48px 48px;
-            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 90%);
-        }
-
-        /* pulsing rings */
-        .hp-cat-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(0,150,80,0.15);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .hp-cat-ring:nth-child(1) { width: 300px; height: 300px; animation: hpRingPulse 3.5s ease-in-out infinite; }
-        .hp-cat-ring:nth-child(2) { width: 450px; height: 450px; animation: hpRingPulse 3.5s ease-in-out -1.2s infinite; border-color: rgba(0,150,80,0.08); }
-
-        @keyframes hpRingPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.4; }
-        }
-
-        .hp-cat-icon-wrap {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .hp-cat-pdf-icon {
-            width: 110px;
-            height: 130px;
-            background: linear-gradient(145deg, rgba(0,98,65,0.5), rgba(0,70,45,0.8));
-            border-radius: 16px 24px 16px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            position: relative;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
-            animation: pdfFloat 4s ease-in-out infinite;
-        }
-
-        .hp-cat-pdf-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 28px;
-            height: 28px;
-            background: rgba(200,169,110,0.25);
-            clip-path: polygon(100% 0, 100% 100%, 0 0);
-            border-radius: 0 24px 0 0;
-        }
-
-        @keyframes pdfFloat {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
-        }
-
-        .hp-cat-pdf-icon i {
-            font-size: 2.4rem;
-            color: var(--gold-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .hp-cat-pdf-icon span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
-            color: rgba(255,255,255,0.55);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hp-cat-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(200,169,110,0.12);
-            border: 1px solid rgba(200,169,110,0.25);
-            color: var(--gold-light);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.68rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.45rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(6px);
-            position: relative;
-            z-index: 10;
-        }
-
-        .hp-cat-pill i { font-size: 0.6rem; }
-
-        /* Right panel — text */
-        .hp-cat-right {
-            background: #fff;
-            display: flex;
-            align-items: center;
-            padding: 4rem 4rem 4rem 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hp-cat-right::before {
-            content: '';
-            position: absolute;
-            right: -80px;
-            bottom: -80px;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(0,98,65,0.05) 0%, transparent 70%);
-        }
-
-        .hp-cat-right-content {
-            position: relative;
-            z-index: 1;
-            max-width: 480px;
-        }
-
-        .hp-cat-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.68rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .hp-cat-label::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 1.5px;
-            background: var(--primary);
-        }
-
-        .hp-cat-h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 500;
-            line-height: 1.12;
-            color: var(--text-dark);
-            margin-bottom: 1.25rem;
-        }
-
-        .hp-cat-h2 em { color: var(--primary); font-style: italic; }
-
-        .hp-cat-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--text-light);
-            line-height: 1.85;
-            margin-bottom: 2.5rem;
-        }
-
-        .hp-cat-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .hp-cat-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .hp-cat-feature i {
-            color: var(--primary);
-            font-size: 0.75rem;
-            width: 16px;
-            flex-shrink: 0;
-        }
-
-        .hp-cat-btns {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-hp-cat-dl {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: #1a1a1a;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(200,169,110,0.35);
-        }
-
-        .btn-hp-cat-dl:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(200,169,110,0.5);
-        }
-
-        .btn-hp-cat-view {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            background: transparent;
-            color: var(--text-dark);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            border: 1.5px solid rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .btn-hp-cat-view:hover {
-            background: rgba(0,0,0,0.03);
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 1024px) {
-            .hp-catalog-inner { grid-template-columns: 1fr; }
-            .hp-cat-left { padding: 4rem 2rem; min-height: 320px; }
-            .hp-cat-right { padding: 4rem 2rem; }
-        }
-
-        /* ===== REVEAL ANIMATIONS ===== */
-        .reveal-fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.9s ease, transform 0.9s ease;
-        }
-
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.9s ease, transform 0.9s ease;
-        }
-
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-fade:nth-child(1) {
-            transition-delay: 0s;
-        }
-
-        .reveal-fade:nth-child(2) {
-            transition-delay: 0.12s;
-        }
-
-        .reveal-fade:nth-child(3) {
-            transition-delay: 0.24s;
-        }
-
-        .reveal-fade:nth-child(4) {
-            transition-delay: 0.36s;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .vert-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stats-inner {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat-block:nth-child(2)::after {
-                display: none;
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .trust-item i { color: var(--b2b-gold-light); font-size: 0.85rem; }
 
-            .about-inner {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-            .about-img-badge {
-                right: 1rem;
-            }
+        @media (max-width: 900px) {
+            .hp-proof ul { grid-template-columns: repeat(2, 1fr); }
+            .hp-proof li { padding: 1rem 0.75rem; }
+            .hp-proof li:nth-child(odd) { border-left: 0; padding-left: 0; }
+            .hp-proof li:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.1); }
         }
 
         @media (max-width: 640px) {
-            .vert-grid {
-                grid-template-columns: 1fr;
+            .hp-hero__content { padding: 7.5rem 0 2.5rem; }
+            .hp-hero__divisions { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+            .hp-hero__divisions li + li::before { display: none; }
+            .hp-hero__divisions li::before {
+                content: '';
+                width: 6px !important;
+                height: 6px !important;
+                border-radius: 50%;
+                background: var(--b2b-gold-light) !important;
+                display: inline-block !important;
             }
+            .hp-hero__divisions li { gap: 0.6rem; }
+            .hp-proof strong { font-size: 1.3rem; }
+            .hp-proof span { font-size: 0.62rem; }
+        }
 
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-img-main {
-                height: 300px;
-            }
-
-            .stats-inner {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .slider-arrows {
-                display: none;
-            }
-
-            .scroll-cue {
-                display: none;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            .hp-hero__text > * { animation: none; }
+            .trust-bar-track { animation: none; }
         }
     </style>
 </head>
 
 <body>
-
-
 
     <!-- nav -->
     <nav class="navbar">
@@ -1360,402 +254,606 @@
                 <img src="images/2.webp" class="logo" alt="Chase Healthcare & Wellness">
             </a>
             <div class="nav-menu">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="is-active">Home</a>
                 <div class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-trigger">Our Products <i class="fas fa-chevron-down"></i></a>
+                    <a href="catalog.html" class="nav-dropdown-trigger">Products <i class="fas fa-chevron-down"></i></a>
                     <div class="nav-dropdown-menu">
                         <a href="surgical.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon surgical-dd"><i class="fas fa-syringe"></i></div>
-                            <div class="nav-dropdown-text"><span>Surgical Products</span><small>Medical disposables &
-                                    instruments</small></div>
-                        </a>
-                        <a href="vitantra.html" class="nav-dropdown-item">
-                            <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
-                            <div class="nav-dropdown-text"><span>Vitantra Wellness</span><small>Ayurvedic & herbal
-                                    formulations</small></div>
+                            <div class="nav-dropdown-text"><span>Surgical &amp; Medical</span><small>Medical disposables &amp; devices</small></div>
                         </a>
                         <a href="nutra.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon nutra-dd"><i class="fas fa-capsules"></i></div>
-                            <div class="nav-dropdown-text"><span>Nutraceutical Range</span><small>Science-backed
-                                    supplements</small></div>
+                            <div class="nav-dropdown-text"><span>Nutraceuticals</span><small>Science-backed supplements</small></div>
                         </a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="about-chw.html" class="nav-dropdown-trigger">About <i class="fas fa-chevron-down"></i></a>
-                    <div class="nav-dropdown-menu">
-                        <a href="about-chw.html" class="nav-dropdown-item">
-                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-building"></i></div>
-                            <div class="nav-dropdown-text"><span>About CHW</span><small>Chase Healthcare &
-                                    Wellness</small></div>
-                        </a>
-                        <a href="about-vitantra.html" class="nav-dropdown-item">
+                        <a href="vitantra.html" class="nav-dropdown-item">
                             <div class="nav-dropdown-icon vitantra-dd"><i class="fas fa-leaf"></i></div>
-                            <div class="nav-dropdown-text"><span>About Vitantra</span><small>Our natural wellness
-                                    brand</small></div>
+                            <div class="nav-dropdown-text"><span>Wellness Vitantra</span><small>Herbal &amp; Ayurvedic range</small></div>
+                        </a>
+                        <a href="catalog.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon chw-dd"><i class="fas fa-book-open"></i></div>
+                            <div class="nav-dropdown-text"><span>Product Catalogue</span><small>View or download the PDF</small></div>
                         </a>
                     </div>
                 </div>
-                <a href="manufacturing.html">Manufacturing</a>
+                <a href="distributors.html">For Distributors</a>
+                <a href="manufacturing.html">OEM / Private Label</a>
                 <a href="quality.html">Quality</a>
-                <a href="catalog.html">Catalogue</a>
+                <a href="global-business.html">Global Business</a>
                 <a href="exhibitions.html">Exhibitions</a>
-                <a href="contact.html" class="nav-btn">Contact Us</a>
+                <a href="contact.html" class="nav-btn">Contact</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <!-- ═══════════════════ HERO SLIDER ═══════════════════ -->
-    <section class="hero-slider" id="hero">
-
-        <!-- Slide 1: Surgical / General -->
-        <div class="slide active">
-            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="hp-hero hero-slider" id="hero">
+        <div class="hp-hero__media" aria-hidden="true">
+            <video class="hp-hero__video is-active" autoplay muted loop playsinline webkit-playsinline preload="metadata">
                 <source src="images/7469660-hd_1920_1080_25fps.mp4" type="video/mp4">
             </video>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="slide-text">
-                    <span class="slide-badge"><i class="fas fa-shield-alt"></i> WHO-GMP Certified &nbsp;·&nbsp; ISO
-                        Compliant</span>
-                    <h1 class="slide-h1">Chase <em class="gold">Healthcare</em><br>&amp; Wellness</h1>
-                    <p class="slide-sub">Your trusted partner in surgical, Ayurvedic &amp; nutraceutical healthcare —
-                        blending cutting-edge science with time-honored traditions.</p>
-                    <div class="slide-cta">
-                        <a href="surgical.html" class="btn-hero-primary">Explore Surgical <i
-                                class="fas fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn-hero-ghost">Partner With Us <i
-                                class="fas fa-handshake"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 2: Ayurveda -->
-        <div class="slide">
-            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-                <source src="images/ayurveda.mp4" type="video/mp4">
-            </video>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="slide-text">
-                    <span class="slide-badge"><i class="fas fa-leaf"></i> Vitantra Wellness — Pure &amp; Potent</span>
-                    <h1 class="slide-h1">Ancient Wisdom,<br><em class="gold">Modern Science</em></h1>
-                    <p class="slide-sub">Discover Vitantra — our flagship Ayurvedic and herbal wellness brand, crafted
-                        with the purest botanicals for holistic well-being.</p>
-                    <div class="slide-cta">
-                        <a href="vitantra.html" class="btn-hero-primary">Vitantra Range <i
-                                class="fas fa-arrow-right"></i></a>
-                        <a href="about-vitantra.html" class="btn-hero-ghost">Our Story <i
-                                class="fas fa-book-open"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Vitantra -->
-        <div class="slide">
-            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            <video class="hp-hero__video" muted loop playsinline webkit-playsinline preload="none">
                 <source src="images/vtantra-hero.mp4" type="video/mp4">
             </video>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="slide-text">
-                    <span class="slide-badge"><i class="fas fa-capsules"></i> Nutraceuticals — Science Backed</span>
-                    <h1 class="slide-h1">Supplement Your<br><em class="gold">Vitality</em></h1>
-                    <p class="slide-sub">Precision-formulated nutraceuticals designed for the modern lifestyle —
-                        supporting immunity, performance, and lifelong wellness.</p>
-                    <div class="slide-cta">
-                        <a href="nutra.html" class="btn-hero-primary">Nutraceutical Range <i
-                                class="fas fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn-hero-ghost">B2B Enquiries <i
-                                class="fas fa-arrow-right"></i></a>
+            <video class="hp-hero__video" muted loop playsinline webkit-playsinline preload="none">
+                <source src="images/ayurveda.mp4" type="video/mp4">
+            </video>
+            <div class="hp-hero__shade"></div>
+        </div>
+
+        <div class="hp-hero__content">
+            <div class="b2b-container">
+                <div class="hp-hero__text">
+                    <span class="hp-hero__badge"><i class="fas fa-globe"></i> Manufacturer &amp; Exporter · India</span>
+                    <h1>Your Trusted <em>Global</em><br>Healthcare Supply Partner</h1>
+                    <ul class="hp-hero__divisions">
+                        <li>Surgical &amp; Medical</li>
+                        <li>Nutraceuticals</li>
+                        <li>Herbal &amp; Wellness Solutions</li>
+                    </ul>
+                    <p class="hp-hero__sub">WHO-GMP certified manufacturing and reliable export supply for importers,
+                        distributors, wholesalers, hospitals and institutional buyers.</p>
+                    <div class="b2b-btns">
+                        <a href="distributors.html" class="b2b-btn b2b-btn--gold"><i class="fas fa-handshake"></i> Become a Distribution Partner</a>
+                        <a href="contact.html?type=pricelist#enquiry" class="b2b-btn b2b-btn--white"><i class="fas fa-file-invoice-dollar"></i> Request Export Price List</a>
+                        <a href="catalog.html" class="b2b-btn b2b-btn--ghost"><i class="fas fa-book-open"></i> View / Download Catalogue</a>
+                        <a href="contact.html?type=quote#enquiry" class="b2b-btn b2b-btn--ghost"><i class="fas fa-file-signature"></i> Request a Quote</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- arrows -->
-        <div class="slider-arrows">
-            <button class="slider-arrow" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
-            <button class="slider-arrow" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
-        </div>
-
-        <!-- dots -->
-        <div class="slider-nav">
-            <button class="slider-dot active" data-idx="0"></button>
-            <button class="slider-dot" data-idx="1"></button>
-            <button class="slider-dot" data-idx="2"></button>
-        </div>
-
-        <!-- counter -->
-        <div class="slide-counter">
-            <span class="current" id="slideCurrentNum">01</span> / 03
-        </div>
-
-        <!-- scroll cue -->
-        <div class="scroll-cue">
-            <div class="scroll-cue-line"></div>
-            <span>Scroll</span>
+        <div class="hp-proof">
+            <div class="b2b-container">
+                <ul>
+                    <li><i class="fas fa-certificate"></i><div><strong>WHO-GMP</strong><span>Certified manufacturing</span></div></li>
+                    <li><i class="fas fa-globe-asia"></i><div><strong>20+</strong><span>Countries exported to</span></div></li>
+                    <li><i class="fas fa-boxes"></i><div><strong>100+</strong><span>Products · 3 divisions</span></div></li>
+                    <li><i class="fas fa-industry"></i><div><strong>OEM</strong><span>Private label ready</span></div></li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- ═══════════════════ TRUST BAR ═══════════════════ -->
-    <div class="trust-bar">
+    <div class="trust-bar" aria-label="CHW credentials">
         <div class="trust-bar-track">
             <span class="trust-item"><i class="fas fa-certificate"></i> WHO-GMP Certified Manufacturing</span>
-            <span class="trust-item"><i class="fas fa-shield-alt"></i> ISO Quality Standards</span>
-            <span class="trust-item"><i class="fas fa-leaf"></i> 100% Natural Formulations</span>
-            <span class="trust-item"><i class="fas fa-flask"></i> In-house R&amp;D Laboratory</span>
-            <span class="trust-item"><i class="fas fa-truck"></i> Pan-India Distribution</span>
-            <span class="trust-item"><i class="fas fa-handshake"></i> Trusted B2B Partner</span>
-            <!-- duplicate for seamless loop -->
-            <span class="trust-item"><i class="fas fa-certificate"></i> WHO-GMP Certified Manufacturing</span>
-            <span class="trust-item"><i class="fas fa-shield-alt"></i> ISO Quality Standards</span>
-            <span class="trust-item"><i class="fas fa-leaf"></i> 100% Natural Formulations</span>
-            <span class="trust-item"><i class="fas fa-flask"></i> In-house R&amp;D Laboratory</span>
-            <span class="trust-item"><i class="fas fa-truck"></i> Pan-India Distribution</span>
-            <span class="trust-item"><i class="fas fa-handshake"></i> Trusted B2B Partner</span>
+            <span class="trust-item"><i class="fas fa-shield-alt"></i> ISO Quality Systems</span>
+            <span class="trust-item"><i class="fas fa-ship"></i> Exporting to 20+ Countries</span>
+            <span class="trust-item"><i class="fas fa-file-contract"></i> Export Documentation Support</span>
+            <span class="trust-item"><i class="fas fa-industry"></i> OEM &amp; Private Label</span>
+            <span class="trust-item"><i class="fas fa-layer-group"></i> Flexible MOQ</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-certificate"></i> WHO-GMP Certified Manufacturing</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-shield-alt"></i> ISO Quality Systems</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-ship"></i> Exporting to 20+ Countries</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-file-contract"></i> Export Documentation Support</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-industry"></i> OEM &amp; Private Label</span>
+            <span class="trust-item" aria-hidden="true"><i class="fas fa-layer-group"></i> Flexible MOQ</span>
         </div>
     </div>
 
-    <!-- ═══════════════════ PRODUCT VERTICALS ═══════════════════ -->
-    <section class="verticals-section">
-        <div class="verticals-inner">
-            <div class="verticals-header">
-                <div class="reveal-left">
-                    <span class="section-label-new">Our Products</span>
-                    <h2 class="section-h2">Comprehensive<br><em>Healthcare Solutions</em></h2>
+    <!-- ═══════════════════ BUSINESS DIVISIONS ═══════════════════ -->
+    <section class="b2b-section" id="divisions">
+        <div class="b2b-container">
+            <div class="b2b-head">
+                <div class="rv">
+                    <span class="b2b-eyebrow">What We Supply</span>
+                    <h2 class="b2b-h2">Three Business Divisions,<br><em>One Reliable Supplier</em></h2>
                 </div>
-                <p class="section-intro reveal-right" style="text-align:right; max-width:360px;">From precision surgical
-                    instruments to nature-inspired wellness formulations — all under one trusted roof.</p>
+                <p class="b2b-lead rv" data-delay="1">Source surgical disposables, nutraceuticals and herbal wellness
+                    products from a single certified partner — consolidated shipments, one point of contact.</p>
             </div>
 
-            <div class="vert-grid">
-                <div class="vert-card reveal-fade">
-                    <img src="images/surgical-prod.webp" alt="Surgical Products" class="vert-card-img">
-                    <span class="vert-card-tag">Medical</span>
-                    <div class="vert-card-body">
-                        <div class="vert-card-icon"><i class="fas fa-syringe"></i></div>
-                        <h3>Surgical &amp; Medical</h3>
-                        <p>Precision tools and solutions trusted by healthcare professionals. Top-tier surgical and
-                            medical products designed for reliability and excellence.</p>
-                        <a href="surgical.html" class="vert-card-link">Explore Range <i
-                                class="fas fa-arrow-right"></i></a>
+            <div class="div-grid">
+                <article class="div-card rv">
+                    <div class="div-card__media">
+                        <img src="images/surgical-prod.webp" alt="Surgical and medical products" loading="lazy">
+                        <span class="div-card__num">01 · Medical</span>
                     </div>
-                </div>
-                <div class="vert-card reveal-fade">
-                    <img src="images/ayurveda-prod.webp" alt="Ayurvedic Products" class="vert-card-img">
-                    <span class="vert-card-tag">Ayurvedic</span>
-                    <div class="vert-card-body">
-                        <div class="vert-card-icon"><i class="fas fa-leaf"></i></div>
-                        <h3>Vitantra Wellness</h3>
-                        <p>Pure, potent Ayurvedic &amp; herbal blends for everyday vitality. Nature-inspired
-                            formulations crafted with ancient wisdom and modern precision.</p>
-                        <a href="vitantra.html" class="vert-card-link">Explore Range <i
-                                class="fas fa-arrow-right"></i></a>
+                    <div class="div-card__body">
+                        <h3>Surgical &amp; Medical Products</h3>
+                        <p>Hospital-grade disposables for hospitals, clinics and medical distributors.</p>
+                        <ul class="tag-list">
+                            <li>Gauze &amp; Swabs</li>
+                            <li>Bandages</li>
+                            <li>Gloves</li>
+                            <li>Syringes</li>
+                            <li>IV Cannulas</li>
+                        </ul>
+                        <a href="surgical.html" class="b2b-btn b2b-btn--primary">Explore Products <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
-                <div class="vert-card reveal-fade">
-                    <img src="images/nutraceutical-prod.webp" alt="Nutraceutical Products" class="vert-card-img">
-                    <span class="vert-card-tag">Nutraceutical</span>
-                    <div class="vert-card-body">
-                        <div class="vert-card-icon"><i class="fas fa-capsules"></i></div>
+                </article>
+
+                <article class="div-card rv" data-delay="1">
+                    <div class="div-card__media">
+                        <img src="images/nutraceutical-prod.webp" alt="Nutraceutical supplements" loading="lazy">
+                        <span class="div-card__num">02 · Nutraceutical</span>
+                    </div>
+                    <div class="div-card__body">
                         <h3>Nutraceuticals</h3>
-                        <p>Science-backed nutritional supplements designed to support your wellness journey and
-                            complement modern, active lifestyles.</p>
-                        <a href="nutra.html" class="vert-card-link">Explore Range <i class="fas fa-arrow-right"></i></a>
+                        <p>Science-backed supplement formulations, available in bulk or under your brand.</p>
+                        <ul class="tag-list">
+                            <li>Immunity</li>
+                            <li>Vitamins &amp; Minerals</li>
+                            <li>Sports Nutrition</li>
+                            <li>Gut Health</li>
+                        </ul>
+                        <a href="nutra.html" class="b2b-btn b2b-btn--primary">Explore Products <i class="fas fa-arrow-right"></i></a>
                     </div>
+                </article>
+
+                <article class="div-card rv" data-delay="2">
+                    <div class="div-card__media">
+                        <img src="images/product-herbal-capsules.webp" alt="Vitantra herbal capsules" loading="lazy">
+                        <span class="div-card__num">03 · Herbal</span>
+                    </div>
+                    <div class="div-card__body">
+                        <h3>Wellness Vitantra / Herbal Products</h3>
+                        <p>Ayurvedic single-herb and classical formulations from our Vitantra brand.</p>
+                        <ul class="tag-list">
+                            <li>Ashwagandha</li>
+                            <li>Shilajit</li>
+                            <li>Turmeric</li>
+                            <li>Moringa</li>
+                        </ul>
+                        <a href="vitantra.html" class="b2b-btn b2b-btn--primary">Explore Products <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ WHY PARTNER WITH CHW ═══════════════════ -->
+    <section class="b2b-section is-mint" id="why-chw">
+        <div class="b2b-container">
+            <div class="b2b-head b2b-head--center rv">
+                <span class="b2b-eyebrow">Why Partner With CHW?</span>
+                <h2 class="b2b-h2">Built for <em>Long-Term</em> B2B Partnerships</h2>
+                <p class="b2b-lead">Everything an importer or distributor needs to source with confidence.</p>
+            </div>
+
+            <div class="why-b2b-grid rv">
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-tags"></i></div>
+                    <h3>Competitive B2B Pricing</h3>
+                    <p>Direct-from-manufacturer rates with volume-based pricing.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Flexible MOQ</h3>
+                    <p>Trial orders and mixed-category shipments welcome.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-boxes"></i></div>
+                    <h3>Wide Product Portfolio</h3>
+                    <p>100+ products across surgical, nutraceutical and herbal ranges.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-tag"></i></div>
+                    <h3>OEM / Private Label</h3>
+                    <p>Your brand, our certified manufacturing and formulation support.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Export Documentation</h3>
+                    <p>CoA, certificates and shipping documents prepared for your market.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-industry"></i></div>
+                    <h3>Reliable Manufacturing &amp; Supply</h3>
+                    <p>WHO-GMP processes, batch-wise QC and planned production.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-box-open"></i></div>
+                    <h3>Custom Packaging</h3>
+                    <p>Pack sizes, labels and artwork tailored to your market.</p>
+                </div>
+                <div class="why-b2b">
+                    <div class="why-b2b__icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Long-Term Distributor Support</h3>
+                    <p>Dedicated account management, catalogues and reorder planning.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ STATS BANNER ═══════════════════ -->
-    <section class="stats-banner">
-        <div class="stats-inner">
-            <div class="stat-block reveal-fade">
-                <div class="stat-num">100+</div>
-                <div class="stat-label">Products in Portfolio</div>
+    <!-- ═══════════════════ FEATURED PRODUCTS ═══════════════════ -->
+    <section class="b2b-section" id="featured">
+        <div class="b2b-container">
+            <div class="b2b-head">
+                <div class="rv">
+                    <span class="b2b-eyebrow">Featured Products</span>
+                    <h2 class="b2b-h2">High-Demand Lines for<br><em>Export Markets</em></h2>
+                </div>
+                <a href="catalog.html" class="b2b-link rv" data-delay="1">View full catalogue <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="stat-block reveal-fade">
-                <div class="stat-num">WHO</div>
-                <div class="stat-label">GMP Certified</div>
+
+            <div class="fp-grid">
+                <article class="fp-card rv">
+                    <a href="surgical.html" class="fp-card__img"><img src="images/Surgical Gloves.webp" alt="CHW surgical gloves" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Surgical</small><h3><a href="surgical.html">Surgical Gloves</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=surgical&amp;product=Surgical%20Gloves#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="1">
+                    <a href="surgical.html" class="fp-card__img"><img src="images/Surgical_Products_Syringes_Design_A2.webp" alt="CHW syringes" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Surgical</small><h3><a href="surgical.html">Syringes</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=surgical&amp;product=Syringes#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="2">
+                    <a href="surgical.html" class="fp-card__img"><img src="images/Surgical_Products_Cannulas_Design_A2.webp" alt="CHW IV cannulas" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Surgical</small><h3><a href="surgical.html">IV Cannulas</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=surgical&amp;product=IV%20Cannulas#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="3">
+                    <a href="surgical.html" class="fp-card__img"><img src="images/Gauze Swab.webp" alt="CHW gauze swabs" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Surgical</small><h3><a href="surgical.html">Gauze Swabs</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=surgical&amp;product=Gauze%20Swabs#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv">
+                    <a href="nutra.html" class="fp-card__img"><img src="images/Nutraceutical_Products_Immunity_&amp;_Daily_Wellness_Multivitamin_+_Minerals.webp" alt="Multivitamin and minerals capsules" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Nutraceutical</small><h3><a href="nutra.html">Multivitamin + Minerals</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=nutra&amp;product=Multivitamin%20%2B%20Minerals#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="1">
+                    <a href="nutra.html" class="fp-card__img"><img src="images/Nutraceutical_Products_Immunity_&amp;_Daily_Wellness_Vitamin_D3.webp" alt="Vitamin D3 capsules" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Nutraceutical</small><h3><a href="nutra.html">Vitamin D3</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=nutra&amp;product=Vitamin%20D3#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="2">
+                    <a href="vitantra.html" class="fp-card__img"><img src="images/Single_herb_Ashwagandha_Ashwagandha_Capsules.webp" alt="Ashwagandha capsules" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Herbal</small><h3><a href="vitantra.html">Ashwagandha Capsules</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=herbal&amp;product=Ashwagandha%20Capsules#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="fp-card rv" data-delay="3">
+                    <a href="vitantra.html" class="fp-card__img"><img src="images/Single_herb_Shilajit_Shilajit_Capsules.webp" alt="Shilajit capsules" loading="lazy"></a>
+                    <div class="fp-card__body">
+                        <div><small>Herbal</small><h3><a href="vitantra.html">Shilajit Capsules</a></h3></div>
+                        <a href="contact.html?type=quote&amp;category=herbal&amp;product=Shilajit%20Capsules#enquiry" class="fp-card__quote">Quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
             </div>
-            <div class="stat-block reveal-fade">
-                <div class="stat-num">ISO</div>
-                <div class="stat-label">Quality Compliant</div>
-            </div>
-            <div class="stat-block reveal-fade">
-                <div class="stat-num">3+</div>
-                <div class="stat-label">Product Verticals</div>
+
+            <div class="cat-band rv">
+                <div class="cat-band__icon"><i class="fas fa-file-pdf"></i></div>
+                <div>
+                    <h3>Complete Product Catalogue</h3>
+                    <p>100+ products with specifications across all three divisions.</p>
+                </div>
+                <div class="b2b-btns">
+                    <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="b2b-btn b2b-btn--gold" id="hp-catalog-download"><i class="fas fa-download"></i> Download PDF</a>
+                    <a href="catalog.html" class="b2b-btn b2b-btn--ghost">View Catalogue</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ CATALOG SECTION ═══════════════════ -->
-    <section class="hp-catalog" aria-label="Product Catalogue Download">
-        <div class="hp-catalog-inner">
-            <!-- Left: Visual -->
-            <div class="hp-cat-left reveal-left">
-                <div class="hp-cat-left-bg"></div>
-                <div class="hp-cat-left-grid"></div>
-                <div class="hp-cat-ring"></div>
-                <div class="hp-cat-ring"></div>
-                <div class="hp-cat-icon-wrap">
-                    <div class="hp-cat-pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>PDF</span>
-                    </div>
-                    <div class="hp-cat-pill">
-                        <i class="fas fa-download"></i> Free Download
-                    </div>
+    <!-- ═══════════════════ OEM / PRIVATE LABEL ═══════════════════ -->
+    <section class="b2b-section is-dark" id="oem">
+        <div class="b2b-container">
+            <div class="oem-head">
+                <div class="rv">
+                    <span class="b2b-eyebrow">OEM / Private Label</span>
+                    <h2 class="b2b-h2">Your Brand. <em>Our Certified Manufacturing.</em></h2>
                 </div>
+                <p class="b2b-lead rv" data-delay="1">From product selection to dispatch, one team manages development,
+                    documentation and production of your private-label range.</p>
             </div>
 
-            <!-- Right: Text -->
-            <div class="hp-cat-right">
-                <div class="hp-cat-right-content reveal-right">
-                    <span class="hp-cat-label">Official Catalogue</span>
-                    <h2 class="hp-cat-h2">Download Our <em>Complete</em><br>Product Catalog</h2>
-                    <p class="hp-cat-desc">Get instant access to our full range of 100+ products — surgical instruments, Ayurvedic formulations & nutraceuticals — in one beautifully detailed PDF.</p>
-                    <div class="hp-cat-features">
-                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> 100+ products with full specifications</div>
-                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> Surgical, Ayurvedic & Nutraceutical categories</div>
-                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> WHO-GMP & ISO certifications listed</div>
-                        <div class="hp-cat-feature"><i class="fas fa-check-circle"></i> Free — no sign-up required</div>
-                    </div>
-                    <div class="hp-cat-btns">
-                        <a href="images/chw%20Catalog.pdf" download="CHW_Product_Catalogue.pdf" class="btn-hp-cat-dl" id="hp-catalog-download">
-                            <i class="fas fa-download"></i> Download Free PDF
-                        </a>
-                        <a href="catalog.html" class="btn-hp-cat-view">
-                            <i class="fas fa-book-open"></i> View Catalogue Page
-                        </a>
-                    </div>
+            <ol class="oem-steps">
+                <li class="oem-step rv">
+                    <div class="oem-step__icon"><i class="fas fa-clipboard-list"></i></div>
+                    <span class="oem-step__num">STEP 01</span>
+                    <h3>Requirement</h3>
+                    <p>Share your product, market and volume needs.</p>
+                </li>
+                <li class="oem-step rv" data-delay="1">
+                    <div class="oem-step__icon"><i class="fas fa-flask"></i></div>
+                    <span class="oem-step__num">STEP 02</span>
+                    <h3>Product Selection / Development</h3>
+                    <p>Choose from our range or develop a formulation.</p>
+                </li>
+                <li class="oem-step rv" data-delay="2">
+                    <div class="oem-step__icon"><i class="fas fa-vial"></i></div>
+                    <span class="oem-step__num">STEP 03</span>
+                    <h3>Sampling</h3>
+                    <p>Approve samples, packaging and artwork.</p>
+                </li>
+                <li class="oem-step rv" data-delay="3">
+                    <div class="oem-step__icon"><i class="fas fa-file-signature"></i></div>
+                    <span class="oem-step__num">STEP 04</span>
+                    <h3>Documentation</h3>
+                    <p>Specifications, labels and export paperwork.</p>
+                </li>
+                <li class="oem-step rv" data-delay="2">
+                    <div class="oem-step__icon"><i class="fas fa-cogs"></i></div>
+                    <span class="oem-step__num">STEP 05</span>
+                    <h3>Production</h3>
+                    <p>GMP manufacturing with batch-wise quality checks.</p>
+                </li>
+                <li class="oem-step rv" data-delay="3">
+                    <div class="oem-step__icon"><i class="fas fa-shipping-fast"></i></div>
+                    <span class="oem-step__num">STEP 06</span>
+                    <h3>Dispatch</h3>
+                    <p>Export packing and shipment to your destination.</p>
+                </li>
+            </ol>
+
+            <div class="oem-foot rv">
+                <ul class="oem-caps">
+                    <li><i class="fas fa-check"></i> Custom formulations</li>
+                    <li><i class="fas fa-check"></i> Your label &amp; artwork</li>
+                    <li><i class="fas fa-check"></i> Custom packaging</li>
+                    <li><i class="fas fa-check"></i> Pilot to mass production</li>
+                </ul>
+                <div class="b2b-btns">
+                    <a href="contact.html?type=oem#enquiry" class="b2b-btn b2b-btn--gold">Start an OEM Project <i class="fas fa-arrow-right"></i></a>
+                    <a href="manufacturing.html" class="b2b-btn b2b-btn--ghost">OEM Capabilities</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ ABOUT STRIP ═══════════════════ -->
-    <section class="about-strip">
-        <div class="about-inner">
-            <div class="about-img-wrap reveal-left">
-                <div class="about-dot-bg"></div>
-                <img src="images/contractmanufacturinglab.webp" alt="CHW Laboratory" class="about-img-main">
-                <div class="about-img-badge">
-                    <span class="big">100%</span>
-                    <small>Quality Assured</small>
+    <!-- ═══════════════════ QUALITY & CERTIFICATIONS ═══════════════════ -->
+    <section class="b2b-section" id="quality">
+        <div class="b2b-container">
+            <div class="b2b-head">
+                <div class="rv">
+                    <span class="b2b-eyebrow">Quality &amp; Certifications</span>
+                    <h2 class="b2b-h2">Certified Quality Buyers<br><em>Can Verify</em></h2>
                 </div>
+                <p class="b2b-lead rv" data-delay="1">International manufacturing standards, documented at every
+                    batch. Certificate copies are shared with qualified buyers on request.</p>
             </div>
-            <div class="about-text reveal-right">
-                <span class="section-label-new">Who We Are</span>
-                <h2 class="section-h2">Built on <em>Trust</em>,<br>Driven by Excellence</h2>
-                <p class="section-intro">Chase Healthcare &amp; Wellness Pvt Ltd is a leading healthcare company
-                    delivering top-quality surgical, Ayurvedic, and nutraceutical products across India.</p>
-                <div class="features-list">
-                    <div class="feature-row">
-                        <div class="feature-row-icon"><i class="fas fa-certificate"></i></div>
-                        <div class="feature-row-text">
-                            <h4>Certified Quality</h4>
-                            <p>Every product manufactured under strictly WHO-GMP certified and ISO compliant conditions.
-                            </p>
+
+            <div class="qa-b2b">
+                <!-- Certificate thumbnails. To show a real certificate scan, change a paper to:
+                     <div class="cert-doc__paper cert-doc__paper--scan"><img src="images/certificates/who-gmp.jpg" alt="..."></div> -->
+                <div class="cert-docs">
+                    <div class="cert-doc rv">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Certificate</span>
+                            <img src="images/cert_who_gmp.png" alt="WHO-GMP certification mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>WHO-GMP</h3><small>Good Manufacturing Practice</small></div>
+                    </div>
+                    <div class="cert-doc rv" data-delay="1">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Certificate</span>
+                            <img src="images/cert_iso_9001.png" alt="ISO 9001 certification mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>ISO 9001</h3><small>Quality management system</small></div>
+                    </div>
+                    <div class="cert-doc rv" data-delay="2">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Certificate</span>
+                            <img src="images/cert_haccp.png" alt="HACCP certification mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>HACCP</h3><small>Food safety management</small></div>
+                    </div>
+                    <div class="cert-doc rv">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Licence</span>
+                            <img src="images/cert_fssai.png" alt="FSSAI licence mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>FSSAI</h3><small>Nutraceutical licensing</small></div>
+                    </div>
+                    <div class="cert-doc rv" data-delay="1">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Test Report</span>
+                            <img src="images/cert_nabl.png" alt="NABL accredited testing mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>NABL Lab-Tested</h3><small>Accredited test reports</small></div>
+                    </div>
+                    <div class="cert-doc rv" data-delay="2">
+                        <div class="cert-doc__paper">
+                            <span class="cert-doc__kicker">Certificate</span>
+                            <img src="images/cert_organic.png" alt="Organic certification mark" loading="lazy">
+                            <div class="cert-doc__lines"><span></span><span></span><span></span></div>
+                        </div>
+                        <div><h3>Organic</h3><small>For applicable products</small></div>
+                    </div>
+                </div>
+
+                <div class="rv" data-delay="1">
+                    <div class="qa-pillars">
+                        <div class="qa-pillar">
+                            <h3><i class="fas fa-microscope"></i> Quality Systems</h3>
+                            <ul class="check-list">
+                                <li><i class="fas fa-check"></i> Batch-wise quality checks and release</li>
+                                <li><i class="fas fa-check"></i> Qualified raw-material suppliers</li>
+                            </ul>
+                        </div>
+                        <div class="qa-pillar">
+                            <h3><i class="fas fa-industry"></i> Manufacturing Credentials</h3>
+                            <ul class="check-list">
+                                <li><i class="fas fa-check"></i> WHO-GMP certified manufacturing</li>
+                                <li><i class="fas fa-check"></i> ISO-compliant quality management</li>
+                            </ul>
+                        </div>
+                        <div class="qa-pillar">
+                            <h3><i class="fas fa-folder-open"></i> Product Documentation</h3>
+                            <ul class="check-list">
+                                <li><i class="fas fa-check"></i> Certificate of Analysis per batch</li>
+                                <li><i class="fas fa-check"></i> Specifications, labels &amp; export documents</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="feature-row">
-                        <div class="feature-row-icon"><i class="fas fa-flask"></i></div>
-                        <div class="feature-row-text">
-                            <h4>In-House R&amp;D</h4>
-                            <p>Our dedicated research team continually innovates to bring you the most effective
-                                formulations.</p>
-                        </div>
+                    <div class="b2b-btns" style="margin-top:1.75rem;">
+                        <a href="contact.html?type=requirement&amp;product=Certificate%20copies#enquiry" class="b2b-btn b2b-btn--primary">Request Certificates</a>
+                        <a href="quality.html" class="b2b-btn b2b-btn--outline">Quality Details</a>
                     </div>
-                    <div class="feature-row">
-                        <div class="feature-row-icon"><i class="fas fa-globe-asia"></i></div>
-                        <div class="feature-row-text">
-                            <h4>Wide Distribution</h4>
-                            <p>Robust Pan-India logistics ensuring timely, reliable delivery to healthcare providers
-                                everywhere.</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-top:2rem;">
-                    <a href="about-chw.html" class="btn-hero-primary" style="display:inline-flex;">Discover Our Story <i
-                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ MARQUEE BANNER ═══════════════════ -->
-    <div class="marquee-banner">
-        <div class="marquee-track">
-            <span class="marquee-item"><span class="marquee-star">✦</span> Surgical Excellence</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Ayurvedic Wisdom</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Nutraceutical Science</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> WHO-GMP Certified</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> ISO Compliant Quality</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Care Beyond Cure</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Surgical Excellence</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Ayurvedic Wisdom</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Nutraceutical Science</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> WHO-GMP Certified</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> ISO Compliant Quality</span>
-            <span class="marquee-item"><span class="marquee-star">✦</span> Care Beyond Cure</span>
-        </div>
-    </div>
+    <!-- ═══════════════════ GLOBAL MARKETS ═══════════════════ -->
+    <section class="b2b-section is-mint" id="global">
+        <div class="b2b-container">
+            <div class="gm-grid">
+                <div>
+                    <div class="rv">
+                        <span class="b2b-eyebrow">Global Markets</span>
+                        <h2 class="b2b-h2">An International Supplier,<br><em>Made in India</em></h2>
+                        <p class="b2b-lead">CHW supplies healthcare importers and distributors across four regions and
+                            is expanding its distributor network into new markets.</p>
+                    </div>
 
-    <!-- ═══════════════════ WHY US ═══════════════════ -->
-    <section class="why-section">
-        <div class="why-inner">
-            <div class="why-header reveal-fade">
-                <span class="section-label-new" style="justify-content:center;">Why Choose Us</span>
-                <h2 class="section-h2" style="text-align:center;">The CHW <em>Difference</em></h2>
-                <p class="section-intro" style="margin:0.75rem auto 0; text-align:center;">Qualities that set Chase
-                    Healthcare &amp; Wellness apart from the rest</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-card reveal-fade">
-                    <div class="why-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>Trusted Quality</h3>
-                    <p>WHO-GMP certified and ISO compliant manufacturing ensures every product meets the highest
-                        international standards.</p>
+                    <div class="gm-stats rv" data-delay="1">
+                        <div class="gm-stat"><strong>20+</strong><span>Countries exported to</span></div>
+                        <div class="gm-stat"><strong>4</strong><span>Export regions</span></div>
+                        <div class="gm-stat"><strong>15+</strong><span>Years export expertise</span></div>
+                        <div class="gm-stat"><strong>24h</strong><span>Enquiry response</span></div>
+                    </div>
+
+                    <!-- Markets: add or rename regions here. Use class "is-target" for markets under development. -->
+                    <ul class="gm-regions rv" data-delay="2">
+                        <li class="gm-region"><i class="fas fa-map-marker-alt"></i> Middle East <small>Active</small></li>
+                        <li class="gm-region"><i class="fas fa-map-marker-alt"></i> Africa <small>Active</small></li>
+                        <li class="gm-region"><i class="fas fa-map-marker-alt"></i> Europe <small>Active</small></li>
+                        <li class="gm-region"><i class="fas fa-map-marker-alt"></i> Asia <small>Active</small></li>
+                        <li class="gm-region is-target"><i class="fas fa-bullseye"></i> Southeast Asia <small>Target</small></li>
+                        <li class="gm-region is-target"><i class="fas fa-bullseye"></i> CIS &amp; Central Asia <small>Target</small></li>
+                    </ul>
+
+                    <div class="b2b-btns rv">
+                        <a href="global-business.html" class="b2b-btn b2b-btn--primary">Global Business <i class="fas fa-arrow-right"></i></a>
+                        <a href="contact.html?type=distributor#enquiry" class="b2b-btn b2b-btn--outline">International Enquiry</a>
+                    </div>
                 </div>
-                <div class="why-card reveal-fade">
-                    <div class="why-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Ethical & Natural</h3>
-                    <p>We prioritize sustainable, ethical manufacturing with transparency and responsibility at every
-                        step of production.</p>
-                </div>
-                <div class="why-card reveal-fade">
-                    <div class="why-icon"><i class="fas fa-box-open"></i></div>
-                    <h3>Wide Portfolio</h3>
-                    <p>From surgery to wellness, find everything you need under one trusted roof — surgical, Ayurvedic,
-                        and nutraceutical.</p>
-                </div>
-                <div class="why-card reveal-fade">
-                    <div class="why-icon"><i class="fas fa-truck"></i></div>
-                    <h3>Strong Logistics</h3>
-                    <p>Robust nationwide distribution ensures timely delivery and reliable service across all regions of
-                        India.</p>
+
+                <div class="gm-visual rv" data-delay="1">
+                    <div class="gm-earth" role="img" aria-label="Earth globe showing CHW export markets from India to the Middle East, Africa, Europe, Asia, Southeast Asia and CIS">
+                        <span class="gm-earth__ring" aria-hidden="true"></span>
+                        <span class="gm-earth__ball" aria-hidden="true"></span>
+                        <span class="gm-earth__shade" aria-hidden="true"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ CTA ═══════════════════ -->
-    <section class="cta-section">
-        <div class="cta-bg"></div>
-        <div class="cta-overlay"></div>
-        <div class="cta-inner reveal-fade">
-            <span class="section-label-new">Partner With Us</span>
-            <h2>Ready to Experience<br><em>Wellness?</em></h2>
-            <p>Join healthcare professionals and distributors across India who trust Chase Healthcare &amp; Wellness for
-                quality, reliability, and innovation.</p>
-            <div class="cta-btns">
-                <a href="contact.html" class="btn-hero-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+    <!-- ═══════════════════ MEET CHW IN VIETNAM ═══════════════════ -->
+    <section class="b2b-section" id="vietnam">
+        <div class="b2b-container">
+            <article class="vn-card rv">
+                <div class="vn-card__body">
+                    <span class="vn-flag">
+                        <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#da251d"/><polygon fill="#ffff00" points="15,4 16.18,7.64 20,7.64 16.91,9.9 18.09,13.53 15,11.28 11.91,13.53 13.09,9.9 10,7.64 13.82,7.64"/></svg>
+                        Upcoming Exhibition
+                    </span>
+                    <h2>Meet CHW in <em>Vietnam</em></h2>
+                    <p>Meet our export team in person to review samples, discuss pricing and explore distribution
+                        opportunities across Southeast Asia.</p>
+                    <!-- EDIT: replace the four values below with the confirmed exhibition details -->
+                    <ul class="vn-details">
+                        <li><i class="fas fa-landmark"></i><div><small>Exhibition</small><strong>Healthcare &amp; Pharma Trade Show</strong></div></li>
+                        <li><i class="fas fa-calendar-alt"></i><div><small>Dates</small><strong>To be announced</strong></div></li>
+                        <li><i class="fas fa-map-marker-alt"></i><div><small>Venue</small><strong>Vietnam</strong></div></li>
+                        <li><i class="fas fa-store"></i><div><small>Booth</small><strong>Shared on confirmation</strong></div></li>
+                    </ul>
+                    <div class="b2b-btns">
+                        <a href="contact.html?type=meeting#enquiry" class="b2b-btn b2b-btn--gold"><i class="fas fa-calendar-check"></i> Book a Meeting</a>
+                        <a href="exhibitions.html" class="b2b-btn b2b-btn--ghost">All Exhibitions</a>
+                    </div>
+                </div>
+                <figure class="vn-card__media" style="margin:0;">
+                    <img src="images/nepalexh/nepal-14.jpeg" alt="CHW team at the Nepal Lab & Medical Show 2026" loading="lazy">
+                    <figcaption><i class="fas fa-camera"></i> CHW team at Nepal Lab &amp; Medical Show 2026</figcaption>
+                </figure>
+            </article>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FOR IMPORTERS & DISTRIBUTORS ═══════════════════ -->
+    <section class="b2b-section is-mint" id="distributors">
+        <div class="b2b-container">
+            <div class="dist-grid">
+                <div class="rv">
+                    <span class="b2b-eyebrow">For Importers &amp; Distributors</span>
+                    <h2 class="b2b-h2">Supplying Business Buyers<br><em>Worldwide</em></h2>
+                    <p class="b2b-lead">Whether you import by the container or supply a single hospital group, we
+                        tailor pricing, packaging and documentation to your market.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i> Export price lists and quotations on request</li>
+                        <li><i class="fas fa-check"></i> Samples before bulk orders</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager for partners</li>
+                    </ul>
+                    <div class="b2b-btns">
+                        <a href="distributors.html" class="b2b-btn b2b-btn--primary">Become a Distributor <i class="fas fa-arrow-right"></i></a>
+                        <a href="contact.html?type=pricelist#enquiry" class="b2b-btn b2b-btn--outline">Export Price List</a>
+                    </div>
+                </div>
+
+                <div class="buyer-grid rv" data-delay="1">
+                    <a href="distributors.html" class="buyer"><i class="fas fa-ship"></i><h3>Importers</h3><p>Container &amp; mixed loads</p></a>
+                    <a href="distributors.html" class="buyer"><i class="fas fa-network-wired"></i><h3>Distributors</h3><p>Territory partnerships</p></a>
+                    <a href="distributors.html" class="buyer"><i class="fas fa-warehouse"></i><h3>Wholesalers</h3><p>Volume pricing</p></a>
+                    <a href="distributors.html" class="buyer"><i class="fas fa-hospital"></i><h3>Hospitals</h3><p>Institutional supply</p></a>
+                    <a href="distributors.html" class="buyer"><i class="fas fa-store"></i><h3>Retail Chains</h3><p>Shelf-ready packs</p></a>
+                    <a href="manufacturing.html" class="buyer"><i class="fas fa-tag"></i><h3>OEM Buyers</h3><p>Private label</p></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+    <section class="final-cta">
+        <div class="final-cta__bg" aria-hidden="true"></div>
+        <div class="b2b-container rv">
+            <span class="b2b-eyebrow" style="color:var(--b2b-gold-light);">Partner With CHW</span>
+            <h2>Looking for a Reliable Healthcare<br><em>Supply Partner in India?</em></h2>
+            <p>Tell us what you need — our export team replies within one business day with pricing, MOQ and
+                documentation details.</p>
+            <div class="b2b-btns">
+                <a href="contact.html?type=requirement#enquiry" class="b2b-btn b2b-btn--gold"><i class="fas fa-paper-plane"></i> Send Your Requirement</a>
+                <a href="contact.html?type=quote#enquiry" class="b2b-btn b2b-btn--white"><i class="fas fa-file-signature"></i> Request a Quote</a>
+                <a href="distributors.html" class="b2b-btn b2b-btn--ghost"><i class="fas fa-handshake"></i> Become a Distributor</a>
+            </div>
+            <div class="final-cta__contact">
+                <a href="mailto:export@chw.co.in"><i class="fas fa-envelope"></i> export@chw.co.in</a>
+                <a href="https://wa.me/919560369222" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> +91 95603 69222</a>
             </div>
         </div>
     </section>
@@ -1767,7 +865,7 @@
                 <a href="index.html" class="logo">
                     <img src="images/1.webp" class="logo" alt="CHW Logo">
                 </a>
-                <p>Your trusted partner in Ayurvedic, Herbal, and Surgical healthcare solutions.</p>
+                <p>Your trusted global healthcare supply partner — Surgical &amp; Medical, Nutraceuticals and Herbal &amp; Wellness solutions from India.</p>
 
                 <div class="social-links">
                     <a href="https://www.facebook.com/share/1DoPvFjgJA/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1792,6 +890,16 @@
                 </ul>
             </div>
             <div class="footer-column">
+                <h4>Business</h4>
+                <ul>
+                    <li><a href="distributors.html">For Importers &amp; Distributors</a></li>
+                    <li><a href="manufacturing.html">OEM / Private Label</a></li>
+                    <li><a href="global-business.html">Global Business</a></li>
+                    <li><a href="contact.html?type=pricelist#enquiry">Export Price List</a></li>
+                    <li><a href="contact.html?type=quote#enquiry">Request a Quote</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
                 <h4>Products</h4>
                 <ul>
                     <li><a href="surgical.html">Surgical</a></li>
@@ -1808,91 +916,42 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/b2b-ui.js"></script>
+    <script src="js/earth-globe.js?v=20260913e"></script>
     <script>
-        /* ===== HERO SLIDER LOGIC WITH VIDEO (mobile-optimised) ===== */
+        /* ===== HERO — ambient background video crossfade ===== */
         (function () {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            const videos = document.querySelectorAll('.slide-video');
-            const counterEl = document.getElementById('slideCurrentNum');
-            let current = 0;
-            let timer;
+            var videos = document.querySelectorAll('.hp-hero__video');
+            if (!videos.length) return;
+            var current = 0;
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            // Ensure all videos are muted + inline (required for mobile autoplay)
-            videos.forEach(v => {
+            videos.forEach(function (v) {
                 v.muted = true;
                 v.setAttribute('muted', '');
-                v.setAttribute('playsinline', '');
-                v.setAttribute('webkit-playsinline', '');
             });
 
-            function playActiveVideo(idx) {
-                videos.forEach((v, i) => {
-                    if (i === idx) {
-                        v.currentTime = 0;
-                        // Mobile Safari sometimes needs load() before play()
-                        if (v.readyState < 2) v.load();
-                        var p = v.play();
-                        if (p !== undefined) p.catch(() => { });
-                    } else {
-                        v.pause();
-                    }
+            function play(v) {
+                if (v.readyState < 2) v.load();
+                var p = v.play();
+                if (p !== undefined) p.catch(function () { });
+            }
+
+            function show(idx) {
+                var next = videos[idx];
+                play(next);
+                videos.forEach(function (v, i) {
+                    v.classList.toggle('is-active', i === idx);
+                    if (i !== idx) setTimeout(function () { if (!v.classList.contains('is-active')) v.pause(); }, 1700);
                 });
+                current = idx;
             }
 
-            function goTo(n) {
-                slides[current].classList.remove('active');
-                dots[current].classList.remove('active');
-                current = (n + slides.length) % slides.length;
-                slides[current].classList.add('active');
-                dots[current].classList.add('active');
-                counterEl.textContent = String(current + 1).padStart(2, '0');
-                playActiveVideo(current);
+            play(videos[0]);
+            document.addEventListener('touchstart', function () { play(videos[current]); }, { once: true, passive: true });
+            if (!reduced && videos.length > 1) {
+                setInterval(function () { show((current + 1) % videos.length); }, 9000);
             }
-
-            function startAuto() {
-                timer = setInterval(() => goTo(current + 1), 7000);
-            }
-
-            function resetAuto() {
-                clearInterval(timer);
-                startAuto();
-            }
-
-            document.getElementById('nextSlide').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-            document.getElementById('prevSlide').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => { goTo(+dot.dataset.idx); resetAuto(); });
-            });
-
-            // touch swipe
-            let startX = 0;
-            const hero = document.querySelector('.hero-slider');
-            hero.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-            hero.addEventListener('touchend', e => {
-                const diff = startX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetAuto(); }
-            }, { passive: true });
-
-            // iOS may block autoplay until first user interaction — retry on touch
-            document.addEventListener('touchstart', function iosUnlock() {
-                playActiveVideo(current);
-                document.removeEventListener('touchstart', iosUnlock);
-            }, { once: true, passive: true });
-
-            // kick off first video
-            playActiveVideo(0);
-            startAuto();
-        })();
-
-        /* ===== SCROLL REVEAL ===== */
-        (function () {
-            const els = document.querySelectorAll('.reveal-fade, .reveal-left, .reveal-right');
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-            }, { threshold: 0.12 });
-            els.forEach(el => io.observe(el));
         })();
     </script>
 

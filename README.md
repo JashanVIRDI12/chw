@@ -252,3 +252,21 @@ This theme is proprietary and created specifically for Chase Healthcare & Wellne
 
 **Developed with ❤️ for Chase Healthcare & Wellness**  
 *Care Beyond Cure*
+
+---
+
+## B2B Layer & React Islands (2026 update)
+
+The live site is still plain HTML/CSS/JS — upload the files as before. Two additions:
+
+- **`b2b.css`** — shared styles for the B2B sections (homepage, `distributors.html`, `global-business.html`, contact form, exhibitions, quality).
+- **React islands** — the 3D globe in the Global Markets section is a React/TypeScript component (`components/ui/3d-globe.tsx`, shadcn structure, Tailwind v4) compiled into `js/globe/`. The compiled files are committed, so no build is needed to deploy.
+
+Rebuild the globe only after editing `components/ui/*` or `src/chw-globe.tsx`:
+
+```bash
+npm install
+npm run build   # type-checks, then writes js/globe/
+```
+
+Enquiry forms (`form.b2b-form`) are handled by `js/b2b-enquiry.js` via EmailJS and can be prefilled with URL parameters, e.g. `contact.html?type=quote&category=surgical&product=Syringes#enquiry` (types: requirement, quote, pricelist, distributor, oem, meeting).
