@@ -207,7 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 (function () {
     if (document.getElementById('chwWaWidget')) return;
-    var script = document.createElement('script');
-    script.src = 'js/whatsapp-widget.js';
-    document.body.appendChild(script);
+    function loadWa() {
+        if (document.getElementById('chwWaWidget')) return;
+        var script = document.createElement('script');
+        script.src = 'js/whatsapp-widget.js';
+        script.defer = true;
+        document.body.appendChild(script);
+    }
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadWa, { timeout: 2500 });
+    } else {
+        setTimeout(loadWa, 1200);
+    }
 })();

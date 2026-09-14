@@ -3,5 +3,25 @@
   "framework": null,
   "installCommand": "echo skip-install",
   "buildCommand": "echo skip-build",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)\\.(js|css|webp|png|jpg|jpeg|svg|ico|woff2|mp4)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
 }

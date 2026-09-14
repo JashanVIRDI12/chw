@@ -978,7 +978,7 @@
 
 .gm-earth__ball {
     background:
-        url("images/globe/earth-blue-marble.jpg") 70% 48% / 200% 100% no-repeat #1d4e89;
+        url("images/globe/earth-web.jpg") 70% 48% / 200% 100% no-repeat #1d4e89;
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.08),
         0 0 0 1px rgba(232, 201, 142, 0.28),
@@ -1160,8 +1160,22 @@
 
 .vn-details strong { font-family: var(--b2b-sans); font-size: 0.92rem; font-weight: 500; color: #fff; }
 
-.vn-card__media { position: relative; min-height: 380px; }
-.vn-card__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.vn-card__media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    background: #011910;
+}
+.vn-card__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
 
 .vn-card__media figcaption {
     position: absolute;
@@ -1454,7 +1468,7 @@
 .final-cta__bg {
     position: absolute;
     inset: 0;
-    background: url('images/surgical-hero.webp') center / cover no-repeat;
+    background: url('images/surgical-hero-cta.webp') center / cover no-repeat;
     opacity: 0.22;
 }
 
@@ -1518,7 +1532,7 @@
     .div-card__media { aspect-ratio: auto; min-height: 100%; }
     .oem-head { grid-template-columns: 1fr; }
     .vn-card { grid-template-columns: 1fr; }
-    .vn-card__media { min-height: 260px; order: -1; }
+    .vn-card__media { min-height: 0; order: -1; }
     .enquiry-shell { grid-template-columns: 1fr; }
     .cat-band { grid-template-columns: auto 1fr; }
     .cat-band .b2b-btns { grid-column: 1 / -1; }

@@ -13,15 +13,11 @@
         "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",
     ];
 
-    var LOCAL_MAP = "images/globe/earth-blue-marble.jpg";
-    var LOCAL_BUMP = "images/globe/earth-bump.png";
+    var LOCAL_MAP = "images/globe/earth-web.jpg";
     var CDN_MAPS = [
+        "images/globe/earth-blue-marble.jpg",
         "https://cdn.jsdelivr.net/npm/three-globe@2.44.1/example/img/earth-blue-marble.jpg",
         "https://unpkg.com/three-globe@2.44.1/example/img/earth-blue-marble.jpg",
-    ];
-    var CDN_BUMPS = [
-        "https://cdn.jsdelivr.net/npm/three-globe@2.44.1/example/img/earth-topology.png",
-        "https://unpkg.com/three-globe@2.44.1/example/img/earth-topology.png",
     ];
 
     var HQ = { lat: 28.54, lng: 77.39, label: "India · HQ", hub: true };
@@ -37,7 +33,6 @@
 
     var HINT = "Drag to explore our export regions";
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var fromFile = location.protocol === "file:";
 
     function hasWebGL() {
         try {
@@ -94,15 +89,7 @@
     }
 
     function loadTextures() {
-        var maps = fromFile ? CDN_MAPS.concat([LOCAL_MAP]) : [LOCAL_MAP].concat(CDN_MAPS);
-        var bumps = fromFile ? CDN_BUMPS.concat([LOCAL_BUMP]) : [LOCAL_BUMP].concat(CDN_BUMPS);
-
-        return Promise.all([
-            loadFirstTexture(maps, true),
-            loadFirstTexture(bumps, false).catch(function () {
-                return null;
-            }),
-        ]);
+        return loadFirstTexture([LOCAL_MAP].concat(CDN_MAPS), true);
     }
 
     function latLngToVector3(lat, lng, radius) {
@@ -312,13 +299,9 @@
         }
 
         loadTextures()
-            .then(function (maps) {
+            .then(function (map) {
                 earth.material.color.set(0xffffff);
-                earth.material.map = maps[0];
-                if (maps[1] && earth.material.bumpMap !== undefined) {
-                    earth.material.bumpMap = maps[1];
-                    earth.material.bumpScale = 0.04;
-                }
+                earth.material.map = map;
                 earth.material.needsUpdate = true;
                 requestAnimationFrame(function () {
                     renderer.render(scene, camera);
