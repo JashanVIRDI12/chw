@@ -5,7 +5,8 @@
   "type": "module",
   "description": "CHW static website. Node is only needed to rebuild the React islands in js/globe/.",
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "build": "echo \"Static HTML site — deploy the repo root. Use npm run build:globe only to rebuild js/globe.\"",
+    "build:globe": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
