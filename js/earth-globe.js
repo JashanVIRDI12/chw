@@ -1,35 +1,35 @@
+import * as THREE from "three";
+
 /**
- * CHW — photorealistic Earth for .gm-visual.
- *
- * The React island in js/globe/ cannot run from file:// (ES modules).
- * This script uses a regular Three.js build, so the globe works when the
- * HTML is opened locally and when it is hosted.
+ * CHW — self-contained photorealistic Earth for .gm-visual.
+ * Bundled as js/globe/earth-globe-standalone.js and used by js/globe-loader.js
+ * when the React island cannot start (file:// or a mount failure).
  */
 (function () {
     "use strict";
 
-    var THREE_URLS = [
-        "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js",
-    ];
-
     var LOCAL_MAP = "images/globe/earth-web.jpg";
-    var CDN_MAPS = [
-        "images/globe/earth-blue-marble.jpg",
-        "https://cdn.jsdelivr.net/npm/three-globe@2.44.1/example/img/earth-blue-marble.jpg",
-        "https://unpkg.com/three-globe@2.44.1/example/img/earth-blue-marble.jpg",
-    ];
 
-    var HQ = { lat: 28.54, lng: 77.39, label: "India · HQ", hub: true };
+    var HQ = { lat: 28.54, lng: 77.39, label: "India - HQ", hub: true, labelOffset: { x: 14, y: -8 } };
     var MARKERS = [
         HQ,
-        { lat: 24, lng: 45, label: "Middle East" },
-        { lat: 4, lng: 22, label: "Africa" },
-        { lat: 50, lng: 10, label: "Europe" },
-        { lat: 23.7, lng: 90.4, label: "Asia" },
-        { lat: 14, lng: 106, label: "SE Asia", target: true },
-        { lat: 48, lng: 68, label: "CIS", target: true },
+        { lat: 24, lng: 45, label: "Middle East", labelOffset: { x: -35, y: -26 } },
+        { lat: 4, lng: 22, label: "Africa", labelOffset: { x: -55, y: -50 } },
+        { lat: 50, lng: 10, label: "Europe", labelOffset: { x: -25, y: -26 } },
+        { lat: 23.7, lng: 90.4, label: "Asia", labelOffset: { x: 14, y: -20 } },
+        { lat: 14, lng: 106, label: "SE Asia", target: true, labelOffset: { x: 16, y: -50 } },
+        { lat: 48, lng: 68, label: "CIS", target: true, labelOffset: { x: -15, y: -26 } },
     ];
+
+    var MARKER_DESCRIPTIONS = {
+        "India - HQ": "India · CHW headquarters",
+        "Middle East": "Middle East · Active market",
+        "Africa": "Africa · Active market",
+        "Europe": "Europe · Active market",
+        "Asia": "Asia · Active market",
+        "SE Asia": "Southeast Asia · Target market",
+        "CIS": "CIS & Central Asia · Target market",
+    };
 
     var HINT = "Drag to explore our export regions";
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,25 +41,6 @@
         } catch (err) {
             return false;
         }
-    }
-
-    function loadScript(src) {
-        return new Promise(function (resolve, reject) {
-            var script = document.createElement("script");
-            script.src = src;
-            script.onload = resolve;
-            script.onerror = function () {
-                reject(new Error("Failed to load " + src));
-            };
-            document.head.appendChild(script);
-        });
-    }
-
-    function loadThree() {
-        if (window.THREE) return Promise.resolve();
-        return loadScript(THREE_URLS[0]).catch(function () {
-            return loadScript(THREE_URLS[1]);
-        });
     }
 
     function loadImageTexture(src, cors, srgb) {
@@ -80,16 +61,8 @@
         });
     }
 
-    function loadFirstTexture(urls, srgb) {
-        return urls.reduce(function (chain, src) {
-            return chain.catch(function () {
-                return loadImageTexture(src, /https?:/.test(src), srgb);
-            });
-        }, Promise.reject());
-    }
-
     function loadTextures() {
-        return loadFirstTexture([LOCAL_MAP].concat(CDN_MAPS), true);
+        return loadImageTexture(LOCAL_MAP, false, true);
     }
 
     function latLngToVector3(lat, lng, radius) {
@@ -102,18 +75,12 @@
         );
     }
 
-    function facingRotation(lat, lng) {
-        var p = latLngToVector3(lat, lng, 1);
-        return {
-            x: 0.32,
-            y: Math.PI + Math.atan2(p.x, -p.z),
-        };
-    }
-
     function addArc(group, from, to, radius) {
-        var start = latLngToVector3(from.lat, from.lng, radius * 1.01);
-        var end = latLngToVector3(to.lat, to.lng, radius * 1.01);
-        var mid = start.clone().add(end).normalize().multiplyScalar(radius * 1.18);
+        var start = latLngToVector3(from.lat, from.lng, radius * 1.014);
+        var end = latLngToVector3(to.lat, to.lng, radius * 1.014);
+        var distance = start.distanceTo(end);
+        var currentAltitude = radius * (1.12 + (distance / (radius * 2)) * 0.1);
+        var mid = start.clone().add(end).normalize().multiplyScalar(currentAltitude);
         var curve = new THREE.QuadraticBezierCurve3(start, mid, end);
         var geometry = new THREE.BufferGeometry().setFromPoints(curve.getPoints(48));
         var line = new THREE.Line(
@@ -121,17 +88,17 @@
             new THREE.LineBasicMaterial({
                 color: 0xe8c98e,
                 transparent: true,
-                opacity: 0.7,
+                opacity: 0.75,
             })
         );
         group.add(line);
     }
 
-    function addMarkers(group, radius, labelLayer) {
+    function addMarkers(group, radius, labelLayer, onHover) {
         return MARKERS.map(function (marker) {
             var pos = latLngToVector3(marker.lat, marker.lng, radius);
             var pin = new THREE.Mesh(
-                new THREE.SphereGeometry(marker.hub ? 0.032 : 0.02, 16, 16),
+                new THREE.SphereGeometry(marker.hub ? 0.034 * radius : (marker.target ? 0.02 * radius : 0.022 * radius), 16, 16),
                 new THREE.MeshBasicMaterial({
                     color: marker.target ? 0xffffff : 0xe8c98e,
                 })
@@ -141,7 +108,7 @@
 
             if (marker.hub) {
                 var halo = new THREE.Mesh(
-                    new THREE.SphereGeometry(0.05, 16, 16),
+                    new THREE.SphereGeometry(0.052 * radius, 24, 24),
                     new THREE.MeshBasicMaterial({
                         color: 0xe8c98e,
                         transparent: true,
@@ -154,8 +121,10 @@
             }
 
             if (marker.target) {
+                var normal = pos.clone().normalize();
+                var ringQuat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), normal);
                 var ring = new THREE.Mesh(
-                    new THREE.RingGeometry(0.03, 0.04, 24),
+                    new THREE.RingGeometry(0.028 * radius, 0.042 * radius, 32),
                     new THREE.MeshBasicMaterial({
                         color: 0xc8a96e,
                         side: THREE.DoubleSide,
@@ -164,7 +133,7 @@
                     })
                 );
                 ring.position.copy(pin.position);
-                ring.lookAt(0, 0, 0);
+                ring.quaternion.copy(ringQuat);
                 group.add(ring);
             }
 
@@ -177,32 +146,18 @@
 
             return {
                 el: el,
-                local: pos.clone().setLength(radius * 1.12),
+                marker: marker,
+                local: pos.clone().setLength(radius * 1.014),
             };
         });
     }
 
-    function addAtmosphere(scene, radius) {
-        var glow = new THREE.Mesh(
-            new THREE.SphereGeometry(radius * 1.12, 64, 48),
-            new THREE.MeshBasicMaterial({
-                color: 0x7ec8ff,
-                transparent: true,
-                opacity: 0.13,
-                side: THREE.BackSide,
-                depthWrite: false,
-            })
-        );
-        scene.add(glow);
-    }
-
     function mount(host) {
-        if (host.dataset.globeMounted) return;
+        if (host.dataset.globeMounted === "true") return;
         host.dataset.globeMounted = "true";
 
-        var THREE = window.THREE;
         var radius = 1;
-        var start = facingRotation(HQ.lat, HQ.lng);
+        var start = { x: 0.32, y: -2.65 };
 
         var mountNode = document.createElement("div");
         mountNode.className = "gm-globe";
@@ -236,20 +191,24 @@
         globe.rotation.set(start.x, start.y, 0);
         scene.add(globe);
 
-        scene.add(new THREE.AmbientLight(0xffffff, 1.25));
-        var key = new THREE.DirectionalLight(0xffffff, 0.65);
-        key.position.set(4, 2.4, 5);
+        // Balanced natural lighting
+        scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+        var key = new THREE.DirectionalLight(0xffffff, 1.4);
+        key.position.set(4.5, 2.5, 4.5);
         scene.add(key);
-        var fill = new THREE.DirectionalLight(0xffffff, 0.55);
-        fill.position.set(-3, 1, 2);
+        var fill = new THREE.DirectionalLight(0x93c5fd, 0.7);
+        fill.position.set(-4, 1.5, -3);
         scene.add(fill);
-
-        addAtmosphere(scene, radius);
+        var front = new THREE.DirectionalLight(0xffffff, 0.35);
+        front.position.set(0, 2, 6);
+        scene.add(front);
 
         var earth = new THREE.Mesh(
             new THREE.SphereGeometry(radius, 64, 64),
-            new THREE.MeshBasicMaterial({
+            new THREE.MeshStandardMaterial({
                 color: 0xffffff,
+                roughness: 0.65,
+                metalness: 0.02,
             })
         );
         globe.add(earth);
@@ -364,7 +323,7 @@
             var camDir = camera.position.clone().normalize();
             globe.traverse(function (child) {
                 if (child.userData.pulse) {
-                    var pulse = 1 + Math.sin(elapsed * 2.4) * 0.35;
+                    var pulse = 1 + Math.sin(elapsed * 2.4) * 0.28;
                     child.scale.setScalar(pulse);
                     child.material.opacity = 0.32 - (pulse - 1) * 0.35;
                 }
@@ -377,13 +336,16 @@
                 var world = pin.local.clone().applyMatrix4(globe.matrixWorld);
                 var facing = world.clone().normalize().dot(camDir);
                 var projected = world.clone().project(camera);
+                var offX = pin.marker.labelOffset ? pin.marker.labelOffset.x : (pin.marker.hub ? 14 : 10);
+                var offY = pin.marker.labelOffset ? pin.marker.labelOffset.y : -50;
+                var yUnit = typeof offY === "number" && Math.abs(offY) <= 100 ? "%" : "px";
                 pin.el.style.transform =
                     "translate(" +
                     ((projected.x * 0.5 + 0.5) * width) +
                     "px," +
                     ((-projected.y * 0.5 + 0.5) * height) +
-                    "px) translate(8px, -50%)";
-                pin.el.style.opacity = facing > 0.12 ? "1" : "0";
+                    "px) translate(" + offX + "px, " + offY + yUnit + ")";
+                pin.el.style.opacity = facing > 0.08 ? "1" : "0";
             });
 
             renderer.render(scene, camera);
@@ -399,29 +361,24 @@
         var hosts = Array.prototype.slice.call(document.querySelectorAll(".gm-visual"));
         if (!hosts.length || !hasWebGL()) return;
 
-        loadThree()
-            .then(function () {
-                if (!("IntersectionObserver" in window)) {
-                    hosts.forEach(mount);
-                    return;
-                }
-                var io = new IntersectionObserver(
-                    function (entries) {
-                        entries.forEach(function (entry) {
-                            if (!entry.isIntersecting) return;
-                            io.unobserve(entry.target);
-                            mount(entry.target);
-                        });
-                    },
-                    { rootMargin: "500px 0px" }
-                );
-                hosts.forEach(function (host) {
-                    io.observe(host);
+        if (!("IntersectionObserver" in window)) {
+            hosts.forEach(mount);
+            return;
+        }
+
+        var io = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    io.unobserve(entry.target);
+                    mount(entry.target);
                 });
-            })
-            .catch(function (error) {
-                console.warn("CHW globe: Three.js did not load, keeping the static Earth.", error);
-            });
+            },
+            { rootMargin: "500px 0px" }
+        );
+        hosts.forEach(function (host) {
+            io.observe(host);
+        });
     }
 
     if (document.readyState === "loading") {

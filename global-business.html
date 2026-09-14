@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="b2b.css?v=1.5">
+    <link rel="stylesheet" href="b2b.css?v=1.9">
     <script>document.documentElement.classList.add('rv-ready');</script>
     <style>body { background: #fff; }</style>
 </head>
@@ -232,21 +232,20 @@
     <!-- ═══════════════════ MEET CHW IN VIETNAM ═══════════════════ -->
     <section class="b2b-section" id="vietnam">
         <div class="b2b-container">
-            <article class="vn-card rv">
+            <article class="vn-card rv" aria-labelledby="vietnam-exhibition-title">
                 <div class="vn-card__body">
                     <span class="vn-flag">
                         <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#da251d"/><polygon fill="#ffff00" points="15,4 16.18,7.64 20,7.64 16.91,9.9 18.09,13.53 15,11.28 11.91,13.53 13.09,9.9 10,7.64 13.82,7.64"/></svg>
                         Upcoming Exhibition
                     </span>
-                    <h2>Meet CHW in <em>Vietnam</em></h2>
-                    <p>Meet our export team in person to review samples, discuss pricing and explore distribution
-                        opportunities across Southeast Asia.</p>
-                    <!-- EDIT: replace the four values below with the confirmed exhibition details -->
+                    <h2 id="vietnam-exhibition-title">Meet CHW at <em>Pharmedi Vietnam</em></h2>
+                    <p>Meet our export team at Pharmedi Vietnam 2026 to review samples, discuss pricing and explore
+                        distribution opportunities across Southeast Asia.</p>
                     <ul class="vn-details">
-                        <li><i class="fas fa-landmark"></i><div><small>Exhibition</small><strong>Healthcare &amp; Pharma Trade Show</strong></div></li>
-                        <li><i class="fas fa-calendar-alt"></i><div><small>Dates</small><strong>To be announced</strong></div></li>
-                        <li><i class="fas fa-map-marker-alt"></i><div><small>Venue</small><strong>Vietnam</strong></div></li>
-                        <li><i class="fas fa-store"></i><div><small>Booth</small><strong>Shared on confirmation</strong></div></li>
+                        <li><i class="fas fa-landmark"></i><div><small>Exhibition</small><strong>PHARMEDI VIETNAM 2026</strong></div></li>
+                        <li><i class="fas fa-calendar-alt"></i><div><small>Dates</small><strong>22–24 September 2026</strong></div></li>
+                        <li><i class="fas fa-map-marker-alt"></i><div><small>Venue</small><strong>Ho Chi Minh City, Vietnam</strong></div></li>
+                        <li><i class="fas fa-store"></i><div><small>Booth</small><strong>N-7</strong></div></li>
                     </ul>
                     <div class="b2b-btns">
                         <a href="contact.html?type=meeting#enquiry" class="b2b-btn b2b-btn--gold"><i class="fas fa-calendar-check"></i> Book a Meeting</a>
@@ -254,8 +253,8 @@
                     </div>
                 </div>
                 <figure class="vn-card__media" style="margin:0;">
-                    <img src="images/nepalexh/nepal-14.jpeg" alt="CHW team at the Nepal Lab & Medical Show 2026" loading="lazy">
-                    <figcaption><i class="fas fa-camera"></i> CHW team at Nepal Lab &amp; Medical Show 2026</figcaption>
+                    <img src="images/WhatsApp Image 2026-09-14 at 2.27.18 PM.jpeg" alt="Meet the CHW team at PHARMEDI VIETNAM 2026, Booth N-7, in Ho Chi Minh City" width="1080" height="1350" loading="eager" decoding="async">
+                    <figcaption><i class="fas fa-map-marker-alt"></i> PHARMEDI VIETNAM 2026 · Booth N-7</figcaption>
                 </figure>
             </article>
         </div>
@@ -333,13 +332,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/b2b-ui.js"></script>
-    <script>
-        window.addEventListener('load', function () {
-            var s = document.createElement('script');
-            s.src = 'js/earth-globe.js?v=20260913f';
-            document.body.appendChild(s);
-        });
-    </script>
+    <script src="js/globe-loader.js?v=20260914d"></script>
 </body>
 
 </html>

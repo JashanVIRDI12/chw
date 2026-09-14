@@ -959,14 +959,16 @@
     position: relative;
     width: 100%;
     max-width: 540px;
+    aspect-ratio: 1 / 1;
     margin-inline: auto;
 }
 
 .gm-earth {
-    position: relative;
-    width: 88%;
-    aspect-ratio: 1;
-    margin: 6% auto 8%;
+    position: absolute;
+    inset: 6%;
+    width: auto;
+    aspect-ratio: auto;
+    margin: 0;
 }
 
 .gm-earth__ball,
@@ -1002,7 +1004,9 @@
     pointer-events: none;
 }
 
-/* 3D Earth (js/earth-globe.js) — fades in over the static sphere */
+/* 3D Earth — React island fades in over the static sphere.
+   js/globe-loader.js uses js/globe/chw-globe.js on the server and
+   js/globe/earth-globe-standalone.js as the local-file fallback. */
 .gm-earth { transition: opacity 0.6s ease; }
 .gm-visual.is-globe-ready .gm-earth {
     opacity: 0;
@@ -1011,7 +1015,7 @@
 
 .gm-globe {
     position: absolute;
-    inset: -4% -2% 0;
+    inset: 0;
     opacity: 0;
     transition: opacity 0.9s ease;
 }
@@ -1033,29 +1037,46 @@
     overflow: hidden;
 }
 
-.gm-pin {
+.gm-pin,
+.gm-globe-label {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     opacity: 0;
     transition: opacity 0.2s ease;
     white-space: nowrap;
+    font-family: var(--b2b-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.015em;
+    text-shadow:
+        0 0 5px rgba(1, 38, 26, 0.95),
+        0 1px 3px rgba(0, 0, 0, 0.9),
+        0 0 10px rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    user-select: none;
 }
 
 .gm-pin b {
-    font-family: var(--b2b-sans);
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #fff;
-    text-shadow:
-        0 0 4px #01261a,
-        0 1px 2px rgba(1, 38, 26, 0.8);
+    font-weight: 700;
+    color: inherit;
+    text-shadow: inherit;
 }
 
-.gm-pin.is-hub b { color: var(--b2b-gold-light); }
+.gm-pin.is-hub,
+.gm-pin.is-hub b,
+.gm-globe-label.is-hub {
+    color: #fde68a;
+    font-size: 0.78rem;
+    text-shadow:
+        0 0 6px rgba(1, 38, 26, 0.95),
+        0 1px 4px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(232, 201, 142, 0.4);
+}
 
 .gm-globe__caption {
     position: absolute;
@@ -1088,109 +1109,226 @@
 /* ============================================================
    EXHIBITION — MEET CHW IN VIETNAM
    ============================================================ */
+#vietnam.b2b-section {
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 14%, rgba(200, 169, 110, 0.14), transparent 24rem),
+        radial-gradient(circle at 92% 88%, rgba(0, 98, 65, 0.09), transparent 30rem),
+        #f7f5ef;
+}
+
+#vietnam.b2b-section::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 24rem;
+    height: 24rem;
+    right: -10rem;
+    top: -10rem;
+    border: 1px solid rgba(0, 98, 65, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3rem rgba(0, 98, 65, 0.025), 0 0 0 7rem rgba(0, 98, 65, 0.018);
+    pointer-events: none;
+}
+
 .vn-card {
+    position: relative;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    border-radius: 28px;
+    grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+    min-height: 640px;
+    border: 1px solid rgba(232, 201, 142, 0.2);
+    border-radius: 34px;
     overflow: hidden;
     background: var(--b2b-night);
-    box-shadow: var(--b2b-shadow-lg);
+    box-shadow: 0 38px 100px rgba(1, 38, 26, 0.2), 0 4px 16px rgba(1, 38, 26, 0.08);
 }
 
 .vn-card__body {
     position: relative;
-    padding: clamp(2rem, 5vw, 3.5rem);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2.4rem, 5vw, 4.6rem);
     color: #fff;
     background:
-        radial-gradient(ellipse 70% 60% at 0% 0%, rgba(0, 98, 65, 0.55) 0%, transparent 65%),
-        var(--b2b-night);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 40%),
+        radial-gradient(ellipse 75% 60% at 0% 0%, rgba(0, 98, 65, 0.68) 0%, transparent 68%),
+        #011f16;
+}
+
+.vn-card__body::after {
+    content: 'VIETNAM';
+    position: absolute;
+    right: -0.35rem;
+    bottom: -0.7rem;
+    z-index: -1;
+    font-family: var(--b2b-sans);
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.07em;
+    color: rgba(255, 255, 255, 0.025);
+    pointer-events: none;
 }
 
 .vn-flag {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
+    align-self: flex-start;
     font-family: var(--b2b-sans);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--b2b-gold-light);
-    margin-bottom: 1.1rem;
+    color: #f4dba9;
+    margin-bottom: 1.35rem;
+    padding: 0.55rem 0.8rem 0.55rem 0.6rem;
+    border: 1px solid rgba(232, 201, 142, 0.25);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-.vn-flag svg { width: 24px; height: 16px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.vn-flag svg { width: 27px; height: 18px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 5px 12px rgba(0, 0, 0, 0.25); }
 
 .vn-card h2 {
     font-family: var(--b2b-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
     font-weight: 500;
-    line-height: 1.08;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
     color: #fff;
-    margin: 0 0 0.9rem;
+    margin: 0 0 1.25rem;
 }
 
-.vn-card h2 em { font-style: italic; color: var(--b2b-gold-light); }
-.vn-card__body > p { font-size: 0.98rem; line-height: 1.7; color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 520px; }
+.vn-card h2 em { font-weight: 400; font-style: italic; color: var(--b2b-gold-light); }
+.vn-card__body > p { font-size: 0.98rem; line-height: 1.75; color: rgba(255, 255, 255, 0.7); margin: 0; max-width: 540px; }
 
 .vn-details {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.1rem 1.5rem;
+    gap: 0.65rem;
     margin: 1.75rem 0 2rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0;
 }
 
-.vn-details li { display: flex; align-items: flex-start; gap: 0.75rem; }
-.vn-details i { color: var(--b2b-gold-light); margin-top: 0.2rem; width: 16px; text-align: center; }
+.vn-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.045);
+}
+.vn-details i {
+    display: grid;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    color: var(--b2b-gold-light);
+    border-radius: 9px;
+    background: rgba(232, 201, 142, 0.1);
+    font-size: 0.75rem;
+}
+.vn-details div { min-width: 0; }
 
 .vn-details small {
     display: block;
     font-family: var(--b2b-sans);
-    font-size: 0.64rem;
-    font-weight: 600;
+    font-size: 0.6rem;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 0.15rem;
+    color: rgba(255, 255, 255, 0.42);
+    margin-bottom: 0.25rem;
 }
 
-.vn-details strong { font-family: var(--b2b-sans); font-size: 0.92rem; font-weight: 500; color: #fff; }
+.vn-details strong { display: block; font-family: var(--b2b-sans); font-size: 0.82rem; line-height: 1.35; font-weight: 500; color: #fff; }
+
+.vn-card .b2b-btns { align-items: center; }
+.vn-card .b2b-btn {
+    min-height: 49px;
+    padding-inline: 1.35rem;
+}
+.vn-card .b2b-btn--gold {
+    box-shadow: 0 12px 28px rgba(200, 169, 110, 0.2);
+}
+.vn-card .b2b-btn--ghost { border-color: rgba(255, 255, 255, 0.24); }
 
 .vn-card__media {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 280px;
+    min-width: 0;
+    min-height: 640px;
     background: #011910;
+    overflow: hidden;
 }
+
+.vn-card__media::before {
+    content: '';
+    position: absolute;
+    inset: -7%;
+    background: url("images/WhatsApp Image 2026-09-14 at 2.27.18 PM.jpeg") center / cover no-repeat;
+    filter: blur(22px) saturate(0.72) brightness(0.62);
+    transform: scale(1.08);
+    opacity: 0.72;
+}
+
 .vn-card__media img {
     display: block;
+    position: absolute;
+    z-index: 1;
+    inset: 0;
     width: 100%;
-    height: auto;
-    max-height: 100%;
+    height: 100%;
+    max-height: none;
     object-fit: contain;
     object-position: center;
+    filter: saturate(0.94) contrast(1.02);
+    transition: filter 0.5s ease;
+}
+.vn-card:hover .vn-card__media img {
+    transform: none;
+    filter: saturate(1) contrast(1.02);
+}
+.vn-card__media::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(1, 31, 22, 0.28), transparent 25%),
+        linear-gradient(180deg, transparent 52%, rgba(1, 31, 22, 0.48) 100%);
 }
 
 .vn-card__media figcaption {
     position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    right: 1rem;
+    z-index: 3;
+    left: 1.35rem;
+    bottom: 1.35rem;
+    right: auto;
     font-family: var(--b2b-sans);
-    font-size: 0.74rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
     color: #fff;
-    background: rgba(1, 38, 26, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 0.55rem 0.85rem;
-    border-radius: 10px;
+    background: rgba(1, 31, 22, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 0.7rem 0.95rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
+.vn-card__media figcaption i { margin-right: 0.35rem; color: var(--b2b-gold-light); }
 
 /* ============================================================
    IMPORTERS & DISTRIBUTORS
@@ -1531,8 +1669,8 @@
     .div-card { display: grid; grid-template-columns: 0.9fr 1fr; }
     .div-card__media { aspect-ratio: auto; min-height: 100%; }
     .oem-head { grid-template-columns: 1fr; }
-    .vn-card { grid-template-columns: 1fr; }
-    .vn-card__media { min-height: 0; order: -1; }
+    .vn-card { grid-template-columns: 1fr; min-height: 0; border-radius: 26px; }
+    .vn-card__media { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
     .enquiry-shell { grid-template-columns: 1fr; }
     .cat-band { grid-template-columns: auto 1fr; }
     .cat-band .b2b-btns { grid-column: 1 / -1; }
@@ -1550,7 +1688,13 @@
     .oem-steps { grid-template-columns: repeat(2, 1fr); }
     .cert-docs { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
     .gm-regions { grid-template-columns: 1fr; }
-    .vn-details { grid-template-columns: 1fr; }
+    #vietnam.b2b-section { padding-block: 3.5rem; }
+    .vn-card__body { padding: 1.75rem 1.2rem 1.5rem; }
+    .vn-card h2 { font-size: clamp(2.55rem, 14vw, 3.4rem); }
+    .vn-card__body > p { font-size: 0.92rem; }
+    .vn-card__media { aspect-ratio: 4 / 3; }
+    .vn-card__media figcaption { left: 0.85rem; bottom: 0.85rem; max-width: calc(100% - 1.7rem); }
+    .vn-details { grid-template-columns: 1fr; margin-block: 1.4rem 1.6rem; }
     .buyer-grid { grid-template-columns: repeat(2, 1fr); }
     .info-grid,
     .steps-4,

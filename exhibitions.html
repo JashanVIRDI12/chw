@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <title>Exhibitions | Chase Healthcare & Wellness Pvt Ltd</title>
+    <title>PHARMEDI VIETNAM 2026 | Exhibitions | Chase Healthcare &amp; Wellness</title>
     <meta name="description"
-        content="Meet Chase Healthcare & Wellness at international healthcare exhibitions. Book a meeting with our export team at our upcoming exhibition in Vietnam.">
+        content="Meet Chase Healthcare & Wellness at PHARMEDI VIETNAM 2026, 22–24 September in Ho Chi Minh City. Visit our export team at Booth N-7.">
 
     <!-- Fonts -->
     <link
@@ -248,6 +248,7 @@
             .exh-card__body { padding: 1.5rem 1.25rem; }
         }
     </style>
+    <link rel="stylesheet" href="exhibitions.css?v=2.1">
 </head>
 
 <body class="page-exhibitions">
@@ -296,28 +297,33 @@
         <div class="exh-hero-eyebrow">Trade Shows &amp; Events</div>
         <h1>Meet CHW at <em>International Exhibitions</em></h1>
         <p>Meet our export team in person, review product samples and discuss distribution opportunities for your market.</p>
+        <div class="exh-hero__stats" aria-label="Exhibition overview">
+            <span class="exh-hero__stat"><strong>01</strong> Upcoming</span>
+            <span class="exh-hero__stat"><strong>01</strong> Past event</span>
+            <span class="exh-hero__stat"><strong>02</strong> Markets</span>
+        </div>
     </header>
 
     <!-- Exhibitions List -->
     <section class="exh-list">
-        <p class="exh-list-label">Upcoming</p>
+        <div class="exh-group">
+        <p class="exh-list-label">Upcoming <span>01</span></p>
 
-        <!-- Event — Vietnam (EDIT: replace dates / venue / booth once confirmed) -->
-        <article class="exh-card" id="vietnam">
-            <div class="exh-card__media exh-card__media--vn">
-                <svg class="exh-vn-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#da251d"/><polygon fill="#ffff00" points="15,4 16.18,7.64 20,7.64 16.91,9.9 18.09,13.53 15,11.28 11.91,13.53 13.09,9.9 10,7.64 13.82,7.64"/></svg>
-                <div class="exh-vn-title">Meet CHW<br>in <em>Vietnam</em></div>
-                <div class="exh-vn-sub">Surgical · Nutraceutical · Herbal</div>
-            </div>
+        <!-- Event — Vietnam -->
+        <article class="exh-card exh-card--featured" id="vietnam" aria-labelledby="vietnam-event-title">
+            <figure class="exh-card__media exh-card__media--poster">
+                <img src="images/WhatsApp Image 2026-09-14 at 2.27.18 PM.jpeg" alt="Meet the CHW team at PHARMEDI VIETNAM 2026, Booth N-7, in Ho Chi Minh City" width="1080" height="1350" loading="eager" decoding="async">
+            </figure>
             <div class="exh-card__body">
                 <span class="exh-card__tag exh-card__tag--upcoming"><i class="fas fa-circle"></i> Upcoming Event</span>
-                <h2 class="exh-card__title">Healthcare &amp; Pharma Trade Show — Vietnam</h2>
+                <h2 class="exh-card__title" id="vietnam-event-title">PHARMEDI VIETNAM 2026</h2>
+                <p class="exh-card__desc">Meet our export team in Ho Chi Minh City to review surgical and nutraceutical samples, discuss pricing and explore distribution opportunities across Southeast Asia.</p>
                 <div class="exh-card__meta">
-                    <span><i class="fas fa-map-marker-alt"></i> Vietnam</span>
-                    <span><i class="fas fa-calendar-alt"></i> Dates to be announced</span>
-                    <span><i class="fas fa-store"></i> Booth shared on confirmation</span>
+                    <div class="exh-card__meta-item"><i class="fas fa-landmark"></i><div><small>Exhibition</small><strong>PHARMEDI VIETNAM 2026</strong></div></div>
+                    <div class="exh-card__meta-item"><i class="fas fa-calendar-alt"></i><div><small>Dates</small><strong>22–24 September 2026</strong></div></div>
+                    <div class="exh-card__meta-item"><i class="fas fa-map-marker-alt"></i><div><small>Venue</small><strong>Ho Chi Minh City, Vietnam</strong></div></div>
+                    <div class="exh-card__meta-item exh-card__meta-item--wide"><i class="fas fa-store"></i><div><small>Booth</small><strong>N-7</strong></div></div>
                 </div>
-                <p class="exh-card__desc">Our export team will present the full surgical, nutraceutical and herbal range to importers and distributors across Southeast Asia. Pre-book a meeting slot to review samples and pricing.</p>
                 <div class="exh-card__btns">
                     <a href="contact.html?type=meeting#enquiry" class="exh-card__btn">
                         <i class="fas fa-calendar-check"></i> Book a Meeting
@@ -328,28 +334,32 @@
                 </div>
             </div>
         </article>
+        </div>
 
-        <p class="exh-list-label" style="margin-top:2.5rem;">Past Exhibitions</p>
+        <div class="exh-group">
+        <p class="exh-list-label">Past Exhibitions <span>01</span></p>
 
         <!-- Event — Nepal -->
-        <article class="exh-card">
+        <article class="exh-card exh-card--past" aria-labelledby="nepal-event-title">
             <div class="exh-card__media">
-                <img src="images/nepalexh/nepal-14.jpeg" alt="Nepal Lab & Medical Show 2026">
+                <img src="images/nepalexh/nepal-04.jpeg" alt="CHW team with visitors at Nepal Lab and Medical Show 2026" width="1600" height="1200" loading="lazy" decoding="async">
                 <span class="exh-card__media-badge"><i class="fas fa-images"></i> 16 Photos</span>
             </div>
             <div class="exh-card__body">
                 <span class="exh-card__tag"><i class="fas fa-circle"></i> Past Event</span>
-                <h2 class="exh-card__title">Nepal Lab &amp; Medical Show 2026</h2>
+                <h2 class="exh-card__title" id="nepal-event-title">Nepal Lab &amp; Medical Show 2026</h2>
+                <p class="exh-card__desc">Successfully showcased our complete range of surgical products, nutraceuticals and ayurvedic formulations to healthcare distributors and partners across Nepal.</p>
                 <div class="exh-card__meta">
-                    <span><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</span>
-                    <span><i class="fas fa-calendar-alt"></i> May 2026</span>
+                    <div class="exh-card__meta-item"><i class="fas fa-landmark"></i><div><small>Exhibition</small><strong>Nepal Lab &amp; Medical Show</strong></div></div>
+                    <div class="exh-card__meta-item"><i class="fas fa-calendar-alt"></i><div><small>Date</small><strong>May 2026</strong></div></div>
+                    <div class="exh-card__meta-item"><i class="fas fa-map-marker-alt"></i><div><small>Venue</small><strong>Kathmandu, Nepal</strong></div></div>
                 </div>
-                <p class="exh-card__desc">Successfully showcased our complete range of surgical products, nutraceuticals, and ayurvedic formulations to healthcare distributors and partners across Nepal.</p>
-                <a href="nepal-exhibition.html" class="exh-card__btn">
-                    View Details <i class="fas fa-arrow-right"></i>
-                </a>
+                <div class="exh-card__btns">
+                    <a href="nepal-exhibition.html" class="exh-card__btn">Explore Event Gallery <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </article>
+        </div>
     </section>
 
     <!-- Footer -->
