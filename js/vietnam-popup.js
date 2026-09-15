@@ -186,62 +186,48 @@
 .vn-popup__close:focus-visible,
 .vn-popup__button:focus-visible,
 .vn-popup__dismiss:focus-visible { outline: 3px solid #ecd29d; outline-offset: 3px; }
-/* Phones and small tablets get a full-bleed sheet. The overlay does the
-   scrolling so the card is never taller than the visible viewport, and the
-   close button is pinned so it stays reachable while scrolling. */
+/* Phones: a centered card, not a full-screen sheet. Overlay keeps the
+   dimmed page visible around the edges. */
 @media (max-width: 860px) {
     .vn-popup-overlay {
-        display: block;
-        padding: 0;
+        display: grid;
+        place-items: center;
+        align-items: safe center;
+        padding: calc(env(safe-area-inset-top, 0px) + .75rem) .75rem calc(env(safe-area-inset-bottom, 0px) + .75rem);
         overflow-y: auto;
         overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
-        background: rgba(1, 24, 17, .86);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
     }
     .vn-popup {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        width: 100%;
+        width: min(400px, 100%);
         height: auto;
-        min-height: 100vh;
-        min-height: 100dvh;
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-        transform: translateY(18px);
+        max-height: min(640px, calc(100vh - 1.5rem));
+        max-height: min(640px, calc(100dvh - 1.5rem));
+        overflow-y: auto;
+        border-radius: 18px;
+        transform: translateY(12px);
     }
     .vn-popup__close {
-        position: fixed;
-        top: calc(env(safe-area-inset-top, 0px) + 10px);
-        right: calc(env(safe-area-inset-right, 0px) + 10px);
-        width: 44px;
-        height: 44px;
-        font-size: 1.4rem;
+        top: 8px;
+        right: 8px;
+        width: 40px;
+        height: 40px;
     }
     .vn-popup__poster {
         aspect-ratio: 4 / 5;
-        max-height: 44vh;
-        max-height: 44dvh;
-        padding-top: env(safe-area-inset-top, 0px);
+        max-height: 38vh;
+        max-height: 38dvh;
     }
-    .vn-popup__content {
-        padding: 1.6rem 1.25rem calc(env(safe-area-inset-bottom, 0px) + 1.6rem);
-    }
-    .vn-popup__content h2 { font-size: clamp(2rem, 8.5vw, 2.6rem); }
+    .vn-popup__content { padding: 1.15rem 1.1rem 1.2rem; }
+    .vn-popup__content h2 { font-size: clamp(1.7rem, 7vw, 2.15rem); }
     .vn-popup__intro { display: none; }
-    .vn-popup__details { margin-bottom: 1.25rem; }
-    .vn-popup__actions .vn-popup__button { flex: 1 1 100%; min-height: 50px; }
-    .vn-popup__dismiss {
-        align-self: center;
-        min-height: 44px;
-        padding: .6rem 1rem;
-        font-size: .76rem;
-    }
+    .vn-popup__details { margin-bottom: 1rem; }
+    .vn-popup__actions .vn-popup__button { flex: 1 1 100%; min-height: 46px; }
+    .vn-popup__dismiss { align-self: center; }
 }
 @media (max-width: 390px) {
-    .vn-popup__poster { max-height: 36vh; max-height: 36dvh; }
+    .vn-popup__poster { max-height: 30vh; max-height: 30dvh; }
     .vn-popup__details { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
