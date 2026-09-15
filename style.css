@@ -1621,10 +1621,17 @@ body.page-about .section {
 
 .about-mosaic__item--b {
     grid-column: 2;
+    background: #eef3ef;
 }
 
 .about-mosaic__item--c {
     grid-column: 2;
+    background: #eef3ef;
+}
+
+.about-mosaic__item--b img,
+.about-mosaic__item--c img {
+    object-fit: contain;
 }
 
 .about-feature__grid {
@@ -4042,7 +4049,7 @@ body.page-about .section-green .team-card-image {
 
 /* Surgical Hero with Banner */
 .surgical-hero::before {
-    background: url('images/surgical-prod.webp') no-repeat center;
+    background: url('images/Surgical_Products_Syringes_Design_A2.webp') no-repeat center;
     background-size: cover;
     opacity: 0.7;
 }

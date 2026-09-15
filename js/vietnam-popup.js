@@ -35,7 +35,7 @@
 .vn-popup {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(330px, .9fr) minmax(380px, 1.1fr);
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
     width: min(960px, 96vw);
     height: min(720px, 88vh);
     overflow: hidden;
@@ -186,18 +186,62 @@
 .vn-popup__close:focus-visible,
 .vn-popup__button:focus-visible,
 .vn-popup__dismiss:focus-visible { outline: 3px solid #ecd29d; outline-offset: 3px; }
-@media (max-width: 760px) {
-    .vn-popup { grid-template-columns: 1fr; width: min(430px, 96vw); height: auto; max-height: 94vh; overflow-y: auto; border-radius: 20px; }
-    .vn-popup__poster { aspect-ratio: 4 / 5; max-height: 48vh; }
-    .vn-popup__content { padding: 1.5rem 1.15rem 1.3rem; }
-    .vn-popup__content h2 { font-size: 2.35rem; }
+/* Phones and small tablets get a full-bleed sheet. The overlay does the
+   scrolling so the card is never taller than the visible viewport, and the
+   close button is pinned so it stays reachable while scrolling. */
+@media (max-width: 860px) {
+    .vn-popup-overlay {
+        display: block;
+        padding: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        background: rgba(1, 24, 17, .86);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+    .vn-popup {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        transform: translateY(18px);
+    }
+    .vn-popup__close {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 10px);
+        right: calc(env(safe-area-inset-right, 0px) + 10px);
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+    }
+    .vn-popup__poster {
+        aspect-ratio: 4 / 5;
+        max-height: 44vh;
+        max-height: 44dvh;
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+    .vn-popup__content {
+        padding: 1.6rem 1.25rem calc(env(safe-area-inset-bottom, 0px) + 1.6rem);
+    }
+    .vn-popup__content h2 { font-size: clamp(2rem, 8.5vw, 2.6rem); }
     .vn-popup__intro { display: none; }
-    .vn-popup__details { margin-bottom: 1.15rem; }
-    .vn-popup__actions .vn-popup__button { flex: 1 1 100%; }
-    .vn-popup__dismiss { align-self: center; }
+    .vn-popup__details { margin-bottom: 1.25rem; }
+    .vn-popup__actions .vn-popup__button { flex: 1 1 100%; min-height: 50px; }
+    .vn-popup__dismiss {
+        align-self: center;
+        min-height: 44px;
+        padding: .6rem 1rem;
+        font-size: .76rem;
+    }
 }
 @media (max-width: 390px) {
-    .vn-popup__poster { max-height: 42vh; }
+    .vn-popup__poster { max-height: 36vh; max-height: 36dvh; }
     .vn-popup__details { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
