@@ -569,6 +569,9 @@ export function Globe3D({
         }}
         style={{
           background: mergedConfig.backgroundColor || "transparent",
+          // Canvas defaults to overflow:hidden, which cuts off marker labels
+          // sitting past the sphere's edge.
+          overflow: "visible",
         }}
       >
         <Suspense fallback={<LoadingFallback />}>

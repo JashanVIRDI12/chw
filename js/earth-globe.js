@@ -10,15 +10,15 @@ import * as THREE from "three";
 
     var LOCAL_MAP = "images/globe/earth-web.jpg";
 
-    var HQ = { lat: 28.54, lng: 77.39, label: "India - HQ", hub: true, labelOffset: { x: 14, y: -8 } };
+    var HQ = { lat: 28.54, lng: 77.39, label: "India - HQ", hub: true, labelOffset: { x: -92, y: -18 } };
     var MARKERS = [
         HQ,
-        { lat: 24, lng: 45, label: "Middle East", labelOffset: { x: -35, y: -26 } },
-        { lat: 4, lng: 22, label: "Africa", labelOffset: { x: -55, y: -50 } },
-        { lat: 50, lng: 10, label: "Europe", labelOffset: { x: -25, y: -26 } },
-        { lat: 23.7, lng: 90.4, label: "Asia", labelOffset: { x: 14, y: -20 } },
-        { lat: 14, lng: 106, label: "SE Asia", target: true, labelOffset: { x: 16, y: -50 } },
-        { lat: 48, lng: 68, label: "CIS", target: true, labelOffset: { x: -15, y: -26 } },
+        { lat: 24, lng: 45, label: "Middle East", labelOffset: { x: -108, y: -22 } },
+        { lat: 4, lng: 22, label: "Africa", labelOffset: { x: -72, y: 12 } },
+        { lat: 50, lng: 10, label: "Europe", labelOffset: { x: -28, y: -28 } },
+        { lat: 23.7, lng: 90.4, label: "Asia", labelOffset: { x: 14, y: -22 } },
+        { lat: 14, lng: 106, label: "SE Asia", target: true, labelOffset: { x: 14, y: 10 } },
+        { lat: 48, lng: 68, label: "CIS", target: true, labelOffset: { x: -18, y: -28 } },
     ];
 
     var MARKER_DESCRIPTIONS = {
@@ -205,11 +205,7 @@ import * as THREE from "three";
 
         var earth = new THREE.Mesh(
             new THREE.SphereGeometry(radius, 64, 64),
-            new THREE.MeshStandardMaterial({
-                color: 0xffffff,
-                roughness: 0.65,
-                metalness: 0.02,
-            })
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
         );
         globe.add(earth);
         var pins = addMarkers(globe, radius, labelLayer);
