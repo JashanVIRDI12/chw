@@ -25,7 +25,7 @@
         pricelist: { label: 'Export Price List Request', button: 'Request Export Price List' },
         distributor: { label: 'Distribution Partnership', button: 'Apply for Distributorship' },
         oem: { label: 'OEM / Private Label', button: 'Request OEM Consultation' },
-        meeting: { label: 'Meeting Request — Vietnam Exhibition', button: 'Request a Meeting' },
+        meeting: { label: 'Meeting Request', button: 'Request a Meeting' },
         catalogue: { label: 'Catalogue Request', button: 'Request Catalogue' }
     };
 

@@ -174,6 +174,8 @@
     box-shadow: 0 36px 95px rgba(1, 38, 26, 0.17), 0 5px 16px rgba(1, 38, 26, 0.06);
 }
 
+.exh-card + .exh-card { margin-top: clamp(1.5rem, 3vw, 2rem); }
+
 .exh-card--past { min-height: 420px; box-shadow: 0 20px 60px rgba(1, 38, 26, 0.09); }
 
 .exh-card--featured {
@@ -328,11 +330,6 @@
 }
 
 .exh-card__tag i { font-size: 0.48rem; color: var(--exh-gold); }
-.exh-card__tag--upcoming { background: rgba(0, 98, 65, 0.08); color: var(--exh-green); }
-.exh-card__tag--upcoming i { color: var(--exh-green); animation: exhPulse 1.8s ease-in-out infinite; }
-
-@keyframes exhPulse { 50% { opacity: 0.35; transform: scale(0.8); } }
-
 .exh-card__title {
     margin: 0 0 1rem !important;
     font-family: 'Cormorant Garamond', serif !important;
