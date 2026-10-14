@@ -1,25 +1,8 @@
 /**
  * PDF Download — Lead Capture
- * Intercepts catalogue download clicks, collects lead info, saves to Supabase.
- *
- * Setup (one-time):
- *  1. Go to https://supabase.com → New project (free)
- *  2. Open SQL Editor and run:
- *       create table leads (
- *         id bigint generated always as identity primary key,
- *         created_at timestamptz default now(),
- *         name text not null,
- *         phone text not null,
- *         email text not null,
- *         page text
- *       );
- *       alter table leads enable row level security;
- *       create policy "insert only" on leads for insert to anon with check (true);
- *  3. Go to Project Settings → API → copy Project URL and anon public key below.
+ * Intercepts catalogue download clicks, collects lead info, saves to Firestore.
+ * See MIGRATION.md for Firebase configuration and access rules.
  */
-
-const SUPABASE_URL  = 'https://aiswxajjjjflqmrihose.supabase.co';
-const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
 
 (function () {
     'use strict';
@@ -162,19 +145,19 @@ const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
                     <div class="plm-field">
                         <label for="plm-name">Full Name *</label>
                         <input type="text" id="plm-name" name="name"
-                               placeholder="e.g. Rahul Sharma" autocomplete="name" required>
+                               placeholder="e.g. Rahul Sharma" autocomplete="name" maxlength="200" required>
                         <div class="plm-err-msg">Please enter your name.</div>
                     </div>
                     <div class="plm-field">
                         <label for="plm-phone">Phone Number *</label>
                         <input type="tel" id="plm-phone" name="phone"
-                               placeholder="e.g. +91 98765 43210" autocomplete="tel" required>
+                               placeholder="e.g. +91 98765 43210" autocomplete="tel" maxlength="40" required>
                         <div class="plm-err-msg">Please enter a valid phone number.</div>
                     </div>
                     <div class="plm-field">
                         <label for="plm-email">Email Address *</label>
                         <input type="email" id="plm-email" name="email"
-                               placeholder="e.g. rahul@company.com" autocomplete="email" required>
+                               placeholder="e.g. rahul@company.com" autocomplete="email" maxlength="320" required>
                         <div class="plm-err-msg">Please enter a valid email.</div>
                     </div>
                     <button type="submit" id="pdf-lead-submit">
@@ -240,7 +223,7 @@ const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
         if (!nameOk) ok = false;
 
         var phoneVal = phone.value.trim().replace(/[\s\-().+]/g, '');
-        var phoneOk  = phoneVal.length >= 7 && !isNaN(phoneVal);
+        var phoneOk  = /^[0-9]{7,}$/.test(phoneVal);
         phone.classList.toggle('plm-error', !phoneOk);
         if (!phoneOk) ok = false;
 
@@ -251,21 +234,20 @@ const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
         return ok;
     }
 
-    function saveLead(payload) {
-        if (!SUPABASE_URL || !SUPABASE_ANON) return Promise.resolve();
-
-        return fetch(SUPABASE_URL + '/rest/v1/leads', {
-            method: 'POST',
-            headers: {
-                'apikey':        SUPABASE_ANON,
-                'Authorization': 'Bearer ' + SUPABASE_ANON,
-                'Content-Type':  'application/json',
-                'Prefer':        'return=minimal'
-            },
-            body: JSON.stringify(payload)
-        }).then(function (res) {
-            if (!res.ok) return res.text().then(function (t) { throw new Error(t); });
-        });
+    async function saveLead(payload) {
+        // Load Firebase only on submission. The modal and PDF download still work
+        // if the CDN, database, or project configuration is unavailable.
+        let timeout;
+        try {
+            await Promise.race([
+                import('./firebase-client.js').then(firebase => firebase.saveLead(payload)),
+                new Promise((resolve, reject) => {
+                    timeout = setTimeout(() => reject(new Error('Lead save timed out.')), 10000);
+                })
+            ]);
+        } finally {
+            clearTimeout(timeout);
+        }
     }
 
     function handleSubmit(e) {
@@ -292,7 +274,8 @@ const SUPABASE_ANON = 'sb_publishable_aUcFO_EQwfDXS4wl4ntfjg_XmzrT06L';
                 document.getElementById('plm-success').style.display   = 'block';
                 setTimeout(closeModal, 2800);
             })
-            .catch(function () {
+            .catch(function (error) {
+                console.error('Could not save PDF download lead:', error);
                 /* Still let them download — don't punish the user for a DB error */
                 triggerDownload();
                 document.getElementById('pdf-lead-form').style.display = 'none';

@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+        function isAdmin() {
+            return request.auth != null
+                && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+        }
+
+        function validNewLead(leadId) {
+            let lead = request.resource.data;
+            return lead.keys().hasAll(['id', 'name', 'phone', 'email', 'page', 'created_at'])
+                && lead.keys().hasOnly(['id', 'name', 'phone', 'email', 'page', 'created_at'])
+                && lead.id == leadId
+                && lead.name is string
+                && lead.name.size() >= 2 && lead.name.size() <= 200
+                && lead.phone is string
+                && lead.phone.size() >= 7 && lead.phone.size() <= 40
+                && lead.phone.matches('[+ ().-]*([0-9][+ ().-]*){7,}')
+                && lead.email is string
+                && lead.email.size() <= 320
+                && lead.email.matches('[^\\s@]+@[^\\s@]+[.][^\\s@]+')
+                && lead.page is string
+                && lead.page.size() <= 2048
+                && lead.page.matches('/.*')
+                && lead.created_at is timestamp
+                && lead.created_at == request.time;
+        }
+
+        // Membership is provisioned only through the console or a trusted Admin SDK.
+        match /admins/{uid} {
+            allow get: if request.auth != null && request.auth.uid == uid;
+            allow list, create, update, delete: if false;
+        }
+
+        match /leads/{leadId} {
+            allow read, update, delete: if isAdmin();
+            // Preserve anonymous PDF lead capture without exposing existing leads.
+            allow create: if isAdmin() || validNewLead(leadId);
+        }
+
+        // Everything else (including subcollections) is denied by default.
+    }
+}
