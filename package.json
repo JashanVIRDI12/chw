@@ -7,12 +7,15 @@
   "scripts": {
     "build": "echo \"Static HTML site — deploy the repo root. Use npm run build:globe only to rebuild js/globe.\"",
     "build:globe": "tsc --noEmit && vite build && rolldown js/earth-globe.js --file js/globe/earth-globe-standalone.js --format iife --minify",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:campaign": "node campaign/build.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
     "clsx": "^2.1.1",
+    "gsap": "^3.15.1",
+    "qrcode-generator": "^1.4.4",
     "react": "~19.2.0",
     "react-dom": "~19.2.0",
     "tailwind-merge": "^3.7.0",
@@ -24,6 +27,7 @@
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"

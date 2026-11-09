@@ -1,0 +1,169 @@
+{
+  "hsn": "3005 90 40",
+  "items": [
+    {
+      "id": "eab",
+      "name": "Elastic Adhesive Bandage B.P.",
+      "short": "Elastic Adhesive Bandage",
+      "tagline": "With fast edges. Firm compression that moves with the patient.",
+      "photo": "generated/eab-1200.webp",
+      "photoBase": "generated/eab",
+      "model": "tin",
+      "features": ["Skin friendly", "Breathable", "Elastic", "Secure fit", "Fast edges"],
+      "uses": "Sprains, strains, support & compression",
+      "skus": [
+        { "spec": "10 cm × 4/6 m", "pack": "Plastic container" },
+        { "spec": "10 cm × 4/6 m", "pack": "Tin pack" },
+        { "spec": "10 cm × 2/3 m", "pack": "Plastic container" }
+      ]
+    },
+    {
+      "id": "fixator",
+      "name": "IV Cannula Fixator",
+      "short": "IV Cannula Fixator",
+      "tagline": "Elastic adhesive B.P. with an additional strip for extra adhesion.",
+      "photo": "generated/fixator-1200.webp",
+      "photoBase": "generated/fixator",
+      "model": "fixator",
+      "features": ["Extra adhesion strip", "Individually sealed", "Box of 100"],
+      "uses": "Securing IV cannulas in wards, ICUs and day-care",
+      "skus": [{ "spec": "4.5 × 6 cm", "pack": "Box of 100 sachets" }]
+    },
+    {
+      "id": "syringe",
+      "name": "Sterile Hypodermic Syringe",
+      "short": "3 ml Syringe",
+      "tagline": "Sterile, single-use, individually packed with needle.",
+      "photo": "generated/syringe-1200.webp",
+      "photoBase": "generated/syringe",
+      "model": "pouch",
+      "features": ["Sterile", "Single use", "Clear graduations", "Needle fitted"],
+      "uses": "Injections and fluid withdrawal",
+      "hsnNote": "Ask for HSN",
+      "skus": [{ "spec": "3 ml", "pack": "Individual pouch" }]
+    },
+    {
+      "id": "crepe",
+      "name": "Cotton Crepe Bandage",
+      "short": "Crepe Bandage",
+      "tagline": "Soft, reusable cotton crepe for support and compression.",
+      "photo": "generated/crepe-1200.webp",
+      "photoBase": "generated/crepe",
+      "features": ["Cotton", "Reusable", "Even compression"],
+      "uses": "Joint support, strapping, compression",
+      "skus": [
+        { "spec": "6 cm × 4 m", "pack": "Container pack" },
+        { "spec": "8 cm × 4 m", "pack": "Container pack" },
+        { "spec": "10 cm × 4 m", "pack": "Container pack" },
+        { "spec": "15 cm × 4 m", "pack": "Container pack" }
+      ]
+    },
+    {
+      "id": "silicone",
+      "name": "Chase Silicone Tape",
+      "short": "Silicone Tape",
+      "tagline": "Gentle hold, maximum comfort — for delicate and sensitive skin.",
+      "photo": "generated/silicone-1200.webp",
+      "photoBase": "generated/silicone",
+      "features": ["Hypoallergenic", "Latex free", "Reusable", "Non-irritating"],
+      "uses": "Securing dressings and tubing on fragile skin",
+      "skus": [{ "spec": "1.9 cm × 1.5 m", "pack": "Box of 6" }]
+    },
+    {
+      "id": "roll",
+      "name": "Roll Bandage (TPI 42)",
+      "short": "Roll Bandage",
+      "tagline": "Absorbent gauze roll bandage, 42 threads per inch.",
+      "photo": "generated/roll-1200.webp",
+      "photoBase": "generated/roll",
+      "features": ["TPI 42", "Absorbent", "Soft weave"],
+      "uses": "Wound dressing and retention",
+      "skus": [
+        { "spec": "5 cm × 3 yd", "pack": "Roll" },
+        { "spec": "10 cm × 3 yd", "pack": "Roll" },
+        { "spec": "15 cm × 3 yd", "pack": "Roll" }
+      ]
+    },
+    {
+      "id": "swab",
+      "name": "Gauze Swabs",
+      "short": "Gauze Swabs",
+      "tagline": "12-ply swabs — plain, X-ray detectable and 100-piece hospital packs.",
+      "photo": "generated/swab-1200.webp",
+      "photoBase": "generated/swab",
+      "features": ["12 ply", "Plain or X-ray", "4-pc and 100-pc packs"],
+      "uses": "Theatre, wound care and cleaning",
+      "skus": [
+        { "spec": "5 × 5 cm, 12 ply · Plain", "pack": "4-pc pack" },
+        { "spec": "7.5 × 7.5 cm, 12 ply · Plain", "pack": "4-pc pack" },
+        { "spec": "10 × 10 cm, 12 ply · Plain", "pack": "4-pc pack" },
+        { "spec": "7.5 × 7.5 cm, 12 ply · X-ray", "pack": "4-pc pack" },
+        { "spec": "10 × 10 cm, 12 ply · X-ray", "pack": "4-pc pack" },
+        { "spec": "7.5 × 7.5 cm, 12 ply · Plain", "pack": "100-pc pack" },
+        { "spec": "10 × 10 cm, 12 ply · Plain", "pack": "100-pc pack" }
+      ]
+    },
+    {
+      "id": "abd",
+      "name": "Abdominal Sponge / Mopping Pad",
+      "short": "Abdominal Sponge",
+      "tagline": "30 × 30 cm theatre sponges in 8 and 12 ply.",
+      "photo": "generated/abd-1200.webp",
+      "photoBase": "generated/abd",
+      "features": ["30 × 30 cm", "8 or 12 ply", "Highly absorbent"],
+      "uses": "Surgical mopping and packing",
+      "skus": [
+        { "spec": "30 × 30 cm, 12 ply", "pack": "Packet of 10" },
+        { "spec": "30 × 30 cm, 8 ply", "pack": "Packet of 10" }
+      ]
+    },
+    {
+      "id": "gamjee",
+      "name": "Gamjee Roll",
+      "short": "Gamjee Roll",
+      "tagline": "Cotton wool sandwiched in gauze for cushioning and absorption.",
+      "photo": "gamjee.webp",
+      "features": ["Cushioning", "Absorbent", "Gauze covered"],
+      "uses": "Padding under bandages and splints",
+      "skus": [
+        { "spec": "10 cm × 2 m", "pack": "Single packet" },
+        { "spec": "15 cm × 2 m", "pack": "Single packet" },
+        { "spec": "10 cm × 3 m", "pack": "Single packet" },
+        { "spec": "15 cm × 3 m", "pack": "Single packet" }
+      ]
+    },
+    {
+      "id": "thaan",
+      "name": "Gauze Thaan / Power-Loom Bandage Cloth",
+      "short": "Gauze Thaan",
+      "tagline": "Bulk gauze cloth for hospitals and converters.",
+      "photo": "surgical-flatlay.webp",
+      "features": ["Bulk cloth", "Power loom", "Hospital supply"],
+      "uses": "In-house cutting of dressings and pads",
+      "skus": [
+        { "spec": "90 × 18", "pack": "Single packet" },
+        { "spec": "90 × 9", "pack": "Single packet" },
+        { "spec": "100 cm × 6.5 m (power loom)", "pack": "Single packet" }
+      ]
+    },
+    {
+      "id": "paper",
+      "name": "Surgical Paper Tape",
+      "short": "Paper Tape",
+      "tagline": "Microporous paper tape in 9 m and 5 m lengths.",
+      "photo": null,
+      "features": ["Breathable", "Gentle adhesive", "Boxed"],
+      "uses": "Securing light dressings",
+      "skus": [
+        { "spec": "½ in × 9 m", "pack": "Box of 24" },
+        { "spec": "1 in × 9 m", "pack": "Box of 12" },
+        { "spec": "2 in × 9 m", "pack": "Box of 6" },
+        { "spec": "3 in × 9 m", "pack": "Box of 4" },
+        { "spec": "½ in × 5 m", "pack": "Box" },
+        { "spec": "1 in × 5 m", "pack": "Box" },
+        { "spec": "2 in × 5 m", "pack": "Box" },
+        { "spec": "3 in × 5 m", "pack": "Box" }
+      ]
+    }
+  ]
+}

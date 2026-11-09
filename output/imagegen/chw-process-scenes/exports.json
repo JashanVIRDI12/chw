@@ -1,0 +1,54 @@
+[
+  {
+    "id": "manufacturing",
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "exportDimensions": [
+      3840,
+      3840
+    ],
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/why/manufacturing-1200.webp"
+  },
+  {
+    "id": "documentation",
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "exportDimensions": [
+      3840,
+      3840
+    ],
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/why/documentation-1200.webp"
+  },
+  {
+    "id": "shipment",
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "exportDimensions": [
+      3840,
+      3840
+    ],
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/why/shipment-1200.webp"
+  },
+  {
+    "id": "samples",
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "exportDimensions": [
+      3840,
+      3840
+    ],
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/why/samples-1200.webp"
+  }
+]

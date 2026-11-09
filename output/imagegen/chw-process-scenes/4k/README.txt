@@ -1,0 +1,1 @@
+Four realistic illustrative process scenes generated with built-in image_gen. These scenes are illustrations, not photographs of the actual CHW facility, staff or shipments. 3840 x 3840 JPEG exports are upscaled from 1254 x 1254 generated originals. Responsive WebP versions are used on the website.

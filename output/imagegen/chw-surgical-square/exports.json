@@ -1,0 +1,74 @@
+[
+  {
+    "id": "eab",
+    "original": "originals/eab.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-eab-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/eab-1200.webp"
+  },
+  {
+    "id": "fixator",
+    "original": "originals/fixator.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-fixator-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/fixator-1200.webp"
+  },
+  {
+    "id": "syringe",
+    "original": "originals/syringe.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-syringe-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/syringe-1200.webp"
+  },
+  {
+    "id": "crepe",
+    "original": "originals/crepe.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-crepe-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/crepe-1200.webp"
+  },
+  {
+    "id": "silicone",
+    "original": "originals/silicone.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-silicone-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/silicone-1200.webp"
+  },
+  {
+    "id": "roll",
+    "original": "originals/roll.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-roll-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/roll-1200.webp"
+  },
+  {
+    "id": "swab",
+    "original": "originals/swab.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-swab-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/swab-1200.webp"
+  },
+  {
+    "id": "abd",
+    "original": "originals/abd.png",
+    "generatedDimensions": "1254x1254",
+    "fullSizeExport": "4k/CHW-abd-square-3840.jpg",
+    "exportDimensions": "3840x3840",
+    "upscaled": true,
+    "websiteImage": "campaign/assets/img/generated/abd-1200.webp"
+  }
+]
