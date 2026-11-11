@@ -63,7 +63,7 @@ function surgicalPhoto(p, className, sizes) {
     const srcset = p.photoBase
         ? ` srcset="${[480, 800, 1200].map(size => `${IMG + p.photoBase}-${size}.webp ${size}w`).join(', ')}" sizes="${sizes}"`
         : '';
-    return `<img class="${className}" src="${IMG + p.photo}"${srcset} alt="${esc(p.name)} — packaging visual" loading="lazy" decoding="async" width="1200" height="1200">`;
+    return `<img class="${className}" src="${IMG + p.photo}"${srcset} alt="${esc(p.name)} packaging visual" loading="lazy" decoding="async" width="1200" height="1200">`;
 }
 
 function surgicalHTML(p) {
@@ -100,11 +100,11 @@ function privateLabelHTML() {
     return `
       <figure class="pp__photo pp__photo--strip">${BOTTLE_PHOTOS.slice(0, 3).map(([f, n]) => `<img src="${IMG + f}" alt="${esc(n)} private label bottle">`).join('')}<figcaption>${ic('camera')} Real private-label samples</figcaption></figure>
       <div><span class="eyebrow">Nutraceuticals · Private label</span><h3 id="pp-title" class="pp__title">Your brand. Our certified formulations.</h3>
-      <p class="pp__lead">${NUTRA.length} ready formulations across ${Object.keys(nutra.categories).length} health categories — capsules, tablets and powders, packed under your label.</p></div>
+      <p class="pp__lead">${NUTRA.length} ready formulations across ${Object.keys(nutra.categories).length} health categories in capsules, tablets and powders, packed under your label.</p></div>
       <ul class="pp__feats">${['Your logo & label artwork', 'Capsules · tablets · powders', 'Export documentation support', 'Samples before bulk order'].map(f => `<li>${ic('check')}${f}</li>`).join('')}</ul>
       <div class="pp__actions">
         <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
-        <button class="btn btn--gold" data-act="studio">${ic('wand')} <span>Design<span class="pp__long"> my</span> label<span class="pp__long"> in 3D</span></span></button>
+        <button class="btn btn--gold" data-act="studio">${ic('wand')} <span>See<span class="pp__long"> your</span> label<span class="pp__long"> in 3D</span></span></button>
       </div>
       <a class="pp__dl" href="${DL.nutra}" download data-dl="nutra">${ic('sheet')} All ${NUTRA.length} formulations (.xlsx)</a>`;
 }
@@ -118,9 +118,9 @@ function studioHTML() {
     return `
       <div><span class="eyebrow">Your label preview</span><h3 id="pp-title" class="pp__title">${esc(studio.product)}</h3>
       <p class="pp__lead">for <strong>${esc(studio.brand || 'Your Brand')}</strong> · ${esc(studio.format)} · design may vary as per your requirements</p></div>
-      ${f ? `<div class="pp__block"><h4>Composition</h4><table class="pp__table">${f.ingredients.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b || '—')}</td></tr>`).join('')}</table></div>
+      ${f ? `<div class="pp__block"><h4>Composition</h4><table class="pp__table">${f.ingredients.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b || '-')}</td></tr>`).join('')}</table></div>
       <div class="pp__block"><h4>Key benefits</h4><ul class="pp__feats">${f.benefits.map(b => `<li>${ic('check')}${esc(b)}</li>`).join('')}</ul></div>`
-        : `<p class="pp__fine">Custom formula — share your composition and we will check feasibility.</p>`}
+        : `<p class="pp__fine">Custom formula? Share your composition and we will check feasibility.</p>`}
       <div class="pp__actions">
         <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Send<span class="pp__long"> this</span> label<span class="pp__long"> on WhatsApp</span></span></button>
         <button class="btn btn--glass" data-act="add">${ic('plus')} Add to list</button>
@@ -136,7 +136,7 @@ function herbalHTML() {
     return `
       <figure class="pp__photo pp__photo--strip pp__photo--herbs">${['ashwagandha', 'shilajit', 'moringa'].filter(k => HERB[k]).map(k => `<img src="${IMG}herbal/${k}-pack.webp" alt="Vitantra ${esc(HERB[k].name)} capsules jar">`).join('')}<figcaption>${ic('camera')} Vitantra packaging</figcaption></figure>
       <div><span class="eyebrow">Ayurvedic herbals · Vitantra</span><h3 id="pp-title" class="pp__title">Classical Ayurveda, export-ready.</h3>
-      <p class="pp__lead">${HERBS.length} single-herb capsules made in our WHO-GMP facility — supplied as Vitantra or under your own label.</p></div>
+      <p class="pp__lead">${HERBS.length} single-herb capsules made in our WHO-GMP facility, supplied as Vitantra or under your own label.</p></div>
       <ul class="pp__feats">${['Ashwagandha, Shilajit, Moringa, Turmeric & more', 'Vegetarian capsules in amber glass', 'Mix herbals with surgical & nutra in one shipment', 'Registration guidance for your market'].map(f => `<li>${ic('check')}${f}</li>`).join('')}</ul>
       <div class="pp__actions">
         <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
@@ -236,7 +236,7 @@ function renderRange() {
       </article>`).join('') + `
       <a class="rcard rcard--dl rv" href="${DL.surgical}" download data-dl="surgical">
         <span class="rcard__dlic">${ic('sheet')}<b>XLSX</b></span>
-        <span class="rcard__dlbody"><small>Full Chase+ list</small><strong>All 37 SKUs in one sheet</strong><span>Every size and pack — including gauze thaan, paper tape and more. Add your quantities and send it back on WhatsApp.</span></span>
+        <span class="rcard__dlbody"><small>Full Chase+ list</small><strong>All 37 SKUs in one sheet</strong><span>Every size and pack, including gauze thaan, paper tape and more. Add your quantities and send it back on WhatsApp.</span></span>
         <span class="btn btn--gold btn--sm">${ic('download')} Download Excel</span>
       </a>`;
     grid.addEventListener('click', e => {
@@ -250,51 +250,27 @@ function renderRange() {
 
 /* ───────────── Studio controls ───────────── */
 let studioStage = null;
-function initStudioControls() {
-    const form = $('#studio-form');
-    if (!form) return;
-    const dl = $('#formula-list');
-    dl.innerHTML = NUTRA.map(n => `<option value="${esc(n.name)}">`).join('') + BOTTLE_PHOTOS.map(([, n]) => `<option value="${esc(n)}">`).join('');
-    const apply = (spin) => {
-        const fd = new FormData(form);
-        studio.brand = (fd.get('brand') || '').trim();
-        studio.product = (fd.get('product') || '').trim() || 'Your Formula';
+// Private label: while in view, the bottle's label steps through ready formulations under "Your Brand".
+// The first touch hands control to the visitor (drag to read the back label) and stops the cycle for good.
+const LABEL_CYCLE = ['Biotin', 'Daily Probiotic', 'Vitamin C 500', 'Coenzyme Q10', 'Brain & Focus', 'Turmeric', 'Heart Health'];
+function cycleStudioLabel(host) {
+    if (reduced) return;
+    const picks = LABEL_CYCLE.filter(n => NUTRA_BY_NAME.has(n.toLowerCase()));
+    let k = Math.max(0, picks.indexOf(studio.product)), timer = 0, stopped = false;
+    const step = () => {
+        if (!studioStage || studioStage.focused || studioStage.dragging || isPanelOpen()) return;
+        k = (k + 1) % picks.length;
+        studio.product = picks[k];
         const f = NUTRA_BY_NAME.get(studio.product.toLowerCase());
         studio.format = f && /Tablets|Capsules/.test(f.format) ? f.format : 'Capsules';
-        $('#studio-summary').textContent = `${studio.brand || 'Your Brand'} ${studio.product}`;
-        $('#studio-formula').innerHTML = f ? `
-          <div class="sf__head"><span>Formula preview</span><small>${esc(nutra.categories[f.cat])} · ${esc(f.pack)}</small></div>
-          <ul>${f.benefits.slice(0, 3).map(b => `<li>${ic('check')}${esc(b)}</li>`).join('')}</ul>
-          <p>${f.ingredients.length} active${f.ingredients.length > 1 ? 's' : ''}: ${esc(f.ingredients.slice(0, 4).map(i => i[0] + (i[1] ? ' ' + i[1] : '')).join(' · '))}${f.ingredients.length > 4 ? ' …' : ''}</p>`
-            : `<div class="sf__head"><span>Custom formula</span><small>Tell us the composition</small></div><p>Not in our ready list? Send it anyway — we'll check feasibility and suggest the closest match.</p>`;
-        if (studioStage) {
-            studioStage.setLabel(labelOpts());
-            if (spin) studioStage.spinTo();
-        }
+        studioStage.setLabel(labelOpts());
+        studioStage.spinTo();
     };
-    let t;
-    form.addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => apply(e.target.name === 'product'), 140); });
-    form.addEventListener('submit', e => { e.preventDefault(); openComposer([labelItem()], { needs: ['Export price list', 'MOQ details', 'Private label artwork', 'Samples'] }); });
-    $('#studio-add').addEventListener('click', e => { addToList(labelItem()); flashAdded(e.currentTarget); });
-    $('#studio-snap').addEventListener('click', () => {
-        if (!studioStage) return;
-        const a = document.createElement('a');
-        a.href = studioStage.snapshot();
-        a.download = `${(studio.brand || 'your-brand').replace(/[^a-z0-9]+/gi, '-')}-${studio.product.replace(/[^a-z0-9]+/gi, '-')}-mockup.png`.toLowerCase();
-        a.click();
-        track('mockup_download', { product: studio.product });
+    ScrollTrigger.create({
+        trigger: host, start: 'top 75%', end: 'bottom 25%',
+        onToggle: st => { clearInterval(timer); if (st.isActive && !stopped) timer = setInterval(step, 3600); }
     });
-    form.elements.product.value = studio.product;
-    apply(false);
-    initStudioControls.apply = apply;
-}
-
-function loadIntoStudio(name, format = 'Capsules', stay = false) {
-    const form = $('#studio-form');
-    form.elements.product.value = name;
-    initStudioControls.apply(true);
-    if (!stay) scrollToId('studio');
-    setTimeout(() => form.elements.brand.focus({ preventScroll: true }), stay ? 0 : 900);
+    host.addEventListener('pointerdown', () => { stopped = true; clearInterval(timer); }, { once: true });
 }
 
 /* ───────────── Vitantra herbal section ───────────── */
@@ -368,13 +344,14 @@ function initHerbal() {
 
 // "Online now" during Indian office hours; an honest reply promise otherwise
 function initDeskStatus() {
-    const el = $('[data-desk-status]');
-    if (!el) return;
     const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
     const mins = ist.getHours() * 60 + ist.getMinutes();
     const open = ist.getDay() !== 0 && mins >= 600 && mins < 1110;
-    el.classList.toggle('is-away', !open);
-    $('[data-desk-text]', el).textContent = open ? 'Export desk online now on WhatsApp' : 'Export desk replies within one business day';
+    $$('[data-desk-status]').forEach(el => {
+        el.classList.toggle('is-away', !open);
+        const t = $('[data-desk-text]', el);
+        if (t) t.textContent = open ? (el.dataset.on || 'Export desk online now on WhatsApp') : (el.dataset.off || 'Export desk replies within one business day');
+    });
 }
 
 /* ───────────── Enquiry list (FAB + drawer) ───────────── */
@@ -417,6 +394,66 @@ const PRESET = {
     meeting: [[], { intent: 'I would like to schedule a call with your export team.', needs: ['Export price list'] }],
     list: [null, {}]
 };
+
+// FAQ: one answer open at a time. Heights tween to "auto", answer lines rise out of masks, the plus spins
+// into a cross, and the question crossing mid-screen gets its number highlighted.
+function initFaq() {
+    const items = $$('.faq__item');
+    if (!items.length) return;
+    const D = reduced ? 0 : 1;
+    let active = -1;
+    const roll = (i) => {
+        if (i === active) return;
+        active = i;
+        items.forEach((it, k) => it.classList.toggle('is-current', k === i));
+    };
+    const open = (d) => {
+        const a = $('.faq__a', d);
+        d.open = true;
+        d.classList.add('is-open');
+        gsap.fromTo(a, { height: 0 }, { height: 'auto', duration: 0.75 * D, ease: 'expo.out', overwrite: true });
+        gsap.to($('.faq__ic i', d), { rotate: 135, duration: 0.7 * D, ease: 'back.out(2.2)', overwrite: true });
+        if (D) {
+            d._split?.revert();
+            d._split = SplitText.create($('p', a), { type: 'lines', mask: 'lines' });
+            gsap.from(d._split.lines, { yPercent: 105, duration: 0.9, stagger: 0.06, ease: 'expo.out', delay: 0.08 });
+        }
+        roll(items.indexOf(d));
+    };
+    const close = (d) => {
+        d.classList.remove('is-open');
+        gsap.to($('.faq__ic i', d), { rotate: 0, duration: 0.5 * D, ease: 'power3.out', overwrite: true });
+        gsap.to($('.faq__a', d), {
+            height: 0, duration: 0.5 * D, ease: 'power3.inOut', overwrite: true,
+            onComplete: () => { d.open = false; gsap.set($('.faq__a', d), { clearProps: 'height' }); d._split?.revert(); d._split = null; }
+        });
+    };
+    items.forEach(d => $('summary', d).addEventListener('click', e => {
+        e.preventDefault(); // we drive <details> ourselves so the height can animate
+        if (d.classList.contains('is-open')) return close(d);
+        items.filter(x => x !== d && x.classList.contains('is-open')).forEach(close);
+        open(d);
+    }));
+    roll(0);
+    if (reduced) return;
+
+    // the question crossing the middle of the screen gets its number highlighted
+    items.forEach((it, i) => ScrollTrigger.create({ trigger: it, start: 'top 55%', end: 'bottom 55%', onToggle: st => st.isActive && roll(i) }));
+
+    // entrance: rules draw, questions rise line by line, icons spin in, the side panel follows
+    const qs = SplitText.create($$('.faq__q'), { type: 'lines', mask: 'lines' });
+    gsap.timeline({
+        scrollTrigger: { trigger: '.faq__list', start: 'top 80%' }, defaults: { ease: 'expo.out' },
+        onComplete: () => qs.revert() // plain text again, so later resizes re-wrap naturally
+    })
+        .from('.faq__rule', { scaleX: 0, duration: 1.3, stagger: 0.07, ease: 'power3.inOut' }, 0)
+        .from(qs.lines, { yPercent: 105, duration: 1.1, stagger: 0.06 }, 0.15)
+        .from('.faq__n', { y: 10, opacity: 0, duration: 0.8, stagger: 0.07 }, 0.3)
+        .from('.faq__ic', { scale: 0, rotate: -120, duration: 1, stagger: 0.07, ease: 'back.out(2)' }, 0.35);
+    gsap.timeline({ scrollTrigger: { trigger: '.faq__desk', start: 'top 85%' }, defaults: { ease: 'expo.out' } })
+        .from('.faq__desk', { y: 40, opacity: 0, duration: 1.1 })
+        .from('.faq__desk > :not(.faq__quick), .chip-q', { y: 14, opacity: 0, duration: 0.8, stagger: 0.06 }, 0.2);
+}
 
 // "Drag to turn" hints fade out once the visitor has touched the stage
 function initDragHints() {
@@ -470,7 +507,7 @@ function initMotion() {
 
     initMarquee();
     initWhy();
-    if (reduced) { $$('.rv').forEach(el => el.classList.add('in')); return; }
+    if (reduced) { $$('.rv').forEach(el => el.classList.add('in', 'settled')); return; }
 
     // Hero headline
     const h1 = $('.hero h1');
@@ -487,10 +524,17 @@ function initMotion() {
         gsap.from(s.lines, { yPercent: 105, duration: 1.1, stagger: 0.08, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
     });
 
-    // Generic reveals
+    // Generic reveals. Each element rides its own GPU layer (force3D) while moving; when it lands the
+    // inline styles are cleared so its CSS (hover lifts, transitions) takes over again.
     ScrollTrigger.batch('.rv', {
-        start: 'top 88%',
-        onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, stagger: 0.07, ease: 'expo.out', onStart: () => els.forEach(e => e.classList.add('in')) })
+        start: 'top 90%',
+        onEnter: els => {
+            els.forEach(e => e.classList.add('in'));
+            gsap.fromTo(els, { opacity: 0, y: 40 }, {
+                opacity: 1, y: 0, duration: 1, stagger: 0.08, ease: 'expo.out', force3D: true, overwrite: true,
+                onComplete: () => els.forEach(e => { gsap.set(e, { clearProps: 'opacity,transform' }); e.classList.add('settled'); })
+            });
+        }
     });
 
     // Proof: rules draw, stats rise out of masks, certs pop in
@@ -568,7 +612,7 @@ function initMarquee() {
 
     let loop, dir = 1;
     const build = () => {
-        // repeat the set until one loop covers the widest screen twice — never an empty stretch
+        // repeat the set until one loop covers the widest screen twice, so there is never an empty stretch
         const setW = base.getBoundingClientRect().width;
         if (!setW) return;
         const need = Math.ceil((innerWidth * 2) / setW) + 1;
@@ -582,7 +626,7 @@ function initMarquee() {
         const ts = loop ? loop.timeScale() : 1;
         if (loop) loop.kill();
         gsap.set(track, { x: 0 });
-        // move exactly one set width, then wrap — seamless because the copies are identical
+        // move exactly one set width, then wrap; seamless because the copies are identical
         loop = gsap.to(track, { x: -setW, duration: setW / 70, ease: 'none', repeat: -1 });
         loop.timeScale(ts);
         if (reduced) loop.pause();
@@ -703,6 +747,7 @@ async function boot3D() {
         host.classList.add('is-ready');
         studioStage.on('select', (id, root) => selectOnStage(studioStage, 'studio', root, ['studio']));
         studioStage.on('background', closePanel);
+        cycleStudioLabel(host);
     });
 
     lazy($('#herbal-stage'), async () => {
@@ -744,12 +789,12 @@ function init() {
     $$('[data-wa-number]').forEach(el => { el.textContent = WA_DISPLAY; });
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
     renderRange();
-    initStudioControls();
     initHerbal();
     initDeskStatus();
     initList();
     initActions();
     initDragHints();
+    initFaq();
     initMotion();
     $('.nav__burger')?.addEventListener('click', () => document.body.classList.toggle('nav-open'));
     $$('.nav__links a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('nav-open')));

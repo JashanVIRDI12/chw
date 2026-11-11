@@ -46,18 +46,18 @@ export function track(event, data = {}) {
 function describe(it) {
     const lines = [];
     if (it.type === 'surgical') {
-        lines.push(`${it.name} — Chase+`);
+        lines.push(`${it.name} (Chase+)`);
         if (it.skus && it.skus.length) it.skus.forEach(s => lines.push(`   • ${s}`));
         else lines.push('   • Sizes: please share full size list');
     } else if (it.type === 'nutra') {
-        lines.push(`${it.name} — private label / bulk`);
+        lines.push(`${it.name} (private label / bulk)`);
         if (it.pack) lines.push(`   • Standard pack: ${it.pack}`);
     } else if (it.type === 'herbal') {
-        lines.push(`${it.name} Capsules — Vitantra Ayurvedic`);
+        lines.push(`${it.name} Capsules (Vitantra Ayurvedic)`);
         if (it.botanical) lines.push(`   • Botanical: ${it.botanical}`);
     } else if (it.type === 'label') {
         lines.push(`Private label: ${it.product} (${it.format})`);
-        lines.push(`   • Brand name: ${it.brand || '—'}`);
+        lines.push(`   • Brand name: ${it.brand || '-'}`);
         lines.push('   • Label & packaging design: to be finalised as per our requirements');
     } else {
         lines.push(it.name);
@@ -86,7 +86,7 @@ export function buildMessage(items, p) {
         out.push('');
     }
     if (p.notes) { out.push('*NOTES*'); out.push(p.notes); out.push(''); }
-    out.push(`— Sent from ${location.host || 'chw.co.in'}${location.pathname}${utm ? ' · ' + utm : ''}`);
+    out.push(`Sent from ${location.host || 'chw.co.in'}${location.pathname}${utm ? ' · ' + utm : ''}`);
     return out.join('\n');
 }
 
@@ -138,7 +138,7 @@ function buildComposer() {
           <div>
             <span class="eyebrow eyebrow--wa"><i class="ic ic-wa"></i> WhatsApp enquiry</span>
             <h3 id="composer-title">Tell us what you need</h3>
-            <p>Takes 30 seconds — every field is optional. It all goes to our export desk as one WhatsApp message.</p>
+            <p>Takes 30 seconds. Every field is optional. It all goes to our export desk as one WhatsApp message.</p>
           </div>
           <button class="icon-btn" data-close aria-label="Close"><i class="ic ic-x"></i></button>
         </header>
@@ -157,7 +157,7 @@ function buildComposer() {
           <label class="field"><span>Anything else? <em>(optional)</em></span><textarea name="notes" rows="2" placeholder="Packaging, registration needs, target price…"></textarea></label>
           <details class="composer__preview"><summary>Preview your WhatsApp message</summary><pre data-preview></pre></details>
           <button class="btn btn--wa btn--xl" type="submit"><i class="ic ic-wa"></i> Send enquiry on WhatsApp</button>
-          <p class="composer__fine">Opens WhatsApp with your message ready — nothing is sent until you tap send. ${WA_DISPLAY}</p>
+          <p class="composer__fine">Opens WhatsApp with your message ready. Nothing is sent until you tap send. ${WA_DISPLAY}</p>
         </form>
         <div class="composer__done" data-done hidden>
           <div class="done__mark"><i class="ic ic-check"></i></div>
@@ -165,7 +165,7 @@ function buildComposer() {
           <p class="done__lead" data-done-lead></p>
           <div class="done__qr" data-done-qr hidden>
             <div class="done__code" data-qr></div>
-            <div class="done__qrtext"><b>Continue on your phone</b><span>Point your phone camera at the code — WhatsApp opens with your enquiry filled in.</span></div>
+            <div class="done__qrtext"><b>Continue on your phone</b><span>Point your phone camera at the code and WhatsApp opens with your enquiry filled in.</span></div>
           </div>
           <div class="done__actions">
             <button class="btn btn--wa btn--lg" data-done-open><i class="ic ic-wa"></i> <span data-done-open-label>Open WhatsApp again</span></button>
@@ -235,8 +235,8 @@ async function showDone(text, desktop) {
     done.dataset.text = text;
     setDone(true);
     composer.querySelector('[data-done-lead]').textContent = desktop
-        ? 'Send it from your phone or from WhatsApp on this computer — nothing is sent until you tap send.'
-        : 'WhatsApp should have opened with your enquiry filled in. Just tap send — a person on our export desk replies.';
+        ? 'Send it from your phone or from WhatsApp on this computer. Nothing is sent until you tap send.'
+        : 'WhatsApp should have opened with your enquiry filled in. Just tap send and a person on our export desk will reply.';
     composer.querySelector('[data-done-open-label]').textContent = desktop ? 'Open WhatsApp on this computer' : 'Open WhatsApp again';
     const qrBox = composer.querySelector('[data-done-qr]');
     qrBox.hidden = !desktop;
@@ -271,7 +271,7 @@ function readProfile() {
 function renderItems() {
     const box = composer.querySelector('[data-items]');
     if (!currentItems.length) {
-        box.innerHTML = `<div class="composer__empty">General enquiry — tell us the products in the notes, or add items from the page.</div>`;
+        box.innerHTML = `<div class="composer__empty">General enquiry. Tell us the products in the notes, or add items from the page.</div>`;
         return;
     }
     box.innerHTML = currentItems.map((it, i) => `

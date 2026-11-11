@@ -4,6 +4,7 @@
   "installCommand": "echo skip-install",
   "buildCommand": "echo skip-build",
   "outputDirectory": ".",
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)\\.(js|css|webp|png|jpg|jpeg|svg|ico|woff2|mp4)",

@@ -220,7 +220,7 @@ export class Stage {
     // Fly the camera to a product. `layout` = 'side' (panel on the right) or 'bottom' (sheet).
     primaryOf(id) { return this.items.find(i => i.id === id && i.primary) || this.items.find(i => i.id === id); }
 
-    // `free` (phones): { top, bottom } in viewport px — the band left visible between the nav and the sheet.
+    // `free` (phones): { top, bottom } in viewport px: the band left visible between the nav and the sheet.
     focus(id, layout = 'side', root = null, free = null) {
         const item = (root && this.items.find(i => i.root === root)) || this.primaryOf(id);
         if (!item) return;

@@ -353,7 +353,7 @@ export function fixatorFaces(a) {
     b.fillStyle = '#fff'; b.fillRect(0, 0, W, H);
     b.fillStyle = G; b.fillRect(0, H - 120, W, 120);
     b.fillStyle = '#3d4f47'; b.textAlign = 'left'; font(b, 500, 34);
-    ['Elastic Adhesive Bandage B.P. — i.v. Cannula Fixator', 'Contents: 100 individually sealed fixators', 'Manufactured by Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 160 + i * 64));
+    ['Elastic Adhesive Bandage B.P. / i.v. Cannula Fixator', 'Contents: 100 individually sealed fixators', 'Manufactured by Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 160 + i * 64));
     barcode(b, 1500, 160, 380, 170, 11);
     return { front, top, side, back };
 }
@@ -691,7 +691,7 @@ function arcText(ctx, text, cx, cy, r, centerAngle, size, color, inward = false)
     ctx.textBaseline = 'alphabetic';
 }
 
-// Round black seal with a gold three-leaf sprig — the Vitantra mark
+// Round black seal with a gold three-leaf sprig: the Vitantra mark
 export function vitantraSeal(ctx, cx, cy, r) {
     ctx.save();
     const g = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.3, r * 0.1, cx, cy, r);

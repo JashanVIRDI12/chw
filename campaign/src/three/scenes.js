@@ -19,7 +19,7 @@ function camFit(stage, base, minAspect) {
 /* ───────────── HERO ───────────── */
 // Product-shot composition: every pack stands on its own travertine podium.
 // Centre bottle low and forward, the inner pair raised behind it, the outer pair
-// low and forward again — a V of heights and depths. Each product owns its own
+// low and forward again: a V of heights and depths. Each product owns its own
 // horizontal slot, so no pack can ever hide another, from any camera height.
 export async function heroScene(host, { labelOpts, herbal }) {
     const a = await loadPackAssets();

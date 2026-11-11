@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!-- assets are relative to /campaign/: if served as /campaign (no slash), add it before anything loads -->
+    <script>if (!/\/$|\.[a-z0-9]+$/i.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
     <title>Surgical, Nutraceutical &amp; Ayurvedic Export Supply from India | CHW</title>
     <meta name="description" content="WHO-GMP certified manufacturer exporting Chase+ surgical disposables, private-label nutraceuticals and Vitantra Ayurvedic herbals to 20+ countries. Explore 120+ products in 3D and get export pricing on WhatsApp.">
     <meta name="theme-color" content="#0b2e22">
     <link rel="canonical" href="https://chw.co.in/campaign/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Surgical, supplements &amp; Ayurveda — direct from our WHO-GMP factory | CHW">
+    <meta property="og:title" content="Surgical, supplements &amp; Ayurveda direct from our WHO-GMP factory | CHW">
     <meta property="og:description" content="Chase+ surgical disposables, private-label nutraceuticals and Vitantra herbals from one WHO-GMP certified manufacturer in India. Enquire on WhatsApp.">
     <meta property="og:image" content="https://chw.co.in/campaign/assets/img/chase-eab-set.webp">
     <meta name="twitter:card" content="summary_large_image">
@@ -18,8 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/campaign.css?v=mwbwu5hk">
-    <link rel="modulepreload" href="assets/js/main.js?v=mwbwu5hk">
+    <link rel="stylesheet" href="assets/campaign.css?v=mwbxsdtw">
+    <link rel="modulepreload" href="assets/js/main.js?v=mwbxsdtw">
     <link rel="modulepreload" href="assets/js/rolldown-runtime-CbXtAM7H.js">
     <link rel="modulepreload" href="assets/js/gsap-7WdKX42W.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Chase Healthcare & Wellness Pvt. Ltd.","alternateName":"CHW","url":"https://chw.co.in/","logo":"https://chw.co.in/images/2.webp","foundingDate":"2015","contactPoint":{"@type":"ContactPoint","telephone":"+91-95603-69222","contactType":"sales","availableLanguage":["English","Hindi"]},"address":{"@type":"PostalAddress","streetAddress":"Plot No. 39, Lakhnawali","addressLocality":"Greater Noida","postalCode":"201306","addressCountry":"IN"}}</script>
@@ -30,7 +32,7 @@
 <!-- ═════════ NAV ═════════ -->
 <header class="nav">
     <div class="wrap nav__in">
-        <a href="#top" class="nav__logo" aria-label="Chase Healthcare &amp; Wellness — back to top">
+        <a href="#top" class="nav__logo" aria-label="Chase Healthcare &amp; Wellness, back to top">
             <img src="assets/img/logo-cream.webp" alt="" width="40" height="47">
             <span><b>CHW</b><small>Chase Healthcare &amp; Wellness</small></span>
         </a>
@@ -69,8 +71,8 @@
     <div class="wrap hero__in">
         <div class="hero__copy">
             <p class="pill-live" data-hero-in data-desk-status><span class="pulse"></span> <span data-desk-text>Export desk on WhatsApp</span></p>
-            <h1>Surgical, supplements &amp; Ayurveda — <em>direct from our WHO-GMP factory.</em></h1>
-            <p class="hero__sub" data-hero-in>Chase+ surgical disposables, private-label nutraceuticals and Vitantra Ayurvedic herbals — made in our own facility in India and shipped to 20+ countries. Send your requirement on WhatsApp for export pricing, MOQs and samples.</p>
+            <h1>Surgical, supplements &amp; Ayurveda <em>direct from our WHO-GMP factory.</em></h1>
+            <p class="hero__sub" data-hero-in>Chase+ surgical disposables, private-label nutraceuticals and Vitantra Ayurvedic herbals, made in our own facility in India and shipped to 20+ countries. Send your requirement on WhatsApp for export pricing, MOQs and samples.</p>
             <ul class="hero__ranges" data-hero-in aria-label="Product ranges">
                 <li><a href="#range"><i class="ic ic-cross"></i> Surgical &amp; medical</a></li>
                 <li><a href="#studio"><i class="ic ic-capsule"></i> Private-label nutra</a></li>
@@ -157,7 +159,7 @@
                 <div class="split__body glass glass--dark">
                     <span class="tag">01 · Surgical &amp; Medical</span>
                     <h3>Chase+ disposables</h3>
-                    <p>Bandages, gauze, swabs, sponges, tapes, cannula fixators and syringes — hospital-grade, branded and export-packed.</p>
+                    <p>Bandages, gauze, swabs, sponges, tapes, cannula fixators and syringes. Hospital-grade, branded and export-packed.</p>
                     <div class="split__cta">
                         <a class="btn btn--light" href="#range">View the range <i class="ic ic-arrow"></i></a>
                         <button class="btn btn--wa-ghost btn--sq" data-wa="surgical" aria-label="Enquire about surgical products on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
@@ -172,9 +174,9 @@
                 <div class="split__body glass">
                     <span class="tag tag--gold">02 · Nutraceuticals</span>
                     <h3>Your brand, our formulas</h3>
-                    <p>Ready, documented formulations in capsules, tablets and powders — packed under your label for your market.</p>
+                    <p>Ready, documented formulations in capsules, tablets and powders, packed under your label for your market.</p>
                     <div class="split__cta">
-                        <a class="btn btn--dark" href="#studio">Design your label <i class="ic ic-arrow"></i></a>
+                        <a class="btn btn--dark" href="#studio">Explore private label <i class="ic ic-arrow"></i></a>
                         <button class="btn btn--wa-ghost btn--wa-ghost-dark btn--sq" data-wa="privatelabel" aria-label="Enquire about private-label nutraceuticals on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
                     </div>
                 </div>
@@ -187,7 +189,7 @@
                 <div class="split__body glass">
                     <span class="tag tag--kraft">03 · Ayurvedic herbals</span>
                     <h3>Vitantra by CHW</h3>
-                    <p>Single-herb Ayurvedic capsules — Ashwagandha, Shilajit, Moringa, Turmeric and more — export-packed in amber glass.</p>
+                    <p>Single-herb Ayurvedic capsules such as Ashwagandha, Shilajit, Moringa and Turmeric, export-packed in amber glass.</p>
                     <div class="split__cta">
                         <a class="btn btn--kraft" href="#herbal">See the herbs <i class="ic ic-arrow"></i></a>
                         <button class="btn btn--wa-ghost btn--wa-ghost-dark btn--sq" data-wa="herbal" aria-label="Enquire about Vitantra herbals on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
@@ -204,7 +206,7 @@
         <div class="reach__copy">
             <span class="eyebrow eyebrow--light">Export reach</span>
             <h2 data-split>Shipping from India <em>to 20+ countries.</em></h2>
-            <p class="sec__lead">Importers, distributors and hospital buyers across four regions already source from CHW — and we're appointing partners in two more.</p>
+            <p class="sec__lead">Importers, distributors and hospital buyers across four regions already source from CHW, and we're appointing partners in two more.</p>
             <ul class="regions">
                 <li><span class="regions__dot"></span><b>Middle East</b><small>Active</small></li>
                 <li><span class="regions__dot"></span><b>Africa</b><small>Active</small></li>
@@ -221,7 +223,7 @@
         </div>
         <div class="globe-stage" id="globe-stage" aria-hidden="true">
             <div class="stage-loader"><span></span></div>
-            <span class="globe-stage__tag"><i></i> Greater Noida, India — HQ</span>
+            <span class="globe-stage__tag"><i></i> Greater Noida, India · HQ</span>
         </div>
     </div>
 
@@ -255,7 +257,7 @@
             <div class="meet__card meet__card--call">
                 <span class="meet__call-ic"><i class="ic ic-wa"></i></span>
                 <b class="meet__event">Can't make a show?</b>
-                <p>Book a call with our export team — we'll walk you through products, pricing and documents.</p>
+                <p>Book a call with our export team. We'll walk you through products, pricing and documents.</p>
                 <button class="btn btn--wa btn--sm" data-wa="meeting"><i class="ic ic-wa"></i> Book a call</button>
             </div>
         </div>
@@ -271,7 +273,7 @@
                 <h2 data-split>Pick your sizes. <em>We'll quote the lot.</em></h2>
             </div>
             <div class="sec__aside">
-                <p>Open any product for its sizes — the ones you pick go straight into your WhatsApp enquiry.</p>
+                <p>Open any product for its sizes. The ones you pick go straight into your WhatsApp enquiry.</p>
                 <a class="btn btn--line" href="downloads/CHW-Chase-Plus-Surgical-Range.xlsx" download data-dl="surgical"><i class="ic ic-sheet"></i> All 37 SKUs (.xlsx)</a>
             </div>
         </header>
@@ -279,39 +281,32 @@
     </div>
 </section>
 
-<!-- ═════════ PRIVATE LABEL STUDIO ═════════ -->
+<!-- ═════════ PRIVATE LABEL ═════════ -->
 <section class="sec studio" id="studio">
     <div class="wrap">
         <header class="sec__head sec__head--center">
-            <span class="eyebrow">Private label studio</span>
-            <h2 data-split>Put your brand on it — <em>live.</em></h2>
-            <p class="sec__lead">Type your brand and pick a formulation — see it on the bottle instantly. Drag the bottle to read the back label, then send it to our team.</p>
+            <span class="eyebrow">Private label</span>
+            <h2 data-split>We make it. <em>You brand it.</em></h2>
+            <p class="sec__lead">Pick from 85 ready formulations or send us your own. We manufacture, fill and pack it under your name, ready to sell in your market.</p>
         </header>
         <div class="studio__grid">
             <div class="studio-stage" id="studio-stage">
                 <div class="stage-fallback" aria-hidden="true"><img src="assets/img/bottle-boron.webp" alt="" loading="lazy" width="760" height="917"></div>
                 <div class="stage-loader" aria-hidden="true"><span></span></div>
-                <p class="studio__drag"><i class="ic ic-drag"></i> Drag to rotate · click to zoom</p>
+                <p class="studio__drag"><i class="ic ic-drag"></i> Drag to rotate · <span class="on-mouse">click</span><span class="on-touch">tap</span> to zoom</p>
             </div>
-            <form class="studio__panel glass" id="studio-form" autocomplete="off">
-                <label class="field field--big">
-                    <span>Your brand name</span>
-                    <input name="brand" type="text" maxlength="28" placeholder="Your Brand" aria-describedby="studio-summary">
-                </label>
-                <label class="field">
-                    <span>Formulation <em>· 85 ready, or type your own</em></span>
-                    <input name="product" type="search" list="formula-list" placeholder="Search e.g. Biotin, Probiotic, Shilajit">
-                    <datalist id="formula-list"></datalist>
-                </label>
-                <div class="studio__formula" id="studio-formula" aria-live="polite"></div>
-                <p class="studio__note"><i class="ic ic-wand"></i> Preview only — label design, colours and packaging may vary as per your requirements.</p>
-                <p class="studio__summary visually-hidden" id="studio-summary" aria-live="polite"></p>
-                <button class="btn btn--wa btn--lg btn--block" type="submit"><i class="ic ic-wa"></i> Send this label on WhatsApp</button>
-                <div class="studio__sub">
-                    <button class="btn btn--line btn--sm" type="button" id="studio-add"><i class="ic ic-plus"></i> Add to list</button>
-                    <button class="btn btn--line btn--sm" type="button" id="studio-snap"><i class="ic ic-download"></i> Save mockup (PNG)</button>
+            <div class="studio__panel glass pl">
+                <ul class="pl__list">
+                    <li class="pl__item rv"><span class="pl__ic"><i class="ic ic-wand"></i></span><div><h3>Your brand on every pack</h3><p>Your logo, colours and label design. Share your artwork, or ask us about it.</p></div></li>
+                    <li class="pl__item rv"><span class="pl__ic"><i class="ic ic-capsule"></i></span><div><h3>85 ready formulations</h3><p>Capsules, tablets and powders across 10 health categories. Custom formulas on request.</p></div></li>
+                    <li class="pl__item rv"><span class="pl__ic"><i class="ic ic-check"></i></span><div><h3>Samples first</h3><p>Approve your samples and artwork before we start the bulk order.</p></div></li>
+                    <li class="pl__item rv"><span class="pl__ic"><i class="ic ic-file"></i></span><div><h3>Export-ready documents</h3><p>Certificates and product documents for your registration file.</p></div></li>
+                </ul>
+                <div class="pl__cta">
+                    <button class="btn btn--wa btn--lg" data-wa="privatelabel"><i class="ic ic-wa"></i> Start your private label</button>
+                    <a class="btn btn--line" href="downloads/CHW-Nutraceutical-Formulations.xlsx" download data-dl="nutra"><i class="ic ic-sheet"></i> All 85 formulations <small>.xlsx</small></a>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </section>
@@ -325,7 +320,7 @@
                 <h2 data-split>Classical Ayurveda, <em>export-ready.</em></h2>
             </div>
             <div class="sec__aside">
-                <p>20 single-herb capsules made in our WHO-GMP facility. Pick a herb to see its jar — then add it to your enquiry.</p>
+                <p>20 single-herb capsules made in our WHO-GMP facility. Pick a herb to see its jar, then add it to your enquiry.</p>
                 <button class="btn btn--line" data-wa="herbal"><i class="ic ic-wa"></i> Price list for all 20 herbs</button>
             </div>
         </header>
@@ -358,7 +353,7 @@
             <div class="herb-rail" role="listbox" aria-label="Choose a herb" id="herb-rail"></div>
             <button class="herb-nav herb-nav--next" type="button" aria-label="More herbs" data-herb-nav="1"><i class="ic ic-right"></i></button>
         </div>
-        <p class="herbal__fine">Descriptions reflect traditional Ayurvedic use and are not medical claims. Product registration requirements vary by country — our export desk will confirm for your market.</p>
+        <p class="herbal__fine">Descriptions reflect traditional Ayurvedic use and are not medical claims. Product registration requirements vary by country. Our export desk will confirm for your market.</p>
     </div>
 </section>
 
@@ -372,9 +367,9 @@
         <div class="steps-wrap">
             <div class="track" aria-hidden="true"><span class="track__fill"></span></div>
             <ol class="steps">
-                <li class="step"><span class="step__node"><i class="ic ic-wa"></i></span><div class="step__text"><span class="step__n">Step 01</span><h3>Send your requirement</h3><p>Products, sizes and quantities — straight from this page into WhatsApp.</p></div></li>
+                <li class="step"><span class="step__node"><i class="ic ic-wa"></i></span><div class="step__text"><span class="step__n">Step 01</span><h3>Send your requirement</h3><p>Products, sizes and quantities, straight from this page into WhatsApp.</p></div></li>
                 <li class="step"><span class="step__node"><i class="ic ic-file"></i></span><div class="step__text"><span class="step__n">Step 02</span><h3>Get pricing &amp; samples</h3><p>Export pricing, MOQ and lead time for your destination, with samples on request.</p></div></li>
-                <li class="step"><span class="step__node"><i class="ic ic-wand"></i></span><div class="step__text"><span class="step__n">Step 03</span><h3>Approve specs &amp; artwork</h3><p>Confirm sizes and packing — or your private-label artwork and formula.</p></div></li>
+                <li class="step"><span class="step__node"><i class="ic ic-wand"></i></span><div class="step__text"><span class="step__n">Step 03</span><h3>Approve specs &amp; artwork</h3><p>Confirm sizes and packing, or your private-label artwork and formula.</p></div></li>
                 <li class="step"><span class="step__node"><i class="ic ic-ship"></i></span><div class="step__text"><span class="step__n">Step 04</span><h3>We make &amp; ship</h3><p>Manufactured in our WHO-GMP facility and shipped with export documentation.</p></div></li>
             </ol>
         </div>
@@ -394,7 +389,7 @@
                     <figure class="why-card__img"><img src="assets/img/generated/why/manufacturing-480.webp" srcset="assets/img/generated/why/manufacturing-480.webp 480w, assets/img/generated/why/manufacturing-800.webp 800w" sizes="(max-width: 560px) 92vw, (max-width: 1080px) 46vw, 24vw" alt="Illustrative scene of clean manufacturing and sealed product inspection" width="480" height="480" loading="lazy" decoding="async"></figure>
                     <span class="why-card__n">01</span>
                     <h3>Our own WHO-GMP facility</h3>
-                    <p>Made in-house in Greater Noida since 2015 — no trader in between.</p>
+                    <p>Made in-house in Greater Noida since 2015, with no trader in between.</p>
                 </li>
                 <li class="why-card">
                     <figure class="why-card__img"><img src="assets/img/generated/why/documentation-480.webp" srcset="assets/img/generated/why/documentation-480.webp 480w, assets/img/generated/why/documentation-800.webp 800w" sizes="(max-width: 560px) 92vw, (max-width: 1080px) 46vw, 24vw" alt="Illustrative scene of a commercial invoice and packing list being reviewed" width="480" height="480" loading="lazy" decoding="async"></figure>
@@ -428,7 +423,7 @@
         <div class="dl__copy">
             <span class="eyebrow eyebrow--light">Downloads</span>
             <h2 data-split>The full range, <em>in one spreadsheet.</em></h2>
-            <p class="sec__lead">120+ products — Chase+ surgical sizes, nutraceutical formulations and Vitantra herbals — with packing, composition and benefits. Fill the “Your quantity” column and send it back on WhatsApp for a quote.</p>
+            <p class="sec__lead">120+ products across Chase+ surgical sizes, nutraceutical formulations and Vitantra herbals, with packing, composition and benefits. Fill the “Your quantity” column and send it back on WhatsApp for a quote.</p>
             <ul class="dl__list">
                 <li><a href="downloads/CHW-Complete-Product-List.xlsx" download data-dl="all" data-card="dl-all"><i class="ic ic-sheet"></i><span><b>Complete product list</b><small>4 sheets · 120+ products · 27 KB</small></span><i class="ic ic-download"></i></a></li>
                 <li><a href="downloads/CHW-Chase-Plus-Surgical-Range.xlsx" download data-dl="surgical" data-card="dl-surgical"><i class="ic ic-sheet"></i><span><b>Chase+ surgical range</b><small>37 SKUs · 10 KB</small></span><i class="ic ic-download"></i></a></li>
@@ -448,19 +443,33 @@
 <!-- ═════════ FAQ ═════════ -->
 <section class="sec faq" id="faq">
     <div class="wrap faq__grid">
-        <header class="sec__head">
+        <aside class="faq__side">
             <span class="eyebrow">Buyer FAQ</span>
             <h2 data-split>Straight answers.</h2>
-            <p class="sec__lead">Can't find yours? <button class="link" data-wa="general">Ask on WhatsApp</button> — a person on our export desk replies.</p>
-        </header>
+            <div class="faq__desk">
+                <p class="faq__status" data-desk-status data-on="Export desk online now" data-off="Replies within one business day"><span class="pulse"></span> <span data-desk-text>Export desk on WhatsApp</span></p>
+                <h3>Still have a question?</h3>
+                <p class="faq__desk-lead">Tap one to start a WhatsApp chat with a person on our export desk.</p>
+                <div class="faq__quick">
+                    <button class="chip-q" data-wa-quick="Please share your export price list and MOQ for my country.">Price list for my country <i class="ic ic-arrow"></i></button>
+                    <button class="chip-q" data-wa-quick="What are the MOQ and lead time for a first order?">MOQ &amp; lead time <i class="ic ic-arrow"></i></button>
+                    <button class="chip-q" data-wa-quick="I would like samples before placing a bulk order.">Samples before bulk <i class="ic ic-arrow"></i></button>
+                    <button class="chip-q" data-wa-quick="Please share your WHO-GMP certificate and product documents (CoA) for our registration file.">Registration documents <i class="ic ic-arrow"></i></button>
+                </div>
+                <div class="faq__desk-foot">
+                    <button class="btn btn--wa" data-wa="general"><i class="ic ic-wa"></i> Ask on WhatsApp</button>
+                    <span class="faq__num"><small>or message</small><b data-wa-number></b></span>
+                </div>
+            </div>
+        </aside>
         <div class="faq__list">
-            <details><summary>What is your minimum order quantity?</summary><p>MOQs depend on the product, pack and destination. Share your quantity in the enquiry and we will confirm the lowest workable MOQ — trial orders for new markets are welcome.</p></details>
-            <details><summary>Can I sell these products under my own brand?</summary><p>Yes. Our 85 nutraceutical formulations are available for private label, and we can discuss OEM packing for surgical products. Use the label studio above to send us a starting mockup.</p></details>
-            <details><summary>Do you provide samples?</summary><p>Yes — tick “Samples” in the WhatsApp enquiry and tell us which products you need. We confirm sample terms and courier details on chat.</p></details>
-            <details><summary>Which export documents do you support?</summary><p>We are a WHO-GMP certified manufacturer and support the standard export documentation importers need. Tell us your country and we will confirm the documents required for registration and clearance.</p></details>
-            <details><summary>Do you export Ayurvedic and herbal products?</summary><p>Yes. Our Vitantra range has 20 single-herb capsules — including Ashwagandha, Shilajit, Moringa, Turmeric and Triphala — made in our WHO-GMP facility. Tell us your country and we'll confirm registration and labelling requirements for herbal supplements there.</p></details>
-            <details><summary>Can I combine surgical, nutraceutical and herbal products in one shipment?</summary><p>Yes. All three ranges come from CHW, so you can consolidate them into a single order, invoice and shipment.</p></details>
-            <details><summary>How fast do you reply?</summary><p>Our export desk works on WhatsApp during Indian business hours (IST). Enquiries sent outside these hours are answered the next working day.</p></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">01</span><span class="faq__q">What is your minimum order quantity?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>MOQs depend on the product, pack and destination. Share your quantity in the enquiry and we will confirm the lowest workable MOQ. Trial orders for new markets are welcome.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">02</span><span class="faq__q">Can I sell these products under my own brand?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>Yes. Our 85 nutraceutical formulations are available for private label, and we can discuss OEM packing for surgical products. Message us your brand and the formulations you want, and we will take it from there.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">03</span><span class="faq__q">Do you provide samples?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>Yes. Tick “Samples” in the WhatsApp enquiry and tell us which products you need. We confirm sample terms and courier details on chat.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">04</span><span class="faq__q">Which export documents do you support?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>We are a WHO-GMP certified manufacturer and support the standard export documentation importers need. Tell us your country and we will confirm the documents required for registration and clearance.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">05</span><span class="faq__q">Do you export Ayurvedic and herbal products?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>Yes. Our Vitantra range has 20 single-herb capsules, including Ashwagandha, Shilajit, Moringa, Turmeric and Triphala, all made in our WHO-GMP facility. Tell us your country and we'll confirm registration and labelling requirements for herbal supplements there.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">06</span><span class="faq__q">Can I combine surgical, nutraceutical and herbal products in one shipment?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>Yes. All three ranges come from CHW, so you can consolidate them into a single order, invoice and shipment.</p></div></details>
+            <details class="faq__item"><summary><i class="faq__rule" aria-hidden="true"></i><span class="faq__n" aria-hidden="true">07</span><span class="faq__q">How fast do you reply?</span><span class="faq__ic" aria-hidden="true"><i></i></span></summary><div class="faq__a"><p>Our export desk works on WhatsApp during Indian business hours (IST). Enquiries sent outside these hours are answered the next working day.</p></div></details>
         </div>
     </div>
 </section>
@@ -471,7 +480,7 @@
     <div class="wrap final__in">
         <span class="eyebrow eyebrow--light">Ready when you are</span>
         <h2 data-split>Your next shipment starts <em>with one message.</em></h2>
-        <p>Tell us what you need — we reply on WhatsApp with pricing, MOQ and lead time.</p>
+        <p>Tell us what you need and we'll reply on WhatsApp with pricing, MOQ and lead time.</p>
         <button class="btn btn--wa btn--xl btn--magnet" data-wa="general"><i class="ic ic-wa"></i> Start my WhatsApp enquiry</button>
         <div class="final__quick">
             <span>Or ask straight away:</span>
@@ -489,7 +498,7 @@
 <footer class="foot">
     <div class="wrap foot__in">
         <div class="foot__brand">
-            <img src="assets/img/logo-cream.webp" alt="CHW — care beyond cure" width="72" height="84" loading="lazy">
+            <img src="assets/img/logo-cream.webp" alt="CHW, care beyond cure" width="72" height="84" loading="lazy">
             <p>Chase Healthcare &amp; Wellness Pvt. Ltd.<br>Your global healthcare supply partner since 2015.</p>
         </div>
         <div>
@@ -528,6 +537,6 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}.stage-loader,.hotspot,.hero__hint{display:none}</style></noscript>
-<script type="module" src="assets/js/main.js?v=mwbwu5hk"></script>
+<script type="module" src="assets/js/main.js?v=mwbxsdtw"></script>
 </body>
 </html>

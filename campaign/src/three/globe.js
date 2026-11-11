@@ -147,7 +147,7 @@ export async function buildGlobe({ radius = 12, count = 30000, bg = '#0b2e22', f
         beacon.material.opacity = (0.65 + Math.sin(t * 3) * 0.35) * fade;
         beacon.scale.setScalar(0.7 + Math.sin(t * 3) * 0.2);
         arcs.forEach(a => {
-            // grow, hold, retract — then the destination pings
+            // grow, hold, retract, then the destination pings
             const p = ((t * a.speed + a.offset) % 1.6);
             const grow = Math.min(1, p / 0.7);
             const tail = Math.max(0, Math.min(1, (p - 0.95) / 0.6));
