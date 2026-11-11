@@ -731,7 +731,8 @@ async function boot3D() {
     hero.on('background', closePanel);
     if (!reduced) gsap.to(hero.offset, { y: 2.2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
     const spots = $$('.hotspot', heroHost);
-    hero.on('frame', () => spots.forEach(s => {
+    const noSpots = matchMedia('(max-width: 860px), (hover: none)'); // hidden there, so skip the per-frame projection
+    hero.on('frame', () => !noSpots.matches && spots.forEach(s => {
         const p = hero.project(s.dataset.focus);
         if (p) s.style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
     }));

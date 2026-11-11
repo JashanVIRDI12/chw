@@ -153,9 +153,13 @@ export class Stage {
     bindEvents() {
         const el = this.host;
         let down = null;
-        el.addEventListener('pointermove', (e) => {
+        // a touch tap fires no pointermove first, so the pointer is also taken on down/up (else taps miss)
+        const aim = (e) => {
             const r = el.getBoundingClientRect();
             this.pointer.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+        };
+        el.addEventListener('pointermove', (e) => {
+            aim(e);
             this.parallax.set(this.pointer.x, this.pointer.y);
             if (!down) return;
             if (Math.abs(e.clientX - down.sx) > 6) down.moved = true;
@@ -165,13 +169,14 @@ export class Stage {
             else if (this.dragItem && down.moved) { this.dragItem.drag = (this.dragItem.drag || 0) + dx; this.dragging = true; }
         });
         el.addEventListener('pointerleave', () => { this.pointer.set(-9, -9); this.parallax.set(0, 0); this.setHover(null); });
-        el.addEventListener('pointerdown', (e) => { if (e.target.closest('button, a, input, select, label')) return; down = { x: e.clientX, sx: e.clientX, moved: false }; });
+        el.addEventListener('pointerdown', (e) => { if (e.target.closest('button, a, input, select, label')) return; aim(e); down = { x: e.clientX, sx: e.clientX, moved: false }; });
         window.addEventListener('pointerup', () => { this.dragging = false; if (down && down.moved) setTimeout(() => { down = null; }); });
         el.addEventListener('pointerup', (e) => {
             if (!down) return;
             const moved = down.moved; down = null;
             if (moved) return;
             if (e.target.closest('button, a, input, select, label')) return;
+            aim(e);
             const hit = this.pick();
             if (hit) this.emit('select', hit.userData.pickId, hit);
             else if (this.focused) this.emit('background');

@@ -184,6 +184,8 @@ h1 em, h2 em { font-style: italic; color: var(--emerald); }
 .hero__proof span { font-size: .78rem; color: rgba(255,255,255,.6); }
 .hero__hint { position: absolute; z-index: 2; right: calc(max(var(--gut), (100vw - var(--wrap)) / 2 + var(--gut)) + 90px); bottom: 34px; display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: rgba(255,255,255,.7); padding: .55rem 1rem; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(8px); transition: opacity .5s; }
 .no-webgl .hero__hint, .no-webgl .hotspot { display: none; }
+/* phones/touch: no floating dots, the products themselves are tappable (the hint says so) */
+@media (max-width: 860px), (hover: none) { .hero .hotspot { display: none; } }
 .hero__scroll { position: absolute; z-index: 2; left: 50%; bottom: 26px; width: 26px; height: 42px; margin-left: -13px; border-radius: 14px; border: 1.5px solid rgba(255,255,255,.35); }
 .hero__scroll span { position: absolute; left: 50%; top: 8px; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 2px; background: var(--gold-l); animation: scrolly 2s var(--ease) infinite; }
 @keyframes scrolly { 0% { transform: translateY(0); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(14px); opacity: 0; } }
