@@ -76,16 +76,11 @@ export function buildMessage(items, p) {
         items.forEach((it, i) => describe(it).forEach((l, j) => out.push(j === 0 ? `${i + 1}. ${l}` : l)));
         out.push('');
     }
-    const about = [
-        ['Name', p.name], ['Company', p.company], ['Business type', p.buyer], ['Country', p.country],
-        ['Timeline', p.timeline], ['Need', (p.needs || []).join(', ')]
-    ].filter(([, v]) => v);
-    if (about.length) {
-        out.push('*ABOUT US*');
-        about.forEach(([k, v]) => out.push(`${k}: ${v}`));
+    const extra = [['Country', p.country], ['Please send', (p.needs || []).join(', ')]].filter(([, v]) => v);
+    if (extra.length) {
+        extra.forEach(([k, v]) => out.push(`${k}: ${v}`));
         out.push('');
     }
-    if (p.notes) { out.push('*NOTES*'); out.push(p.notes); out.push(''); }
     out.push(`Sent from ${location.host || 'chw.co.in'}${location.pathname}${utm ? ' · ' + utm : ''}`);
     return out.join('\n');
 }
@@ -112,17 +107,11 @@ function launch(href) {
 }
 
 /* ───────────── Composer dialog ───────────── */
-const BUYERS = ['Importer', 'Distributor', 'Wholesaler', 'Hospital / Clinic', 'Pharmacy chain', 'Brand owner (private label)'];
-const TIMELINES = ['Immediately', 'Within 1–3 months', 'Exploring options'];
-const NEEDS = ['Export price list', 'Samples', 'MOQ details', 'Private label artwork', 'Export documents'];
-
-let composer, currentItems = [], fromList = false, lastFocus;
+// Minimal by design: products + quantities, an optional country, send. What the opening button asked for
+// (price list, samples, documents…) still goes into the message without asking the buyer anything.
+let composer, currentItems = [], currentNeeds = [], fromList = false, lastFocus;
 
 function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
-
-function chipGroup(name, options, selected, multi = false) {
-    return `<div class="chips" role="group">${options.map(o => `<label class="chip"><input type="${multi ? 'checkbox' : 'radio'}" name="${name}" value="${esc(o)}" ${(multi ? (selected || []).includes(o) : selected === o) ? 'checked' : ''}><span>${esc(o)}</span></label>`).join('')}</div>`;
-}
 
 function buildComposer() {
     composer = document.createElement('div');
@@ -138,26 +127,15 @@ function buildComposer() {
           <div>
             <span class="eyebrow eyebrow--wa"><i class="ic ic-wa"></i> WhatsApp enquiry</span>
             <h3 id="composer-title">Tell us what you need</h3>
-            <p>Takes 30 seconds. Every field is optional. It all goes to our export desk as one WhatsApp message.</p>
+            <p>Add quantities if you know them. We'll open WhatsApp with your message ready.</p>
           </div>
           <button class="icon-btn" data-close aria-label="Close"><i class="ic ic-x"></i></button>
         </header>
         <form class="composer__form" novalidate>
           <div class="composer__items" data-items></div>
-          <fieldset><legend>I am a</legend><div data-buyer></div></fieldset>
-          <div class="field-row">
-            <label class="field"><span>Your name</span><input name="name" autocomplete="name" placeholder="e.g. Amara Okafor"></label>
-            <label class="field"><span>Company</span><input name="company" autocomplete="organization" placeholder="Company name"></label>
-          </div>
-          <div class="field-row">
-            <label class="field"><span>Country</span><input name="country" autocomplete="country-name" placeholder="Destination country"></label>
-            <label class="field"><span>Timeline</span><select name="timeline"><option value="">Select</option>${TIMELINES.map(t => `<option>${t}</option>`).join('')}</select></label>
-          </div>
-          <fieldset><legend>Please also send</legend><div data-needs></div></fieldset>
-          <label class="field"><span>Anything else? <em>(optional)</em></span><textarea name="notes" rows="2" placeholder="Packaging, registration needs, target price…"></textarea></label>
-          <details class="composer__preview"><summary>Preview your WhatsApp message</summary><pre data-preview></pre></details>
+          <label class="field"><span>Country <em>(optional)</em></span><input name="country" autocomplete="country-name" placeholder="Where should we ship?"></label>
           <button class="btn btn--wa btn--xl" type="submit"><i class="ic ic-wa"></i> Send enquiry on WhatsApp</button>
-          <p class="composer__fine">Opens WhatsApp with your message ready. Nothing is sent until you tap send. ${WA_DISPLAY}</p>
+          <p class="composer__fine">Nothing is sent until you tap send in WhatsApp.</p>
         </form>
         <div class="composer__done" data-done hidden>
           <div class="done__mark"><i class="ic ic-check"></i></div>
@@ -184,9 +162,7 @@ function buildComposer() {
     form.addEventListener('input', e => {
         const q = e.target.closest('[data-qty]');
         if (q) currentItems[+q.dataset.qty].qty = q.value;
-        refreshPreview();
     });
-    form.addEventListener('change', refreshPreview);
     form.addEventListener('click', e => {
         const rm = e.target.closest('[data-remove]');
         if (rm) {
@@ -194,16 +170,16 @@ function buildComposer() {
             const i = +rm.dataset.remove;
             currentItems.splice(i, 1);
             if (fromList) removeFromList(i);
-            renderItems(); refreshPreview();
+            renderItems();
         }
     });
     form.addEventListener('submit', e => {
         e.preventDefault();
         const p = readProfile();
-        store.set(PROFILE_KEY, { name: p.name, company: p.company, country: p.country, buyer: p.buyer });
+        store.set(PROFILE_KEY, { ...store.get(PROFILE_KEY, {}), country: p.country });
         if (fromList) { list = currentItems.map(i => ({ ...i })); emit(); }
         const text = buildMessage(currentItems, p);
-        const meta = { items: currentItems.length, buyer: p.buyer || '' };
+        const meta = { items: currentItems.length, country: p.country || '' };
         if (isDesktop()) { track('whatsapp_enquiry', { ...meta, via: 'desktop' }); showDone(text, true); }
         else { openWhatsApp(text, meta); showDone(text, false); }
     });
@@ -259,19 +235,14 @@ async function showDone(text, desktop) {
 }
 
 function readProfile() {
-    const f = composer.querySelector('form');
-    const fd = new FormData(f);
-    return {
-        name: (fd.get('name') || '').trim(), company: (fd.get('company') || '').trim(), country: (fd.get('country') || '').trim(),
-        buyer: fd.get('buyer') || '', timeline: fd.get('timeline') || '', needs: fd.getAll('needs'), notes: (fd.get('notes') || '').trim(),
-        intent: composer.dataset.intent || ''
-    };
+    const country = (composer.querySelector('form').elements.country.value || '').trim();
+    return { country, needs: currentNeeds, intent: composer.dataset.intent || '' };
 }
 
 function renderItems() {
     const box = composer.querySelector('[data-items]');
     if (!currentItems.length) {
-        box.innerHTML = `<div class="composer__empty">General enquiry. Tell us the products in the notes, or add items from the page.</div>`;
+        box.innerHTML = `<div class="composer__empty">General enquiry. Tell us what you need in the chat, or add products from the page first.</div>`;
         return;
     }
     box.innerHTML = currentItems.map((it, i) => `
@@ -284,10 +255,6 @@ function renderItems() {
         <input class="ci__qty" data-qty="${i}" value="${esc(it.qty || '')}" placeholder="Qty" aria-label="Quantity for ${esc(it.name || it.product)}">
         <button class="icon-btn icon-btn--sm" data-remove="${i}" aria-label="Remove"><i class="ic ic-x"></i></button>
       </div>`).join('');
-}
-
-function refreshPreview() {
-    composer.querySelector('[data-preview]').textContent = buildMessage(currentItems, readProfile());
 }
 
 function trapTab(e, root) {
@@ -303,18 +270,16 @@ export function openComposer(items = null, { intent = '', needs = [] } = {}) {
     fromList = items === null;
     currentItems = (items === null ? list : items).map(i => ({ ...i }));
     composer.dataset.intent = intent;
-    const prof = store.get(PROFILE_KEY, {});
+    currentNeeds = needs.length ? needs : ['Export price list'];
     const f = composer.querySelector('form');
-    composer.querySelector('[data-buyer]').innerHTML = chipGroup('buyer', BUYERS, prof.buyer || '');
-    composer.querySelector('[data-needs]').innerHTML = chipGroup('needs', NEEDS, needs.length ? needs : ['Export price list'], true);
-    ['name', 'company', 'country'].forEach(k => { f.elements[k].value = prof[k] || ''; });
-    renderItems(); refreshPreview();
+    f.elements.country.value = store.get(PROFILE_KEY, {}).country || '';
+    renderItems();
     setDone(false);
     lastFocus = document.activeElement;
     composer.hidden = false;
     document.documentElement.classList.add('has-dialog');
     requestAnimationFrame(() => composer.classList.add('is-open'));
-    setTimeout(() => (composer.querySelector('.ci__qty') || f.elements.name).focus({ preventScroll: true }), 350);
+    setTimeout(() => (composer.querySelector('.ci__qty') || f.elements.country).focus({ preventScroll: true }), 350);
     track('enquiry_open', { items: currentItems.length });
 }
 
