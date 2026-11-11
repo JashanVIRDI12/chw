@@ -29,6 +29,7 @@ export class Stage {
         this.pickables = [];
         this.listeners = {};
         this.view = { sx: opts.sx || 0, sy: 0 };
+        this.offsetK = 1; // how much of the scroll-linked offset applies (0 while a product is focused)
         this.cam = { pos: new Vector3(...(opts.camPos || [0, 2.6, 11])), look: new Vector3(...(opts.look || [0, 1.1, 0])) };
         this.parallax = new Vector2();
         this.pointer = new Vector2(-9, -9);
@@ -219,7 +220,8 @@ export class Stage {
     // Fly the camera to a product. `layout` = 'side' (panel on the right) or 'bottom' (sheet).
     primaryOf(id) { return this.items.find(i => i.id === id && i.primary) || this.items.find(i => i.id === id); }
 
-    focus(id, layout = 'side', root = null) {
+    // `free` (phones): { top, bottom } in viewport px — the band left visible between the nav and the sheet.
+    focus(id, layout = 'side', root = null, free = null) {
         const item = (root && this.items.find(i => i.root === root)) || this.primaryOf(id);
         if (!item) return;
         const group = this.items.filter(i => i.id === id && !i.off);
@@ -259,7 +261,15 @@ export class Stage {
         const overlap = layout === 'side' ? Math.max(0, host.right - (innerWidth - panelW)) : 0;
         const freeW = Math.max(this.w * 0.35, this.w - overlap);
         const sideSx = overlap / 2 / this.w;
-        const vf = layout === 'bottom' ? 0.4 : 0.62;
+        let vf = layout === 'bottom' ? 0.4 : 0.62;
+        let sy = layout === 'bottom' ? 0.27 : 0;
+        if (layout === 'bottom' && free) {
+            // fit the product to ~80% of the visible band and centre it there
+            const top = MathUtils.clamp(free.top - host.top, 0, this.h);
+            const bot = MathUtils.clamp(free.bottom - host.top, top + 1, this.h);
+            vf = (Math.max(bot - top, this.h * 0.3) / this.h) * 0.8;
+            sy = (this.h / 2 - (top + bot) / 2) / this.h;
+        }
         const hf = (freeW / this.w) * 0.8;
         const halfW = Math.max(size.x, size.z) * 0.5, halfH = size.y * 0.5;
         const dist = Math.max(halfH / (tanV * vf), halfW / (tanH * hf)) + Math.max(size.x, size.z) * 0.5;
@@ -269,7 +279,8 @@ export class Stage {
         const tl = gsap.timeline({ defaults: { ease: 'expo.inOut', duration: d } });
         tl.to(this.cam.pos, { x: to.x, y: to.y, z: to.z }, 0)
             .to(this.cam.look, { x: center.x, y: center.y, z: center.z }, 0)
-            .to(this.view, { sx: layout === 'side' ? sideSx : 0, sy: layout === 'bottom' ? 0.27 : 0, onUpdate: () => this.applyView() }, 0)
+            .to(this.view, { sx: layout === 'side' ? sideSx : 0, sy, onUpdate: () => this.applyView() }, 0)
+            .to(this, { offsetK: 0 }, 0)
             .to(this.camera, { fov, onUpdate: () => this.camera.updateProjectionMatrix() }, 0)
             .to(this.spot, { intensity: 60, duration: d * 0.8 }, d * 0.3);
         this.items.forEach(it => {
@@ -292,6 +303,7 @@ export class Stage {
             .to(this.view, { sx: s.sx, sy: s.sy, onUpdate: () => this.applyView() }, 0)
             .to(this.camera, { fov: s.fov, onUpdate: () => this.camera.updateProjectionMatrix() }, 0)
             .to(this.spot, { intensity: 0, duration: 0.6 }, 0)
+            .to(this, { offsetK: 1 }, 0)
             .to(this, { rotateFocus: 0 }, 0);
         this.items.forEach(it => tl.to(it, { lift: 0, spin: 0, iso: 0, gx: 0, gz: 0 }, 0));
         this.emit('unfocus');
@@ -348,7 +360,7 @@ export class Stage {
         if (this.idle) this.idle(t, this);
         const px = reduced ? 0 : this.parallax.x, py = reduced ? 0 : this.parallax.y;
         const k = this.focused ? 0.15 : 0.5;
-        const oy = this.offset ? this.offset.y : 0;
+        const oy = this.offset ? this.offset.y * this.offsetK : 0;
         this.camera.position.set(this.cam.pos.x + px * k, this.cam.pos.y + py * k * 0.5 + oy, this.cam.pos.z);
         this.camera.lookAt(this.cam.look);
         this.render();

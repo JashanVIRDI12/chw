@@ -99,7 +99,9 @@ export async function heroScene(host, { labelOpts, herbal }) {
             stage.cam.pos.set(CX, 3.6, Math.max(width / (2 * tanH), 2.2 / tanV) + 2);
             stage.cam.look.set(CX, 1.25, 0);
             stage.view.sx = 0;
+            stage.view.sy = 0.08; // phones: lift the set toward the headline above the stage
         } else {
+            stage.view.sy = 0;
             // centre the set in the right column of the page grid, sized to that column
             const wrapW = Math.min(W, WRAP) - GUT * 2;
             const right = (W + wrapW) / 2;

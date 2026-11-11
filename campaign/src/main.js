@@ -79,8 +79,8 @@ function surgicalHTML(p) {
         <div><dt>Made in</dt><dd>India · WHO-GMP facility</dd></div>
       </dl>
       <div class="pp__actions">
-        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} Enquire on WhatsApp</button>
-        <button class="btn btn--glass" data-act="add">${ic('plus')} Add to enquiry list</button>
+        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
+        <button class="btn btn--glass" data-act="add">${ic('plus')} <span>Add to<span class="pp__long"> enquiry</span> list</span></button>
       </div>
       <a class="pp__dl" href="${DL.surgical}" download data-dl="surgical">${ic('sheet')} Full Chase+ size list (.xlsx)</a>`;
 }
@@ -103,8 +103,8 @@ function privateLabelHTML() {
       <p class="pp__lead">${NUTRA.length} ready formulations across ${Object.keys(nutra.categories).length} health categories — capsules, tablets and powders, packed under your label.</p></div>
       <ul class="pp__feats">${['Your logo & label artwork', 'Capsules · tablets · powders', 'Export documentation support', 'Samples before bulk order'].map(f => `<li>${ic('check')}${f}</li>`).join('')}</ul>
       <div class="pp__actions">
-        <button class="btn btn--gold btn--lg" data-act="studio">${ic('wand')} Design my label in 3D</button>
-        <button class="btn btn--wa" data-act="enquire">${ic('wa')} Enquire on WhatsApp</button>
+        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
+        <button class="btn btn--gold" data-act="studio">${ic('wand')} <span>Design<span class="pp__long"> my</span> label<span class="pp__long"> in 3D</span></span></button>
       </div>
       <a class="pp__dl" href="${DL.nutra}" download data-dl="nutra">${ic('sheet')} All ${NUTRA.length} formulations (.xlsx)</a>`;
 }
@@ -122,7 +122,7 @@ function studioHTML() {
       <div class="pp__block"><h4>Key benefits</h4><ul class="pp__feats">${f.benefits.map(b => `<li>${ic('check')}${esc(b)}</li>`).join('')}</ul></div>`
         : `<p class="pp__fine">Custom formula — share your composition and we will check feasibility.</p>`}
       <div class="pp__actions">
-        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} Send this label on WhatsApp</button>
+        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Send<span class="pp__long"> this</span> label<span class="pp__long"> on WhatsApp</span></span></button>
         <button class="btn btn--glass" data-act="add">${ic('plus')} Add to list</button>
       </div>`;
 }
@@ -139,8 +139,8 @@ function herbalHTML() {
       <p class="pp__lead">${HERBS.length} single-herb capsules made in our WHO-GMP facility — supplied as Vitantra or under your own label.</p></div>
       <ul class="pp__feats">${['Ashwagandha, Shilajit, Moringa, Turmeric & more', 'Vegetarian capsules in amber glass', 'Mix herbals with surgical & nutra in one shipment', 'Registration guidance for your market'].map(f => `<li>${ic('check')}${f}</li>`).join('')}</ul>
       <div class="pp__actions">
-        <button class="btn btn--kraft btn--lg" data-act="herbs">${ic('leaf')} Browse all ${HERBS.length} herbs</button>
-        <button class="btn btn--wa" data-act="enquire">${ic('wa')} Enquire on WhatsApp</button>
+        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
+        <button class="btn btn--kraft" data-act="herbs">${ic('leaf')} <span>Browse<span class="pp__long"> all ${HERBS.length}</span> herbs</span></button>
       </div>
       <a class="pp__dl" href="${DL.herbal}" download data-dl="herbal">${ic('sheet')} Vitantra herbal range (.xlsx)</a>`;
 }
@@ -161,18 +161,38 @@ function contentFor(id) {
 function selectOnStage(stage, id, root, seq) {
     const c = contentFor(id);
     if (!c) return;
+    const narrow = isNarrow();
     const go = () => {
-        stage.focus(id, isNarrow() ? 'bottom' : 'side', root);
         const i = seq.indexOf(id);
         const step = seq.length > 1 ? (d) => () => selectOnStage(stage, seq[(i + d + seq.length) % seq.length], null, seq) : null;
+        // open first: on phones the camera frames the product in the space the sheet leaves free
         openPanel(c.html, { stage, onRender: c.bind, onClose: () => stage.unfocus(), onPrev: step && step(-1), onNext: step && step(1) });
+        stage.focus(id, narrow ? 'bottom' : 'side', root, narrow ? freeBand() : null);
         track('product_focus', { product: id });
     };
+    if (isPanelOpen() || stage.pinned) return go();
     const r = stage.host.getBoundingClientRect();
-    if (!isPanelOpen() && (r.top < -40 || r.bottom > innerHeight + 40) && !stage.pinned) {
-        window.scrollTo({ top: scrollY + r.top - Math.max(0, (innerHeight - r.height) / 2), behavior: reduced ? 'auto' : 'smooth' });
-        setTimeout(go, reduced ? 0 : 650);
-    } else go();
+    if (narrow) return scrollThen(scrollY + r.top - navBottom(), go);
+    if (r.top < -40 || r.bottom > innerHeight + 40) return scrollThen(scrollY + r.top - Math.max(0, (innerHeight - r.height) / 2), go);
+    go();
+}
+
+const navBottom = () => Math.max(0, $('.nav')?.getBoundingClientRect().bottom || 0);
+// Visible band between the fixed nav and the open sheet (layout box, so the slide-in transform doesn't matter)
+function freeBand() {
+    const card = $('.pp__card');
+    return { top: navBottom(), bottom: card ? card.offsetTop : innerHeight * 0.55 };
+}
+
+// Smooth-scroll, then run fn once the page has settled
+function scrollThen(top, fn) {
+    top = Math.max(0, Math.min(top, document.documentElement.scrollHeight - innerHeight));
+    if (Math.abs(scrollY - top) < 2) return fn();
+    let done = false;
+    const run = () => { if (done) return; done = true; removeEventListener('scrollend', run); fn(); };
+    addEventListener('scrollend', run, { once: true });
+    setTimeout(run, reduced ? 50 : 900);
+    window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
 }
 
 function openDetails(id) {
@@ -203,7 +223,7 @@ function renderRange() {
     grid.innerHTML = surgical.items.filter(p => !HIDE.includes(p.id)).map((p, i) => `
       <article class="rcard rv${p.photoBase ? ' rcard--studio' : ''}" data-id="${p.id}" style="--i:${i}">
         <button class="rcard__media" data-details aria-label="View ${esc(p.name)} details">
-          ${p.photo ? `${p.photoBase ? '' : `<img class="rcard__bg" src="${IMG + p.photo}" alt="" aria-hidden="true" loading="lazy" decoding="async">`}${surgicalPhoto(p, 'rcard__img', '(max-width: 600px) 100vw, (max-width: 900px) 50vw, 320px')}` : `<span class="rcard__ph">${ic('cross')}<b>Chase+</b></span>`}
+          ${p.photo ? `${p.photoBase ? '' : `<img class="rcard__bg" src="${IMG + p.photo}" alt="" aria-hidden="true" loading="lazy" decoding="async">`}${surgicalPhoto(p, 'rcard__img', '(max-width: 600px) 60vw, (max-width: 900px) 50vw, 320px')}` : `<span class="rcard__ph">${ic('cross')}<b>Chase+</b></span>`}
         </button>
         <div class="rcard__body">
           <h3>${esc(p.short)}</h3>
@@ -398,6 +418,11 @@ const PRESET = {
     list: [null, {}]
 };
 
+// "Drag to turn" hints fade out once the visitor has touched the stage
+function initDragHints() {
+    $$('.studio__drag').forEach(h => h.parentElement.addEventListener('pointerdown', () => h.parentElement.classList.add('was-dragged'), { once: true }));
+}
+
 function initActions() {
     document.addEventListener('click', e => {
         const b = e.target.closest('[data-wa]');
@@ -476,10 +501,10 @@ function initMotion() {
             .from('.stat__ic', { scale: 0.3, opacity: 0, rotate: -30, duration: 0.9, stagger: 0.08, ease: 'back.out(2)' }, 0.25)
             .from('.stat__num > *', { yPercent: 110, duration: 1.1, stagger: 0.1, ease: 'expo.out' }, 0.25)
             .from('.stat__label', { y: 14, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }, 0.5)
-            .from('.proof__label', { y: 16, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.6)
-            .from('.marquee', { opacity: 0, duration: 1.2 }, 0.7)
-            .from('.cert', { scale: 0.4, opacity: 0, rotate: -25, duration: 0.9, stagger: 0.07, ease: 'back.out(2)' }, 0.8);
+            .from('.hospitals__label', { y: 16, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.6)
+            .from('.marquee', { opacity: 0, duration: 1.2 }, 0.7);
     }
+    initCertsMotion();
 
     // Counters
     $$('[data-count]').forEach(el => {
@@ -487,9 +512,6 @@ function initMotion() {
         const o = { v: 0 };
         gsap.to(o, { v: end, duration: 2.2, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 92%' }, onUpdate: () => { el.textContent = Math.round(o.v) + (el.dataset.suffix || ''); } });
     });
-
-    // Split ranges: image parallax
-    $$('.split__media img').forEach(img => gsap.fromTo(img, { yPercent: -8, scale: 1.12 }, { yPercent: 8, scale: 1.12, ease: 'none', scrollTrigger: { trigger: img.closest('.split__card'), scrub: true } }));
 
     // Process: progress track fills, nodes light up in sequence
     const proc = $('.process');
@@ -585,6 +607,36 @@ function initMarquee() {
     });
     track.addEventListener('pointerenter', () => loop && gsap.to(loop, { timeScale: 0.2 * dir, duration: 0.6, overwrite: true }));
     track.addEventListener('pointerleave', () => loop && gsap.to(loop, { timeScale: dir, duration: 0.8, overwrite: true }));
+}
+
+// Certifications: gold rules draw, rings close, icons spring, names rise out of masks.
+// The watermark seal idles in a slow spin; scroll speed surges it (and sets its direction), then it settles.
+function initCertsMotion() {
+    const sec = $('.certs-sec');
+    if (!sec) return;
+    gsap.timeline({ scrollTrigger: { trigger: sec, start: 'top 72%' }, defaults: { ease: 'expo.out' } })
+        .from('.certs-seal', { scale: 0.7, rotate: -120, opacity: 0, duration: 2.2, ease: 'power3.out' }, 0)
+        .from('.cert__rule', { scaleX: 0, transformOrigin: '0% 50%', duration: 1.4, stagger: 0.07, ease: 'power3.inOut' }, 0.15)
+        .from('.certs-sec__head p, .certs-sec__head .btn', { y: 22, opacity: 0, duration: 1, stagger: 0.12 }, 0.35)
+        .from('.cert__ring circle', { strokeDashoffset: 100, duration: 1.3, stagger: 0.08, ease: 'power2.inOut' }, 0.45)
+        .from('.cert b > span', { yPercent: 115, duration: 1.1, stagger: 0.08 }, 0.6)
+        .from('.cert__mark .ic', { scale: 0, rotate: -45, duration: 1, stagger: 0.08, ease: 'back.out(2.4)' }, 0.85)
+        .from('.cert small, .cert__n', { y: 12, opacity: 0, duration: 0.9, stagger: 0.04 }, 0.95);
+
+    gsap.to('.certs-seal', { yPercent: -18, ease: 'none', scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: true } });
+    const spin = gsap.to('.certs-seal__spin', { rotation: 360, duration: 48, ease: 'none', repeat: -1, paused: true });
+    let dir = 1;
+    const settle = gsap.delayedCall(0.25, () => gsap.to(spin, { timeScale: dir, duration: 1.4, ease: 'power2.out' })).pause();
+    ScrollTrigger.create({
+        trigger: sec, start: 'top bottom', end: 'bottom top',
+        onToggle: st => (st.isActive ? spin.play() : spin.pause()), // only spin while on screen
+        onUpdate: st => {
+            const v = st.getVelocity();
+            if (Math.abs(v) > 30) dir = v > 0 ? 1 : -1;
+            gsap.to(spin, { timeScale: dir * Math.min(14, 1 + Math.abs(v) / 180), duration: 0.25, overwrite: true });
+            settle.restart(true);
+        }
+    });
 }
 
 /* ───────────── 3D boot ───────────── */
@@ -697,6 +749,7 @@ function init() {
     initDeskStatus();
     initList();
     initActions();
+    initDragHints();
     initMotion();
     $('.nav__burger')?.addEventListener('click', () => document.body.classList.toggle('nav-open'));
     $$('.nav__links a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('nav-open')));

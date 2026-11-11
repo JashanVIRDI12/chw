@@ -57,6 +57,10 @@ const icons = {
     globe: S(`<circle cx='12' cy='12' r='10'/>` + P('M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20', 'M2 12h20')),
     calendar: S(`<rect width='18' height='18' x='3' y='4' rx='2'/>` + P('M16 2v4', 'M8 2v4', 'M3 10h18')),
     shield: S(P('M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z', 'm9 12 2 2 4-4')),
+    factory: S(P('M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z', 'M17 18h1', 'M12 18h1', 'M7 18h1')),
+    award: S(P('m15.48 12.89 1.51 8.53a.5.5 0 0 1-.81.47l-3.58-2.69a1 1 0 0 0-1.2 0l-3.59 2.69a.5.5 0 0 1-.81-.47l1.51-8.53') + "<circle cx='12' cy='8' r='6'/>"),
+    clipboard: S("<rect width='8' height='4' x='8' y='2' rx='1'/>" + P('M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2', 'm9 14 2 2 4-4')),
+    flask: S(P('M14 2v6a2 2 0 0 0 .25.96l5.5 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.75-2.96l5.5-10.08A2 2 0 0 0 10 8V2', 'M6.45 15h11.1', 'M8.5 2h7')),
     leaf: S(P('M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z', 'M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12')),
     copy: S(`<rect width='14' height='14' x='8' y='8' rx='2' ry='2'/>` + P('M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2')),
     capsule: S(P('m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z', 'm8.5 8.5 7 7')),
@@ -78,8 +82,12 @@ console.log(`campaign.css ${(min.length / 1024).toFixed(1)} KB`);
 // Cache-bust: Vercel caches JS/CSS for a week, so stamp a build version into index.html
 const v = Date.now().toString(36);
 const htmlPath = join(here, 'index.html');
+const mainSrc = readFileSync(join(here, 'assets/js/main.js'), 'utf8');
+const deps = [...new Set([...mainSrc.matchAll(/(?:^|;)\s*import\s*(?:[\w$*{},\s]+from\s*)?["']\.\/([^"']+\.js)["']/g)].map(m => m[1]))];
+const preloads = [`    <link rel="modulepreload" href="assets/js/main.js?v=${v}">`, ...deps.map(d => `    <link rel="modulepreload" href="assets/js/${d}">`)].join('\n');
 const html = readFileSync(htmlPath, 'utf8')
     .replace(/assets\/campaign\.css(\?v=[a-z0-9]+)?/g, `assets/campaign.css?v=${v}`)
+    .replace(/(    <link rel="modulepreload" href="assets\/js\/[^"]+">\n)+/, preloads + '\n')
     .replace(/assets\/js\/main\.js(\?v=[a-z0-9]+)?/g, `assets/js/main.js?v=${v}`);
 writeFileSync(htmlPath, html);
 console.log('stamped version', v);

@@ -18,9 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="assets/img/chase-eab-set.webp">
-    <link rel="stylesheet" href="assets/campaign.css?v=mw6si3ht">
-    <link rel="modulepreload" href="assets/js/main.js?v=mw6si3ht">
+    <link rel="stylesheet" href="assets/campaign.css?v=mwbwu5hk">
+    <link rel="modulepreload" href="assets/js/main.js?v=mwbwu5hk">
+    <link rel="modulepreload" href="assets/js/rolldown-runtime-CbXtAM7H.js">
+    <link rel="modulepreload" href="assets/js/gsap-7WdKX42W.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Chase Healthcare & Wellness Pvt. Ltd.","alternateName":"CHW","url":"https://chw.co.in/","logo":"https://chw.co.in/images/2.webp","foundingDate":"2015","contactPoint":{"@type":"ContactPoint","telephone":"+91-95603-69222","contactType":"sales","availableLanguage":["English","Hindi"]},"address":{"@type":"PostalAddress","streetAddress":"Plot No. 39, Lakhnawali","addressLocality":"Greater Noida","postalCode":"201306","addressCountry":"IN"}}</script>
 </head>
 <body>
@@ -55,7 +56,7 @@
     <div class="hero__glow" aria-hidden="true"></div>
     <div class="hero-stage" id="hero-stage">
         <div class="stage-fallback" aria-hidden="true">
-            <img src="assets/img/chase-eab-set.webp" alt="" width="1280" height="1112">
+            <img src="assets/img/chase-eab-set.webp" alt="" width="1280" height="1112" loading="lazy" decoding="async">
         </div>
         <button class="hotspot" data-focus="bottle"><span class="hotspot__dot"></span><span class="hotspot__label">Private-label supplements</span></button>
         <button class="hotspot" data-focus="eab"><span class="hotspot__dot"></span><span class="hotspot__label">Chase+ Elastic Adhesive</span></button>
@@ -90,7 +91,7 @@
     <a class="hero__scroll" href="#ranges" aria-label="Scroll to product ranges"><span></span></a>
 </section>
 
-<!-- ═════════ PROOF: stats, hospitals, certifications ═════════ -->
+<!-- ═════════ PROOF: stats + hospitals ═════════ -->
 <section class="proof" id="proof" aria-label="Why buyers trust CHW">
     <div class="wrap">
         <div class="proof__stats">
@@ -100,17 +101,45 @@
             <div class="stat"><span class="stat__ic"><i class="ic ic-shield"></i></span><b class="stat__num stat__num--text"><span>WHO-GMP</span></b><span class="stat__label">Certified facility in India</span></div>
         </div>
     </div>
-    <div class="proof__hospitals">
-        <p class="proof__label">Supplied to leading hospitals across India</p>
+    <div class="hospitals">
+        <p class="hospitals__label">Supplied to leading hospitals across India</p>
         <div class="marquee" aria-label="Hospitals supplied">
             <div class="marquee__track">
                 <div class="marquee__set"><span class="logo-chip"><img src="assets/img/h-aiims.webp" alt="AIIMS" loading="lazy" height="44"></span><span class="logo-chip"><img src="assets/img/h-medanta.webp" alt="Medanta" loading="lazy" height="44"></span><span class="logo-chip"><img src="assets/img/h-fortis.webp" alt="Fortis Healthcare" loading="lazy" height="44"></span><span class="logo-chip"><img src="assets/img/h-max.webp" alt="Max Healthcare" loading="lazy" height="44"></span><span class="logo-chip"><img src="assets/img/h-apollo.webp" alt="Apollo Hospitals" loading="lazy" height="44"></span><span class="logo-chip"><img src="assets/img/h-felix.webp" alt="Felix Hospital" loading="lazy" height="44"></span></div>
             </div>
         </div>
     </div>
-    <div class="wrap proof__certs">
-        <span class="proof__certs-label">Certified quality</span>
-        <ul><li class="cert"><img src="assets/img/cert_who_gmp.webp" alt="WHO-GMP" width="64" height="64" loading="lazy"><span>WHO-GMP</span></li><li class="cert"><img src="assets/img/cert_iso_9001.webp" alt="ISO 9001" width="64" height="64" loading="lazy"><span>ISO 9001</span></li><li class="cert"><img src="assets/img/cert_haccp.webp" alt="HACCP" width="64" height="64" loading="lazy"><span>HACCP</span></li><li class="cert"><img src="assets/img/cert_fssai.webp" alt="FSSAI" width="64" height="64" loading="lazy"><span>FSSAI</span></li><li class="cert"><img src="assets/img/cert_nabl.webp" alt="NABL" width="64" height="64" loading="lazy"><span>NABL</span></li><li class="cert"><img src="assets/img/cert_organic.webp" alt="Organic" width="64" height="64" loading="lazy"><span>Organic</span></li></ul>
+</section>
+
+<!-- ═════════ CERTIFICATIONS ═════════ -->
+<section class="certs-sec" aria-labelledby="certs-title">
+    <div class="certs-seal" aria-hidden="true">
+        <div class="certs-seal__spin">
+            <svg viewBox="0 0 200 200">
+                <defs><path id="seal-path" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+                <circle cx="100" cy="100" r="97"/>
+                <circle cx="100" cy="100" r="89" stroke-dasharray="1 3.2"/>
+                <circle cx="100" cy="100" r="62"/>
+                <text><textPath href="#seal-path" textLength="474" lengthAdjust="spacing">WHO-GMP • ISO 9001 • HACCP • FSSAI • NABL • ORGANIC • </textPath></text>
+            </svg>
+        </div>
+        <i class="ic ic-shield"></i>
+    </div>
+    <div class="wrap certs-sec__grid">
+        <header class="certs-sec__head">
+            <span class="eyebrow eyebrow--light">Certified quality</span>
+            <h2 id="certs-title" data-split>Made and tested to <em>global standards.</em></h2>
+            <p>Every product comes out of our own WHO&#8209;GMP facility, with the certificates and test reports importers need for registration.</p>
+            <button class="btn btn--gold" data-wa="docs"><i class="ic ic-file"></i> Request certificates</button>
+        </header>
+        <ul class="certs">
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-factory"></i></span><span class="cert__txt"><b><span>WHO-GMP</span></b><small>Certified manufacturing plant</small></span><span class="cert__n" aria-hidden="true">01</span></li>
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-award"></i></span><span class="cert__txt"><b><span>ISO 9001</span></b><small>Quality management system</small></span><span class="cert__n" aria-hidden="true">02</span></li>
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-clipboard"></i></span><span class="cert__txt"><b><span>HACCP</span></b><small>Food safety management</small></span><span class="cert__n" aria-hidden="true">03</span></li>
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-shield"></i></span><span class="cert__txt"><b><span>FSSAI</span></b><small>Licensed for nutraceuticals</small></span><span class="cert__n" aria-hidden="true">04</span></li>
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-flask"></i></span><span class="cert__txt"><b><span>NABL</span></b><small>Accredited lab test reports</small></span><span class="cert__n" aria-hidden="true">05</span></li>
+                <li class="cert"><i class="cert__rule" aria-hidden="true"></i><i class="cert__rule cert__rule--end" aria-hidden="true"></i><span class="cert__mark"><svg class="cert__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" pathLength="100"/></svg><i class="ic ic-leaf"></i></span><span class="cert__txt"><b><span>Organic</span></b><small>For applicable products</small></span><span class="cert__n" aria-hidden="true">06</span></li>
+        </ul>
     </div>
 </section>
 
@@ -123,47 +152,45 @@
         </header>
         <div class="split">
             <article class="split__card rv">
-                <div class="split__media"><img src="assets/img/chase-eab-set.webp" alt="Chase+ Elastic Adhesive Bandage tin, carton and roll" loading="lazy" width="1280" height="1112"></div>
+                <div class="split__media"><img src="assets/img/generated/ranges/surgical-900.webp" srcset="assets/img/generated/ranges/surgical-480.webp 480w, assets/img/generated/ranges/surgical-900.webp 900w, assets/img/generated/ranges/surgical-1200.webp 1200w" sizes="(max-width: 860px) 92vw, (max-width: 1100px) 46vw, 380px" alt="Chase+ bandage tin, carton and elastic bandage roll on a sage-green studio background" loading="lazy" decoding="async" width="1200" height="800"></div>
+                <ul class="split__stats split__stats--dark"><li><b data-count="37">37</b><span>SKUs</span></li><li><b data-count="11">11</b><span>product lines</span></li></ul>
                 <div class="split__body glass glass--dark">
                     <span class="tag">01 · Surgical &amp; Medical</span>
                     <h3>Chase+ disposables</h3>
                     <p>Bandages, gauze, swabs, sponges, tapes, cannula fixators and syringes — hospital-grade, branded and export-packed.</p>
-                    <ul class="split__stats"><li><b data-count="37">37</b><span>SKUs</span></li><li><b data-count="11">11</b><span>product lines</span></li></ul>
                     <div class="split__cta">
                         <a class="btn btn--light" href="#range">View the range <i class="ic ic-arrow"></i></a>
-                        <button class="btn btn--wa-ghost" data-wa="surgical"><i class="ic ic-wa"></i> Enquire</button>
+                        <button class="btn btn--wa-ghost btn--sq" data-wa="surgical" aria-label="Enquire about surgical products on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
                     </div>
                 </div>
             </article>
             <article class="split__card split__card--cream rv">
-                <div class="split__media split__media--bottles">
-                    <img src="assets/img/bottle-biotin.webp" alt="Private-label Biotin capsules bottle" loading="lazy" width="760" height="917">
-                    <img src="assets/img/bottle-colostrum.webp" alt="Private-label Colostrum capsules bottle" loading="lazy" width="760" height="917">
-                    <img src="assets/img/bottle-quercetin.webp" alt="Private-label Quercetin capsules bottle" loading="lazy" width="760" height="917">
+                <div class="split__media">
+                    <img src="assets/img/generated/ranges/nutraceuticals-900.webp" srcset="assets/img/generated/ranges/nutraceuticals-480.webp 480w, assets/img/generated/ranges/nutraceuticals-900.webp 900w, assets/img/generated/ranges/nutraceuticals-1200.webp 1200w" sizes="(max-width: 860px) 92vw, (max-width: 1100px) 46vw, 380px" alt="Private-label Biotin, Colostrum and Quercetin bottles on a warm ivory studio background" loading="lazy" decoding="async" width="1200" height="800">
                 </div>
+                <ul class="split__stats"><li><b data-count="85">85</b><span>formulations</span></li><li><b data-count="10">10</b><span>health categories</span></li></ul>
                 <div class="split__body glass">
                     <span class="tag tag--gold">02 · Nutraceuticals</span>
                     <h3>Your brand, our formulas</h3>
                     <p>Ready, documented formulations in capsules, tablets and powders — packed under your label for your market.</p>
-                    <ul class="split__stats"><li><b data-count="85">85</b><span>formulations</span></li><li><b data-count="10">10</b><span>health categories</span></li></ul>
                     <div class="split__cta">
                         <a class="btn btn--dark" href="#studio">Design your label <i class="ic ic-arrow"></i></a>
-                        <button class="btn btn--wa-ghost btn--wa-ghost-dark" data-wa="privatelabel"><i class="ic ic-wa"></i> Enquire</button>
+                        <button class="btn btn--wa-ghost btn--wa-ghost-dark btn--sq" data-wa="privatelabel" aria-label="Enquire about private-label nutraceuticals on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
                     </div>
                 </div>
             </article>
             <article class="split__card split__card--kraft rv">
-                <div class="split__media split__media--herbal">
-                    <img src="assets/img/herbal/ashwagandha-800.webp" alt="Vitantra Ashwagandha capsules jar with ashwagandha roots and leaves" loading="lazy" width="800" height="800">
+                <div class="split__media">
+                    <img src="assets/img/generated/ranges/herbal-900.webp" srcset="assets/img/generated/ranges/herbal-480.webp 480w, assets/img/generated/ranges/herbal-900.webp 900w, assets/img/generated/ranges/herbal-1200.webp 1200w" sizes="(max-width: 860px) 92vw, (max-width: 1100px) 46vw, 380px" alt="Vitantra Ashwagandha amber jar with roots and green leaves on a warm sandstone background" loading="lazy" decoding="async" width="1200" height="800">
                 </div>
+                <ul class="split__stats"><li><b data-count="20">20</b><span>single herbs</span></li><li><b>Veg</b><span>capsule shells</span></li></ul>
                 <div class="split__body glass">
                     <span class="tag tag--kraft">03 · Ayurvedic herbals</span>
                     <h3>Vitantra by CHW</h3>
                     <p>Single-herb Ayurvedic capsules — Ashwagandha, Shilajit, Moringa, Turmeric and more — export-packed in amber glass.</p>
-                    <ul class="split__stats"><li><b data-count="20">20</b><span>single herbs</span></li><li><b>Veg</b><span>capsule shells</span></li></ul>
                     <div class="split__cta">
                         <a class="btn btn--kraft" href="#herbal">See the herbs <i class="ic ic-arrow"></i></a>
-                        <button class="btn btn--wa-ghost btn--wa-ghost-dark" data-wa="herbal"><i class="ic ic-wa"></i> Enquire</button>
+                        <button class="btn btn--wa-ghost btn--wa-ghost-dark btn--sq" data-wa="herbal" aria-label="Enquire about Vitantra herbals on WhatsApp" title="Enquire on WhatsApp"><i class="ic ic-wa"></i></button>
                     </div>
                 </div>
             </article>
@@ -501,6 +528,6 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}.stage-loader,.hotspot,.hero__hint{display:none}</style></noscript>
-<script type="module" src="assets/js/main.js?v=mw6si3ht"></script>
+<script type="module" src="assets/js/main.js?v=mwbwu5hk"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ function build() {
       <aside class="pp__card glass glass--dark" role="dialog" aria-modal="true" aria-labelledby="pp-title">
         <div class="pp__sheen" aria-hidden="true"></div>
         <div class="pp__bar">
-          <span class="pp__hint" data-pp-hint><i class="ic ic-drag"></i> Drag the product to rotate</span>
+          <span class="pp__hint" data-pp-hint><i class="ic ic-drag"></i> Drag to rotate</span>
           <div class="pp__nav">
             <button class="icon-btn" data-pp-prev aria-label="Previous product"><i class="ic ic-left"></i></button>
             <button class="icon-btn" data-pp-next aria-label="Next product"><i class="ic ic-right"></i></button>

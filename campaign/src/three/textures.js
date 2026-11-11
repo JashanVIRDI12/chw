@@ -33,7 +33,7 @@ export async function loadPackAssets() {
                 new Promise(r => setTimeout(r, 2500))
             ]);
             const [markGreen, markCream, pouch, sachet] = await Promise.all(
-                ['mark-green.png', 'mark-cream.png', 'tex-syringe-pouch.jpg', 'tex-fixator-sachet.jpg'].map(loadImage));
+                ['mark-green.webp', 'mark-cream.webp', 'tex-syringe-pouch.webp', 'tex-fixator-sachet.webp'].map(loadImage));
             return { markGreen, markCream, pouch, sachet };
         })();
     }
