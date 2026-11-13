@@ -6,7 +6,7 @@
       "name": "Elastic Adhesive Bandage B.P.",
       "short": "Elastic Adhesive Bandage",
       "tagline": "With fast edges. Firm compression that moves with the patient.",
-      "photo": "real/eab-800.webp",
+      "photo": "real/eab-1080.webp",
       "photoBase": "real/eab",
       "model": "tin",
       "features": [
@@ -30,6 +30,11 @@
           "spec": "10 cm × 2/3 m",
           "pack": "Plastic container"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        1080
       ]
     },
     {
@@ -37,7 +42,7 @@
       "name": "IV Cannula Fixator",
       "short": "IV Cannula Fixator",
       "tagline": "Elastic adhesive B.P. with an additional strip for extra adhesion.",
-      "photo": "real/fixator-800.webp",
+      "photo": "real/fixator-920.webp",
       "photoBase": "real/fixator",
       "model": "fixator",
       "features": [
@@ -51,6 +56,11 @@
           "spec": "4.5 × 6 cm",
           "pack": "Box of 100 sachets"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        920
       ]
     },
     {
@@ -58,7 +68,7 @@
       "name": "Sterile Hypodermic Syringe",
       "short": "3 ml Syringe",
       "tagline": "Sterile, single-use, individually packed with needle.",
-      "photo": "real/syringe-800.webp",
+      "photo": "real/syringe-960.webp",
       "photoBase": "real/syringe",
       "model": "pouch",
       "features": [
@@ -74,6 +84,11 @@
           "spec": "3 ml",
           "pack": "Individual pouch"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        960
       ]
     },
     {
@@ -81,7 +96,7 @@
       "name": "Cotton Crepe Bandage",
       "short": "Crepe Bandage",
       "tagline": "Soft, reusable cotton crepe for support and compression.",
-      "photo": "real/crepe-800.webp",
+      "photo": "real/crepe-1080.webp",
       "photoBase": "real/crepe",
       "features": [
         "Cotton",
@@ -106,6 +121,11 @@
           "spec": "15 cm × 4 m",
           "pack": "Container pack"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        1080
       ]
     },
     {
@@ -113,7 +133,7 @@
       "name": "Chase Silicone Tape",
       "short": "Silicone Tape",
       "tagline": "Gentle hold and maximum comfort for delicate, sensitive skin.",
-      "photo": "real/silicone-800.webp",
+      "photo": "real/silicone-960.webp",
       "photoBase": "real/silicone",
       "features": [
         "Hypoallergenic",
@@ -127,6 +147,11 @@
           "spec": "1.9 cm × 1.5 m",
           "pack": "Box of 6"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        960
       ]
     },
     {
@@ -161,7 +186,7 @@
       "name": "Gauze Swabs",
       "short": "Gauze Swabs",
       "tagline": "12-ply swabs: plain, X-ray detectable and 100-piece hospital packs.",
-      "photo": "real/swab-800.webp",
+      "photo": "real/swab-960.webp",
       "photoBase": "real/swab",
       "features": [
         "12 ply",
@@ -198,6 +223,11 @@
           "spec": "10 × 10 cm, 12 ply · Plain",
           "pack": "100-pc pack"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        960
       ]
     },
     {
@@ -205,7 +235,7 @@
       "name": "Abdominal Sponge / Mopping Pad",
       "short": "Abdominal Sponge",
       "tagline": "30 × 30 cm theatre sponges in 8 and 12 ply.",
-      "photo": "real/abd-800.webp",
+      "photo": "real/abd-960.webp",
       "photoBase": "real/abd",
       "features": [
         "30 × 30 cm",
@@ -222,6 +252,11 @@
           "spec": "30 × 30 cm, 8 ply",
           "pack": "Packet of 10"
         }
+      ],
+      "photoSizes": [
+        480,
+        800,
+        960
       ]
     },
     {
@@ -287,7 +322,7 @@
       "name": "Surgical Paper Tape",
       "short": "Paper Tape",
       "tagline": "Microporous paper tape in 9 m and 5 m lengths.",
-      "photo": "real/paper-800.webp",
+      "photo": "real/paper-720.webp",
       "features": [
         "Breathable",
         "Gentle adhesive",
@@ -328,7 +363,11 @@
           "pack": "Box"
         }
       ],
-      "photoBase": "real/paper"
+      "photoBase": "real/paper",
+      "photoSizes": [
+        480,
+        720
+      ]
     }
   ]
 }

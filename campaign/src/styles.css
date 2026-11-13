@@ -163,7 +163,7 @@ h1 em, h2 em { font-style: italic; color: var(--emerald); }
 .hero__glow { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen; background: radial-gradient(ellipse 40% 50% at 70% 42%, rgba(232,201,142,.16), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 0%, rgba(37, 160, 110, .18), transparent 70%); }
 .hero-stage { position: absolute; inset: 0; z-index: 0; cursor: grab; touch-action: pan-y; }
 .hero-stage.is-hovering, .show-stage.is-hovering, .studio-stage.is-hovering { cursor: pointer; }
-.stage-canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; opacity: 0; transition: opacity 1.2s ease; }
+.stage-canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; opacity: 0; transition: opacity .6s ease; }
 .is-ready > .stage-canvas { opacity: 1; }
 .stage-fallback { position: absolute; inset: 0; display: none; }
 .stage-fallback img { width: 100%; height: 100%; object-fit: cover; }
@@ -493,10 +493,10 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width:
 .pp__bar { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 14px 6px 22px; }
 .pp__hint { display: flex; align-items: center; gap: .45rem; font-size: .74rem; color: rgba(255,255,255,.65); }
 .pp__hint[hidden] { visibility: hidden; display: flex; }
-.pp__nav { display: flex; gap: 6px; }
+.pp__nav { display: flex; gap: 6px; margin-left: auto; } /* close stays top-right even when the drag hint is hidden */
 .pp__nav.no-step [data-pp-prev], .pp__nav.no-step [data-pp-next] { display: none; }
 .pp__nav .icon-btn { color: #fff; border-color: rgba(255,255,255,.22); }
-.pp__body { position: relative; flex: 1; overflow-y: auto; padding: 8px 22px 26px; display: flex; flex-direction: column; gap: 18px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
+.pp__body { position: relative; flex: 1; overflow-y: auto; padding: 8px 22px 0; display: flex; flex-direction: column; gap: 18px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
 .pp__photo { position: relative; margin: 0; border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 9; background: rgba(255,255,255,.08); flex: none; }
 .pp__photo img { width: 100%; height: 100%; object-fit: cover; }
 .pp__photo--studio { aspect-ratio: 4 / 3; background: #e8e5d9; }
@@ -525,7 +525,7 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width:
 .pp__table td { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.85); }
 .pp__table td + td { text-align: right; font-weight: 600; color: var(--gold-l); white-space: nowrap; padding-left: 12px; }
 /* actions stay pinned to the bottom of the panel, so enquiry is always one click away */
-.pp__actions { position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 -22px; padding: 22px 22px 18px; background: linear-gradient(180deg, rgba(7,30,22,0) 0, rgba(7,30,22,.96) 22px); }
+.pp__actions { order: 99; position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 -22px; padding: 22px 22px 18px; background: linear-gradient(180deg, rgba(7,30,22,0) 0, rgb(7,30,22) 22px); }
 .pp__actions .btn { flex: 1 1 auto; --h: 50px; }
 .pp__actions .btn--wa { flex-grow: 1.4; }
 .pp__actions .btn:not(.btn--wa) .pp__long { display: none; }
@@ -618,6 +618,15 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width:
     .pp:not(.pp--stage) .pp__card { max-height: 86svh; }
     .pp--stage .pp__scrim { background: linear-gradient(0deg, rgba(6,28,21,.97) 0, rgba(6,28,21,.97) 46%, rgba(6,28,21,0) 64%); }
     .pp__feats { grid-template-columns: 1fr; }
+    /* phones: show each range photo whole (no wide-strip crop) */
+    .split__media { aspect-ratio: auto; }
+    .split__media img { position: relative; inset: auto; height: auto; }
+    .split__body { margin-top: -18px; }
+    /* product panel: short side-by-side buttons, compact photo */
+    .pp__actions { display: grid; grid-template-columns: 1fr 1fr; margin: 0 -22px; padding: 22px 22px calc(14px + env(safe-area-inset-bottom)); }
+    .pp__actions .btn { --h: 48px; padding: 0 .8rem; font-size: .9rem; grid-column: auto; }
+    .pp__long { display: none; }
+    .pp__photo--studio { aspect-ratio: 1 / 1; max-height: 34svh; width: auto; align-self: center; }
     /* 3D focus on phones: the model owns the top of the screen, a fixed-height sheet holds text + enquiry */
     .pp--stage .pp__card { height: min(44svh, 400px); max-height: none; }
     .pp--stage .pp__card::before { content: ''; position: absolute; top: 7px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: rgba(255,255,255,.28); }
@@ -654,7 +663,6 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width:
     .foot__base { flex-direction: column; }
     .swatches { grid-template-columns: repeat(4, 1fr); gap: 6px; }
     .sw small { font-size: .62rem; }
-    .pp:not(.pp--stage) .pp__actions .btn { flex-basis: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

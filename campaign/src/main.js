@@ -55,7 +55,7 @@ function selectedSkus(root) { return $$('.chips--sizes input:checked', root).map
 
 function surgicalPhoto(p, className, sizes) {
     const srcset = p.photoBase
-        ? ` srcset="${[480, 800].map(size => `${IMG + p.photoBase}-${size}.webp ${size}w`).join(', ')}" sizes="${sizes}"`
+        ? ` srcset="${(p.photoSizes || [480, 800]).map(size => `${IMG + p.photoBase}-${size}.webp ${size}w`).join(', ')}" sizes="${sizes}"`
         : '';
     return `<img class="${className}" src="${IMG + p.photo}"${srcset} alt="${esc(p.name)} packaging visual" loading="lazy" decoding="async" width="1200" height="1200">`;
 }
@@ -239,7 +239,7 @@ function renderRange() {
     const cards = surgical.items.filter(p => !HIDE.includes(p.id)).map((p, i) => `
       <article class="rcard rv${p.photoBase ? ' rcard--studio' : ''}" data-id="${p.id}" style="--i:${i}">
         <button class="rcard__media" data-details aria-label="View ${esc(p.name)} details">
-          ${p.photo ? `${p.photoBase ? '' : `<img class="rcard__bg" src="${IMG + p.photo}" alt="" aria-hidden="true" loading="lazy" decoding="async">`}${surgicalPhoto(p, 'rcard__img', '(max-width: 600px) 60vw, (max-width: 900px) 50vw, 320px')}` : `<span class="rcard__ph">${ic('cross')}<b>Chase+</b></span>`}
+          ${p.photo ? `${p.photoBase ? '' : `<img class="rcard__bg" src="${IMG + p.photo}" alt="" aria-hidden="true" loading="lazy" decoding="async">`}${surgicalPhoto(p, 'rcard__img', '(max-width: 600px) 92vw, (max-width: 900px) 46vw, 300px')}` : `<span class="rcard__ph">${ic('cross')}<b>Chase+</b></span>`}
         </button>
         <div class="rcard__body">
           <h3>${esc(p.short)}</h3>
@@ -662,11 +662,57 @@ function lowPower() {
 
 async function boot3D() {
     if (lowPower()) { document.documentElement.classList.add('no-webgl', 'is-lite'); return; }
+    // fetch the pack textures alongside the 3D code instead of after it (the scene reads them from cache)
+    ['mark-green.webp', 'mark-cream.webp', 'tex-syringe-pouch.webp', 'tex-fixator-sachet.webp'].forEach(n => { new Image().src = IMG + n; });
     const S = await import('./three/scenes.js');
     if (!S.webglAvailable()) { document.documentElement.classList.add('no-webgl'); return; }
     document.documentElement.classList.add('has-webgl');
     window.__stages = {};
-
+    const sectionScenes = [
+        ['#globe-stage', async () => {
+            const host = $('#globe-stage');
+            window.__stages.globe = await S.reachScene(host);
+            host.classList.add('is-ready');
+        }],
+        ['#studio-stage', async () => {
+            const host = $('#studio-stage');
+            studioStage = await S.studioScene(host, { labelOpts: labelOpts() });
+            window.__stages.studio = studioStage;
+            studioStage.setFinish(studio.finish);
+            host.classList.add('is-ready');
+            studioStage.on('select', (id, root) => selectOnStage(studioStage, 'studio', root, ['studio']));
+            studioStage.on('background', closePanel);
+            cycleStudioLabel(host);
+        }],
+        ['#cards-stage', async () => {
+            const host = $('#cards-stage');
+            const sheets = SHEETS();
+            const st = await S.cardsScene(host, { cards: sheets });
+            window.__stages.cards = st;
+            host.classList.add('is-ready');
+            st.on('select', id => { const c = sheets.find(x => x.id === id); if (c) downloadFile(c.file, id); });
+            const labels = $$('[data-card]');
+            st.on('hover', id => labels.forEach(l => l.classList.toggle('is-hot', l.dataset.card === id)));
+            labels.forEach(l => {
+                l.addEventListener('pointerenter', () => st.setHover(l.dataset.card));
+                l.addEventListener('pointerleave', () => st.setHover(null));
+            });
+            if (!reduced) {
+                ScrollTrigger.create({ trigger: '#downloads', start: 'top 80%', end: 'top 25%', scrub: 0.8, onUpdate: s => st.fan(s.progress) });
+                ScrollTrigger.refresh();
+            }
+        }]
+    ];
+    // Section scenes build once each: as soon as one nears the screen, or earlier, one at a time in idle
+    // moments while the visitor reads the hero, so they are usually ready before anyone scrolls to them.
+    const idle = () => new Promise(r => ('requestIdleCallback' in window ? requestIdleCallback(r, { timeout: 1500 }) : setTimeout(r, 300)));
+    const scenes = sectionScenes.map(([sel, fn]) => {
+        let job = null;
+        const build = () => job || (job = fn().catch(err => console.warn('3D scene skipped:', sel, err)));
+        const el = $(sel);
+        if (el) new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); build(); } }, { rootMargin: '1400px 0px' }).observe(el);
+        return build;
+    });
     const heroHost = $('#hero-stage');
     const hero = await S.heroScene(heroHost, { labelOpts: labelOpts({ ...studio, brand: 'Your Brand', product: 'Biotin' }) });
     window.__stages.hero = hero;
@@ -682,44 +728,8 @@ async function boot3D() {
     }));
     hero.on('hover', id => spots.forEach(s => s.classList.toggle('is-hot', s.dataset.focus === id)));
 
-    const lazy = (el, fn) => el && new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); fn(); } }, { rootMargin: '600px' }).observe(el);
-
-    lazy($('#studio-stage'), async () => {
-        const host = $('#studio-stage');
-        studioStage = await S.studioScene(host, { labelOpts: labelOpts() });
-        window.__stages.studio = studioStage;
-        studioStage.setFinish(studio.finish);
-        host.classList.add('is-ready');
-        studioStage.on('select', (id, root) => selectOnStage(studioStage, 'studio', root, ['studio']));
-        studioStage.on('background', closePanel);
-        cycleStudioLabel(host);
-    });
-
-
-    lazy($('#globe-stage'), async () => {
-        const host = $('#globe-stage');
-        window.__stages.globe = await S.reachScene(host);
-        host.classList.add('is-ready');
-    });
-
-    lazy($('#cards-stage'), async () => {
-        const host = $('#cards-stage');
-        const sheets = SHEETS();
-        const st = await S.cardsScene(host, { cards: sheets });
-        window.__stages.cards = st;
-        host.classList.add('is-ready');
-        st.on('select', id => { const c = sheets.find(x => x.id === id); if (c) downloadFile(c.file, id); });
-        const labels = $$('[data-card]');
-        st.on('hover', id => labels.forEach(l => l.classList.toggle('is-hot', l.dataset.card === id)));
-        labels.forEach(l => {
-            l.addEventListener('pointerenter', () => st.setHover(l.dataset.card));
-            l.addEventListener('pointerleave', () => st.setHover(null));
-        });
-        if (!reduced) {
-            ScrollTrigger.create({ trigger: '#downloads', start: 'top 80%', end: 'top 25%', scrub: 0.8, onUpdate: s => st.fan(s.progress) });
-            ScrollTrigger.refresh();
-        }
-    });
+    // hero is up: prebuild the section scenes one at a time while the visitor reads it
+    setTimeout(async () => { for (const build of scenes) { await idle(); await build(); } }, 900);
 }
 
 /* ───────────── Init ───────────── */
@@ -737,7 +747,7 @@ function init() {
     $('.nav__burger')?.addEventListener('click', () => document.body.classList.toggle('nav-open'));
     $$('.nav__links a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('nav-open')));
     const start = () => boot3D().catch(err => { console.warn('3D disabled:', err); document.documentElement.classList.add('no-webgl'); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(start); else start();
+    start();
     window.addEventListener('load', () => ScrollTrigger.refresh());
 }
 

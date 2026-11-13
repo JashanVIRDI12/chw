@@ -300,7 +300,7 @@ export async function reachScene(host) {
     stage.on('resize', place);
     place();
     const st = { f: reduced ? 1 : 0 };
-    if (!reduced) gsap.to(st, { f: 1, duration: 2.2, ease: 'power2.out' });
+    if (!reduced) new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); gsap.to(st, { f: 1, duration: 1.3, ease: 'power2.out' }); } }, { threshold: 0.15 }).observe(host);
     stage.idle = (t) => { globe.userData.setFade(st.f); globe.userData.update(t); globe.rotation.x = -0.12; };
     stage.loop();
     return stage;
