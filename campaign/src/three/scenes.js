@@ -53,7 +53,7 @@ export async function heroScene(host, { labelOpts }) {
         }
     };
     const CX = 0;
-    let half = 4.6;
+    let half = 4.6, mid = CX; // mid: centre of the laid-out set (the carton is wider than the spool, so it isn't 0)
     const layout = (narrow) => {
         const L = narrow ? LAYOUT.narrow : LAYOUT.wide;
         let min = Infinity, max = -Infinity;
@@ -66,7 +66,8 @@ export async function heroScene(host, { labelOpts }) {
             const r = (it.root.userData.radius || 1) * it.base.scale;
             min = Math.min(min, p[0] - r); max = Math.max(max, p[0] + r);
         });
-        half = Math.max(CX - min, max - CX);
+        mid = (min + max) / 2;
+        half = (max - min) / 2;
         return half * 2;
     };
 
@@ -84,7 +85,7 @@ export async function heroScene(host, { labelOpts }) {
         { a: 0.4 + Math.PI, y: 4.15, rx: 3.6, rz: 1.0, sp: 0.12, roll: -0.42, bob: 0.16 }
     ];
     loadSyringe(2.1).then(proto => {
-        FLIGHTS.slice(0, innerWidth < 700 ? 1 : 2).forEach(f => {
+        FLIGHTS.forEach(f => {
             const s = proto.clone(true);
             s.userData.f = f;
             s.scale.setScalar(0.001);
@@ -92,9 +93,9 @@ export async function heroScene(host, { labelOpts }) {
             flyers.push(s);
         });
     }).catch(() => { /* decorative: the hero works without it */ });
-    // keep every syringe fully inside the canvas: its top may not rise above 82% of the stage height
+    // keep every syringe fully inside the canvas: its top may not rise above 90% of the stage height
     // (on phones the stage starts right under the headline, so a loop near the top would be sliced off)
-    const CEIL = 0.64, tip = new Vector3(), rel = new Vector3(), dir = new Vector3();
+    const CEIL = 0.8, tip = new Vector3(), rel = new Vector3(), dir = new Vector3();
     const fly = (t, k) => flyers.forEach((s, i) => {
         const f = s.userData.f, a = f.a + t * f.sp;
         const ph = t * 0.9 + i * 2.1;
@@ -110,7 +111,7 @@ export async function heroScene(host, { labelOpts }) {
         s.position.set(x, y, z);
         // heading = direction of travel (d/da of the ellipse); +X on the model is the needle
         s.rotation.set(t * f.roll, Math.atan2(-Math.cos(a) * f.rz, -Math.sin(a) * f.rx), Math.cos(ph) * 0.22);
-        s.scale.setScalar(Math.max(0.001, s.userData.baseScale * k));
+        s.scale.setScalar(Math.max(0.001, s.userData.baseScale * k * (stage.w < 860 ? 1.2 : 1))); // a touch larger on the far-away phone camera
         s.visible = k > 0.01;
     });
 
@@ -131,12 +132,12 @@ export async function heroScene(host, { labelOpts }) {
 
     const place = () => {
         const W = stage.w, narrow = W < 860;
-        const width = layout(narrow) + 0.3;
+        const width = layout(narrow) + (narrow ? 1.2 : 0.3); // phones: keep ~8% air at both edges
         const tanV = Math.tan(MathUtils.degToRad(14));
         const tanH = tanV * (W / stage.h);
         if (narrow) {
-            stage.cam.pos.set(CX, 3.6, Math.max(width / (2 * tanH), 2.2 / tanV) + 2);
-            stage.cam.look.set(CX, 1.25, 0);
+            stage.cam.pos.set(mid, 3.6, Math.max(width / (2 * tanH), 2.2 / tanV) + 2);
+            stage.cam.look.set(mid, 1.25, 0);
             stage.view.sx = 0;
             stage.view.sy = 0.08; // phones: lift the set toward the headline above the stage
         } else {
@@ -147,8 +148,8 @@ export async function heroScene(host, { labelOpts }) {
             const colW = wrapW * 0.56;
             const colCenter = right - colW / 2 + 30;
             stage.view.sx = -(colCenter - W / 2) / W;
-            stage.cam.pos.set(CX, 3.5, MathUtils.clamp(width * (W / colW) / (2 * tanH) + 2, 13, 32));
-            stage.cam.look.set(CX, 1.65, 0);
+            stage.cam.pos.set(mid, 3.5, MathUtils.clamp(width * (W / colW) / (2 * tanH) + 2, 13, 32));
+            stage.cam.look.set(mid, 1.65, 0);
         }
         stage.applyView();
     };
