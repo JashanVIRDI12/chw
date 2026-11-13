@@ -1,9 +1,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import Lenis from 'lenis';
 import surgical from './data/surgical.json';
 import nutra from './data/nutra.json';
-import herbal from './data/herbal.json';
 import { addToList, onListChange, openComposer, openWhatsApp, buildMessage, removeFromList, getList, track, esc, WA_DISPLAY } from './ui/enquiry.js';
 import { openPanel, closePanel, isPanelOpen } from './ui/panel.js';
 
@@ -16,18 +16,12 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isNarrow = () => innerWidth < 860;
 const DL = {
     surgical: 'downloads/CHW-Chase-Plus-Surgical-Range.xlsx',
-    nutra: 'downloads/CHW-Nutraceutical-Formulations.xlsx',
-    all: 'downloads/CHW-Complete-Product-List.xlsx',
-    herbal: 'downloads/CHW-Vitantra-Herbal-Range.xlsx'
+    nutra: 'downloads/CHW-Nutraceutical-Formulations.xlsx'
 };
 
 const SURG = Object.fromEntries(surgical.items.map(p => [p.id, p]));
 const NUTRA = nutra.items;
 const NUTRA_BY_NAME = new Map(NUTRA.map(n => [n.name.toLowerCase(), n]));
-const HERBS = herbal.items;
-const HERB = Object.fromEntries(HERBS.map(h => [h.id, h]));
-const herbState = { id: HERB.ashwagandha ? 'ashwagandha' : HERBS[0].id };
-const herbLabel = (h) => ({ name: h.name, tagline: h.tagline, botanical: h.botanical, points: h.points });
 const LABEL_STYLES = {
     classic: 'Classic Gold', emerald: 'Emerald', ivory: 'Ivory Sage', midnight: 'Midnight Copper'
 };
@@ -35,8 +29,8 @@ const FINISHES = { black: 'Gloss Black', white: 'Pearl White', amber: 'Amber' };
 
 /* Real studio photography of private-label bottles */
 const BOTTLE_PHOTOS = [
-    ['bottle-biotin.webp', 'Biotin'], ['bottle-boron.webp', 'Boron'], ['bottle-colostrum.webp', 'Colostrum'],
-    ['bottle-quercetin.webp', 'Quercetin'], ['bottle-chromium.webp', 'Chromium Picolinate'], ['bottle-amla.webp', 'Amla Extract'],
+    ['bottle-biotin.webp', 'Biotin'], ['bottle-boron.webp', 'Boron'], ['bottle-quercetin.webp', 'Quercetin'],
+    ['bottle-colostrum.webp', 'Colostrum'], ['bottle-chromium.webp', 'Chromium Picolinate'], ['bottle-amla.webp', 'Amla Extract'],
     ['bottle-lactoferrin.webp', 'Lactoferrin'], ['bottle-hmb.webp', 'HMB'], ['bottle-caffeine.webp', 'Caffeine'], ['bottle-iimb.webp', 'IIMB']
 ];
 
@@ -61,7 +55,7 @@ function selectedSkus(root) { return $$('.chips--sizes input:checked', root).map
 
 function surgicalPhoto(p, className, sizes) {
     const srcset = p.photoBase
-        ? ` srcset="${[480, 800, 1200].map(size => `${IMG + p.photoBase}-${size}.webp ${size}w`).join(', ')}" sizes="${sizes}"`
+        ? ` srcset="${[480, 800].map(size => `${IMG + p.photoBase}-${size}.webp ${size}w`).join(', ')}" sizes="${sizes}"`
         : '';
     return `<img class="${className}" src="${IMG + p.photo}"${srcset} alt="${esc(p.name)} packaging visual" loading="lazy" decoding="async" width="1200" height="1200">`;
 }
@@ -76,7 +70,7 @@ function surgicalHTML(p) {
         <div><dt>Brand</dt><dd>Chase+ by CHW</dd></div>
         <div><dt>Used for</dt><dd>${esc(p.uses)}</dd></div>
         <div><dt>HSN code</dt><dd>${p.hsnNote ? 'On request' : surgical.hsn}</dd></div>
-        <div><dt>Made in</dt><dd>India · WHO-GMP facility</dd></div>
+        <div><dt>Origin</dt><dd>India · WHO-GMP certified</dd></div>
       </dl>
       <div class="pp__actions">
         <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
@@ -132,25 +126,7 @@ function bindStudio(root) {
     $('[data-act="add"]', root).onclick = (e) => { addToList(labelItem()); flashAdded(e.currentTarget); };
 }
 
-function herbalHTML() {
-    return `
-      <figure class="pp__photo pp__photo--strip pp__photo--herbs">${['ashwagandha', 'shilajit', 'moringa'].filter(k => HERB[k]).map(k => `<img src="${IMG}herbal/${k}-pack.webp" alt="Vitantra ${esc(HERB[k].name)} capsules jar">`).join('')}<figcaption>${ic('camera')} Vitantra packaging</figcaption></figure>
-      <div><span class="eyebrow">Ayurvedic herbals · Vitantra</span><h3 id="pp-title" class="pp__title">Classical Ayurveda, export-ready.</h3>
-      <p class="pp__lead">${HERBS.length} single-herb capsules made in our WHO-GMP facility, supplied as Vitantra or under your own label.</p></div>
-      <ul class="pp__feats">${['Ashwagandha, Shilajit, Moringa, Turmeric & more', 'Vegetarian capsules in amber glass', 'Mix herbals with surgical & nutra in one shipment', 'Registration guidance for your market'].map(f => `<li>${ic('check')}${f}</li>`).join('')}</ul>
-      <div class="pp__actions">
-        <button class="btn btn--wa btn--lg" data-act="enquire">${ic('wa')} <span>Enquire<span class="pp__long"> on WhatsApp</span></span></button>
-        <button class="btn btn--kraft" data-act="herbs">${ic('leaf')} <span>Browse<span class="pp__long"> all ${HERBS.length}</span> herbs</span></button>
-      </div>
-      <a class="pp__dl" href="${DL.herbal}" download data-dl="herbal">${ic('sheet')} Vitantra herbal range (.xlsx)</a>`;
-}
-function bindHerbal(root) {
-    $('[data-act="herbs"]', root).onclick = () => { closePanel(); setTimeout(() => scrollToId('herbal'), 250); };
-    $('[data-act="enquire"]', root).onclick = () => openComposer([], PRESET.herbal[1]);
-}
-
 function contentFor(id) {
-    if (id === 'herbal') return { html: herbalHTML(), bind: bindHerbal };
     if (SURG[id]) return { html: surgicalHTML(SURG[id]), bind: bindSurgical(SURG[id]) };
     if (id === 'bottle') return { html: privateLabelHTML(), bind: bindPrivateLabel };
     if (id === 'studio') return { html: studioHTML(), bind: bindStudio };
@@ -190,6 +166,11 @@ function scrollThen(top, fn) {
     if (Math.abs(scrollY - top) < 2) return fn();
     let done = false;
     const run = () => { if (done) return; done = true; removeEventListener('scrollend', run); fn(); };
+    if (lenis) {
+        lenis.scrollTo(top, { duration: 0.9, onComplete: run });
+        setTimeout(run, 1300);
+        return;
+    }
     addEventListener('scrollend', run, { once: true });
     setTimeout(run, reduced ? 50 : 900);
     window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
@@ -210,17 +191,52 @@ function flashAdded(btn) {
     if (fab && !reduced) gsap.fromTo(fab, { scale: 1.25 }, { scale: 1, duration: 0.6, ease: 'elastic.out(1, .4)' });
 }
 
-function scrollToId(id) {
+function scrollToId(id, tries = 0) {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    if (!el) return;
+    if (!lenis) return el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    // Lenis ignores scrollTo while paused behind a closing dialog: wait for it to resume
+    if (lenis.isStopped && tries < 20) return setTimeout(() => scrollToId(id, tries + 1), 80);
+    lenis.scrollTo(el); // Lenis honours the page's scroll-padding-top (nav height + 12px)
+}
+
+/* ───────────── Smooth scrolling (Lenis) ───────────── */
+// Wheel/trackpad scrolling eases through Lenis on GSAP's ticker, so every ScrollTrigger stays in step.
+// Touch keeps the device's native scrolling; reduced-motion visitors get plain scrolling.
+let lenis = null;
+const SCROLLS_ITSELF = ['pp__body', 'composer__sheet', 'drawer']; // inner scrollers keep native wheel scrolling
+function initSmoothScroll() {
+    if (reduced) return;
+    lenis = new Lenis({
+        duration: 1.15,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        prevent: node => SCROLLS_ITSELF.some(c => node.classList.contains(c))
+    });
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    // dialogs lock the page: pause behind them, resume when they close
+    new MutationObserver(() => (document.documentElement.classList.contains('has-dialog') ? lenis.stop() : lenis.start()))
+        .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    // in-page links glide to their section
+    document.addEventListener('click', e => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
+        const id = a.getAttribute('href').slice(1);
+        const el = id && document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        lenis.scrollTo(el); // scroll-padding-top keeps it clear of the fixed nav
+    });
 }
 
 /* ───────────── Surgical range cards (minimal) ───────────── */
 function renderRange() {
     const grid = $('#range-grid');
     if (!grid) return;
-    const HIDE = ['thaan', 'paper']; // listed in the downloadable sheet instead
-    grid.innerHTML = surgical.items.filter(p => !HIDE.includes(p.id)).map((p, i) => `
+    const HIDE = ['thaan', 'roll', 'gamjee']; // no real photo yet: listed in the downloadable sheet instead
+    const cards = surgical.items.filter(p => !HIDE.includes(p.id)).map((p, i) => `
       <article class="rcard rv${p.photoBase ? ' rcard--studio' : ''}" data-id="${p.id}" style="--i:${i}">
         <button class="rcard__media" data-details aria-label="View ${esc(p.name)} details">
           ${p.photo ? `${p.photoBase ? '' : `<img class="rcard__bg" src="${IMG + p.photo}" alt="" aria-hidden="true" loading="lazy" decoding="async">`}${surgicalPhoto(p, 'rcard__img', '(max-width: 600px) 60vw, (max-width: 900px) 50vw, 320px')}` : `<span class="rcard__ph">${ic('cross')}<b>Chase+</b></span>`}
@@ -233,12 +249,15 @@ function renderRange() {
           <button class="btn btn--wa btn--sm" data-enquire>${ic('wa')} Enquire</button>
           <button class="rcard__more" data-details aria-label="${esc(p.name)} sizes and details">Details ${ic('arrow')}</button>
         </div>
-      </article>`).join('') + `
+      </article>`);
+    // the spreadsheet is a full-width strip below all the products
+    cards.push(`
       <a class="rcard rcard--dl rv" href="${DL.surgical}" download data-dl="surgical">
         <span class="rcard__dlic">${ic('sheet')}<b>XLSX</b></span>
-        <span class="rcard__dlbody"><small>Full Chase+ list</small><strong>All 37 SKUs in one sheet</strong><span>Every size and pack, including gauze thaan, paper tape and more. Add your quantities and send it back on WhatsApp.</span></span>
+        <span class="rcard__dlbody"><small>Full Chase+ list</small><strong>All 37 SKUs in one sheet</strong><span>Every size and pack, including gauze thaan, roll bandages, gamjee rolls and more. Add your quantities and send it back on WhatsApp.</span></span>
         <span class="btn btn--gold btn--sm">${ic('download')} Download Excel</span>
-      </a>`;
+      </a>`);
+    grid.innerHTML = cards.join('');
     grid.addEventListener('click', e => {
         const card = e.target.closest('.rcard:not(.rcard--dl)');
         if (!card) return;
@@ -273,75 +292,6 @@ function cycleStudioLabel(host) {
     host.addEventListener('pointerdown', () => { stopped = true; clearInterval(timer); }, { once: true });
 }
 
-/* ───────────── Vitantra herbal section ───────────── */
-let herbalStage = null;
-const herbItem = (h) => ({ type: 'herbal', id: h.id, name: h.name, botanical: h.botanical, photo: `${IMG}herbal/${h.id}-pack.webp` });
-
-function initHerbal() {
-    const sec = $('#herbal');
-    if (!sec) return;
-    const rail = $('#herb-rail');
-    rail.innerHTML = HERBS.map((h, i) => `
-      <button class="herb" type="button" role="option" data-herb="${h.id}" aria-selected="false" style="--i:${i}">
-        <span class="herb__img"><img src="${IMG}herbal/${h.id}-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span>
-        <span class="herb__name">${esc(h.name)}</span>
-        <span class="herb__bot">${esc(h.botanical)}</span>
-      </button>`).join('');
-    // Arrow buttons page the rail; each hides at its end
-    const carousel = rail.parentElement;
-    const syncNav = () => {
-        const max = rail.scrollWidth - rail.clientWidth - 2;
-        const start = rail.scrollLeft <= 2, end = rail.scrollLeft >= max;
-        carousel.toggleAttribute('data-at-start', start);
-        carousel.toggleAttribute('data-at-end', end);
-        $('[data-herb-nav="-1"]', carousel).disabled = start;
-        $('[data-herb-nav="1"]', carousel).disabled = end;
-    };
-    $$('[data-herb-nav]', carousel).forEach(btn => btn.addEventListener('click', () => {
-        rail.scrollBy({ left: Number(btn.dataset.herbNav) * rail.clientWidth * 0.8, behavior: reduced ? 'auto' : 'smooth' });
-    }));
-    rail.addEventListener('scroll', syncNav, { passive: true });
-    addEventListener('resize', syncNav, { passive: true });
-    syncNav();
-    const enquireLbl = $('[data-herb-enquire] span', sec);
-    const select = (id, { spin = true, user = false } = {}) => {
-        const h = HERB[id];
-        if (!h) return;
-        herbState.id = id;
-        const idx = HERBS.indexOf(h);
-        $$('.herb', rail).forEach(b => b.setAttribute('aria-selected', String(b.dataset.herb === id)));
-        $('[data-herb-index]', sec).textContent = String(idx + 1).padStart(2, '0');
-        $('[data-herb-botanical]', sec).textContent = h.botanical;
-        $('[data-herb-name]', sec).textContent = h.name;
-        $('[data-herb-tagline]', sec).textContent = h.tagline;
-        $('[data-herb-points]', sec).innerHTML = h.points.map(p => `<li>${ic('leaf')}<span>${esc(p)}</span></li>`).join('');
-        enquireLbl.textContent = `Enquire about ${h.name}`;
-        const fb = $('[data-herbal-fallback]', sec);
-        if (fb) fb.src = `${IMG}herbal/${id}-pack.webp`;
-        if (herbalStage) { herbalStage.setLabel(herbLabel(h)); if (spin) herbalStage.spinTo(); }
-        if (!reduced && user) gsap.fromTo($$('.herbal__panel > *', sec), { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.04, ease: 'expo.out', overwrite: true });
-        if (user) track('herb_select', { herb: id });
-    };
-    rail.addEventListener('click', e => {
-        const b = e.target.closest('[data-herb]');
-        if (!b) return;
-        select(b.dataset.herb, { user: true });
-        if (isNarrow()) $('#herbal-stage').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
-    });
-    rail.addEventListener('keydown', e => {
-        if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return;
-        e.preventDefault();
-        const i = HERBS.findIndex(h => h.id === herbState.id);
-        const n = HERBS[(i + (e.key === 'ArrowRight' ? 1 : -1) + HERBS.length) % HERBS.length];
-        select(n.id, { user: true });
-        const b = $(`[data-herb="${n.id}"]`, rail);
-        b.focus(); b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    });
-    $('[data-herb-enquire]', sec).addEventListener('click', () => openComposer([herbItem(HERB[herbState.id])], PRESET.herbal[1]));
-    $('[data-herb-add]', sec).addEventListener('click', e => { addToList(herbItem(HERB[herbState.id])); flashAdded(e.currentTarget); });
-    select(herbState.id, { spin: false });
-}
-
 // "Online now" during Indian office hours; an honest reply promise otherwise
 function initDeskStatus() {
     const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
@@ -362,7 +312,7 @@ function initList() {
         fab.classList.toggle('has-items', list.length > 0);
         const body = $('[data-list-body]', drawer);
         body.innerHTML = list.length ? list.map((it, i) => `
-          <li><div><strong>${esc(it.type === 'label' ? `${it.product} · ${it.brand}` : it.name)}</strong><small>${esc(it.type === 'surgical' ? ((it.skus || []).join(' / ') || 'All sizes') : it.type === 'label' ? `${it.format} · design as per requirements` : it.type === 'herbal' ? 'Vitantra · capsules' : it.pack || '')}</small></div>
+          <li><div><strong>${esc(it.type === 'label' ? `${it.product} · ${it.brand}` : it.name)}</strong><small>${esc(it.type === 'surgical' ? ((it.skus || []).join(' / ') || 'All sizes') : it.type === 'label' ? `${it.format} · design as per requirements` : it.pack || '')}</small></div>
           <button class="icon-btn icon-btn--sm" data-rm="${i}" aria-label="Remove">${ic('x')}</button></li>`).join('')
             : `<li class="empty">Your list is empty. Add products with ${ic('plus')} and send them all in one WhatsApp message.</li>`;
         $('[data-list-send]', drawer).disabled = !list.length;
@@ -388,7 +338,6 @@ const PRESET = {
     pricelist: [[], { intent: 'Please share your export price list.', needs: ['Export price list', 'MOQ details'] }],
     surgical: [[], { intent: 'I am interested in your Chase+ surgical & medical range.', needs: ['Export price list', 'MOQ details', 'Samples'] }],
     privatelabel: [[], { intent: 'I want to launch nutraceuticals under my own brand (private label).', needs: ['MOQ details', 'Private label artwork', 'Samples'] }],
-    herbal: [[], { intent: 'I am interested in your Vitantra Ayurvedic herbal range for export.', needs: ['Export price list', 'MOQ details', 'Export documents'] }],
     samples: [[], { intent: 'I would like to request samples.', needs: ['Samples', 'Export price list'] }],
     docs: [[], { intent: 'Please share your WHO-GMP certificate and product documents (CoA) for our registration file.', needs: ['Export documents'] }],
     meeting: [[], { intent: 'I would like to schedule a call with your export team.', needs: ['Export price list'] }],
@@ -498,7 +447,7 @@ function toast(html) {
 }
 
 /* ───────────── Motion ───────────── */
-const HERO_SEQ = ['bottle', 'eab', 'silicone', 'syringe', 'herbal'];
+const HERO_SEQ = ['bottle', 'eab', 'silicone', 'syringe'];
 
 function initMotion() {
     const nav = $('.nav');
@@ -691,11 +640,6 @@ const SHEETS = () => [
         rows: surgical.items.flatMap(p => p.skus.map(k => [p.short, k.spec, k.pack]))
     },
     {
-        id: 'dl-all', file: DL.all, title: 'Complete Product List', subtitle: 'Surgical · nutraceutical · herbal', stat: '120+', statLabel: 'Products', meta: 'CHW-Complete-Product-List.xlsx', accent: 'gold',
-        cols: ['Product', 'Range', 'Pack'], widths: [0.48, 0.24, 0.28],
-        rows: [...surgical.items.slice(0, 6).map(p => [p.short, 'Chase+', p.skus[0].pack]), ...NUTRA.slice(0, 9).map(n => [n.name, 'Nutra', n.pack])]
-    },
-    {
         id: 'dl-nutra', file: DL.nutra, title: 'Nutraceutical Formulas', subtitle: 'Composition · benefits · packing', stat: '85', statLabel: 'Formulas', meta: 'CHW-Nutraceutical-Formulations.xlsx',
         cols: ['Formulation', 'Category', 'Pack'], widths: [0.44, 0.32, 0.24],
         rows: NUTRA.map(n => [n.name, nutra.categories[n.cat], n.pack])
@@ -724,7 +668,7 @@ async function boot3D() {
     window.__stages = {};
 
     const heroHost = $('#hero-stage');
-    const hero = await S.heroScene(heroHost, { labelOpts: labelOpts({ ...studio, brand: 'Your Brand', product: 'Biotin' }), herbal: herbLabel(HERB.ashwagandha || HERBS[0]) });
+    const hero = await S.heroScene(heroHost, { labelOpts: labelOpts({ ...studio, brand: 'Your Brand', product: 'Biotin' }) });
     window.__stages.hero = hero;
     heroHost.classList.add('is-ready');
     hero.on('select', (id, root) => selectOnStage(hero, id, root, HERO_SEQ));
@@ -751,13 +695,6 @@ async function boot3D() {
         cycleStudioLabel(host);
     });
 
-    lazy($('#herbal-stage'), async () => {
-        const host = $('#herbal-stage');
-        herbalStage = await S.herbalScene(host, { label: herbLabel(HERB[herbState.id]) });
-        window.__stages.herbal = herbalStage;
-        host.classList.add('is-ready');
-        herbalStage.on('select', () => $('[data-herb-enquire]').click());
-    });
 
     lazy($('#globe-stage'), async () => {
         const host = $('#globe-stage');
@@ -790,7 +727,7 @@ function init() {
     $$('[data-wa-number]').forEach(el => { el.textContent = WA_DISPLAY; });
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
     renderRange();
-    initHerbal();
+    initSmoothScroll();
     initDeskStatus();
     initList();
     initActions();

@@ -60,7 +60,7 @@ export function openPanel(html, options = {}) {
         document.documentElement.classList.add('has-dialog');
         swap();
         requestAnimationFrame(() => el.classList.add('is-open'));
-        setTimeout(() => el.querySelector('[data-pp-close]').focus({ preventScroll: true }), 500);
+        setTimeout(() => el.querySelector('.pp__nav [data-pp-close]').focus({ preventScroll: true }), 500); // the close button, not the backdrop (also marked close)
     } else if (reduced) swap();
     else gsap.to(body.children, { y: -12, opacity: 0, duration: 0.25, stagger: 0.02, ease: 'power2.in', onComplete: swap });
 }

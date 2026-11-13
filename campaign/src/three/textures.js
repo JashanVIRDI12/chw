@@ -236,7 +236,7 @@ export function tinLabel(a) {
     font(ctx, 500, 26);
     ['Sprains', 'Strains', 'Support & Compression'].forEach((t, i) => ctx.fillText('•  ' + t, 1480, 180 + i * 46));
     font(ctx, 500, 20); ctx.fillStyle = '#4b5d55';
-    ['Manufactured by:', 'Chase Healthcare & Wellness Pvt. Ltd.', 'Made in India · Store in a cool, dry place'].forEach((t, i) => ctx.fillText(t, 1480, 360 + i * 32));
+    ['Supplied by:', 'Chase Healthcare & Wellness Pvt. Ltd.', 'Made in India · Store in a cool, dry place'].forEach((t, i) => ctx.fillText(t, 1480, 360 + i * 32));
     return c;
 }
 
@@ -279,7 +279,7 @@ export function cartonFaces(a) {
     b.fillStyle = G; b.fillRect(0, 0, 1024, 26);
     chaseMark(b, 512, 300, 130, G);
     b.fillStyle = '#3d4f47'; b.textAlign = 'left'; font(b, 500, 32);
-    ['Directions: Clean and dry the skin. Apply with', 'even tension, overlapping each turn by half.', '', 'Store below 30°C in a dry place.', '', 'Manufactured by:', 'Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 520 + i * 54));
+    ['Directions: Clean and dry the skin. Apply with', 'even tension, overlapping each turn by half.', '', 'Store below 30°C in a dry place.', '', 'Supplied by:', 'Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 520 + i * 54));
     barcode(b, 110, 1250, 420, 170);
     return { front, side, top, back };
 }
@@ -353,7 +353,7 @@ export function fixatorFaces(a) {
     b.fillStyle = '#fff'; b.fillRect(0, 0, W, H);
     b.fillStyle = G; b.fillRect(0, H - 120, W, 120);
     b.fillStyle = '#3d4f47'; b.textAlign = 'left'; font(b, 500, 34);
-    ['Elastic Adhesive Bandage B.P. / i.v. Cannula Fixator', 'Contents: 100 individually sealed fixators', 'Manufactured by Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 160 + i * 64));
+    ['Elastic Adhesive Bandage B.P. / i.v. Cannula Fixator', 'Contents: 100 individually sealed fixators', 'Supplied by Chase Healthcare & Wellness Pvt. Ltd., India'].forEach((l, i) => b.fillText(l, 110, 160 + i * 64));
     barcode(b, 1500, 160, 380, 170, 11);
     return { front, top, side, back };
 }
@@ -540,7 +540,7 @@ export function bottleLabel({ brand = 'Your Brand', product = 'Biotin', format =
     });
     font(ctx, 500, 15);
     ctx.fillText('Marketed by ' + brandText + '.', 1470, 290);
-    ctx.fillText('Manufactured by Chase Healthcare & Wellness Pvt. Ltd., India', 1470, 312);
+    ctx.fillText('Supplied by Chase Healthcare & Wellness Pvt. Ltd., India', 1470, 312);
     barcode(ctx, 1700, 330, 160, 30, 23);
     return c;
 }
@@ -800,7 +800,7 @@ export function vitantraLabel({ name = 'Ashwagandha', tagline = '', botanical = 
     ctx.fillStyle = BROWN; font(ctx, 500, 18);
     ['Store in a cool, dry place.', 'Keep out of reach of children.', 'Not a substitute for a varied diet.'].forEach((t, i) => ctx.fillText(t, 1470, 146 + i * 28));
     font(ctx, 500, 16);
-    ctx.fillText('Manufactured by Chase Healthcare & Wellness', 1470, 300);
+    ctx.fillText('Supplied by Chase Healthcare & Wellness', 1470, 300);
     ctx.fillText('Pvt. Ltd., Greater Noida, India', 1470, 322);
     barcode(ctx, 1700, 360, 160, 34, 41);
     return c;
